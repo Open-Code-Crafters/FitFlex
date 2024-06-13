@@ -88,7 +88,7 @@ const GradientTextField = styled(TextField)(({ theme, error, showError }) => ({
     },
   },
   '& .MuiFormLabel-root': {
-    color: showError ? '#ff3d00' : 'white',
+    color: showError ? '#ded8ce' : 'white',
   },
 }));
 
