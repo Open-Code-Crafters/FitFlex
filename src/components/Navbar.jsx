@@ -16,7 +16,7 @@ import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
-const pages = ["Home", "About", "Services", "Contact"];
+const pages = ["Home", "About", "Contact", "Register"];
 function Navbar() {
   const navTheme = createTheme({
     palette: {
@@ -27,7 +27,7 @@ function Navbar() {
     },
   });
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [isLogged, setLogged] = useState(false);
+  // const [isLogged, setLogged] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,9 +36,7 @@ function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const { scrollYProgress } = useViewportScroll();
-  const yRange = useTransform(scrollYProgress, [0, 1], ["0px", "150px"]);
-  const yRangeImg = useTransform(scrollYProgress, [0, 1], ["0px", "-50px"]);
+  // const { scrollYProgress } = useViewportScroll();
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scale, setScale] = useState(1);
@@ -46,7 +44,7 @@ function Navbar() {
   const [y, setY] = useState(0);
   const [x, setX] = useState(0);
   const [x2, setX2] = useState(0);
-  const [x3, setX3] = useState(80);
+  const [x3, setX3] = useState(60);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
@@ -55,12 +53,12 @@ function Navbar() {
         setX(150);
         setX2(60);
         setScale(0.5);
-        setY2(-27);
-        setX3(210);
+        setY2(-22);
+        setX3(200);
       } else {
         setScale(1);
         setY(0);
-        setX3(80);
+        setX3(60);
         setY2(13);
         setX(0);
         setX2(30);
@@ -87,7 +85,7 @@ function Navbar() {
           <Toolbar
             disableGutters
             sx={{
-              height: scrollPosition > 50 ? "50px" : "100px",
+              height: scrollPosition > 0 ? "50px" : "100px",
               transition: "height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
               alignItems: "center",
             }}
