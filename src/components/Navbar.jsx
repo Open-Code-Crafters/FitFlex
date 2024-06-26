@@ -11,13 +11,15 @@ import {
 } from "@mui/material";
 import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 const pages = ["Home", "About", "Contact", "Register"];
 function Navbar() {
+  const navigate=useNavigate()
   const navTheme = createTheme({
     palette: {
       mode: "dark",
@@ -33,7 +35,9 @@ function Navbar() {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (url) => {
+    // navigate(url)sd
+    location.href = urldsd;
     setAnchorElNav(null);
   };
   // const { scrollYProgress } = useViewportScroll();
@@ -44,7 +48,7 @@ function Navbar() {
   const [y, setY] = useState(0);
   const [x, setX] = useState(0);
   const [x2, setX2] = useState(0);
-  const [x3, setX3] = useState(60);
+  const [x3, setX3] = useState(10);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
@@ -54,11 +58,11 @@ function Navbar() {
         setX2(60);
         setScale(0.5);
         setY2(-22);
-        setX3(200);
+        setX3(70);
       } else {
         setScale(1);
         setY(0);
-        setX3(60);
+        setX3(10);
         setY2(13);
         setX(0);
         setX2(30);
@@ -81,7 +85,7 @@ function Navbar() {
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
         }}
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" sx={{}}>
           <Toolbar
             disableGutters
             sx={{
@@ -130,7 +134,7 @@ function Navbar() {
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 }}
               >
-                #TransformWithFitFlux
+                #TransformWithFitFlex
               </motion.div>
             </Typography>
             <Typography
@@ -151,11 +155,11 @@ function Navbar() {
                   fontFamily: "Future2",
                   letterSpacing: "0.5rem",
                   color: "white",
-                  fontSize: "2rem",
+                  fontSize: { sm: "1.7rem", md: "2rem" },
                   fontWeight: "bold",
                 }}
               >
-                FitFlux
+                FitFlex
               </motion.div>
             </Typography>
 
@@ -167,7 +171,7 @@ function Navbar() {
               }}
             >
               <IconButton
-                size="large"
+                size="small"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -189,20 +193,27 @@ function Navbar() {
                   horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+                onClose={() => setAnchorElNav(null)}
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <MenuItem
+                    key={page}
+                    onClick={()=>{
+                      setAnchorElNav(null)
+                      setTimeout(()=>navigate(`/${page.toLowerCase()}`),100)
+                    
+                    }}
+                  >
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
             <Typography
-              sx={{ display: { xs: "flex", md: "none" } }}
+              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               component="div"
             >
               <motion.img
@@ -210,14 +221,14 @@ function Navbar() {
                 alt="logo"
                 style={{
                   marginTop: "-55px",
-                  height: "100px",
-                  width: "300px",
+                  height: "90px",
+                  width: "280px",
                   position: "absolute",
                   top: "100%",
                   zIndex: 1,
-                  scale: scale+0.1,
+                  scale: scale + 0.1,
                   y: y2,
-                  x:x3,
+                  x: x3,
                   transition:
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "pointer",
@@ -238,24 +249,24 @@ function Navbar() {
                 transition={{ duration: 1 }}
                 style={{
                   fontFamily: "Future2",
-                  letterSpacing: "0.5rem",
+                  letterSpacing: { sm: "0rem", md: "0.7rem" },
                   color: "white",
-                  fontSize: "2rem",
+                  fontSize: "1.6rem",
                   fontWeight: "bold",
-                  x: x2,
+                  // x: x2,
                   zIndex: 10,
                   transition:
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 }}
               >
-                FitFlux
+                FitFlex
               </motion.div>
             </Typography>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
+                  onClick={()=>setAnchorElNav(null)}
                   sx={{
                     my: 2,
                     color: "white",
@@ -263,7 +274,13 @@ function Navbar() {
                     alignItems: "center",
                   }}
                 >
-                  {page}
+                  <NavLink
+                    to={`/${page.toLowerCase()}`}
+                    // to={`/contact`}
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    {page}
+                  </NavLink>
                 </Button>
               ))}
             </Box>
