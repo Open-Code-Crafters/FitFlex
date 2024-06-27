@@ -1,6 +1,7 @@
 import "./App.css";
 import { Suspense, lazy } from "react";
 import { Routes, Router, Route, Outlet, BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
 const Contact = lazy(() => import("./views/Contact.jsx"));
@@ -8,7 +9,6 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
-
 function App() {
   return (
     <>
@@ -28,6 +28,7 @@ function App() {
             <Route path="/signup" element={<Contact />} />
             <Route path="/*" element={<div>404 page not found</div>} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </Suspense>
     </>
