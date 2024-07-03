@@ -65,6 +65,7 @@ export default function HomeSlider({ object }) {
               padding: "10px",
               marginLeft: "30px",
               textAlign: "center",
+              textWrap: "wrap",
               // margin:"auto",
               zIndex: 20,
             }}

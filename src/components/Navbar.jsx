@@ -266,7 +266,10 @@ function Navbar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={()=>setAnchorElNav(null)}
+                  onClick={()=>{
+                    setAnchorElNav(null)
+                    navigate(`/${page.toLowerCase()}`)
+                  }}
                   sx={{
                     my: 2,
                     color: "white",
@@ -274,13 +277,8 @@ function Navbar() {
                     alignItems: "center",
                   }}
                 >
-                  <NavLink
-                    to={`/${page.toLowerCase()}`}
-                    // to={`/contact`}
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
+                  
                     {page}
-                  </NavLink>
                 </Button>
               ))}
             </Box>

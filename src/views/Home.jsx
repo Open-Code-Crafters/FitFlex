@@ -7,6 +7,11 @@ import homeImg4 from "../assets/home/homeImg4.jpg";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HomeSlider from "../components/HomeSlider";
+import banImg1 from "../assets/home/banner2_1.jpg";
+import flexible from "../assets/home/flexible.jpg";
+import fitbody from "../assets/home/getinshape.jpg";
+import workhard from "../assets/home/hardworkout.jpg";
+
 import {
   faDharmachakra,
   faDumbbell,
@@ -19,20 +24,20 @@ function Home() {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
     {
-      image: homeImg1,
-      title: "Workout",
+      image: fitbody,
+      title: "Get in shape today",
     },
     {
-      image: homeImg2,
-      title: "Workout",
+      image: banImg1,
+      title: "It never gets easier",
     },
     {
-      image: homeImg3,
-      title: "Workout",
+      image: workhard,
+      title: "Maximize your workout.",
     },
     {
-      image: homeImg4,
-      title: "Workout",
+      image: flexible,
+      title: "Improve flexibility",
     },
   ];
   useEffect(() => {
@@ -227,7 +232,7 @@ function Home() {
             </span>
           </NavLink>
         </div>
-          {/* okay now u may thouch below code */}
+        {/* okay now u may thouch below code */}
 
         <div
           style={{
@@ -275,17 +280,16 @@ function Home() {
           color="black"
           style={{
             textAlign: "center",
-            fontWeight: {sm:"thin", md:"normal"},
+            fontWeight: { sm: "thin", md: "normal" },
             // width: {sm:"90%", md:"60%"},
             width: { sm: "80%", md: "60%" },
             marginBottom: "20px",
           }}
         >
-          Join our fitness program and transform your body and mind. 
-          Our expert trainers and supportive community will help you reach your goals, 
-          whether you're a beginner or an experienced athlete. 
-          Start your transformation with FitFlex today!
-
+          Join our fitness program and transform your body and mind. Our expert
+          trainers and supportive community will help you reach your goals,
+          whether you're a beginner or an experienced athlete. Start your
+          transformation with FitFlex today!
         </Typography>
 
         <Grid
@@ -417,12 +421,14 @@ function Home() {
         ></div>
         <Box
           sx={{
+            position:"relative",
             width: { sm: "100%", md: "80%" },
             height: { sm: "50vh", md: "95vh" },
             margin: "auto",
             boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
             borderLeft: { sm: "0px solid grey", md: "30px solid grey" },
             borderRight: { sm: "0px solid grey", md: "30px solid grey" },
+            backgroundColor:"black"
           }}
         >
           <HomeSlider object={hehe} />
