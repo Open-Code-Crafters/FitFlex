@@ -1,14 +1,18 @@
 import "./App.css";
 import { Suspense, lazy } from "react";
-import { Routes, Router, Route, Outlet, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
+
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
 const Contact = lazy(() => import("./views/Contact.jsx"));
+const Register = lazy(() => import("./views/Register.jsx"));
+const Login = lazy(() => import("./views/Login.jsx"));
 const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
+
 function App() {
   return (
     <>
@@ -24,8 +28,8 @@ function App() {
             <Route path="/plans:plansId" element={<Plans />} />
             <Route path="/workout:workoutId" element={<Workout />} />
             <Route path="/progress" element={<Profile />} />
-            <Route path="/login" element={<Contact />} />
-            <Route path="/signup" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/*" element={<div>404 page not found</div>} />
           </Routes>
           <Footer />
