@@ -1,10 +1,13 @@
 // this component is temperary and will be replaced with the actual workout and exercise components
 
 import { Grid, Typography, Box } from "@mui/material";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import PlansCard from "../components/PlansCard";
 
 const Plans = () => {
+  useEffect(()=>{
+    document.title="FitFlex-Know Your Plans"
+  },[])
   const [isLogged, setLogged] = useState(true);
   const plans = [
     {

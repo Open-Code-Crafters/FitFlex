@@ -1,0 +1,100 @@
+{
+    "plans": [
+        {
+            "title": "Chest",
+            "subtitle": "Build Chest Muscles",
+            "image": "path/to/image1.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/detailedData1.json"
+        },
+        {
+            "title": "Neck",
+            "subtitle": "Strengthen Neck Muscles",
+            "image": "path/to/image2.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/detailedData2.json"
+        },
+        {
+            "title": "Biceps",
+            "subtitle": "Build Bicep Muscles",
+            "image": "path/to/image3.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/detailedData3.json"
+        },
+        {
+            "title": "Legs",
+            "subtitle": "Strengthen Leg Muscles",
+            "image": "path/to/image4.jpg",
+            "totalDays": 40,
+            "difficulty": "beginner",
+            "detailedData": "path/to/detailedData4.json"
+        },
+        {
+            "title": "Back",
+            "subtitle": "Build Back Muscles",
+            "image": "path/to/image5.jpg",
+            "totalDays": 50,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/detailedData5.json"
+        },
+        {
+            "title": "Shoulders",
+            "subtitle": "Build Shoulder Muscles",
+            "image": "path/to/image6.jpg",
+            "totalDays": 55,
+            "difficulty": "expert",
+            "detailedData": "path/to/detailedData6.json"
+        },
+        {
+            "title": "Abs",
+            "subtitle": "Strengthen Core Muscles",
+            "image": "path/to/image7.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/detailedData7.json"
+        },
+        {
+            "title": "Triceps",
+            "subtitle": "Build Tricep Muscles",
+            "image": "path/to/image8.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/detailedData8.json"
+        },
+        {
+            "title": "Forearms",
+            "subtitle": "Strengthen Forearm Muscles",
+            "image": "path/to/image9.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/detailedData9.json"
+        },
+        {
+            "title": "Cardio",
+            "subtitle": "Improve Cardiovascular Health",
+            "image": "path/to/image10.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/detailedData10.json"
+        },
+        {
+            "title": "Flexibility",
+            "subtitle": "Increase Flexibility",
+            "image": "path/to/image11.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/detailedData11.json"
+        },
+        {
+            "title": "Full Body",
+            "subtitle": "Overall Body Strength",
+            "image": "path/to/image12.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/detailedData12.json"
+        }
+    ]
+}
