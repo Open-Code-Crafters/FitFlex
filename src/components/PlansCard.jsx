@@ -10,7 +10,33 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import img from "../assets/home/biceps.webp";
-function PlansCard() {
+import { useState, useEffect } from "react";
+function PlansCard({info}) {
+  const [difficultyColor, setColor] = useState("green");
+  
+  if(!info){
+    info={
+      name:"Biceps Special",
+      title:"Super Biceps Special",
+      period:30,
+      image:"src/assets/exercise/arms/forearms.jpeg",
+      location:"Home",
+      level:"Easy",
+      
+    }
+  }
+  
+  useEffect(() => {
+    
+    if (info.level === "Easy") {
+      setColor("green");
+    } else if (info.level === "Medium") {
+      setColor("orange");
+    } else {
+      setColor("red");
+    }
+  },[info.level])
+  
   return (
     <Card
       sx={{
@@ -33,7 +59,7 @@ function PlansCard() {
         transition: { duration: 0.2 },
       }}
     >
-      <CardMedia component="img" height="170" image={img} alt="Chevrolet" />
+      <CardMedia component="img" height="160" image={info.image} alt="Chevrolet" />
       <CardContent>
         <div
           style={{
@@ -55,10 +81,10 @@ function PlansCard() {
               lineSpacing: "0px",
             }}
           >
-            <strong>Biceps special</strong>
+            <strong>{info.name}</strong>
           </Typography>
           <Typography variant="h9" sx={{ fontFamily: "sans-serif",margin:"0px" }}>
-            30 days rock hard biceps
+            {info.title}
           </Typography>
         </div>
 
@@ -74,11 +100,11 @@ function PlansCard() {
         >
           <CardActions sx={{ display: "flex", justifyContent: "center", gap:3 }}>
             <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-                <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px"}}>30</Typography>
+                <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px"}}>{info.period}</Typography>
                 <Typography variant="h6" sx={{marginBottom:"-10px", lineSpacing:"0px"}}>Days</Typography>
             </Box>
             <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-                <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px", color:"green"}}>Easy</Typography>
+                <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px", color:difficultyColor}}>{info.level}</Typography>
                 <Typography variant="h6" sx={{marginBottom:"-10px", lineSpacing:"0px"}}>Level</Typography>
             </Box>
           </CardActions>

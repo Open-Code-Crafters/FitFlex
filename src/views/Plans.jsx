@@ -1,13 +1,13 @@
 // this component is temperary and will be replaced with the actual workout and exercise components
 
 import { Grid, Typography, Box } from "@mui/material";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import PlansCard from "../components/PlansCard";
-
+import plansObject from "../data/plans.json";
 const Plans = () => {
-  useEffect(()=>{
-    document.title="FitFlex-Know Your Plans"
-  },[])
+  useEffect(() => {
+    document.title = "FitFlex-Know Your Plans";
+  }, []);
   const [isLogged, setLogged] = useState(true);
   const plans = [
     {
@@ -114,11 +114,50 @@ const Plans = () => {
         </div>
       )}
 
+      {/* ultimate map */}
 
+      {plansObject.list.map((planObj, index) => {
+        return (
+          <div key={index}>
+            <Typography
+              variant="h3"
+              gutterBottom
+              sx={{
+                marginTop: "2%",
+                color: "#858585",
+                fontWeight: "bold",
+              }}
+            >
+              {planObj.name}
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "start",
+                width: { sm: "90vw", md: "70vw" },
+                overflowX: "scroll",
+                gap: 4,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  cursor: "",
+                  paddingY: "10px",
+                  margin: "8px 0px 8px 0px",
+                }}
+              >
+                {planObj.plans.map((obj, index) => {
+                  return <PlansCard key={index} info={obj}/>;
+                })}
+              </div>
+            </Box>
+          </div>
+        );
+      })}
 
-
-
-      {/* yoga specials */}
+      {/* yoga specials
       <Typography
         variant="h3"
         gutterBottom
@@ -154,7 +193,7 @@ const Plans = () => {
         </div>
       </Box>
 
-      {/* muscle builder */}
+      {/* muscle builder 
       <Typography
         variant="h3"
         gutterBottom
@@ -190,8 +229,6 @@ const Plans = () => {
         </div>
       </Box>
 
-
-      {/* fat burner */}
       <Typography
         variant="h3"
         gutterBottom
@@ -227,8 +264,6 @@ const Plans = () => {
         </div>
       </Box>
 
-
-      {/* cardio export */}
       <Typography
         variant="h3"
         gutterBottom
@@ -264,9 +299,7 @@ const Plans = () => {
         </div>
       </Box>
 
-
-
-      {/* something new */}
+       
       <Typography
         variant="h3"
         gutterBottom
@@ -300,7 +333,7 @@ const Plans = () => {
             return <PlansCard key={index} />;
           })}
         </div>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
