@@ -39,5 +39,5 @@ Add any other context about the problem here.
 
 **Contributor Information**
 Please check if you are a contributor from:
-- [ ] GSSoC-EXT
+- [ ] GSSoC-ext
 - [ ] Hacktoberfest
