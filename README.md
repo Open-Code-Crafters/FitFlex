@@ -49,10 +49,6 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
      ○ To change directory :
    
        cd FitFlex
-
-      ○ To install dependencies :
-   
-       Install Dependencies
    
 4) After navigating into the project directory, install the required dependencies:
 
