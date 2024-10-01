@@ -20,11 +20,6 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
   ○ Track progress and stay consistent.
   
   ○ Simple and user-friendly interface.
-  
-  ○ Authentication via Firebase.
-  
-  ○ Realtime data updates.
-  
 
 #Getting Started
    
