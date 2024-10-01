@@ -75,12 +75,10 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 
     ○ Stage all Changes:
    
-             ○ git add .
+       git add .
     ○ Commit all Staged changes:
    
        git commit -m "feat: describe the feature you added"
-   
-    ○ Push Your Branch
 
 9) Push your changes to your forked repository:
     
