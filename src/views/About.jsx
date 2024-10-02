@@ -2,8 +2,6 @@
 
 
 
-
-
 import { Typography, Container, Box, Grid, Button } from '@mui/material';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';

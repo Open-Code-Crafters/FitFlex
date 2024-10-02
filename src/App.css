@@ -1,0 +1,8 @@
+@media screen and (min-width: 300px) and (max-width: 400px) {
+  .fitnessSecondayrLogo {
+    width: 200px !important;
+  }
+  .FooterIcons {
+    font-size: 1.5rem !important;
+  }
+}

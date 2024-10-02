@@ -19,7 +19,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 const pages = ["Home", "About", "Contact", "Register"];
 function Navbar() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const navTheme = createTheme({
     palette: {
       mode: "dark",
@@ -201,10 +201,9 @@ function Navbar() {
                 {pages.map((page) => (
                   <MenuItem
                     key={page}
-                    onClick={()=>{
-                      setAnchorElNav(null)
-                      setTimeout(()=>navigate(`/${page.toLowerCase()}`),100)
-                    
+                    onClick={() => {
+                      setAnchorElNav(null);
+                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
                     }}
                   >
                     <Typography textAlign="center">{page}</Typography>
@@ -219,6 +218,7 @@ function Navbar() {
               <motion.img
                 src={fitnessSecondayrLogo}
                 alt="logo"
+                className="fitnessSecondayrLogo"
                 style={{
                   marginTop: "-55px",
                   height: "90px",
@@ -266,9 +266,9 @@ function Navbar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={()=>{
-                    setAnchorElNav(null)
-                    navigate(`/${page.toLowerCase()}`)
+                  onClick={() => {
+                    setAnchorElNav(null);
+                    navigate(`/${page.toLowerCase()}`);
                   }}
                   sx={{
                     my: 2,
@@ -277,8 +277,7 @@ function Navbar() {
                     alignItems: "center",
                   }}
                 >
-                  
-                    {page}
+                  {page}
                 </Button>
               ))}
             </Box>
