@@ -12,14 +12,26 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 </div>
 
 
-
 # Features
 
-  • Daily workout plans tailored to individual goals.
+<div>
+ 
+  <span>• Daily workout plans tailored to individual goals.</span>
+   <img src="./src/assets/readme_Icons/" alt="Workout Plans" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+</div>
+
+<div>
+ 
+  <span>• Track progress and stay consistent.</span>
+   <img src="./src/assets/readme_Icons/progress-tracking.svg" alt="Progress Tracking" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+</div>
+
+<div>
   
-  • Track progress and stay consistent.
-  
-  • Simple and user-friendly interface.
+  <span>• Simple and user-friendly interface.</span>
+  <img src="./src/assets/readme_Icons/user-friendly.svg" alt="User-Friendly" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+</div>
+
 
 # Getting Started
     
