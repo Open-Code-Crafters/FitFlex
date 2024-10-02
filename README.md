@@ -37,7 +37,7 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 
 <div>
  
-  <span>‣ Track progress and stay consistent.</span> <br> <br> 
+  <span>• Track progress and stay consistent.</span> <br> <br> 
    <img src="./src/assets/ReadMeAssests/screenShorts/trackProgress.png/" alt="Progress Tracking" width="400" height="400" style="vertical-align: middle; margin-right: 10px;" />
 </div>
 
