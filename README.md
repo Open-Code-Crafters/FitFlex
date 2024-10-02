@@ -5,10 +5,10 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 # Tech Stack
 
 <div>
-  <img src="./src/assets/readme_Icons/react.svg" alt="React" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
-  <img src="./src/assets/readme_Icons/firebase.svg" alt="Firebase" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
-  <img src="./src/assets/readme_Icons/materialui.svg" alt="Material UI" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" />
-  <img src="./src/assets/readme_Icons/vite.svg" alt="Vite" width="50" height="50" style="border: 2px solid black;" />
+  <img src="./src/assets/ReadMeAssests/readme_Icons/react.svg" alt="React" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
+  <img src="./src/assets/ReadMeAssests/readme_Icons/firebase.svg" alt="Firebase" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
+  <img src="./src/assets/ReadMeAssests/readme_Icons/materialui.svg" alt="Material UI" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" />
+  <img src="./src/assets/ReadMeAssests/readme_Icons/vite.svg" alt="Vite" width="50" height="50" style="border: 2px solid black;" />
 </div>
 
 
@@ -16,20 +16,21 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 
 <div>
  
-  <span>• Daily workout plans tailored to individual goals.</span>
-   <img src="./src/assets/readme_Icons/" alt="Workout Plans" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+  <span>• Daily workout plans tailored to individual goals.</span> <br>
+   <img src="./src/assets/ReadMeAssests/screenShorts/dailyworkout.mp4/" alt="Workout Plans" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />
+
 </div>
 
 <div>
  
-  <span>• Track progress and stay consistent.</span>
-   <img src="./src/assets/readme_Icons/progress-tracking.svg" alt="Progress Tracking" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+  <span>• Track progress and stay consistent.</span> <br>
+   <img src="./src/assets/ReadMeAssests/screenShorts/trackProgress.png/" alt="Progress Tracking" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />
 </div>
 
 <div>
   
-  <span>• Simple and user-friendly interface.</span>
-  <img src="./src/assets/readme_Icons/user-friendly.svg" alt="User-Friendly" width="25" height="25" style="vertical-align: middle; margin-right: 10px;" />
+  <span>• Simple and user-friendly interface.</span> <br>
+  <img src="./src/assets/ReadMeAssests/screenShorts/interface.mp4/" alt="User-Friendly" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />
 </div>
 
 
@@ -40,7 +41,7 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 
 1) Installation
    
-   • Fork the Repository
+   • Fork the Repository 
    
    • Go to the FitFlex repository and click the "Fork" button at the top-right corner to create a copy of this   repository    under your GitHub account.
    
