@@ -19,16 +19,16 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
     
     
   <ol>
-     <li> FlexPlans <br>
-       <img src="./src/assets/ReadMeAssests/screenShorts/flexPlan.png/" alt="Workout Plans" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />   
+     <li> FlexPlans <br> <br> 
+       <img src="./src/assets/ReadMeAssests/screenShorts/flexPlan.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <br>
-      <li> Yoga Special <br>
-       <img src="./src/assets/ReadMeAssests/screenShorts/yoga.png/" alt="Workout Plans" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />   
+      <li> Yoga Special <br> <br> 
+       <img src="./src/assets/ReadMeAssests/screenShorts/yoga.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <br>
-      <li> Upper Body <br>
-       <img src="./src/assets/ReadMeAssests/screenShorts/upperbody.png/" alt="Workout Plans" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />   
+      <li> Upper Body <br> <br> 
+       <img src="./src/assets/ReadMeAssests/screenShorts/upperbody.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <b>  Many more....</b>
    </ol>
@@ -37,8 +37,8 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 
 <div>
  
-  <span>• Track progress and stay consistent.</span> <br>
-   <img src="./src/assets/ReadMeAssests/screenShorts/trackProgress.png/" alt="Progress Tracking" width="300" height="300" style="vertical-align: middle; margin-right: 10px;" />
+  <span>‣ Track progress and stay consistent.</span> <br> <br> 
+   <img src="./src/assets/ReadMeAssests/screenShorts/trackProgress.png/" alt="Progress Tracking" width="400" height="400" style="vertical-align: middle; margin-right: 10px;" />
 </div>
 
 
