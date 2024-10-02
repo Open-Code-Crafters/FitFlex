@@ -9,27 +9,23 @@ import {
   Paper,
   Snackbar,
   Alert,
-  IconButton,
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
-import CloseIcon from '@mui/icons-material/Close';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/system';
 
+// Styled components for the contact form
 const ContactForm = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   maxWidth: '600px',
   margin: 'auto',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  backdropFilter: 'blur(10px)',
-  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+  backgroundColor: 'rgba(0, 0, 0, 0.8)',
   borderRadius: theme.shape.borderRadius,
-  transition: 'all 0.3s ease-in-out',
-  backgroundImage: 'linear-gradient(135deg, #1F1C2C 10%, #232526 100%)',
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   '&:hover': {
-    transform: 'scale(1.05)',
-    boxShadow: '0 8px 30px rgba(0, 0, 0, 0.2)',
-    backgroundImage: 'linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)',
+    transform: 'translateY(-5px) scale(1.02)',
+    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
   },
 }));
 
@@ -51,7 +47,8 @@ const theme = createTheme({
   },
 });
 
-const BackgroundContainer = styled(Box)({
+// Background container styled
+const BackgroundContainer = styled(Box)(() => ({
   minHeight: '100vh',
   backgroundImage: 'linear-gradient(135deg, #1F1C2C 10%, #232526 100%)',
   backgroundSize: 'cover',
@@ -60,9 +57,10 @@ const BackgroundContainer = styled(Box)({
   alignItems: 'center',
   justifyContent: 'center',
   padding: '20px',
-});
+}));
 
-const GradientTextField = styled(TextField)(({ theme, error, showError }) => ({
+// Gradient text field styled with CheckIcon
+const GradientTextField = styled(TextField)(({ theme, error, showError, showIcon }) => ({
   input: { color: 'white' },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
@@ -90,6 +88,10 @@ const GradientTextField = styled(TextField)(({ theme, error, showError }) => ({
   '& .MuiFormLabel-root': {
     color: showError ? '#ded8ce' : 'white',
   },
+  '& .MuiInputAdornment-root': {
+    display: showIcon ? 'block' : 'none',
+    color: 'green',
+  },
 }));
 
 const Contact = () => {
@@ -101,6 +103,28 @@ const Contact = () => {
   const [emailError, setEmailError] = useState(false);
   const [messageError, setMessageError] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [showNameIcon, setShowNameIcon] = useState(false);
+  const [showEmailIcon, setShowEmailIcon] = useState(false);
+  const [showMessageIcon, setShowMessageIcon] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    // Update state based on the input name
+    if (name === 'name') {
+      setName(value);
+      const isValid = validateName(value);
+      setShowNameIcon(isValid);
+    } else if (name === 'email') {
+      setEmail(value);
+      const isValid = validateEmail(value);
+      setShowEmailIcon(isValid);
+    } else if (name === 'message') {
+      setMessage(value);
+      const isValid = validateMessage(value);
+      setShowMessageIcon(isValid);
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -113,27 +137,33 @@ const Contact = () => {
       return;
     }
 
-
+    // Send email using EmailJS
     emailjs.send(
-      'service_nlds6fh', // Service ID
-      'template_iyudm0r', // Template ID
+      'service_nlds6fh',
+      'template_iyudm0r',
       {
         from_name: name,
         from_email: email,
         message: message,
       },
-      'CPgZoAFYXY-JYOWyg' // User ID
-    ).then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
-      setOpen(true);
-    }).catch((err) => {
-      console.error('FAILED...', err);
-    });
+      'CPgZoAFYXY-JYOWyg'
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setOpen(true);
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+      });
 
+    // Reset form fields
     setName('');
     setEmail('');
     setMessage('');
     setShowError(false);
+    setShowNameIcon(false);
+    setShowEmailIcon(false);
+    setShowMessageIcon(false);
   };
 
   const validateName = (name) => {
@@ -167,12 +197,14 @@ const Contact = () => {
     }
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  };
+const handleClose = (event, reason) => {
+  if (reason === 'clickaway') {
+    return;
+  }
+  setOpen(false);
+  setShowError(false); // Reset showError state when closing the error alert
+};
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -189,11 +221,15 @@ const Contact = () => {
                     fullWidth
                     label="Name"
                     variant="outlined"
-                    color="primary"
+                    name="name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleChange}
                     error={nameError}
                     showError={showError}
+                    showIcon={showNameIcon} // Pass showIcon prop
+                    InputProps={{
+                      endAdornment: showNameIcon ? <CheckIcon /> : null, // Conditionally render CheckIcon
+                    }}
                     helperText={nameError ? 'Enter full name (more than 3 characters)' : ''}
                   />
                 </Box>
@@ -202,11 +238,15 @@ const Contact = () => {
                     fullWidth
                     label="Email"
                     variant="outlined"
-                    color="primary"
+                    name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleChange}
                     error={emailError}
                     showError={showError}
+                    showIcon={showEmailIcon} // Pass showIcon prop
+                    InputProps={{
+                      endAdornment: showEmailIcon ? <CheckIcon /> : null, // Conditionally render CheckIcon
+                    }}
                     helperText={emailError ? 'Please enter a valid email address.' : ''}
                   />
                 </Box>
@@ -215,13 +255,15 @@ const Contact = () => {
                     fullWidth
                     label="Message"
                     variant="outlined"
-                    color="primary"
-                    multiline
-                    rows={4}
+                    name="message"
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={handleChange}
                     error={messageError}
                     showError={showError}
+                    showIcon={showMessageIcon} // Pass showIcon prop
+                    InputProps={{
+                      endAdornment: showMessageIcon ? <CheckIcon /> : null, // Conditionally render CheckIcon
+                    }}
                     helperText={messageError ? 'Message should be more than 10 words.' : ''}
                   />
                 </Box>
@@ -243,24 +285,19 @@ const Contact = () => {
                 </Box>
               </form>
             </ContactForm>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                Message sent successfully!
+              </Alert>
+            </Snackbar>
+            <Snackbar open={showError} autoHideDuration={6000} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                Please fix the errors in the form.
+              </Alert>
+            </Snackbar>
           </Box>
         </Container>
       </BackgroundContainer>
-      <Snackbar
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        action={
-          <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        }
-      >
-        <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
-          Message sent successfully
-        </Alert>
-      </Snackbar>
     </ThemeProvider>
   );
 };
