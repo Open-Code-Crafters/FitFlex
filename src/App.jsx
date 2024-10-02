@@ -2,6 +2,8 @@ import "./App.css";
 import { Suspense, lazy } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
+import Loading from "./components/Loading.jsx";
+import NotFound from "./views/NotFound.jsx";
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -16,7 +18,7 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 function App() {
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading/>}>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -25,12 +27,12 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/plans" element={<Plans />} />
-            <Route path="/plans:plansId" element={<Plans />} />
-            <Route path="/workout:workoutId" element={<Workout />} />
+            <Route path="/plans/:plansId" element={<Plans />} />
+            <Route path="/workout/:workoutId" element={<Workout />} />
             <Route path="/progress" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<div>404 page not found</div>} />
+            <Route path="/*" element={<NotFound/>} />
           </Routes>
           <Footer />
         </BrowserRouter>
