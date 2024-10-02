@@ -2,7 +2,7 @@
 
 FitFlex is a fitness and weight loss website that offers daily, structured workout plans for a set period. Users can follow day-wise exercises tailored to their goals, whether it’s for weight loss, muscle gain, or general fitness. FitFlex provides a simple, user-friendly interface to help track progress and stay consistent throughout the fitness journey.
 
-#Tech Stack
+# Tech Stack
 
   ○ ReactJS - Frontend framework for building the user interface.
   
@@ -13,7 +13,7 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
   ○ Vite - Fast build tool to enhance development experience.
   
 
-#Features
+# Features
 
   ○ Daily workout plans tailored to individual goals.
   
@@ -21,8 +21,8 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
   
   ○ Simple and user-friendly interface.
 
-#Getting Started
-   
+# Getting Started
+    
   Follow these instructions to set up the project on your local machine.
 
 
@@ -78,3 +78,15 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
 9) Push your changes to your forked repository:
     
        git push origin feature/your-feature-name
+
+10) Create a Pull Request
+
+    ○ Go to the original repository on GitHub and submit a pull request.
+
+
+# License
+This project is licensed under the MIT License.
+
+# Thank You
+Thank you for visiting and using FitFlex!. We truly appreciate your interest in our project.
+Whether you're a user improving your fitness journey or a developer contributing to the codebase, your support is invaluable.
