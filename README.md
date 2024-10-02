@@ -3,7 +3,7 @@
 FitFlex is a fitness and weight loss website that offers daily, structured workout plans for a set period. Users can follow day-wise exercises tailored to their goals, whether it’s for weight loss, muscle gain, or general fitness. FitFlex provides a simple, user-friendly interface to help track progress and stay consistent throughout the fitness journey.
 
 #Tech Stack
-  ○ ReactJS - Frontend framework for building the user interface.
+  ![react](./src/assets/readme_Icons/react.svg) - Frontend framework for building the user interface.
   ○ Firebase - Backend for user authentication and database management.
   ○ Material UI - React component library for building consistent UI.
   ○ Vite - Fast build tool to enhance development experience.
