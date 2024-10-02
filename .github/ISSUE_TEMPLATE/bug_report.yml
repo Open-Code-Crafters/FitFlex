@@ -1,33 +1,19 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
 
----
-
-name: Bug Report 🐞
-description: File a bug report.
+name: Bug report 🐞
+description: File a bug report
 title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - jeevan10017
+labels: bug
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to file a bug report! Please provide as much information as possible to help us resolve the issue.
-  - type: input
+  - type: checkboxes
     id: existing-issue
     attributes:
       label: Is there an existing issue for this?
       description: Please search to see if an issue already exists for the bug you encountered.
-      placeholder: I have searched the existing issues
-    validations:
-      required: true
+      options:
+        - label: I have searched the existing issues
+          required: true
   - type: textarea
-    id: bug-description
+    id: what-happened
     attributes:
       label: Describe the bug
       description: A concise description of what you are experiencing.
@@ -35,40 +21,38 @@ body:
     validations:
       required: true
   - type: textarea
-    id: expected-behavior
+    id: expected-behaviour
     attributes:
       label: Expected behavior
       description: A clear and concise description of what you expected to happen.
-      placeholder: What did you expect to happen?
     validations:
       required: true
-  - type: file
+  - type: textarea
     id: screenshots
     attributes:
-      label: Add Screenshots
-      description: Please upload sufficient screenshots to help explain your issue.
-      multiple: true
-  - type: input
-    id: device
+      label: Add ScreenShots
+      description: Add sufficient ScreenShots to explain your issue.
+  - type: dropdown
+    id: devices
     attributes:
       label: On which device are you experiencing this bug?
-      placeholder: e.g., Desktop, iPhone, Android
-    validations:
-      required: false
-  - type: checkboxes
-    id: contributor-info
-    attributes:
-      label: Contributor Information
+      multiple: true
       options:
-        - label: I am a GSSOC-EXT contributor
-        - label: I am a HACTOBERFEST
- contributor
-        - label: I have starred the repository *
-          required: true
+        - Android
+        - iPhone
+        - Linux
+        - Chrome
+        - Windows
   - type: checkboxes
     id: terms
     attributes:
-      label: Acknowledgement
+      label: Record
       options:
-        - label: I have read the Contributing Guidelines *
+        - label: "I have read the Contributing Guidelines"
+          required: true
+        - label: "I'm a GSSOC-EXT contributor"
+          required: False
+        - label: "I'm a HACKTOBERFEST contributor"
+          required: False
+        - label: "I have starred the repository"
           required: true
