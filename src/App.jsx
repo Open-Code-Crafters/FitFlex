@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import NotFound from "./views/NotFound.jsx";
+import BackToTopButton from "./components/BacktoTop.jsx"; // Import Back to Top Button
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -18,7 +19,7 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 function App() {
   return (
     <>
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -32,9 +33,10 @@ function App() {
             <Route path="/progress" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<NotFound/>} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
+          <BackToTopButton /> {/* Add Back to Top Button here */}
         </BrowserRouter>
       </Suspense>
     </>
