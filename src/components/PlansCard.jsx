@@ -60,15 +60,20 @@ function PlansCard({info}) {
       }}
     >
       <CardMedia component="img" height="160" image={info.image} alt="Chevrolet" />
-      <CardContent>
+      <CardContent >
         <div
           style={{
             position: "absolute",
             top: "40%",
             zIndex: 1,
-            padding: "1px",
+            // padding: "1px",
+            backgroundColor: "rgba(0, 0, 0, 0.25)", 
+            width: "103%",
             backdropFilter: "blur(2px)",
             display: "inline",
+            margin: 0,
+            left: "-8px",
+            // borderTopLeftRadius: "10px",
           }}
         >
           <Typography
@@ -78,12 +83,15 @@ function PlansCard({info}) {
               fontFamily: "sans-serif",
             //   margin: "0px",
               marginBottom:"-5px",
+              paddingRight: "10px",
+              paddingLeft: "20px",
               lineSpacing: "0px",
+              color : "#fff",
             }}
           >
             <strong>{info.name}</strong>
           </Typography>
-          <Typography variant="h9" sx={{ fontFamily: "sans-serif",margin:"0px" }}>
+          <Typography variant="h9" sx={{color : "#fff", paddingLeft: "10px",fontFamily: "sans-serif",margin:"0px" }}>
             {info.title}
           </Typography>
         </div>
@@ -93,17 +101,18 @@ function PlansCard({info}) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "end",
+            
             // alignItems: "start",
             paddingTop: "0px",
             width: "100%",
           }}
         >
-          <CardActions sx={{ display: "flex", justifyContent: "center", gap:3 }}>
-            <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+          <CardActions sx={{ display: "flex", justifyContent: "space-between"}}>
+            <Box sx={{display:"flex", flexDirection:"column", alignItems:"start", justifyContent:"center"}}>
                 <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px"}}>{info.period}</Typography>
                 <Typography variant="h6" sx={{marginBottom:"-10px", lineSpacing:"0px"}}>Days</Typography>
             </Box>
-            <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+            <Box sx={{display:"flex", flexDirection:"column", alignItems:"end", justifyContent:"center"}}>
                 <Typography variant="h4" sx={{marginBottom:"-10px", lineSpacing:"-3px", color:difficultyColor}}>{info.level}</Typography>
                 <Typography variant="h6" sx={{marginBottom:"-10px", lineSpacing:"0px"}}>Level</Typography>
             </Box>
@@ -111,7 +120,7 @@ function PlansCard({info}) {
           <Typography
             variant="h9"
             component="div"
-            sx={{ fontFamily: "sans-serif" }}
+            sx={{ fontFamily: "sans-serif", fontWeight:"600", fontSize :"14px", marginTop: "5px"}}
           >
             20% completed
           </Typography>

@@ -98,7 +98,7 @@ function Home() {
               <Typography
                 variant="h1"
                 color="white"
-                style={{ fontWeight: "bold" }}
+                style={{ fontWeight: "700" }}
               >
                 FitFlex
               </Typography>
@@ -106,14 +106,15 @@ function Home() {
               <Typography
                 variant="h1"
                 color="white"
-                style={{ fontWeight: "bold", marginTop: "-20px" }}
+                style={{ fontWeight: "600", marginTop: "-20px" }}
               >
                 Zone
               </Typography>
               <Typography
                 variant="h4"
                 color="white"
-                style={{ fontWeight: "100" }}
+             
+                style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}
               >
                 Transform Your Space, Transform Your Body
               </Typography>
@@ -155,11 +156,11 @@ function Home() {
                   backdropFilter: "blur(5px)",
                 }}
               >
-                <Typography variant="h2" color="white">
-                  <u>{TopMessage[count]}</u>
+                <Typography variant="h2" color="white" style={{ fontWeight: "900"}}>
+                  {TopMessage[count]}
                 </Typography>
 
-                <Typography variant="h4" color="white">
+                <Typography variant="h4" color="white" style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}>
                   {BottomMessage[count]}
                 </Typography>
               </Box>
@@ -190,10 +191,10 @@ function Home() {
         ></div>
         {/* cusotmn css button */}
 
-        {/* do not touch below code, idk how it works */}
-        <div className="wrapper">
+        {/* do not touch below code, idk how it works, {ps: just added marginTop, marginBottom} */}
+        <div className="wrapper" style={{marginTop:'50px', marginBottom: '50px'}}>
           <NavLink to="/plans" className="cta">
-            <span>
+            <span style={{display:'flex', justifyContent:'center', alignItems:'center', gap:'20px'}}>
               Start Exercise
               <FontAwesomeIcon icon={faFire} />
             </span>
@@ -257,6 +258,7 @@ function Home() {
           style={{
             fontWeight: { sm: "normal", md: "bold" },
             textAlign: "center",
+            marginBottom: '10px',
           }}
         >
           Experience the{" "}
@@ -270,6 +272,7 @@ function Home() {
               backgroundClip: "text",
               textFillColor: "transparent",
               fontWeight: "bold",
+              
             }}
           >
             #TransformWithFitFlex
@@ -283,7 +286,8 @@ function Home() {
             fontWeight: { sm: "thin", md: "normal" },
             // width: {sm:"90%", md:"60%"},
             width: { sm: "80%", md: "60%" },
-            marginBottom: "20px",
+            marginBottom: "50px",
+            fontSize: "20px"
           }}
         >
           Join our fitness program and transform your body and mind. Our expert
@@ -294,7 +298,7 @@ function Home() {
 
         <Grid
           container
-          spacing={3}
+          spacing={10}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -323,10 +327,10 @@ function Home() {
               icon={faStar}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D">
+            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
               Variety
             </Typography>
-            <Typography>
+            <Typography style={{color:'#000'}}>
               From HIIT to yoga, strength training to dance,explore a diverse
               range of workouts to keep your routine exciting and effective.
             </Typography>
@@ -354,10 +358,10 @@ function Home() {
               icon={faDharmachakra}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D">
+            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
               Flexibility
             </Typography>
-            <Typography>
+            <Typography style={{color:'#000'}}>
               Enjoy the freedom to exercise whenever it fits your day. No gym
               hours, no commutes just you and your fitness goals.
             </Typography>
@@ -386,10 +390,10 @@ function Home() {
               icon={faDumbbell}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D">
+            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
               Motivation
             </Typography>
-            <Typography>
+            <Typography style={{color:'#000'}}>
               Stay on track with interactive features, progress tracking, and
               regular updates. We will help you keep your eyes on the prize and
               push through challenges.
@@ -403,6 +407,7 @@ function Home() {
       <br />
       <Box
         sx={{
+          marginTop:'50px',
           width: "100vw",
           position: "relative",
         }}
