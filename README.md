@@ -1,5 +1,54 @@
-# Fitness-Website
 
+# <p align="center">FITFLEX</p>
+  
+<p align="center">
+  <img src="./src/assets/ReadMeAssests/screenShorts/Homepage.png/" alt="FITFLEX Poster" />
+</p>
+
+<div align="center">
+  <p>
+    <a href="https://github.com/ellerbrock/open-source-badges/">
+      <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1" />
+    </a>
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs Welcome" />
+    <img src="https://api.visitorbadge.io/api/visitors?path=Open-Code-Crafters52%2FFitFlex%20&countColor=%23263759&style=flat" alt="Visitors" />
+    <img src="https://img.shields.io/github/forks/Open-Code-Crafters/FitFlex" alt="GitHub forks" />
+    <img src="https://img.shields.io/github/stars/Open-Code-Crafters/FitFlex" alt="GitHub Repo stars" />
+    <img src="https://img.shields.io/github/contributors/Open-Code-Crafters/FitFlex" alt="GitHub contributors" />
+    <img src="https://img.shields.io/github/last-commit/Open-Code-Crafters/FitFlex" alt="GitHub last commit" />
+    <img src="https://img.shields.io/github/repo-size/Open-Code-Crafters/FitFlex" alt="GitHub repo size" />
+    <img src="https://img.shields.io/github/license/Open-Code-Crafters/FitFlex" alt="GitHub license" />
+    <img src="https://img.shields.io/github/issues/Open-Code-Crafters/FitFlex" alt="GitHub issues" />
+    <img src="https://img.shields.io/github/issues-closed-raw/Open-Code-Crafters/FitFlex" alt="GitHub closed issues" />
+    <img src="https://img.shields.io/github/issues-pr/Open-Code-Crafters/FitFlex" alt="GitHub pull requests" />
+    <img src="https://img.shields.io/github/issues-pr-closed/Open-Code-Crafters/FitFlex" alt="GitHub closed pull requests" />
+  </p>
+</div>
+
+<div>
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#about-fitflex">About FITFLEX</a></li>
+    <li><a href="#announcement">Announcement</a></li>
+    <li><a href="#achievement">Achievement</a></li>
+    <li><a href="#available-projects">Available Projects</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#what-can-you-contribute">What can you contribute?</a></li>
+    <li><a href="#how-to-contribute">How to contribute?</a></li>
+    <li><a href="#how-to-make-a-pull-request">How to make a pull request?</a></li>
+    <li><a href="#project-contributors">Project Contributors</a></li>
+    <li><a href="#license">License</a></li>
+</ul>
+  
+<h2>📌 Open Source Program</h2>
+
+<h3> This project is now OFFICIALLY accepted for</h3>
+
+  <img src="./src/assets/ReadMeAssests/screenShorts/GSSoC-Ext.png/" alt="GSSOC-EXT" width="100%"  style="vertical-align: middle; margin-right: 10px;" />
+  <img src="./src/assets/ReadMeAssests/screenShorts/Hacktoberfest.png/" alt="HACKTOBERFEST" width="100%"  style="vertical-align: middle; margin-right: 10px;" />
+
+
+  <h2 id="about-fitflex">About FITFLEX</h2>
 FitFlex is a fitness and weight loss website that offers daily, structured workout plans for a set period. Users can follow day-wise exercises tailored to their goals, whether it’s for weight loss, muscle gain, or general fitness. FitFlex provides a simple, user-friendly interface to help track progress and stay consistent throughout the fitness journey.
 
 # Tech Stack
@@ -20,15 +69,15 @@ FitFlex is a fitness and weight loss website that offers daily, structured worko
     
   <ol>
      <li> FlexPlans <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/flexPlan.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
+       <img src="./src/assets/ReadMeAssests/screenShorts/flexPlan.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <br>
       <li> Yoga Special <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/yoga.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
+       <img src="./src/assets/ReadMeAssests/screenShorts/yoga.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <br>
       <li> Upper Body <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/upperbody.png/" alt="Workout Plans" width="800" height="400" style="vertical-align: middle; margin-right: 10px;" />   
+       <img src="./src/assets/ReadMeAssests/screenShorts/upperbody.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
       </li>
       <b>  Many more....</b>
    </ol>
