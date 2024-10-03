@@ -15,6 +15,8 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
+const HealthTips = lazy(() => import("./components/healthTips"));
+// import HealthTips from './components/HealthTips'; // Make sure this path is correct
 
 function App() {
   return (
@@ -34,7 +36,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="/healthtips" element={<HealthTips />} />
           </Routes>
+
           <Footer />
           <BackToTopButton /> {/* Add Back to Top Button here */}
         </BrowserRouter>

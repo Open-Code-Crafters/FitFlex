@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link, IconButton, Grid } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -25,7 +26,7 @@ const Footer = () => {
             sx={{
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 'bold',
-              fontSize: '1.5rem', 
+              fontSize: '1.5rem',
             }}
           >
             ABOUT
@@ -73,7 +74,7 @@ const Footer = () => {
                 sx={{
                   textDecoration: 'none',
                   paddingBottom: '8px',
-                  fontSize: '1.2rem', 
+                  fontSize: '1.2rem',
                   '&:hover': { color: '#f1c40f' },
                 }}
               >
@@ -89,16 +90,22 @@ const Footer = () => {
             sx={{
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 'bold',
-              fontSize: '1.5rem', 
+              fontSize: '1.5rem',
             }}
           >
             RESOURCES
           </Typography>
           <Box>
-            {['Blog', 'Health Tips', 'FAQs', 'Contact Us'].map((item, index) => (
+            {[
+              { name: 'Blog', path: '#' },
+              { name: 'Health Tips', path: '/healthtips' }, // Link to HealthTips
+              { name: 'FAQs', path: '#' },
+              { name: 'Contact Us', path: '#' },
+            ].map((item, index) => (
               <Link
                 key={index}
-                href="#"
+                component={RouterLink}
+                to={item.path}
                 color="grey.100"
                 display="block"
                 gutterBottom
@@ -109,7 +116,7 @@ const Footer = () => {
                   '&:hover': { color: '#f1c40f' },
                 }}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </Box>
