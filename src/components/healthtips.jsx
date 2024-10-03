@@ -105,49 +105,49 @@ function HealthTips() {
       title: "Consistency Over Intensity",
       description:
         "Regular, moderate exercise is more effective for long-term fitness than occasional intense workouts. Aim for at least 150 minutes of moderate or 75 minutes of vigorous exercise weekly.",
-      image: "src/assets/health/exercise.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/exercise.jpg?raw=true",
     },
     {
       title: "Strength Training",
       description:
         "Include strength training exercises 2-3 times per week to build and maintain muscle mass. Focus on full-body exercises like squats, lunges, and push-ups.",
-      image: "src/assets/health/strength-training.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/strength-training.jpg?raw=true",
     },
     {
       title: "Warm-Up and Cool Down",
       description:
         "Always start your workout with a warm-up to increase blood flow and prepare your muscles. Finish with a cool-down and stretching to aid in flexibility and recovery.",
-      image: "src/assets/health/warmup-cooldown.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/warmup-cooldown.jpg?raw=true",
     },
     {
       title: "Balanced Diet",
       description:
         "Fuel your body with a balanced diet rich in whole grains, lean proteins, fruits, vegetables, and healthy fats. Proper nutrition is key to achieving fitness goals and promoting overall well-being.",
-      image: "src/assets/health/balanced-diet.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/31f56646c63ac3205d7ad41934c70445a835158c/src/assets/health/balanced-diet.jpg?raw=true",
     },
     {
       title: "Rest and Recovery",
       description:
         "Give your muscles time to recover by getting adequate sleep (7-9 hours) and scheduling rest days between intense workouts. Overtraining can lead to injuries and burnout.",
-      image: "src/assets/health/rest-recovery.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/rest-recovery.jpg?raw=true",
     },
     {
       title: "Mix Up Your Routine",
       description:
         "Keep your workouts interesting by trying activities like cycling, swimming, yoga, or HIIT. This prevents boredom and challenges different muscle groups.",
-      image: "src/assets/health/mix-up-routine.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mix-up-routine.jpg?raw=true",
     },
     {
       title: "Posture and Form",
       description:
         "Pay attention to your posture and form during exercises to prevent injury. If unsure, consider working with a fitness trainer to correct any mistakes.",
-      image: "src/assets/health/posture.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/posture.jpg?raw=true",
     },
     {
       title: "Mental Health",
       description:
         "Fitness isn't just physical. Practices like yoga, meditation, or simple stretching routines can help improve mental well-being and reduce stress.",
-      image: "src/assets/health/mental-health.jpg",
+      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mental-health.jpg?raw=true",
     },
   ];
 
