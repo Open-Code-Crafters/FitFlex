@@ -29,10 +29,7 @@
   <h2>Table of Contents</h2>
   <ul>
     <li><a href="#about-fitflex">About FITFLEX</a></li>
-    <li><a href="#announcement">Announcement</a></li>
-    <li><a href="#achievement">Achievement</a></li>
-    <li><a href="#available-projects">Available Projects</a></li>
-    <li><a href="#blog">Blog</a></li>
+    <li><a href="#tech-stack">Tech Stack</a></li>
     <li><a href="#what-can-you-contribute">What can you contribute?</a></li>
     <li><a href="#how-to-contribute">How to contribute?</a></li>
     <li><a href="#how-to-make-a-pull-request">How to make a pull request?</a></li>
@@ -51,164 +48,177 @@
   <h2 id="about-fitflex">About FITFLEX</h2>
 FitFlex is a fitness and weight loss website that offers daily, structured workout plans for a set period. Users can follow day-wise exercises tailored to their goals, whether it’s for weight loss, muscle gain, or general fitness. FitFlex provides a simple, user-friendly interface to help track progress and stay consistent throughout the fitness journey.
 
-# Tech Stack
+# Tech-Stack
 
-<div>
-  <img src="./src/assets/ReadMeAssests/readme_Icons/react.svg" alt="React" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
-  <img src="./src/assets/ReadMeAssests/readme_Icons/firebase.svg" alt="Firebase" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" /> 
-  <img src="./src/assets/ReadMeAssests/readme_Icons/materialui.svg" alt="Material UI" width="50" height="50" style="border: 2px solid black; margin-right: 10px;" />
-  <img src="./src/assets/ReadMeAssests/readme_Icons/vite.svg" alt="Vite" width="50" height="50" style="border: 2px solid black;" />
-</div>
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="60" height="60" style="margin: 0 80px;" /> 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" width="60" height="60" style="margin: 0 80px;" /> 
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" alt="Material UI" width="60" height="60" style="margin: 0 80px;" />
+  <img src="https://vitejs.dev/logo.svg" alt="Vite" width="60" height="60" style="margin: 0 80px;" />
+</p>
 
-# Features
 
-<div>
+
+
+
+<h2 id="what-can-you-contribute">What can you contribute?</h2>
+
+- Find All the details in [**CONTRIBUTING.md**](https://github.com/Open-Code-Crafters/FitFlex/blob/main/CONTRIBUTING.md) before contributing
+- Please follow guidelines in [**Code_of_Conduct.md**](https://github.com/Open-Code-Crafters/FitFlex/blob/main/CODE_OF_CONDUCT.md)
+
+<h2 id="how-to-contribute">How to contribute?</h2>
+
+- Drop a Star in this repo
+- Take a look at the existing [Issues](https://github.com/Open-Code-Crafters/FitFlex/issues).
+- Fork the Repo create a branch for any issue that you are working on and commit your work.
+- At first raise an issue in which you want to work
+- **Please do not make more than 2 issues at a time , Once your PR have been merged only then go for the next issue**
+- **Then when you are get assigned only then work on that issue & make a PR**
+- Please try to make a separate branch in your fork in case of PR
+- Create a [**Pull Request**](https://github.com/Open-Code-Crafters/FitFlex/pulls), which will be promptly reviewed and given suggestions for improvements by the community.
+- **REMINDER: Commit inside **the `Projects`** Folder**
+- Find the already Existing Projects in the `Projects` Folder
+- Add screenshots or video prototypes to your Pull Request to help us understand the effects of the changes that are included in your commits.
+
+<h2> Installation and Setup</h2>
+
+<h3> Prerequisites</h3>
+
+- Node.js
+- npm
+
+<h3> Steps</h3>
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Open-Code-Crafters/FitFlex.git
+   ```
+2. **Navigate to the project directory**:
+    ```bash
+   cd FitFlex
+   ```
+  
+3. **Install Dependencies**:
+    ```bash
+   npm install
+   ```
+4. **Run the project**:
+   ```bash
+   npm run dev
+   ```
+5. **Contribution Guidelines**
+Move detailed steps to a new `CONTRIBUTING.md` file and link to it:
+
+
+
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/Move%20to%20top-Blue?style=plastic" alt="Back To Top"></a></p>
+
+<h2 id="how-to-make-a-pull-request">How to make a Pull Request?</h2>
+
+
+**1.** Start by forking the [**FITFLEX**](https://github.com/Open-Code-Crafters/FitFlex) repository. Click on the <a href="https://github.com/Open-Code-Crafters/FitFlex/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="21" width="21"></a> symbol at the top right corner.
+
+**2.** Clone your forked repository:
+
+```bash
+git clone https://github.com/<your-github-username>/FitFlex
+```
+
+**3.** Navigate to the new project directory:
+
+```bash
+cd FitFlex
+```
+
+**4.** Set upstream command:
+
+```bash
+git remote add upstream https://github.com/Open-Code-Crafters/FitFlex
+```
+
+**5.** Create a new branch:
+
+```bash
+git checkout -b YourBranchName
+```
+
+<i>or</i>
+
+```bash
+git branch YourBranchName
+git switch YourBranchName
+```
+
+**6.** Sync your fork or local repository with the origin repository:
+
+- In your forked repository click on `Fetch upstream`.
+- Click `Fetch and merge`.
+
+<h3> Alternatively, Git CLI way to Sync forked repository with origin repository:</h3>
+
+```bash
+git fetch upstream
+```
+
+```bash
+git merge upstream/main
+```
+
+<h3 id="github-docs-syncing">Github Docs for Syncing</h3>
+<a href="https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github">Read the documentation</a>
+
+**7.** Make your changes to the source code.
+
+**8.** Stage your changes and commit:
+
+⚠️ **Make sure** not to commit `package.json` or `package-lock.json` file
+
+⚠️ **Make sure** not to run the commands `git add .` or `git add *`. Instead, stage your changes for each file/folder
+
+```bash
+git add file/folder
+```
+
+```bash
+git commit -m "<your_commit_message>"
+```
+
+**9.** Push your local commits to the remote repository:
+
+```bash
+git push origin YourBranchName
+```
+
+**10.** Create a [Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)!
+
+**Congratulations! You've made your first contribution!** 🙌🏼
+
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/Move%20to%20top-Blue?style=plastic" alt="Back To Top"></a></p>
+
+<h2 id="project-contributors">Project Contributors</h2>
+
+<p align ="center">
+  <img src="https://api.vaunt.dev/v1/github/entities/Open-Code-Crafters/repositories/FitFlex/contributors?format=svg&limit=54" width="600" height= "250" />
+</p>
+<div align="center">
+<a  href="https://github.com/Open-Code-Crafters/FitFlex/graphs/contributors">
+  <img align="center" src="https://contrib.rocks/image?max=100&repo=Open-Code-Crafters/FitFlex" />
+</a> 
+
+
+
+
  
-  <span>• Daily workout plans tailored to individual goals.</span> <br>
-    
-    
-  <ol>
-     <li> FlexPlans <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/flexPlan.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
-      </li>
-      <br>
-      <li> Yoga Special <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/yoga.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
-      </li>
-      <br>
-      <li> Upper Body <br> <br> 
-       <img src="./src/assets/ReadMeAssests/screenShorts/upperbody.png/" alt="Workout Plans" width="100%" height="400" style="vertical-align: middle; margin-right: 10px;" />   
-      </li>
-      <b>  Many more....</b>
-   </ol>
-
-</div>
-
-<div>
- 
-  <span>• Track progress and stay consistent.</span> <br> <br> 
-   <img src="./src/assets/ReadMeAssests/screenShorts/trackProgress.png/" alt="Progress Tracking" width="400" height="400" style="vertical-align: middle; margin-right: 10px;" />
-</div>
-
-
-# Getting Started
-
-Follow these instructions to set up the project on your local machine.
-
-1.  Installation
-
-    • Fork the Repository
-
-    • Go to the FitFlex repository and click the "Fork" button at the top-right corner to create a copy of this repository under your GitHub account.
-
-2.  Clone the Forked Repository
-
-    • Clone the repository to your local machine by running:
-
-    • To clone the repository :
-
-        git clone https://github.com/your-username/FitFlex.git
-
-    • To change directory :
-
-        cd FitFlex
-
-3.  After navigating into the project directory, install the required dependencies:
-
-    • Install the node modules:
-
-        npm install
-
-    • To Start the project locally:
-
-         npm run dev
-
-    • The application will be available at http://localhost:portNumber
-
-4.  Create a New Branch (For Contributing)
-
-         git checkout -b feature/your-feature-name
-
-    • Make Changes
-
-    • Implement your changes, following the coding conventions of the project.
-
-5.  Commit Changes
-
-    • Stage all Changes:
-
-        git add .
-
-    • Commit all Staged changes:
-
-        git commit -m "feat: describe the feature you added"
-
-6.  Push your changes to your forked repository:
-
-        git push origin feature/your-feature-name
-
-7.  Create a Pull Request
-
-    • Go to the original repository on GitHub and submit a pull request.
-
 # License
 
-This project is licensed under the MIT License.
+<img src = "https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge">
 
-## Acknowledgments
+<div align="center">
+</br>
+<p align = "center">
+Show some ❤️&nbsp; by giving <img src="https://imgur.com/o7ncZFp.jpg" height=25px width=25px> to this repo
+</p>
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+<p align="right"><a href="#top"><img src="https://img.shields.io/badge/Move%20to%20top-Blue?style=plastic" alt="Back To Top"></a></p>
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
-
-## Our Valuable Contributors ❤️✨
-
-[![Contributors](https://contrib.rocks/image?repo=Open-Code-Crafters/FitFlex)](https://github.com/Open-Code-Crafters/FitFlex/graphs/contributors)
-
-# Thank You
-
-Thank you for visiting and using FitFlex!. We truly appreciate your interest in our project.
-Whether you're a user improving your fitness journey or a developer contributing to the codebase, your support is invaluable.
