@@ -19,6 +19,7 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import FAQSection from "../components/FAQ";
 
 function Home() {
   const [fontVarient, setFontVarient] = useState("h1");
@@ -437,9 +438,21 @@ function Home() {
           }}
         >
           <HomeSlider object={hehe} />
+      
         </Box>
+       
       </Box>
+      <Box
+        sx={{
+          background: 'linear-gradient(to right, #4CAF50, #81C784)',
+          padding: '40px 0',
+          minHeight: '100vh',
+        }}
 
+      ><FAQSection  sx={{
+        marginTop: '40px',  // Add gap on top (adjust value as needed)
+        marginBottom: 0,     // Ensure no gap at the bottom
+      }}/></Box>
       <Box
         sx={{
           display: "flex",

@@ -14,7 +14,7 @@ const Footer = () => {
         color: 'white',
         padding: 4,
         borderTopRightRadius: '50px',
-        marginTop: 4,
+        marginTop: 0,
       }}
     >
       <Grid container spacing={3}>
