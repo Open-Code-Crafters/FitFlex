@@ -1,14 +1,15 @@
 #backToTopBtn {
   position: fixed;
   bottom: 40px;
-  right: 30px;
+  right:30px;
+  transform:translateX(-50%);
   z-index: 1000;
   display: none;
   background-color: #555;
   color: white;
   border: none;
   border-radius: 50%;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   opacity: 0.8;
   transition: opacity 0.3s ease, background-color 0.3s ease;
