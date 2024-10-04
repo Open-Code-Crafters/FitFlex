@@ -4,7 +4,8 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import NotFound from "./views/NotFound.jsx";
-import BackToTopButton from "./components/BacktoTop.jsx"; // Import Back to Top Button
+import BackToTopButton from "./components/BacktoTop.jsx";
+import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -15,6 +16,8 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
+// const HealthTips = lazy(() => import("./components/Healthtips.jsx"));
+// import HealthTips from './components/HealthTips'; // Make sure this path is correct
 
 function App() {
   return (
@@ -34,7 +37,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
+            <Route path="/healthtips" element={<HealthTips />} />
           </Routes>
+
           <Footer />
           <BackToTopButton /> {/* Add Back to Top Button here */}
         </BrowserRouter>
