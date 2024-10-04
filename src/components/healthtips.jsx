@@ -96,49 +96,49 @@ function HealthTips() {
       title: "Consistency Over Intensity",
       description:
         "Regular, moderate exercise is more effective for long-term fitness than occasional intense workouts. Aim for at least 150 minutes of moderate or 75 minutes of vigorous exercise weekly.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/exercise.jpg?raw=true",
+      image: "https://www.rd.com/wp-content/uploads/sites/2/2016/07/bad-exercise-moves-ft.jpg",
     },
     {
       title: "Strength Training",
       description:
         "Include strength training exercises 2-3 times per week to build and maintain muscle mass. Focus on full-body exercises like squats, lunges, and push-ups.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/strength-training.jpg?raw=true",
+      image: "https://th.bing.com/th/id/OIP.jKPLS8WyI3xdGseNjkWa8gAAAA?rs=1&pid=ImgDetMain",
     },
     {
       title: "Warm-Up and Cool Down",
       description:
         "Always start your workout with a warm-up to increase blood flow and prepare your muscles. Finish with a cool-down and stretching to aid in flexibility and recovery.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/warmup-cooldown.jpg?raw=true",
+      image: "https://th.bing.com/th/id/OIP.tLBn6T5ijUGzU3965ggrwwHaFj?rs=1&pid=ImgDetMain",
     },
     {
       title: "Balanced Diet",
       description:
         "Fuel your body with a balanced diet rich in whole grains, lean proteins, fruits, vegetables, and healthy fats. Proper nutrition is key to achieving fitness goals and promoting overall well-being.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/31f56646c63ac3205d7ad41934c70445a835158c/src/assets/health/balanced-diet.jpg?raw=true",
+      image: "https://thumbs.dreamstime.com/z/healthy-balanced-lifestyle-eating-exercise-weightloss-diet-concept-31576703.jpg",
     },
     {
       title: "Rest and Recovery",
       description:
         "Give your muscles time to recover by getting adequate sleep (7-9 hours) and scheduling rest days between intense workouts. Overtraining can lead to injuries and burnout.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/rest-recovery.jpg?raw=true",
+      image: "https://www.womenfitness.net/wp/wp-content/uploads/2020/01/images-4.jpeg",
     },
     {
       title: "Mix Up Your Routine",
       description:
         "Keep your workouts interesting by trying activities like cycling, swimming, yoga, or HIIT. This prevents boredom and challenges different muscle groups.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mix-up-routine.jpg?raw=true",
+      image: "https://th.bing.com/th/id/OIP.uAiEd11h-Wl9GwRVs1YJ8QHaE7?rs=1&pid=ImgDetMain",
     },
     {
       title: "Posture and Form",
       description:
         "Pay attention to your posture and form during exercises to prevent injury. If unsure, consider working with a fitness trainer to correct any mistakes.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/posture.jpg?raw=true",
+      image: "https://cdn2.stylecraze.com/wp-content/uploads/2021/09/11-Exercises-For-Good-Posture-Reduce-Stiffness-And-Improve-Flexibility-1.jpg",
     },
     {
       title: "Mental Health",
       description:
         "Fitness isn't just physical. Practices like yoga, meditation, or simple stretching routines can help improve mental well-being and reduce stress.",
-      image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mental-health.jpg?raw=true",
+      image: "https://th.bing.com/th/id/OIP.hTuxTrFLeVkfw320kD9i1wHaE8?rs=1&pid=ImgDetMain",
     },
   ];
 
