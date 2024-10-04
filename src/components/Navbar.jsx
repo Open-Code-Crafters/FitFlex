@@ -98,6 +98,7 @@ function Navbar() {
               sx={{ display: { xs: "none", md: "flex" } }}
               component="div"
             >
+              <NavLink to="/">
               <motion.img
                 src={fitnessPrimaryLogo}
                 alt="logo"
@@ -117,6 +118,7 @@ function Navbar() {
                 // scale={scale}
                 whileHover={{ scale: scale + 0.2 }}
               />
+            </NavLink>
             </Typography>
 
             <Typography
@@ -236,6 +238,7 @@ function Navbar() {
                 // scale={scale}
                 whileHover={{ scale: scale + 0.2 }}
               />
+
             </Typography>
             <Typography
               variant="h4"

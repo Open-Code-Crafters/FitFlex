@@ -38,8 +38,8 @@ function HealthTipsCard({ tip }) {
         display: "flex",
         flexDirection: "column",
         width: "280px",
-        height: "18rem",
-        margin: "20px 8px",
+        height: "23rem",
+        margin: "18px 8px",
         borderRadius: "17px",
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
         transition: "0.4s",
@@ -55,7 +55,7 @@ function HealthTipsCard({ tip }) {
     >
       <CardMedia
         component="img"
-        height="140" // Adjusted height
+        height="200" // Adjusted height
         image={tip.image}
         alt="Health Tip"
         sx={{ objectFit: "fit" }} // Ensures the image covers the area appropriately
@@ -150,7 +150,7 @@ function HealthTips() {
       image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mental-health.jpg?raw=true",
     },
   ];
-
+  
   return (
     <Box sx={{ padding: "20px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", height: "100vh" }}>
     <Box sx={{ textAlign: "center" }}>
