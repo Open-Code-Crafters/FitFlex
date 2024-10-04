@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link, IconButton, Grid } from '@mui/material';
+import { Box, Typography, Link, IconButton, Grid, Divider } from '@mui/material'; // Import Divider
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -13,11 +13,11 @@ const Footer = () => {
         backgroundColor: '#2b2b2b',
         color: 'white',
         padding: 4,
-        borderTopRightRadius: '50px',
         marginTop: 0,
       }}
     >
       <Grid container spacing={3}>
+        {/* ABOUT Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -25,7 +25,8 @@ const Footer = () => {
             sx={{
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 'bold',
-              fontSize: '1.5rem', 
+              fontSize: '1.5rem',
+              marginTop:'20px',
             }}
           >
             ABOUT
@@ -42,7 +43,7 @@ const Footer = () => {
                   textDecoration: 'none',
                   paddingBottom: '8px',
                   fontSize: '1.2rem',
-                  '&:hover': { color: '#f1c40f' },
+                  '&:hover': { color: '#B17457' },
                 }}
               >
                 {item}
@@ -50,6 +51,8 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
+
+        {/* SERVICES Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -58,6 +61,7 @@ const Footer = () => {
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 'bold',
               fontSize: '1.5rem',
+              marginTop:'20px',
             }}
           >
             SERVICES
@@ -73,8 +77,8 @@ const Footer = () => {
                 sx={{
                   textDecoration: 'none',
                   paddingBottom: '8px',
-                  fontSize: '1.2rem', 
-                  '&:hover': { color: '#f1c40f' },
+                  fontSize: '1.2rem',
+                  '&:hover': { color: '#B17457' },
                 }}
               >
                 {item}
@@ -82,6 +86,8 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
+
+        {/* RESOURCES Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -90,12 +96,13 @@ const Footer = () => {
               fontFamily: 'Arial, Helvetica, sans-serif',
               fontWeight: 'bold',
               fontSize: '1.5rem', 
+              marginTop:'20px',
             }}
           >
             RESOURCES
           </Typography>
           <Box>
-            {['Blog', 'Health Tips', 'FAQs', 'Contact Us'].map((item, index) => (
+            {['Blog', 'Health Tips', 'FAQs','Contact Us'].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -105,8 +112,8 @@ const Footer = () => {
                 sx={{
                   textDecoration: 'none',
                   paddingBottom: '8px',
-                  fontSize: '1.2rem',
-                  '&:hover': { color: '#f1c40f' },
+                  fontSize: '1.2rem', // Adjusted font size for the links
+                  '&:hover': { color: '#B17457' },
                 }}
               >
                 {item}
@@ -114,43 +121,80 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
+
+        {/* Logo and Hashtag Section */}
         <Grid
           item
           xs={12}
           sm={6}
           md={3}
-          sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-end', // Align items to the right
+            marginBottom:'25px',
+          }}
         >
-          <img src={logo} alt="Fitflex Logo" style={{ width: '120px', marginBottom: '15px' }} />
-          <Typography
-            variant="body1"
-            mt={1}
-            textAlign="center"
-            sx={{
-              fontFamily: 'Impact, Charcoal, sans-serif',
-              fontSize: '1.4rem',
-            }}
-          >
-            #TransformWithFitFlex
-          </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-            {[FaFacebookF, FaInstagram, faXTwitter, FaYoutube].map((Icon, index) => (
-              <IconButton
-                key={index}
-                href="#"
-                color="inherit"
-                sx={{
-                  fontSize: '2rem',
-                  '&:hover': { color: 'grey.500' },
-                  mx: 0.7,
-                }}
-              >
-                {index === 2 ? <FontAwesomeIcon icon={Icon} /> : <Icon fontSize="inherit" />}
-              </IconButton>
-            ))}
+          <Box sx={{ textAlign: 'right' }}>
+            <img
+              src={logo}
+              alt="Fitflex Logo"
+              style={{ width: '200px', marginRight:'100px' }}
+            />
+            <Typography
+              variant="body1"
+              mt={1}
+              sx={{
+                fontFamily: 'Impact, Charcoal, sans-serif',
+                fontSize: '1.4rem',
+                marginRight:'100px',
+              }}
+            >
+              #TransformWithFitFlex
+            </Typography>
           </Box>
         </Grid>
       </Grid>
+
+      {/* Divider line */}
+      <Divider
+        sx={{
+          backgroundColor: 'white', // white color for the line
+          marginTop: '20px',
+          marginBottom: '25px',
+          height: '2px', // visible thickness
+        }}
+      />
+
+      {/* Social Media Icons below the divider */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+        {[FaFacebookF, FaInstagram, faXTwitter, FaYoutube].map((Icon, index) => (
+          <IconButton
+            key={index}
+            href="#"
+            color="inherit"
+            sx={{
+              fontSize: '2rem',
+              '&:hover': { color: 'grey.500' },
+              mx: 1,
+            }}
+          >
+            {index === 2 ? <FontAwesomeIcon icon={Icon} /> : <Icon fontSize="inherit" />}
+          </IconButton>
+        ))}
+      </Box>
+
+      {/* Copyright text below the social media icons */}
+      <Typography
+        variant="body2"
+        sx={{
+          textAlign: 'center',
+          fontFamily: 'Arial, Helvetica, sans-serif',
+          marginTop: '20px',
+        }}
+      >
+        © 2024 FitFlex. All Rights Reserved.
+      </Typography>
     </Box>
   );
 };
