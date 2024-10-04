@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { debounce } from "lodash";  // Import lodash debounce
 import {
   TextField,
   Button,
@@ -103,6 +105,14 @@ const Register = () => {
     setShowPassword(!showPassword);
   };
 
+  // Debounce handler to avoid frequent validation
+  const handleDebouncedInput = useCallback(
+    debounce(async (field) => {
+      await trigger(field);
+    }, 300),
+    []  // empty dependencies ensure that debounce doesn't reinitialize on every render
+  );
+
   const handleCloseSnackbar = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -113,7 +123,7 @@ const Register = () => {
   const onSubmit = (data) => {
     console.log(data);
     setOpenSnackbar(true);
-    setTimeout(() => navigate("/login"), 2000);
+    setTimeout(() => navigate("/Login"), 2000);
   };
 
   const height = watch("height");
@@ -145,6 +155,7 @@ const Register = () => {
       setOpenSnackbar(true);
     }
   }, [height, weight, errors]);
+
 
   return (
     <Container
@@ -277,10 +288,11 @@ const Register = () => {
               <TextField
                 fullWidth
                 label="Email"
-                {...register("email")}
+                type="email"
+                {...register("email", { required: "Email is required" })}
                 error={!!errors.email}
                 helperText={errors.email ? errors.email.message : ""}
-                onBlur={() => trigger("email")}
+                onBlur={() => handleDebouncedInput("email")} // Apply debou
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -355,11 +367,11 @@ const Register = () => {
               <TextField
                 fullWidth
                 label="Password"
-                type={showPassword ? "text" : "password"}
-                {...register("password")}
+                type="password"
+                {...register("password", { required: "Password is required" })}
                 error={!!errors.password}
                 helperText={errors.password ? errors.password.message : ""}
-                onBlur={() => trigger("password")}
+                onBlur={() => handleDebouncedInput("password")} // Apply debounce onBlur
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -400,12 +412,14 @@ const Register = () => {
                 fullWidth
                 label="Confirm Password"
                 type={showPassword ? "text" : "password"}
-                {...register("confirmPassword")}
+                {...register("confirmPassword", {
+                  required: "Confirm Password is required",
+                  validate: (value) =>
+                    value === watch("password") || "Passwords do not match",
+                })}
                 error={!!errors.confirmPassword}
-                helperText={
-                  errors.confirmPassword ? errors.confirmPassword.message : ""
-                }
-                onBlur={() => trigger("confirmPassword")}
+                helperText={errors.confirmPassword ? errors.confirmPassword.message : ""}
+                onBlur={() => handleDebouncedInput("confirmPassword")} // Apply debounce onBlur
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -493,6 +507,9 @@ const Register = () => {
                   label="Gender"
                   {...register("gender")}
                   defaultValue=""
+                  onChange={(e) => {
+                    handleDebouncedInput("gender");
+                  }}
                   sx={{
                     fontFamily: "Future2",
                     "& .MuiInputBase-input": {
@@ -549,10 +566,8 @@ const Register = () => {
                 type="date"
                 {...register("dateOfBirth")}
                 error={!!errors.dateOfBirth}
-                helperText={
-                  errors.dateOfBirth ? errors.dateOfBirth.message : ""
-                }
-                onBlur={() => trigger("dateOfBirth")}
+                helperText={errors.dateOfBirth ? errors.dateOfBirth.message : ""}
+                onChange={() => handleDebouncedInput("dateOfBirth")} // Apply debounce onChange
                 InputLabelProps={{
                   shrink: true,
                   sx: {
@@ -592,7 +607,7 @@ const Register = () => {
                 {...register("height")}
                 error={!!errors.height}
                 helperText={errors.height ? errors.height.message : ""}
-                onBlur={() => trigger("height")}
+                onChange={() => handleDebouncedInput("height")} // Apply debounce onChange
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -631,7 +646,7 @@ const Register = () => {
                 {...register("weight")}
                 error={!!errors.weight}
                 helperText={errors.weight ? errors.weight.message : ""}
-                onBlur={() => trigger("weight")}
+                onChange={() => handleDebouncedInput("weight")} // Apply debounce onChange
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
