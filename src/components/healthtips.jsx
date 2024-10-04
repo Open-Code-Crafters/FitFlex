@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Typography,
-  Box,
-  Card,
-  CardMedia,
-  CardContent,
-  Grid,
-} from "@mui/material";
+import { Typography, Box, Card, CardMedia, CardContent, Grid } from "@mui/material";
 import { motion } from "framer-motion";
 
 // HealthTipCard component
@@ -58,18 +51,16 @@ function HealthTipsCard({ tip }) {
         height="200" // Adjusted height
         image={tip.image}
         alt="Health Tip"
-        sx={{ objectFit: "fit" }} // Ensures the image covers the area appropriately
+        sx={{ objectFit: "cover" }} // Ensures the image covers the area appropriately
       />
       <CardContent sx={{ display: "flex", flexDirection: "column", flexGrow: 2 }}>
         <div
           style={{
-            // position: "absolute",
             bottom: 0, // Set to bottom to touch the bottom of the card
             zIndex: 1,
             backgroundColor: "transparent",
             width: "100%",
             backdropFilter: "blur(10px)",
-            // padding: "10px", // Added padding for better spacing
           }}
         >
           <Typography
@@ -150,22 +141,35 @@ function HealthTips() {
       image: "https://github.com/Jay-1409/FitFlex/blob/update/src/assets/health/mental-health.jpg?raw=true",
     },
   ];
-  
+
   return (
-    <Box sx={{ padding: "20px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", height: "100vh" }}>
-    <Box sx={{ textAlign: "center" }}>
-      <Typography variant="h4" sx={{ marginBottom: "20px", fontWeight: "bold" }}>
-        Health Tips for Fitness and Wellness
-      </Typography>
+    <Box
+      sx={{
+        padding: "20px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        minHeight: "100vh",
+        backgroundImage: "url('https://th.bing.com/th/id/R.4cceab5d8272d2762b048b676c9b83ca?rik=JWyjf%2f0RljVaVQ&riu=http%3a%2f%2feskipaper.com%2fimages%2fpaper-background-4.jpg&ehk=S9Ih%2bo%2fEYOPVilNV%2fz4ncGf%2bnKTGOD004%2b73HJ%2fRVxk%3d&risl=&pid=ImgRaw&r=0')", // Add your background image URL here
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <Box sx={{ textAlign: "center" }}>
+        <Typography variant="h4" sx={{ marginBottom: "20px", fontWeight: "bold" }}>
+          Health Tips for Fitness and Wellness
+        </Typography>
+      </Box>
+      <Grid container spacing={3} justifyContent="center">
+        {tips.map((tip, index) => (
+          <Grid item key={index}>
+            <HealthTipsCard tip={tip} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
-    <Grid container spacing={3} justifyContent="center">
-      {tips.map((tip, index) => (
-        <Grid item key={index}>
-          <HealthTipsCard tip={tip} />
-        </Grid>
-      ))}
-    </Grid>
-  </Box>
   );
 }
 
