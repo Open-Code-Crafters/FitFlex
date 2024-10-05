@@ -17,9 +17,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-const pages = ["Home", "About", "Contact", "Register"];
+
+// Added "Blog" to the pages array
+const pages = ["Home", "About", "Contact", "Register", "Blog"]; 
+
 function Navbar() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  
+  // Theme setup
   const navTheme = createTheme({
     palette: {
       mode: "dark",
@@ -28,20 +33,23 @@ function Navbar() {
       },
     },
   });
+  
+  // State for menu control
   const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [isLogged, setLogged] = useState(false);
 
+  // Menu open/close handlers
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
     setAnchorElNav(null);
+    if (url) {
+      navigate(url);  // Correct usage of navigate
+    }
   };
-  // const { scrollYProgress } = useViewportScroll();
 
+  // Scroll-related state
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scale, setScale] = useState(1);
   const [y2, setY2] = useState(13);
@@ -49,6 +57,7 @@ function Navbar() {
   const [x, setX] = useState(0);
   const [x2, setX2] = useState(0);
   const [x3, setX3] = useState(10);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
@@ -71,21 +80,22 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
+    // Clean up the event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [window.pageYOffset]);
+  }, []);
+
   return (
     <ThemeProvider theme={navTheme}>
       <AppBar
         position="sticky"
-        className=""
         sx={{
           background:
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
         }}
       >
-        <Container maxWidth="xl" sx={{}}>
+        <Container maxWidth="xl">
           <Toolbar
             disableGutters
             sx={{
@@ -94,33 +104,30 @@ function Navbar() {
               alignItems: "center",
             }}
           >
-            <Typography
-              sx={{ display: { xs: "none", md: "flex" } }}
-              component="div"
-            >
+            {/* Logo */}
+            <Typography sx={{ display: { xs: "none", md: "flex" } }} component="div">
               <NavLink to="/">
-              <motion.img
-                src={fitnessPrimaryLogo}
-                alt="logo"
-                style={{
-                  marginTop: "-55px",
-                  height: "140px",
-                  width: "150px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale,
-                  y: y,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  cursor: "pointer",
-                }}
-                // scale={scale}
-                whileHover={{ scale: scale + 0.2 }}
-              />
-            </NavLink>
+                <motion.img
+                  src={fitnessPrimaryLogo}
+                  alt="logo"
+                  style={{
+                    marginTop: "-55px",
+                    height: "140px",
+                    width: "150px",
+                    position: "absolute",
+                    top: "100%",
+                    zIndex: 1,
+                    scale: scale,
+                    y: y,
+                    transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                    cursor: "pointer",
+                  }}
+                  whileHover={{ scale: scale + 0.2 }}
+                />
+              </NavLink>
             </Typography>
 
+            {/* Tagline */}
             <Typography
               variant="h6"
               noWrap
@@ -128,53 +135,46 @@ function Navbar() {
               sx={{ flexGrow: 1, mr: 2, display: { xs: "none", md: "flex" } }}
             >
               <motion.div
-                // sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 style={{
                   x: x,
                   fontFamily: "Impact, Charcoal, sans-serif",
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 }}
               >
                 #TransformWithFitFlex
               </motion.div>
             </Typography>
+
+            {/* Secondary Logo and Title */}
             <Typography
-              variant="h4"
-              noWrap
+              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               component="div"
-              sx={{
-                flexGrow: 1,
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-              }}
             >
-              <motion.div
-                initial={{ y: -250 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
+              <motion.img
+                src={fitnessSecondayrLogo}
+                alt="logo"
                 style={{
-                  fontFamily: "Future2",
-                  letterSpacing: "0.5rem",
-                  color: "white",
-                  fontSize: { sm: "1.7rem", md: "2rem" },
-                  fontWeight: "bold",
+                  marginTop: "-55px",
+                  height: "90px",
+                  width: "280px",
+                  position: "absolute",
+                  top: "100%",
+                  zIndex: 1,
+                  scale: scale + 0.1,
+                  y: y2,
+                  x: x3,
+                  transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  cursor: "pointer",
                 }}
-              >
-                FitFlex
-              </motion.div>
+                whileHover={{ scale: scale + 0.2 }}
+              />
             </Typography>
 
-            <Box
-              sx={{
-                flexGrow: 0,
-                display: { xs: "flex", md: "none" },
-                alignItems: "center",
-              }}
-            >
+            {/* Menu for Mobile */}
+            <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" }, alignItems: "center" }}>
               <IconButton
                 size="small"
-                aria-label="account of current user"
+                aria-label="menu"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
@@ -196,92 +196,28 @@ function Navbar() {
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={() => setAnchorElNav(null)}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
+                sx={{ display: { xs: "block", md: "none" } }}
               >
                 {pages.map((page) => (
                   <MenuItem
                     key={page}
-                    onClick={()=>{
-                      setAnchorElNav(null)
-                      setTimeout(()=>navigate(`/${page.toLowerCase()}`),100)
-                    
-                    }}
+                    onClick={() => handleCloseNavMenu(`/${page.toLowerCase()}`)}
                   >
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <Typography
-              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-              component="div"
-            >
-              <motion.img
-                src={fitnessSecondayrLogo}
-                alt="logo"
-                style={{
-                  marginTop: "-55px",
-                  height: "90px",
-                  width: "280px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale + 0.1,
-                  y: y2,
-                  x: x3,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  cursor: "pointer",
-                }}
-                // scale={scale}
-                whileHover={{ scale: scale + 0.2 }}
-              />
 
-            </Typography>
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-            >
-              <motion.div
-                initial={{ y: -250 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
-                style={{
-                  fontFamily: "Future2",
-                  letterSpacing: { sm: "0rem", md: "0.7rem" },
-                  color: "white",
-                  fontSize: "1.6rem",
-                  fontWeight: "bold",
-                  // x: x2,
-                  zIndex: 10,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                }}
-              >
-                FitFlex
-              </motion.div>
-            </Typography>
+            {/* Menu for Desktop */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={()=>{
-                    setAnchorElNav(null)
-                    navigate(`/${page.toLowerCase()}`)
-                  }}
-                  sx={{
-                    my: 2,
-                    color: "white",
-                    display: "block",
-                    alignItems: "center",
-                  }}
+                  onClick={() => navigate(`/${page.toLowerCase()}`)}
+                  sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  
-                    {page}
+                  {page}
                 </Button>
               ))}
             </Box>

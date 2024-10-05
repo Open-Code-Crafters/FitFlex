@@ -5,7 +5,7 @@ import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
-import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
+import HealthTips from "./components/Healthtips.jsx"; // Import Health Tips
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -16,8 +16,8 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
-// const HealthTips = lazy(() => import("./components/Healthtips.jsx"));
-// import HealthTips from './components/HealthTips'; // Make sure this path is correct
+// Import the Blog component (make sure the path is correct)
+const Blog = lazy(() => import("./views/Blog.jsx"));
 
 function App() {
   return (
@@ -36,8 +36,10 @@ function App() {
             <Route path="/progress" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<NotFound />} />
             <Route path="/healthtips" element={<HealthTips />} />
+            {/* Add route for the blog section */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
 
           <Footer />
