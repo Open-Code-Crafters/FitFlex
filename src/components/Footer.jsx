@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Link, IconButton, Grid, Divider } from '@mui/material'; // Import Divider
+import { Link as RouterLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -105,7 +106,8 @@ const Footer = () => {
             {['Blog', 'Health Tips', 'FAQs','Contact Us'].map((item, index) => (
               <Link
                 key={index}
-                href="#"
+                component={RouterLink}
+                to={item.path}
                 color="grey.100"
                 display="block"
                 gutterBottom
@@ -116,7 +118,7 @@ const Footer = () => {
                   '&:hover': { color: '#B17457' },
                 }}
               >
-                {item}
+                {item.name}
               </Link>
             ))}
           </Box>
@@ -131,7 +133,7 @@ const Footer = () => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'flex-end', // Align items to the right
+            alignItems: 'flex-end', 
             marginBottom:'25px',
           }}
         >
