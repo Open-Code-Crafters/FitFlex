@@ -288,7 +288,7 @@ import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BackgrundImg from "../assets/home/homeImg3.jpg";
-import { getAuth, onAuthStateChanged,signInWithPopup } from "firebase/auth";
+import { getAuth, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useFirebase } from "../context/Firebase";
 import Register from "./Register";
 import Profile from "./Profile";
@@ -333,19 +333,45 @@ const Login = () => {
         navigate('/Profile');
       } else {
         setUser(null);
+        // navigate('/Login');
+
       }
     });
   }, []);
 
-  // Only render Register component if user is null
-  if (user === null) {
-    return (
-      <div>
-        <Register />
-      </div>
-    );
+  const firebase = useFirebase();
+  const auth = getAuth();
+  const googleProvider =new  GoogleAuthProvider();
+
+  const signInWithGoogle = () =>{
+      signInWithPopup(auth,googleProvider);
   }
-  
+
+
+  // // Only render Register component if user is null
+  // if (user === null) {
+  //   return (
+  //     <div>
+  //       <Register />
+  //     </div>
+  //   );
+  // }
+  // const provider = new GoogleAuthProvider();
+  // const auth = getAuth();
+  // const handleGoogleLogin = async () => {
+  //   const auth = getAuth();
+  //   const provider = new GoogleAuthProvider();
+
+  //   try {
+  //     const result = signInWithPopup(auth, provider);
+  //     const user = result.user;
+  //     console.log("Google login successful:", user);
+  //     navigate("/home"); // Redirect to home after login
+  //   } catch (error) {
+  //     console.error("Error during Google login:", error);
+  //     // Handle errors if necessary
+  //   }
+  // };
 
   return (
     <Container
@@ -518,6 +544,7 @@ const Login = () => {
            <Button
             fullWidth
             variant="outlined"
+            onClick={signInWithGoogle}
             
             sx={{
               mt: 2,
