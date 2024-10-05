@@ -368,6 +368,7 @@ const Register = () => {
                 fullWidth
                 label="Password"
                 type="password"
+                type={showPassword ? "text" : "password"}
                 {...register("password", { required: "Password is required" })}
                 error={!!errors.password}
                 helperText={errors.password ? errors.password.message : ""}
