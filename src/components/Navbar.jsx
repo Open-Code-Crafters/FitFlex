@@ -9,8 +9,7 @@ import {
   MenuItem,
   Menu,
 } from "@mui/material";
-import fitnessPrimaryLogo from "../assets/fitness1.png";
-import fitnessSecondayrLogo from "../assets/fitness2.png";
+import fitnessPrimaryLogo from "../assets/fitness1.png"; // Primary logo
 import { motion } from "framer-motion";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -18,12 +17,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-// Added "Blog" to the pages array
-const pages = ["Home", "About", "Contact", "Register", "Blog"]; 
+// Pages for the navbar
+const pages = ["Home", "About", "Contact", "Register", "Blog"];
 
 function Navbar() {
   const navigate = useNavigate();
-  
+
   // Theme setup
   const navTheme = createTheme({
     palette: {
@@ -33,7 +32,7 @@ function Navbar() {
       },
     },
   });
-  
+
   // State for menu control
   const [anchorElNav, setAnchorElNav] = useState(null);
 
@@ -51,31 +50,10 @@ function Navbar() {
 
   // Scroll-related state
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [scale, setScale] = useState(1);
-  const [y2, setY2] = useState(13);
-  const [y, setY] = useState(0);
-  const [x, setX] = useState(0);
-  const [x2, setX2] = useState(0);
-  const [x3, setX3] = useState(10);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
-      if (window.pageYOffset > 0) {
-        setY(-50);
-        setX(150);
-        setX2(60);
-        setScale(0.5);
-        setY2(-22);
-        setX3(70);
-      } else {
-        setScale(1);
-        setY(0);
-        setX3(10);
-        setY2(13);
-        setX(0);
-        setX2(30);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -99,30 +77,24 @@ function Navbar() {
           <Toolbar
             disableGutters
             sx={{
-              height: scrollPosition > 0 ? "50px" : "100px",
-              transition: "height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+              height: scrollPosition > 0 ? "50px" : "150px", // Adjust height for smaller/bigger scroll
+              transition: "height 0.5s ease",
               alignItems: "center",
             }}
           >
-            {/* Logo */}
-            <Typography sx={{ display: { xs: "none", md: "flex" } }} component="div">
+            {/* Logo - Bigger and fixed */}
+            <Typography sx={{ display: "flex", alignItems: "center" }} component="div">
               <NavLink to="/">
                 <motion.img
                   src={fitnessPrimaryLogo}
                   alt="logo"
                   style={{
-                    marginTop: "-55px",
-                    height: "140px",
-                    width: "150px",
-                    position: "absolute",
-                    top: "100%",
-                    zIndex: 1,
-                    scale: scale,
-                    y: y,
-                    transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                    height: "120px", // Big height for the logo
+                    width: "120px",  // Big width for the logo
+                    marginRight: "20px", // Add space after the logo
                     cursor: "pointer",
                   }}
-                  whileHover={{ scale: scale + 0.2 }}
+                  whileHover={{ scale: 1.1 }} // Slight hover effect for interactivity
                 />
               </NavLink>
             </Typography>
@@ -134,40 +106,7 @@ function Navbar() {
               component="div"
               sx={{ flexGrow: 1, mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <motion.div
-                style={{
-                  x: x,
-                  fontFamily: "Impact, Charcoal, sans-serif",
-                  transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                }}
-              >
-                #TransformWithFitFlex
-              </motion.div>
-            </Typography>
-
-            {/* Secondary Logo and Title */}
-            <Typography
-              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-              component="div"
-            >
-              <motion.img
-                src={fitnessSecondayrLogo}
-                alt="logo"
-                style={{
-                  marginTop: "-55px",
-                  height: "90px",
-                  width: "280px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale + 0.1,
-                  y: y2,
-                  x: x3,
-                  transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  cursor: "pointer",
-                }}
-                whileHover={{ scale: scale + 0.2 }}
-              />
+              #TransformWithFitFlex
             </Typography>
 
             {/* Menu for Mobile */}
