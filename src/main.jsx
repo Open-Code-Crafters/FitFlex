@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Contact from "./views/Contact.jsx";
+import { FirebaseProvider } from "./context/Firebase.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <FirebaseProvider>
+      <App />
+    </FirebaseProvider>
+
   </React.StrictMode>
 );
+
