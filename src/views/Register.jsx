@@ -29,7 +29,9 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import BackgrundImg from "../assets/home/homeImg1.jpg";
-
+import { useFirebase } from "../context/Firebase";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import GoogleIcon from '@mui/icons-material/Google';
 const registerSchema = z
   .object({
     firstName: z.string().min(1, "First name is required"),
@@ -169,6 +171,31 @@ const Register = () => {
       setOpenSnackbar(true);
     }
   }, [height, weight, errors]);
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        navigate('/Profile');
+      } else {
+        setUser(null);
+        
+
+      }
+    });
+  }, []);
+
+  const firebase = useFirebase();
+  const auth = getAuth();
+  const googleProvider =new  GoogleAuthProvider();
+
+  const signInWithGoogle = () =>{
+      signInWithPopup(auth,googleProvider);
+  }
+
+  
 
   return (
     <Container
@@ -732,6 +759,31 @@ const Register = () => {
               >
                 Log in
               </Link>
+              {/* <button onClick={signInWithGoogle}>SignIn with Google</button> */}
+
+              <Button
+              variant="contained"
+              color="primary"
+              startIcon={<GoogleIcon />}
+              onClick={signInWithGoogle}
+              sx={{
+                marginTop: 10, // Adjust spacing as needed
+                marginRight: 7,
+                backgroundColor: '#4285F4', // Google's blue color
+                color: 'white',
+                borderRadius: '25px',
+                padding: '10px 20px',
+                textTransform: 'none',
+                fontWeight: 'bold',
+                "&:hover": {
+                  backgroundColor: '#357ae8', 
+                },
+              }}
+            >
+              Sign In with Google
+            </Button>
+
+
             </Grid>
           </Grid>
         </Box>
