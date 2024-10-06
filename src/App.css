@@ -74,3 +74,13 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 1rem;
   color: #777;
 }
+
+.logo {
+  height: 24px;
+  width: auto;
+  transition: transform 0.2s ease; 
+}
+
+.logo:hover {
+  transform: translateY(-5px);
+}

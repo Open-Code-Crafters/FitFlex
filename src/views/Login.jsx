@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +19,10 @@ import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BackgrundImg from "../assets/home/homeImg3.jpg";
+import { getAuth, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useFirebase } from "../context/Firebase";
+import Register from "./Register";
+import Profile from "./Profile";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -49,6 +54,55 @@ const Login = () => {
     setOpenSnackbar(true);
     setTimeout(() => navigate("/home"), 2000); // Redirect after 2 seconds
   };
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        navigate('/Profile');
+      } else {
+        setUser(null);
+        // navigate('/Login');
+
+      }
+    });
+  }, []);
+
+  const firebase = useFirebase();
+  const auth = getAuth();
+  const googleProvider =new  GoogleAuthProvider();
+
+  const signInWithGoogle = () =>{
+      signInWithPopup(auth,googleProvider);
+  }
+
+
+  // // Only render Register component if user is null
+  // if (user === null) {
+  //   return (
+  //     <div>
+  //       <Register />
+  //     </div>
+  //   );
+  // }
+  // const provider = new GoogleAuthProvider();
+  // const auth = getAuth();
+  // const handleGoogleLogin = async () => {
+  //   const auth = getAuth();
+  //   const provider = new GoogleAuthProvider();
+
+  //   try {
+  //     const result = signInWithPopup(auth, provider);
+  //     const user = result.user;
+  //     console.log("Google login successful:", user);
+  //     navigate("/home"); // Redirect to home after login
+  //   } catch (error) {
+  //     console.error("Error during Google login:", error);
+  //     // Handle errors if necessary
+  //   }
+  // };
 
   return (
     <Container
@@ -166,7 +220,6 @@ const Login = () => {
                   color: errors.password ? "red" : "green",
                   opacity: 1,
                 },
-                // fontFamily: "Future2",
               },
               endAdornment: (
                 <IconButton onClick={handleClickShowPassword}>
@@ -180,7 +233,25 @@ const Login = () => {
               },
             }}
           />
-          <Button
+          {/* <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{
+              mt: 3,
+              mb: 2,
+              padding: 1,
+              background: "linear-gradient(to right, #972525, #e80b0b)",
+              color: "#fff",
+              fontFamily: "Future2",
+              "&:hover": {
+                background: "linear-gradient(to left, #972525, #e80b0b)",
+              },
+            }}
+          >
+            Log In
+          </Button> */}
+           <Button
             type="submit"
             fullWidth
             variant="contained"
@@ -198,6 +269,31 @@ const Login = () => {
           >
             Log In
           </Button>
+
+
+           {/* Google Login Button */}
+           <Button
+            fullWidth
+            variant="outlined"
+            onClick={signInWithGoogle}
+            
+            sx={{
+              mt: 2,
+              mb: 2,
+              padding: 1,
+              borderColor: "white",
+              color: "white",
+              fontFamily: "Future2",
+              backgroundColor:'#4285F4',
+              "&:hover": {
+                borderColor: 'white',
+                backgroundColor: '#357ae8', 
+              },
+            }}
+          >
+            Sign in with Google
+          </Button>
+          
           <Grid container justifyContent="flex-end">
             <Grid item>
               Don't have an account?
@@ -232,7 +328,7 @@ const Login = () => {
           severity="success"
           sx={{ width: "100%" }}
         >
-          {"Login successful! ,Get Ready..   Redirecting to home page..."}
+          {"Login successful! Redirecting to home page..."}
         </Alert>
       </Snackbar>
     </Container>

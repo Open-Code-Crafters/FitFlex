@@ -6,15 +6,15 @@ import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 import logo from '../assets/fitness1.png';
 
+
 const Footer = () => {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: '#2b2b2b',
-        color: 'white',
+        backgroundColor: "#2b2b2b",
+        color: "white",
         padding: 4,
-        marginTop: 0,
       }}
       >
       <Grid container spacing={3}>
@@ -33,7 +33,7 @@ const Footer = () => {
             ABOUT
           </Typography>
           <Box>
-            {['Our Story', 'Team', 'Careers', 'Press'].map((item, index) => (
+            {["Our Story", "Team", "Careers", "Press"].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -67,7 +67,12 @@ const Footer = () => {
             SERVICES
           </Typography>
           <Box>
-            {['Personal Coaching', 'Group Classes', 'Online Programs', 'Corporate Wellness'].map((item, index) => (
+            {[
+              "Personal Coaching",
+              "Group Classes",
+              "Online Programs",
+              "Corporate Wellness",
+            ].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -78,8 +83,7 @@ const Footer = () => {
                   textDecoration: 'none',
                   paddingBottom: '8px',
                   fontSize: {xs:'1rem',sm:'1.2rem'},
-                  '&:hover': { color: '#B17457' },
-          
+                  '&:hover': { color: '#B17457' },          
                 }}
               >
                 {item}
@@ -154,6 +158,29 @@ const Footer = () => {
             >
               #TransformWithFitFlex
             </Typography>
+
+          </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+            {[FaFacebookF, FaInstagram, faXTwitter, FaYoutube].map(
+              (Icon, index) => (
+                <IconButton
+                  key={index}
+                  href="#"
+                  color="inherit"
+                  sx={{
+                    fontSize: { xs: "1.5rem", sm: "2rem" }, 
+                    "&:hover": { color: "grey.500" },
+                    mx: { xs: 0.5, sm: 0.7 }, 
+                  }}
+                >
+                  {index === 2 ? (
+                    <FontAwesomeIcon icon={Icon} />
+                  ) : (
+                    <Icon fontSize="inherit" />
+                  )}
+                </IconButton>
+              )
+            )}
           </Box>
         </Grid>
       </Grid>
