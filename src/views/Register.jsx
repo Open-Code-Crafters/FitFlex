@@ -28,7 +28,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import BackgrundImg from "../assets/home/homeImg1.jpg";
 import { useFirebase } from "../context/Firebase";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import GoogleIcon from '@mui/icons-material/Google';
 const registerSchema = z
   .object({
@@ -147,6 +147,21 @@ const Register = () => {
       setOpenSnackbar(true);
     }
   }, [height, weight, errors]);
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        navigate('/Profile');
+      } else {
+        setUser(null);
+        
+
+      }
+    });
+  }, []);
 
   const firebase = useFirebase();
   const auth = getAuth();

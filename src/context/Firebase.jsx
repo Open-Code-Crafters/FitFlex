@@ -23,8 +23,6 @@ export const useFirebase = () => useContext(FirebaseContext);
 export const FirebaseProvider =(props) =>{
     
   
-
-
     return(
 
         <FirebaseContext.Provider>
