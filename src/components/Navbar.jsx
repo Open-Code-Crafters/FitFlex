@@ -17,8 +17,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { size } from "lodash";
-const pages = ["Home", "About", "Contact", "Register"];
+
+// Add 'Blog' before 'Register'
+const pages = ["Home", "About", "Contact", "Blog", "Register"];
+
 function Navbar() {
   const navigate = useNavigate();
   const navTheme = createTheme({
@@ -30,18 +32,19 @@ function Navbar() {
     },
   });
   const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [isLogged, setLogged] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
+  const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  // const { scrollYProgress } = useViewportScroll();
+
+  const navigateToPage = (page) => {
+    navigate(`/${page.toLowerCase()}`);
+    handleCloseNavMenu();  // Close the menu after navigation
+  };
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scale, setScale] = useState(1);
@@ -50,6 +53,7 @@ function Navbar() {
   const [x, setX] = useState(0);
   const [x2, setX2] = useState(0);
   const [x3, setX3] = useState(10);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
@@ -75,18 +79,18 @@ function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [window.pageYOffset]);
+  }, []);
+
   return (
     <ThemeProvider theme={navTheme}>
       <AppBar
         position="sticky"
-        className=""
         sx={{
           background:
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
         }}
       >
-        <Container maxWidth="xl" sx={{}}>
+        <Container maxWidth="xl">
           <Toolbar
             disableGutters
             sx={{
@@ -95,6 +99,7 @@ function Navbar() {
               alignItems: "center",
             }}
           >
+            {/* Logo */}
             <Typography
               sx={{ display: { xs: "none", md: "flex" } }}
               component="div"
@@ -116,12 +121,12 @@ function Navbar() {
                       "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                     cursor: "pointer",
                   }}
-                  // scale={scale}
                   whileHover={{ scale: scale + 0.2 }}
                 />
               </NavLink>
             </Typography>
 
+            {/* Navbar title */}
             <Typography
               variant="h6"
               noWrap
@@ -129,7 +134,6 @@ function Navbar() {
               sx={{ flexGrow: 1, mr: 2, display: { xs: "none", md: "flex" } }}
             >
               <motion.div
-                // sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
                 style={{
                   x: x,
                   fontFamily: "Impact, Charcoal, sans-serif",
@@ -140,32 +144,8 @@ function Navbar() {
                 #TransformWithFitFlex
               </motion.div>
             </Typography>
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{
-                flexGrow: 1,
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              <motion.div
-                initial={{ y: -250 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
-                style={{
-                  fontFamily: "Future2",
-                  letterSpacing: "0.5rem",
-                  color: "white",
-                  fontSize: { sm: "1rem", md: "2rem" },
-                  fontWeight: "bold",
-                }}
-              >
-                FitFlex
-              </motion.div>
-            </Typography>
 
+            {/* Mobile menu */}
             <Box
               sx={{
                 flexGrow: 0,
@@ -175,7 +155,7 @@ function Navbar() {
             >
               <IconButton
                 size="small"
-                aria-label="account of current user"
+                aria-label="menu"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
@@ -196,7 +176,7 @@ function Navbar() {
                   horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
-                onClose={() => setAnchorElNav(null)}
+                onClose={handleCloseNavMenu}
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
@@ -204,81 +184,20 @@ function Navbar() {
                 {pages.map((page) => (
                   <MenuItem
                     key={page}
-                    onClick={() => {
-                      setAnchorElNav(null);
-                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
-                    }}
+                    onClick={() => navigateToPage(page)}
                   >
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <Typography
-              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-              component="div"
-            >
-              <motion.img
-                src={fitnessSecondayrLogo}
-                alt="logo"
-                style={{
-                  marginTop: "-50px",
-                  height: "90px",
-                  width: "280px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale-0.1,
-                  y: y2,
-                  x: x3,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  cursor: "pointer",
-                }}
-                // Responsive styles for smartphones
-                // sx={{
-                //   "@media (max-width: 600px)": {
-                //     height: "20px", // Reduced height for small screens
-                //     width: "0px", // Reduced width for small screens
-                //     marginRight: "30px",
-                //   },
-                // }}
-                whileHover={{ scale: scale + 0.2 }}
-              />
-            </Typography>
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-            >
-              <motion.div
-                initial={{ y: -250 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
-                style={{
-                  fontFamily: "Future2",
-                  letterSpacing: window.innerWidth < 600 ? "0rem" : "0.0rem", // Adjust letterSpacing based on screen size
-                  color: "white",
-                  fontSize: window.innerWidth < 600 ? "1rem" : "1.6rem", // Responsive font size for mobile
-                  fontWeight: "bold",
-                  marginRight:"30px",
-                  zIndex: 10,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                }}
-              >
-                FitFlex
-              </motion.div>
-            </Typography>
+
+            {/* Desktop menu */}
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={() => {
-                    setAnchorElNav(null);
-                    navigate(`/${page.toLowerCase()}`);
-                  }}
+                  onClick={() => navigateToPage(page)}
                   sx={{
                     my: 2,
                     color: "white",

@@ -5,8 +5,8 @@ import Footer from "./components/Footer.jsx";
 import Loading from "./components/Loading.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
-import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 
+// Lazy-load components
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
 const Contact = lazy(() => import("./views/Contact.jsx"));
@@ -16,37 +16,33 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
-// const HealthTips = lazy(() => import("./components/Healthtips.jsx"));
-// import HealthTips from './components/HealthTips'; // Make sure this path is correct
+const Blog = lazy(() => import("./views/Blog.jsx"));
+const HealthTips = lazy(() => import("./components/HealthTips.jsx")); // Ensure correct path
 
 function App() {
   return (
-    <>
-      <Suspense fallback={<Loading />}>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/plans" element={<Plans />} />
-            <Route path="/plans/:plansId" element={<Plans />} />
-            <Route path="/workout/:workoutId" element={<Workout />} />
-            <Route path="/progress" element={<Profile />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<NotFound />} />
-            <Route path="/healthtips" element={<HealthTips />} />
-
-          </Routes>
-
-          <Footer />
-          <BackToTopButton /> {/* Add Back to Top Button here */}
-        </BrowserRouter>
-      </Suspense>
-    </>
+    <Suspense fallback={<Loading />}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/plans" element={<Plans />} />
+          <Route path="/plans/:plansId" element={<Plans />} />
+          <Route path="/workout/:workoutId" element={<Workout />} />
+          <Route path="/progress" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/healthtips" element={<HealthTips />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <BackToTopButton />
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
