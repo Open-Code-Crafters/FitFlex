@@ -99,7 +99,9 @@ function Home() {
               <Typography
                 variant="h1"
                 color="white"
-                style={{ fontWeight: "700" }}
+                style={{ fontWeight: "700",
+                  fontSize: window.innerWidth < 600 ? "2rem" : window.innerWidth < 960 ? "3rem" : "4rem",
+                 }}
               >
                 FitFlex
               </Typography>

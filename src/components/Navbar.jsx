@@ -17,9 +17,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { size } from "lodash";
 const pages = ["Home", "About", "Contact", "Register"];
 function Navbar() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const navTheme = createTheme({
     palette: {
       mode: "dark",
@@ -99,26 +100,26 @@ function Navbar() {
               component="div"
             >
               <NavLink to="/">
-              <motion.img
-                src={fitnessPrimaryLogo}
-                alt="logo"
-                style={{
-                  marginTop: "-55px",
-                  height: "140px",
-                  width: "150px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale,
-                  y: y,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                  cursor: "pointer",
-                }}
-                // scale={scale}
-                whileHover={{ scale: scale + 0.2 }}
-              />
-            </NavLink>
+                <motion.img
+                  src={fitnessPrimaryLogo}
+                  alt="logo"
+                  style={{
+                    marginTop: "-55px",
+                    height: "140px",
+                    width: "150px",
+                    position: "absolute",
+                    top: "100%",
+                    zIndex: 1,
+                    scale: scale,
+                    y: y,
+                    transition:
+                      "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                    cursor: "pointer",
+                  }}
+                  // scale={scale}
+                  whileHover={{ scale: scale + 0.2 }}
+                />
+              </NavLink>
             </Typography>
 
             <Typography
@@ -157,7 +158,7 @@ function Navbar() {
                   fontFamily: "Future2",
                   letterSpacing: "0.5rem",
                   color: "white",
-                  fontSize: { sm: "1.7rem", md: "2rem" },
+                  fontSize: { sm: "1rem", md: "2rem" },
                   fontWeight: "bold",
                 }}
               >
@@ -203,10 +204,9 @@ function Navbar() {
                 {pages.map((page) => (
                   <MenuItem
                     key={page}
-                    onClick={()=>{
-                      setAnchorElNav(null)
-                      setTimeout(()=>navigate(`/${page.toLowerCase()}`),100)
-                    
+                    onClick={() => {
+                      setAnchorElNav(null);
+                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
                     }}
                   >
                     <Typography textAlign="center">{page}</Typography>
@@ -222,23 +222,29 @@ function Navbar() {
                 src={fitnessSecondayrLogo}
                 alt="logo"
                 style={{
-                  marginTop: "-55px",
+                  marginTop: "-50px",
                   height: "90px",
                   width: "280px",
                   position: "absolute",
                   top: "100%",
                   zIndex: 1,
-                  scale: scale + 0.1,
+                  scale: scale-0.1,
                   y: y2,
                   x: x3,
                   transition:
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "pointer",
                 }}
-                // scale={scale}
+                // Responsive styles for smartphones
+                // sx={{
+                //   "@media (max-width: 600px)": {
+                //     height: "20px", // Reduced height for small screens
+                //     width: "0px", // Reduced width for small screens
+                //     marginRight: "30px",
+                //   },
+                // }}
                 whileHover={{ scale: scale + 0.2 }}
               />
-
             </Typography>
             <Typography
               variant="h4"
@@ -252,11 +258,11 @@ function Navbar() {
                 transition={{ duration: 1 }}
                 style={{
                   fontFamily: "Future2",
-                  letterSpacing: { sm: "0rem", md: "0.7rem" },
+                  letterSpacing: window.innerWidth < 600 ? "0rem" : "0.0rem", // Adjust letterSpacing based on screen size
                   color: "white",
-                  fontSize: "1.6rem",
+                  fontSize: window.innerWidth < 600 ? "1rem" : "1.6rem", // Responsive font size for mobile
                   fontWeight: "bold",
-                  // x: x2,
+                  marginRight:"30px",
                   zIndex: 10,
                   transition:
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
@@ -269,9 +275,9 @@ function Navbar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={()=>{
-                    setAnchorElNav(null)
-                    navigate(`/${page.toLowerCase()}`)
+                  onClick={() => {
+                    setAnchorElNav(null);
+                    navigate(`/${page.toLowerCase()}`);
                   }}
                   sx={{
                     my: 2,
@@ -280,8 +286,7 @@ function Navbar() {
                     alignItems: "center",
                   }}
                 >
-                  
-                    {page}
+                  {page}
                 </Button>
               ))}
             </Box>
