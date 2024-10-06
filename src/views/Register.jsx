@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { debounce } from "lodash"; // Import lodash debounce
 import {
   TextField,
   Button,
@@ -47,18 +49,24 @@ const registerSchema = z
         "Invalid phone number"
       ),
     gender: z.enum(["Male", "Female", "PNS"]),
-    dateOfBirth: z.string().refine((date) => {
-      const birthDate = new Date(date);
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+    dateOfBirth: z.string().refine(
+      (date) => {
+        const birthDate = new Date(date);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        if (
+          monthDiff < 0 ||
+          (monthDiff === 0 && today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
+        return age >= 18 && age <= 100;
+      },
+      {
+        message: "You must be above 18 years",
       }
-      return age >= 18 && age <= 100;
-    }, {
-      message: "You must be above 18 years",
-    }),
+    ),
     height: z.preprocess(
       (val) => parseFloat(val),
       z
@@ -87,8 +95,7 @@ const registerSchema = z
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [bmiMessage, setBmiMessage] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state for confirm password
   const navigate = useNavigate();
   const {
     register,
@@ -101,9 +108,23 @@ const Register = () => {
     mode: "onBlur",
   });
 
+  // Toggle the password visibility
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  // Toggle the confirm password visibility
+  const handleClickShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  // Debounce handler to avoid frequent validation
+  const handleDebouncedInput = useCallback(
+    debounce(async (field) => {
+      await trigger(field);
+    }, 300),
+    [] // empty dependencies ensure that debounce doesn't reinitialize on every render
+  );
 
   const handleCloseSnackbar = (event, reason) => {
     if (reason === "clickaway") {
@@ -115,12 +136,12 @@ const Register = () => {
   const onSubmit = (data) => {
     console.log(data);
     setOpenSnackbar(true);
-    setTimeout(() => navigate("/login"), 2000);
+    setTimeout(() => navigate("/Login"), 2000);
   };
 
   const height = watch("height");
   const weight = watch("weight");
-  const [dob, setDob] = useState('');
+  const [dob, setDob] = useState("");
 
   const handleDateChange = (event) => {
     const value = event.target.value;
@@ -128,6 +149,9 @@ const Register = () => {
       setDob(value);
     }
   };
+
+  const [bmiMessage, setBmiMessage] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
   useEffect(() => {
     if (!errors.height && !errors.weight && height && weight) {
@@ -304,10 +328,11 @@ const Register = () => {
               <TextField
                 fullWidth
                 label="Email"
-                {...register("email")}
+                type="email"
+                {...register("email", { required: "Email is required" })}
                 error={!!errors.email}
                 helperText={errors.email ? errors.email.message : ""}
-                onBlur={() => trigger("email")}
+                onBlur={() => handleDebouncedInput("email")} // Apply debou
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -383,10 +408,10 @@ const Register = () => {
                 fullWidth
                 label="Password"
                 type={showPassword ? "text" : "password"}
-                {...register("password")}
+                {...register("password", { required: "Password is required" })}
                 error={!!errors.password}
                 helperText={errors.password ? errors.password.message : ""}
-                onBlur={() => trigger("password")}
+                onBlur={() => handleDebouncedInput("password")} // Apply debounce onBlur
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -426,13 +451,17 @@ const Register = () => {
               <TextField
                 fullWidth
                 label="Confirm Password"
-                type={showPassword ? "text" : "password"}
-                {...register("confirmPassword")}
+                type={showConfirmPassword ? "text" : "password"}
+                {...register("confirmPassword", {
+                  required: "Confirm Password is required",
+                  validate: (value) =>
+                    value === watch("password") || "Passwords do not match",
+                })}
                 error={!!errors.confirmPassword}
                 helperText={
                   errors.confirmPassword ? errors.confirmPassword.message : ""
                 }
-                onBlur={() => trigger("confirmPassword")}
+                onBlur={() => handleDebouncedInput("confirmPassword")} // Apply debounce onBlur
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -456,8 +485,8 @@ const Register = () => {
                     fontFamily: "Caveat",
                   },
                   endAdornment: (
-                    <IconButton onClick={handleClickShowPassword}>
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    <IconButton onClick={handleClickShowConfirmPassword}>
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
                   ),
                 }}
@@ -520,6 +549,9 @@ const Register = () => {
                   label="Gender"
                   {...register("gender")}
                   defaultValue=""
+                  onChange={() => {
+                    handleDebouncedInput("gender");
+                  }}
                   sx={{
                     fontFamily: "Future2",
                     "& .MuiInputBase-input": {
@@ -579,7 +611,7 @@ const Register = () => {
                 helperText={
                   errors.dateOfBirth ? errors.dateOfBirth.message : ""
                 }
-                onBlur={() => trigger("dateOfBirth")}
+                onChange={() => handleDebouncedInput("dateOfBirth")} // Apply debounce onChange
                 InputLabelProps={{
                   shrink: true,
                   sx: {
@@ -619,7 +651,7 @@ const Register = () => {
                 {...register("height")}
                 error={!!errors.height}
                 helperText={errors.height ? errors.height.message : ""}
-                onBlur={() => trigger("height")}
+                onChange={() => handleDebouncedInput("height")} // Apply debounce onChange
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -658,7 +690,7 @@ const Register = () => {
                 {...register("weight")}
                 error={!!errors.weight}
                 helperText={errors.weight ? errors.weight.message : ""}
-                onBlur={() => trigger("weight")}
+                onChange={() => handleDebouncedInput("weight")} // Apply debounce onChange
                 InputLabelProps={{
                   sx: {
                     "&.Mui-focused": {
@@ -710,17 +742,19 @@ const Register = () => {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-            Already have an account?
+              Already have an account?
               <Link
-                href="/login"
+                href="/Login"
                 variant="body2"
-                sx={{ fontFamily: "Future2" ,
+                sx={{
+                  fontFamily: "Future2",
                   color: "green",
                   padding: "0.5rem",
                   textDecoration: "none",
                   fontSize: "1.2rem",
                   "&:hover": {
-                    color: "#2b6f0e",}
+                    color: "#2b6f0e",
+                  },
                 }}
               >
                 Log in
@@ -758,7 +792,7 @@ const Register = () => {
         open={openSnackbar}
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
         <Alert
           onClose={handleCloseSnackbar}
