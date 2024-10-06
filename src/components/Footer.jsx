@@ -14,7 +14,6 @@ const Footer = () => {
         backgroundColor: "#2b2b2b",
         color: "white",
         padding: 4,
-        borderTopRightRadius: "50px",
         marginTop: 0,
       }}
     >
