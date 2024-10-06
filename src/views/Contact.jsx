@@ -196,7 +196,7 @@ const Contact = () => {
   };
 
   const validateMessage = (message) => {
-    if (message.split(" ").length > 10) {
+    if (message.length >= 10) {
       setMessageError(false);
       return true;
     } else {
@@ -285,7 +285,7 @@ const Contact = () => {
                     }}
                     helperText={
                       messageError
-                        ? "Message should be more than 10 words."
+                        ? "Message should be at least 10 characters long."
                         : ""
                     }
                   />
