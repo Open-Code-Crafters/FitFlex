@@ -25,6 +25,7 @@ function Navbar() {
   const navigate = useNavigate();
   
   // Theme setup
+
   const navTheme = createTheme({
     palette: {
       mode: "dark",
@@ -119,9 +120,11 @@ function Navbar() {
                     zIndex: 1,
                     scale: scale,
                     y: y,
+
                     transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                     cursor: "pointer",
                   }}
+
                   whileHover={{ scale: scale + 0.2 }}
                 />
               </NavLink>
@@ -154,6 +157,7 @@ function Navbar() {
                 src={fitnessSecondayrLogo}
                 alt="logo"
                 style={{
+
                   marginTop: "-55px",
                   height: "90px",
                   width: "280px",
@@ -165,6 +169,7 @@ function Navbar() {
                   x: x3,
                   transition: "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "pointer",
+
                 }}
                 whileHover={{ scale: scale + 0.2 }}
               />
@@ -201,7 +206,9 @@ function Navbar() {
                 {pages.map((page) => (
                   <MenuItem
                     key={page}
+
                     onClick={() => handleCloseNavMenu(`/${page.toLowerCase()}`)}
+
                   >
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
@@ -209,13 +216,17 @@ function Navbar() {
               </Menu>
             </Box>
 
+
             {/* Menu for Desktop */}
+
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
+
                   onClick={() => navigate(`/${page.toLowerCase()}`)}
                   sx={{ my: 2, color: "white", display: "block" }}
+
                 >
                   {page}
                 </Button>
