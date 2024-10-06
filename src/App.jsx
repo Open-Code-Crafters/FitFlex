@@ -34,12 +34,10 @@ function App() {
             <Route path="/plans/:plansId" element={<Plans />} />
             <Route path="/workout/:workoutId" element={<Workout />} />
             <Route path="/progress" element={<Profile />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/healthtips" element={<HealthTips />} />
-
           </Routes>
 
           <Footer />
