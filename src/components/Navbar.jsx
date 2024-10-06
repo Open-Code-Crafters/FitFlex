@@ -106,7 +106,7 @@ function Navbar() {
               component="div"
               sx={{ flexGrow: 1, mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              #TransformWithFitFlex
+            #TransformWithFitFlex
             </Typography>
 
             {/* Menu for Mobile */}
