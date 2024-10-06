@@ -26,8 +26,6 @@
     "chart.js": "^4.4.3",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
-    "firebase": "^10.14.0",
-    "fitness-website": "file:",
     "framer-motion": "^11.2.10",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
