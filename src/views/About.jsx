@@ -1,16 +1,19 @@
-// this component is temperary and will be replaced with the actual workout and exercise components
-
-
-
-
-
+import { useState } from 'react';
 import { Typography, Container, Box, Grid, Button } from '@mui/material';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
+import { useNavigate } from 'react-router-dom';
 const About = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate(); // Initialize the navigate hook
+
+    const handleButtonClick = () => {
+        navigate('/register'); // Navigate to the register page
+    };
+
+
     return (
         <Container maxWidth="lg" sx={{ padding: '2rem 0' }}>
             {/* Hero Section */}
@@ -26,7 +29,7 @@ const About = () => {
                 <Typography variant="body1" sx={{ fontSize: '1.25rem', color: '#555' }}>
                     Welcome to <b>FitFlex</b>, where we help you transform your space, transform your body, and
                     ultimately, transform your life! Our team is dedicated to providing you with the best
-                    fitness experience, whether you're working out from home or in the gym.
+                    fitness experience, whether you&apos;re working out from home or in the gym.
                 </Typography>
             </Box>
 
@@ -41,10 +44,10 @@ const About = () => {
                     Our Mission
                 </Typography>
                 <Typography variant="body1" align="center" paragraph sx={{ fontSize: '1.2rem', color: '#666' }}>
-                    At **FitFlex**, our mission is to provide a fitness solution that adapts to your lifestyle
+                    At <b>FitFlex</b>, our mission is to provide a fitness solution that adapts to your lifestyle
                     and goals. Whether you’re a busy professional, a stay-at-home parent, or just someone
-                    who wants to stay fit, we have programs designed just for you. **Transform your space,
-                    transform your body**.
+                    who wants to stay fit, we have programs designed just for you. <b>Transform your space,
+                    transform your body</b>.
                 </Typography>
             </Box>
 
@@ -100,7 +103,7 @@ const About = () => {
                     Why Choose FitFlex?
                 </Typography>
                 <Typography variant="body1" align="center" paragraph sx={{ fontSize: '1.2rem', color: '#666' }}>
-                    With **FitFlex**, you’re not just working out — you’re part of a community that pushes
+                    With <b>FitFlex</b>, you’re not just working out — you’re part of a community that pushes
                     you to be the best version of yourself. Our trainers, programs, and tracking tools are
                     designed to keep you motivated, on track, and seeing results.
                 </Typography>
@@ -137,8 +140,21 @@ const About = () => {
                 <Button
                     variant="contained"
                     size="large"
-                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
+                    sx={{
+                        backgroundColor: isHovered ? 'yellow' : '#ff8c00',
+                        color: '#fff',
+                        padding: '1rem 2rem',
+                        fontSize: '1.2rem',
+                        border: 'none',
+                        cursor: 'pointer',
+                        '&:hover': {
+                            backgroundColor: '#A86512FF', // Ensure hover stays yellow
+                        },
+                    }}
                     endIcon={<ArrowForwardIcon />}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    onClick={handleButtonClick}
                 >
                     Join FitFlex Now
                 </Button>
