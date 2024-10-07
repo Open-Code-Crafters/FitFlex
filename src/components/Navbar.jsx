@@ -18,7 +18,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
-const pages = ["Home", "About", "Contact", "Register"];
+const pages = ["Home", "About", "Contact","Blog", "Register"];
 function Navbar() {
   const navigate = useNavigate();
   const navTheme = createTheme({
