@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Services = () => {
+const Services = ({mode,textcolor}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentService, setCurrentService] = useState("");
 
@@ -19,13 +19,13 @@ const Services = () => {
       <h1 style={styles.heading}>Our Services</h1>
 
       {/* Personal Training Section */}
-      <div style={styles.serviceCard}>
+      <div style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}>
         <img
           src="https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp"
           alt="Personal Training"
           style={styles.image}
         />
-        <h2 style={styles.subheading}>Personal Training</h2>
+        <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
         <p>
           Strength Training, Weight Training, Cardio, etc.
           <br />
@@ -37,13 +37,13 @@ const Services = () => {
       </div>
 
       {/* Nutritional Counseling Section */}
-      <div style={styles.serviceCard}>
+      <div style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}>
         <img
           src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp"
           alt="Nutritional Counseling"
           style={styles.image}
         />
-        <h2 style={styles.subheading}>Nutritional Counseling</h2>
+        <h2 style={{...styles.subheading , color : textcolor}}>Nutritional Counseling</h2>
         <p>
           Tailored Nutrition Counseling: Your Path to Optimal Nourishment. Our individual nutrition counseling service is designed to provide you with guidance and support on your journey to better health. 
         </p>
@@ -53,13 +53,13 @@ const Services = () => {
       </div>
 
       {/* Online Training Section */}
-      <div style={styles.serviceCard}>
+      <div style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}>
         <img
           src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp"
           alt="Online Virtual Training"
           style={styles.image}
         />
-        <h2 style={styles.subheading}>Online Virtual Training</h2>
+        <h2 style={{...styles.subheading ,  color : textcolor}}>Online Virtual Training</h2>
         <p>
           Welcome to Online Virtual Training, where cutting-edge technology meets personalized fitness. Elevate your fitness at your convenience with engaging virtual training sessions.
         </p>
