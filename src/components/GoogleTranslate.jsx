@@ -121,6 +121,11 @@ const GoogleTranslate = () => {
     border-style: none;
     box-shadow: none;
   }
+    /* Ensure the body margin isn't affected by Google Translate */
+  body {
+    top: 0px !important;
+    position: relative;
+  }
 `}
 </style>
     </div>
