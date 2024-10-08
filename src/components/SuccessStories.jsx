@@ -17,7 +17,7 @@ import customer9 from "../assets/img/steve.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SuccessStories = () => {
+const SuccessStories = ({mode,textcolor}) => {
   const originalStories = [
     {
       image: customer9,
@@ -107,7 +107,7 @@ const SuccessStories = () => {
     <Box
       sx={{
         padding: { xs: "20px", sm: "40px", md: "60px" },
-        backgroundColor: "#fff",
+        backgroundColor: mode === 'light' ? '#ffffff' : '#111118',
         position: "relative",
         borderTop: "2px solid #f0f0f0",
       }}
@@ -121,7 +121,7 @@ const SuccessStories = () => {
           marginBottom: { xs: "20px", sm: "30px" },
           fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" },
           fontFamily: "'Roboto', sans-serif",
-          color: "#333",
+          color: textcolor,
         }}
       >
         Success Stories
@@ -140,7 +140,7 @@ const SuccessStories = () => {
               sx={{
                 boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
                 borderRadius: "12px",
-                backgroundColor: "#fafafa",
+                backgroundColor: mode === 'light' ? '#f4f2f2' : '#2e2a2a',
                 display: "flex",
                 flexDirection: "column",
                 padding: { xs: "16px", sm: "20px", md: "24px" },
@@ -179,7 +179,7 @@ const SuccessStories = () => {
                     fontWeight: "600",
                     textAlign: "center",
                     fontFamily: "'Roboto', sans-serif",
-                    color: "#333",
+                    color: textcolor,
                   }}
                 >
                   {story.name}
@@ -201,7 +201,7 @@ const SuccessStories = () => {
                   sx={{
                     fontSize: { xs: "0.9rem", sm: "1rem" },
                     lineHeight: "1.6",
-                    color: "#666",
+                    color: textcolor,
                   }}
                 >
                   {story.story}

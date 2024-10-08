@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../styles/Services.css'
 
-const Services = () => {
+const Services = ({mode,textcolor}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentService, setCurrentService] = useState("");
 
@@ -22,6 +22,7 @@ const Services = () => {
       <div style={styles.serviceGrid}>
         {/* Personal Training Section */}
         <div
+                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
                     className="service-card"
                     onClick={() => handleOpenModal("Personal Training")}
         >
@@ -30,8 +31,8 @@ const Services = () => {
             alt="Personal Training"
             style={styles.image}
           />
-          <h2 style={styles.subheading}>Personal Training</h2>
-          <p style={styles.description}>
+          <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
+          <p style={{...styles.subheading , color : textcolor}}>
             Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.
           </p>
           <button
@@ -44,6 +45,7 @@ const Services = () => {
 
         {/* Nutritional Counseling Section */}
         <div
+                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
                     className="service-card"
                     onClick={() => handleOpenModal("Nutritional Counseling")}
         >
@@ -52,8 +54,8 @@ const Services = () => {
             alt="Nutritional Counseling"
             style={styles.image}
           />
-          <h2 style={styles.subheading}>Nutritional Counseling</h2>
-          <p style={styles.description}>
+          <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
+          <p style={{...styles.subheading , color : textcolor}}>
             Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
           </p>
           <button
@@ -66,6 +68,7 @@ const Services = () => {
 
         {/* Online Training Section */}
         <div
+                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
                     className="service-card"
 
           onClick={() => handleOpenModal("Online Virtual Training")}
@@ -75,8 +78,8 @@ const Services = () => {
             alt="Online Virtual Training"
             style={styles.image}
           />
-          <h2 style={styles.subheading}>Online Virtual Training</h2>
-          <p style={styles.description}>
+          <h2 style={{...styles.subheading ,  color : textcolor}}>Online Virtual Training</h2>
+          <p style={{...styles.subheading , color : textcolor}}>
             Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.
           </p>
           <button
@@ -122,7 +125,6 @@ const styles = {
     padding: "40px",
     textAlign: "center",
     background: "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
-    color: "#fff",
   },
   heading: {
     fontSize: "2.8em",
@@ -144,7 +146,6 @@ const styles = {
     cursor: "pointer",
     overflow: "hidden",
     textAlign: "left",
-    color: "#333",
     position: "relative",
     overflow: "hidden",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",

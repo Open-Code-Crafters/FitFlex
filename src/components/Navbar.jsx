@@ -7,8 +7,10 @@ import {
   Container,
   Box,
   MenuItem,
-  Menu,
+  Menu
 } from "@mui/material";
+import Brightness4Icon from "@mui/icons-material/Brightness4"; 
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
 import { motion } from "framer-motion";
@@ -18,13 +20,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
+import PropTypes from 'prop-types' ;
 const pages = ["Home", "About", "Contact","Blog", "Services", "Register"];
 
-function Navbar() {
+function Navbar(props) {
   const navigate = useNavigate();
   const navTheme = createTheme({
     palette: {
-      mode: "dark",
+      mode: props.mode,
       primary: {
         main: "#000000",
       },
@@ -290,6 +293,23 @@ function Navbar() {
                   {page}
                 </Button>
               ))}
+
+              
+
+            </Box>
+            <Box>
+              <IconButton sx={{ 
+                    ml: 1, 
+                    "@media (max-width: 900px)": {
+                      position: 'absolute',
+                      right: '0px',
+                      top: '50%',
+                      transform: 'translateY(-50%)', 
+                    }, 
+                    '&:hover': { backgroundColor: 'transparent' }, 
+                  }} onClick={props.toggleMode} color="inherit" >
+                  {props.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
             </Box>
           </Toolbar>
         </Container>

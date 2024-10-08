@@ -6,7 +6,7 @@ import { Box, Typography, Grid } from '@mui/material';
 
 const Workout = () => {
     return (
-        <Box sx={{ backgroundColor: '#f5f5f5', minHeight: '100vh', padding: '2rem' }}>
+        <Box sx={{  minHeight: '100vh', padding: '2rem' }}>
             <Typography variant="h1" sx={{ textAlign: 'center', marginBottom: '2rem' }}>
                 Workout Page
             </Typography>

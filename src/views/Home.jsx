@@ -22,7 +22,7 @@ import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
 
-function Home() {
+function Home({mode , textcolor}) {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
     {
@@ -77,7 +77,7 @@ function Home() {
   }, [window.innerWidth]);
 
   return (
-    <div>
+    <div style={{ backgroundColor: mode , color: textcolor }}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={5}>
           <div
@@ -281,7 +281,6 @@ function Home() {
       >
         <Typography
           variant={fontVarient}
-          color="black"
           style={{
             fontWeight: { sm: "normal", md: "bold" },
             textAlign: "center",
@@ -306,7 +305,6 @@ function Home() {
         </Typography>
         <Typography
           variant={window.innerWidth < 700 ? "h6" : "h5"}
-          color="black"
           style={{
             textAlign: "center",
             fontWeight: { sm: "thin", md: "normal" },
@@ -314,6 +312,7 @@ function Home() {
             width: { sm: "80%", md: "60%" },
             marginBottom: "50px",
             fontSize: "20px",
+            color: textcolor
           }}
         >
           Join our fitness program and transform your body and mind. Our expert
@@ -353,14 +352,10 @@ function Home() {
               icon={faStar}
               size="5x"
             />
-            <Typography
-              variant="h3"
-              color="#26355D"
-              style={{ fontSize: "35px" }}
-            >
+            <Typography variant="h3" color={textcolor} style={{fontSize:'35px'}}>
               Variety
             </Typography>
-            <Typography style={{ color: "#000" }}>
+            <Typography color={textcolor}>
               From HIIT to yoga, strength training to dance,explore a diverse
               range of workouts to keep your routine exciting and effective.
             </Typography>
@@ -388,14 +383,10 @@ function Home() {
               icon={faDharmachakra}
               size="5x"
             />
-            <Typography
-              variant="h3"
-              color="#26355D"
-              style={{ fontSize: "35px" }}
-            >
+            <Typography variant="h3" color={textcolor}style={{fontSize:'35px'}}>
               Flexibility
             </Typography>
-            <Typography style={{ color: "#000" }}>
+            <Typography color={textcolor}>
               Enjoy the freedom to exercise whenever it fits your day. No gym
               hours, no commutes just you and your fitness goals.
             </Typography>
@@ -424,14 +415,10 @@ function Home() {
               icon={faDumbbell}
               size="5x"
             />
-            <Typography
-              variant="h3"
-              color="#26355D"
-              style={{ fontSize: "35px" }}
-            >
+            <Typography variant="h3" color={textcolor} style={{fontSize:'35px'}}>
               Motivation
             </Typography>
-            <Typography style={{ color: "#000" }}>
+            <Typography style={{color: textcolor}}>
               Stay on track with interactive features, progress tracking, and
               regular updates. We will help you keep your eyes on the prize and
               push through challenges.
@@ -481,10 +468,10 @@ function Home() {
         sx={{
           width: "100%",
           padding: "40px 0",
-          backgroundColor: "#f5f5f5",
+          backgroundColor: mode,
         }}
       >
-        <SuccessStories />
+        <SuccessStories mode = {mode} textcolor = {textcolor}/>
       </Box>
 
       <Box

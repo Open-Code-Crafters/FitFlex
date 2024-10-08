@@ -4,7 +4,7 @@ import { Grid, Typography, Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import PlansCard from "../components/PlansCard";
 import plansObject from "../data/plans.json";
-const Plans = () => {
+const Plans = ({mode , textcolor}) => {
   useEffect(() => {
     document.title = "FitFlex-Know Your Plans";
   }, []);
@@ -70,7 +70,7 @@ const Plans = () => {
         </Typography>
         <Typography
           variant="h2"
-          color="black"
+          color= {textcolor}
           sx={{
             fontWeight: "bold",
           }}
@@ -124,7 +124,7 @@ const Plans = () => {
               gutterBottom
               sx={{
                 marginTop: "2%",
-                color: "#858585",
+                color: textcolor,
                 fontWeight: "bold",
               }}
             >
