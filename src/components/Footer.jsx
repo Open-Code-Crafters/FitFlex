@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaTelegramPlane } from "react-icons/fa";
 import logo from "../assets/fitness1.png";  // Replace with your logo
-
+import GoogleTranslate from './GoogleTranslate';
 const Footer = () => {
   return (
     <Box
@@ -155,9 +155,23 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
-
+        
         {/* Newsletter Subscription */}
         <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }}>
+        <Box className="translator"
+              sx={{
+                position:'relative',
+                marginLeft: 'auto',
+                marginRight: '0',
+                marginBottom : '4px',
+                color: "white",
+                display: "block",
+                alignItems: "center",
+                width: 'fit-content',
+
+              }}>
+                            <GoogleTranslate/>
+                        </Box>
           <Typography
             variant="h6"
             gutterBottom
@@ -214,8 +228,11 @@ const Footer = () => {
             >
               Subscribe
             </Button>
+            
           </Box>
+          
         </Grid>
+        
       </Grid>
 
       {/* Bottom Links */}
