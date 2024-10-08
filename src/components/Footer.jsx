@@ -19,6 +19,7 @@ const Footer = () => {
       }}
     >
       <Grid container spacing={3}>
+        {/* About Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -51,6 +52,8 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
+
+        {/* Services Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -88,6 +91,85 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
+
+        {/* Packages Section */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{
+              fontFamily: "Arial, Helvetica, sans-serif",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+            }}
+          >
+            PACKAGES
+          </Typography>
+          <Box>
+            <Link
+              component={RouterLink}
+              to="/packages"
+              color="grey.100"
+              display="block"
+              gutterBottom
+              sx={{
+                textDecoration: "none",
+                paddingBottom: "8px",
+                fontSize: "1.2rem",
+                "&:hover": { color: "#f1c40f" },
+              }}
+            >
+              Basic Package
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/packages"
+              color="grey.100"
+              display="block"
+              gutterBottom
+              sx={{
+                textDecoration: "none",
+                paddingBottom: "8px",
+                fontSize: "1.2rem",
+                "&:hover": { color: "#f1c40f" },
+              }}
+            >
+              Premium Package
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/packages"
+              color="grey.100"
+              display="block"
+              gutterBottom
+              sx={{
+                textDecoration: "none",
+                paddingBottom: "8px",
+                fontSize: "1.2rem",
+                "&:hover": { color: "#f1c40f" },
+              }}
+            >
+              VIP Package
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/packages"
+              color="grey.100"
+              display="block"
+              gutterBottom
+              sx={{
+                textDecoration: "none",
+                paddingBottom: "8px",
+                fontSize: "1.2rem",
+                "&:hover": { color: "#f1c40f" },
+              }}
+            >
+              Corporate Package
+            </Link>
+          </Box>
+        </Grid>
+
+        {/* Resources Section */}
         <Grid item xs={12} sm={6} md={3}>
           <Typography
             variant="h6"
@@ -103,7 +185,7 @@ const Footer = () => {
           <Box>
             {[
               { name: "Blog", path: "#" },
-              { name: "Health Tips", path: "/healthtips" }, // Link to HealthTips
+              { name: "Health Tips", path: "/healthtips" },
               { name: "FAQs", path: "#" },
               { name: "Contact Us", path: "#" },
             ].map((item, index) => (
@@ -126,54 +208,19 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src={logo}
-            alt="Fitflex Logo"
-            style={{ width: "120px", marginBottom: "15px" }}
-          />
-          <Typography
-            variant="body1"
-            mt={1}
-            textAlign="center"
-            sx={{
-              fontFamily: "Impact, Charcoal, sans-serif",
-              fontSize: "1.4rem",
-            }}
-          >
+
+        {/* Logo and Social Media Icons */}
+        <Grid item xs={12} sm={6} md={3} sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <img src={logo} alt="Fitflex Logo" style={{ width: "120px", marginBottom: "15px" }} />
+          <Typography variant="body1" mt={1} textAlign="center" sx={{ fontFamily: "Impact, Charcoal, sans-serif", fontSize: "1.4rem" }}>
             #TransformWithFitFlex
           </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            {[FaFacebookF, FaInstagram, faXTwitter, FaYoutube].map(
-              (Icon, index) => (
-                <IconButton
-                  key={index}
-                  href="#"
-                  color="inherit"
-                  sx={{
-                    fontSize: { xs: "1.5rem", sm: "2rem" }, 
-                    "&:hover": { color: "grey.500" },
-                    mx: { xs: 0.5, sm: 0.7 }, 
-                  }}
-                >
-                  {index === 2 ? (
-                    <FontAwesomeIcon icon={Icon} />
-                  ) : (
-                    <Icon fontSize="inherit" />
-                  )}
-                </IconButton>
-              )
-            )}
+            {[FaFacebookF, FaInstagram, faXTwitter, FaYoutube].map((Icon, index) => (
+              <IconButton key={index} href="#" color="inherit" sx={{ fontSize: { xs: "1.5rem", sm: "2rem" }, "&:hover": { color: "grey.500" }, mx: { xs: 0.5, sm: 0.7 } }}>
+                {index === 2 ? <FontAwesomeIcon icon={Icon} /> : <Icon fontSize="inherit" />}
+              </IconButton>
+            ))}
           </Box>
         </Grid>
       </Grid>

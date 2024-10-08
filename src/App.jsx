@@ -17,7 +17,8 @@ const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
-const Packages = lazy(() => import("./views/Packages.jsx"));
+const Packages = lazy(() => import("./views/Packages.jsx")); // Main Packages component
+const PackageDetails = lazy(() => import("./views/PackageDetails.jsx")); // New route for package details
 
 function App() {
   return (
@@ -36,10 +37,11 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<NotFound />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/packages" element={<Packages />} />
+            <Route path="/packages" element={<Packages />} /> {/* Main Packages page */}
+            <Route path="/packages/:type" element={<PackageDetails />} /> {/* Dynamic package details */}
+            <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
           <BackToTopButton />
