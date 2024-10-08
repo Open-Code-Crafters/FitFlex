@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
+import SuccessStories from "../components/SuccessStories";
 
 function Home() {
   const [fontVarient, setFontVarient] = useState("h1");
@@ -114,8 +115,11 @@ function Home() {
               <Typography
                 variant="h4"
                 color="white"
-             
-                style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}
+                style={{
+                  fontSize: "25px",
+                  fontWeight: "600",
+                  lineHeight: "30px",
+                }}
               >
                 Transform Your Space, Transform Your Body
               </Typography>
@@ -157,11 +161,23 @@ function Home() {
                   backdropFilter: "blur(5px)",
                 }}
               >
-                <Typography variant="h2" color="white" style={{ fontWeight: "900"}}>
+                <Typography
+                  variant="h2"
+                  color="white"
+                  style={{ fontWeight: "900" }}
+                >
                   {TopMessage[count]}
                 </Typography>
 
-                <Typography variant="h4" color="white" style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}>
+                <Typography
+                  variant="h4"
+                  color="white"
+                  style={{
+                    fontSize: "25px",
+                    fontWeight: "600",
+                    lineHeight: "30px",
+                  }}
+                >
                   {BottomMessage[count]}
                 </Typography>
               </Box>
@@ -193,9 +209,19 @@ function Home() {
         {/* cusotmn css button */}
 
         {/* do not touch below code, idk how it works, {ps: just added marginTop, marginBottom} */}
-        <div className="wrapper" style={{marginTop:'50px', marginBottom: '50px'}}>
+        <div
+          className="wrapper"
+          style={{ marginTop: "50px", marginBottom: "50px" }}
+        >
           <NavLink to="/plans" className="cta">
-            <span style={{display:'flex', justifyContent:'center', alignItems:'center', gap:'20px'}}>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
               Start Exercise
               <FontAwesomeIcon icon={faFire} />
             </span>
@@ -259,7 +285,7 @@ function Home() {
           style={{
             fontWeight: { sm: "normal", md: "bold" },
             textAlign: "center",
-            marginBottom: '10px',
+            marginBottom: "10px",
           }}
         >
           Experience the{" "}
@@ -273,7 +299,6 @@ function Home() {
               backgroundClip: "text",
               textFillColor: "transparent",
               fontWeight: "bold",
-              
             }}
           >
             #TransformWithFitFlex
@@ -288,7 +313,7 @@ function Home() {
             // width: {sm:"90%", md:"60%"},
             width: { sm: "80%", md: "60%" },
             marginBottom: "50px",
-            fontSize: "20px"
+            fontSize: "20px",
           }}
         >
           Join our fitness program and transform your body and mind. Our expert
@@ -315,7 +340,7 @@ function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               gap: "10px",
               // width:"50%",
@@ -328,10 +353,14 @@ function Home() {
               icon={faStar}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
+            <Typography
+              variant="h3"
+              color="#26355D"
+              style={{ fontSize: "35px" }}
+            >
               Variety
             </Typography>
-            <Typography style={{color:'#000'}}>
+            <Typography style={{ color: "#000" }}>
               From HIIT to yoga, strength training to dance,explore a diverse
               range of workouts to keep your routine exciting and effective.
             </Typography>
@@ -345,7 +374,7 @@ function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               textAlign: "center",
               gap: "10px",
@@ -359,10 +388,14 @@ function Home() {
               icon={faDharmachakra}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
+            <Typography
+              variant="h3"
+              color="#26355D"
+              style={{ fontSize: "35px" }}
+            >
               Flexibility
             </Typography>
-            <Typography style={{color:'#000'}}>
+            <Typography style={{ color: "#000" }}>
               Enjoy the freedom to exercise whenever it fits your day. No gym
               hours, no commutes just you and your fitness goals.
             </Typography>
@@ -376,7 +409,7 @@ function Home() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               gap: "10px",
               textAlign: "center",
@@ -391,10 +424,14 @@ function Home() {
               icon={faDumbbell}
               size="5x"
             />
-            <Typography variant="h3" color="#26355D" style={{fontSize:'35px'}}>
+            <Typography
+              variant="h3"
+              color="#26355D"
+              style={{ fontSize: "35px" }}
+            >
               Motivation
             </Typography>
-            <Typography style={{color:'#000'}}>
+            <Typography style={{ color: "#000" }}>
               Stay on track with interactive features, progress tracking, and
               regular updates. We will help you keep your eyes on the prize and
               push through challenges.
@@ -408,7 +445,7 @@ function Home() {
       <br />
       <Box
         sx={{
-          marginTop:'50px',
+          marginTop: "50px",
           width: "100vw",
           position: "relative",
         }}
@@ -427,37 +464,48 @@ function Home() {
         ></div>
         <Box
           sx={{
-            position:"relative",
+            position: "relative",
             width: { sm: "100%", md: "80%" },
             height: { sm: "50vh", md: "95vh" },
             margin: "auto",
             boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
             borderLeft: { sm: "0px solid grey", md: "30px solid grey" },
             borderRight: { sm: "0px solid grey", md: "30px solid grey" },
-            backgroundColor:"black"
+            backgroundColor: "black",
           }}
         >
           <HomeSlider object={hehe} />
-      
         </Box>
-       
       </Box>
       <Box
         sx={{
-          background: 'linear-gradient(to right, #4CAF50, #81C784)',
-          padding: '40px 0',
-          minHeight: '100vh',
+          width: "100%",
+          padding: "40px 0",
+          backgroundColor: "#f5f5f5",
         }}
+      >
+        <SuccessStories />
+      </Box>
 
-      ><FAQSection  sx={{
-        marginTop: '40px',  // Add gap on top (adjust value as needed)
-        marginBottom: 0,     // Ensure no gap at the bottom
-      }}/></Box>
+      <Box
+        sx={{
+          background: "linear-gradient(to right, #4CAF50, #81C784)",
+          padding: "40px 0",
+          minHeight: "100vh",
+        }}
+      >
+        <FAQSection
+          sx={{
+            marginTop: "40px", // Add gap on top (adjust value as needed)
+            marginBottom: 0, // Ensure no gap at the bottom
+          }}
+        />
+      </Box>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          JustifyContent: "center",
+          justifyContent: "center",
           color: "#AF47D2",
           gap: "10px",
         }}
