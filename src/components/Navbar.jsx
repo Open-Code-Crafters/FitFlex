@@ -8,6 +8,10 @@ import {
   Box,
   MenuItem,
   Menu,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
@@ -17,6 +21,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Register", "Packages"];
 
 function Navbar() {
@@ -30,6 +35,7 @@ function Navbar() {
     },
   });
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -74,6 +80,14 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleGetInTouch = () => {
+    setDialogOpen(true); // Open the dialog when the button is clicked
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false); // Close the dialog
+  };
 
   return (
     <ThemeProvider theme={navTheme}>
@@ -221,10 +235,48 @@ function Navbar() {
                   {page}
                 </Button>
               ))}
+              <Button
+                onClick={handleGetInTouch}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  alignItems: "center",
+                  backgroundColor: "red",
+                  fontWeight: "bold",
+                  textTransform: "uppercase",
+                  "&:hover": {
+                    backgroundColor: "darkred",
+                  },
+                }}
+              >
+                Get In Touch
+              </Button>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
+
+      {/* Dialog for Contact Information */}
+      <Dialog open={dialogOpen} onClose={handleCloseDialog}>
+        <DialogTitle>Contact Us</DialogTitle>
+        <DialogContent>
+          <Typography variant="body1">
+            Email: support@fitflex.com
+          </Typography>
+          <Typography variant="body1">
+            Phone: 123-456-7890
+          </Typography>
+          <Typography variant="body1">
+            Address: 123 Fitness St, FitCity, FitState, 12345
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </ThemeProvider>
   );
 }
