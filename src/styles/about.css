@@ -1,0 +1,93 @@
+.slogan {
+    text-align: center; 
+    color: #2c3e50;
+    padding: 20px;
+    border: 2px solid red;
+  }
+  
+  .slogan h2 {
+    color: #e67e22;
+    font-size: 32px;
+    font-style: italic;
+  }
+  
+  .slogan h3 {
+    color: #555;
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .slogan p {
+    color: #555;
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  
+/* Container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f7f7f7;
+    padding: 2rem;
+
+  }
+  
+  /* Boxes */
+  .vision-box, .mission-box {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+    width: 250px;
+  }
+  
+  .vision-box:hover, .mission-box:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+  }
+  
+  h4 {
+    color: #e67e22; /* Orange color for headings */
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #666;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  
+  img {
+    width: 250px; /* Make image full width */
+    height: 200px; /* Fixed height for the image */
+    object-fit: contain; /* Ensure images fit nicely */
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  /* Mission specific styles */
+  .mission-box h4 {
+    color: #f1c40f; /* Yellow color for the mission heading */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .vision-box, .mission-box {
+      width: 100%;
+      margin-bottom: 20px; /* Add spacing between boxes */
+    }
+  }
+  
