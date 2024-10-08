@@ -15,9 +15,11 @@ const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
+
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 const Packages = lazy(() => import("./views/Packages.jsx"));
+
 
 function App() {
   return (
@@ -37,9 +39,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
+
             <Route path="/blog" element={<Blog />} />
             <Route path="/services" element={<Services />} />
             <Route path="/packages" element={<Packages />} />
+
           </Routes>
           <Footer />
           <BackToTopButton />

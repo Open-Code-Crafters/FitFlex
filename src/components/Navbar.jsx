@@ -17,7 +17,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Register", "Packages"];
+
 
 function Navbar() {
   const navigate = useNavigate();
