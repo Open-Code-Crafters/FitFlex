@@ -18,6 +18,8 @@ const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
 // const HealthTips = lazy(() => import("./components/Healthtips.jsx"));
 // import HealthTips from './components/HealthTips'; // Make sure this path is correct
+const Blog = lazy(() => import("./views/Blog.jsx"));
+const Services = lazy(() => import("./views/Services.jsx"));
 
 function App() {
   return (
@@ -39,6 +41,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/healthtips" element={<HealthTips />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/services" element={<Services />} /> 
+
 
           </Routes>
 

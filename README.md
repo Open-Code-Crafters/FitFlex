@@ -48,6 +48,10 @@
   <h2 id="about-fitflex">About FITFLEX</h2>
 FitFlex is a fitness and weight loss website that offers daily, structured workout plans for a set period. Users can follow day-wise exercises tailored to their goals, whether it’s for weight loss, muscle gain, or general fitness. FitFlex provides a simple, user-friendly interface to help track progress and stay consistent throughout the fitness journey.
 
+We also have a Discord server to discuss doubts and suggestions! Make sure to join it here: <br />
+<br />
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/hHAUcQj3)
+
 # Tech-Stack
 
 <p align="center">

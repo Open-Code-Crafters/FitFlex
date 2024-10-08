@@ -22,6 +22,7 @@
     "@mui/icons-material": "^5.16.0",
     "@mui/lab": "^5.0.0-alpha.171",
     "@mui/material": "^5.16.7",
+    "@mui/system": "^6.1.2",
     "@mui/x-date-pickers": "^7.9.0",
     "chart.js": "^4.4.3",
     "emailjs": "^4.0.3",
