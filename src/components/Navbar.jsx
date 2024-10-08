@@ -22,8 +22,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
+
 // Removed "Packages" from the pages array
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Register"];
+
 
 function Navbar() {
   const navigate = useNavigate();
