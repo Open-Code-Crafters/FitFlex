@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Future';
+    src:url('./EdgeOfTheGalaxyRegular-OVEa6.otf') format('opentype');
+    /* src: url('./EdgeOfTheGalaxyItalic-ZVJB3.off') format('opentype'), */
+         /* url('./EdgeOfTheGalaxyPoster-3zRAp.otf') format('opentype'), */
+         /* url('./EdgeOfTheGalaxyPosterItalic-x3o1m.otf') format('opentype'), */
+  }
+/* another cool font */
+  @font-face {
+    font-family: 'Future2';
+    src:url('./Excludeditalic-jEr99.ttf') format('truetype');
+    /* src: url('./EdgeOfTheGalaxyItalic-ZVJB3.off') format('opentype'), */
+         /* url('./EdgeOfTheGalaxyPoster-3zRAp.otf') format('opentype'), */
+         /* url('./EdgeOfTheGalaxyPosterItalic-x3o1m.otf') format('opentype'), */
+  }

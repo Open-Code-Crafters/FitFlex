@@ -1,0 +1,621 @@
+{
+    "plan": {
+      "day1": {
+        "exercises": [
+          {
+            "name": "Mountain Climbers",
+            "duration": { "time": 30000 },
+            "instruction": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders body forming a straight line from head to heels.",
+              "Movement: Bring your right knee toward your chest while keeping your core tight.",
+              "Switch: Quickly switch legs, bringing your left knee toward your chest while moving your right leg back to the starting position. ",
+              "Pace: Continue to alternate legs at a steady, controlled pace."
+            ],
+            "tips": [
+              "Keep your hips level and avoid letting them sag or lift too high.",
+              "Engage your core throughout the movement.",
+              "Maintain a consistent breathing pattern."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example1"
+          },
+          {
+            "name": "Tricep Dips",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Sit on the edge of a sturdy chair or bench with your hands gripping the edge, fingers pointing forward. Extend your legs out in front of you with your heels on the ground.",
+              "Slide your buttocks off the edge and lower your body by bending your elbows to a 90-degree angle. Keep your back close to the bench and elbows pointing straight back.",
+              "Press through your palms to straighten your arms and lift your body back up to the starting position.",
+              "Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your shoulders down and away from your ears.",
+              "Avoid locking your elbows at the top of the movement.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example2"
+          },
+          {
+            "name": "Squats",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Stand with your feet shoulder-width apart, toes pointing slightly outward.",
+              "Keep your chest up, shoulders back, and engage your core.",
+              "Bend your knees and push your hips back as if you are sitting in a chair.",
+              "Lower your body until your thighs are parallel to the ground or as low as you can go comfortably.",
+              "Press through your heels to return to the starting position."
+            ],
+            "tips": [
+              "Keep your weight on your heels, not your toes.",
+              "Ensure your knees track over your toes and don't collapse inward.",
+              "Maintain a neutral spine throughout the movement.",
+              "Don't let your knees go past your toes as you squat down."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example3"
+          },
+          {
+            "name": "Plank",
+            "duration": { "time": 60000 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Engage your core, glutes, and legs to maintain a stable position.",
+              "Hold the plank position for the specified duration while breathing steadily."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Avoid letting your hips sag or lift too high.",
+              "Engage your core and glutes to support your lower back.",
+              "Breathe steadily throughout the exercise."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example4"
+          },
+          {
+            "name": "Russian Twists",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Start Position: Sit on the ground with your knees bent and feet flat on the floor. Lean back slightly and lift your feet off the ground, balancing on your sit bones.",
+              "Movement: Twist your torso to the right, bringing your hands or a weight to the outside of your right hip. Return to the center and twist to the left, bringing the weight to the outside of your left hip.",
+              "Pace: Continue to alternate sides in a controlled manner."
+            ],
+            "tips": [
+              "Keep your core engaged throughout the movement.",
+              "Maintain a straight back and avoid rounding your spine.",
+              "Twist from your torso, not just your arms.",
+              "Keep your feet off the ground to engage your core."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example5"
+          },
+          {
+            "name": "Lunges",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Start Position: Stand with your feet hip-width apart and hands on your hips or by your sides.",
+              "Movement: Take a big step forward with your right leg and lower your body until both knees are bent at a 90-degree angle. Your front knee should be directly above your ankle.",
+              "Push through your right heel to return to the starting position.",
+              "Repeat on the other side, alternating legs with each rep."
+            ],
+            "tips": [
+              "Keep your chest up and shoulders back throughout the movement.",
+              "Engage your core to stabilize your body.",
+              "Ensure your front knee tracks over your toes and doesn't collapse inward.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example6"
+          },
+          {
+            "name": "High Stepping",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet hip-width apart and hands by your sides.",
+              "Movement: Lift your right knee as high as you can while driving your left arm forward. Lower your right leg back to the ground and repeat on the other side, alternating legs with each step.",
+              "Pace: Move at a quick and controlled pace, focusing on lifting your knees high."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Swing your arms in opposition to your legs for balance and momentum.",
+              "Lift your knees as high as you can with each step.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example7"
+          },
+          {
+            "name": "Push-ups",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Movement: Lower your body by bending your elbows to a 90-degree angle, keeping your body in a straight line.",
+              "Press through your palms to straighten your arms and return to the starting position.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Engage your core and glutes to support your lower back.",
+              "Avoid letting your hips sag or lift too high.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example8"
+          },
+          {
+            "name": "Reverse Crunches",
+            "duration": { "reps": 10 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor.",
+              "Movement: Engage your core and lift your legs off the ground, bringing your knees toward your chest.",
+              "Lower your legs back to the starting position with control.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your legs and hips off the ground.",
+              "Avoid using momentum to swing your legs.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example9"
+          },
+  
+          {
+            "name": "Plank",
+            "duration": { "time": 60000 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Engage your core, glutes, and legs to maintain a stable position.",
+              "Hold the plank position for the specified duration while breathing steadily."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Avoid letting your hips sag or lift too high.",
+              "Engage your core and glutes to support your lower back.",
+              "Breathe steadily throughout the exercise."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example4"
+          },
+          {
+            "name": "Cobra Streach",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Lie on your stomach with your hands under your shoulders and elbows close to your body.",
+              "Movement: Press through your palms to lift your chest off the ground, keeping your hips and legs on the floor.",
+              "Hold the stretch for the specified duration, focusing on opening up your chest and shoulders.",
+              "Pace: Breathe deeply and relax into the stretch."
+            ],
+            "tips": [
+              "Engage your core to protect your lower back.",
+              "Keep your shoulders down and away from your ears.",
+              "Avoid straining your neck by looking straight ahead or slightly up.",
+              "Breathe deeply and relax into the stretch."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example10"
+          }
+        ]
+      },
+      "day2": {
+        "exercises": [
+          {
+            "name": "Mountain Climbers",
+            "duration": { "time": 30000 },
+            "instruction": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders body forming a straight line from head to heels.",
+              "Movement: Bring your right knee toward your chest while keeping your core tight.",
+              "Switch: Quickly switch legs, bringing your left knee toward your chest while moving your right leg back to the starting position. ",
+              "Pace: Continue to alternate legs at a steady, controlled pace."
+            ],
+            "tips": [
+              "Keep your hips level and avoid letting them sag or lift too high.",
+              "Engage your core throughout the movement.",
+              "Maintain a consistent breathing pattern."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example1"
+          },
+          {
+            "name": "Tricep Dips",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Sit on the edge of a sturdy chair or bench with your hands gripping the edge, fingers pointing forward. Extend your legs out in front of you with your heels on the ground.",
+              "Slide your buttocks off the edge and lower your body by bending your elbows to a 90-degree angle. Keep your back close to the bench and elbows pointing straight back.",
+              "Press through your palms to straighten your arms and lift your body back up to the starting position.",
+              "Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your shoulders down and away from your ears.",
+              "Avoid locking your elbows at the top of the movement.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example2"
+          },
+          {
+            "name": "Jumping Jacks",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet together and arms by your sides.",
+              "Movement: Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position.",
+              "Pace: Perform the exercise at a quick and controlled pace, focusing on full range of motion."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Land softly to reduce impact on your joints.",
+              "Maintain a steady and controlled pace.",
+              "Keep your arms and legs straight throughout the movement."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example11"
+          },
+          {
+            "name": "Long Arm Crunches",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Extend your arms overhead, keeping them in line with your ears.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, reaching your hands toward the ceiling.",
+              "Lower your upper body back to the starting position with control.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to lift your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example12"
+          },
+          {
+            "name": "Bicycle Crunches",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and hands behind your head, elbows pointing out to the sides.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, bringing your right elbow toward your left knee while extending your right leg.",
+              "Twist to bring your left elbow toward your right knee while extending your left leg.",
+              "Pace: Continue to alternate sides in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body and legs off the ground.",
+              "Avoid pulling on your neck or using momentum to twist your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example13"
+          },
+          {
+            "name": "Plank",
+            "duration": { "time": 60000 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Engage your core, glutes, and legs to maintain a stable position.",
+              "Hold the plank position for the specified duration while breathing steadily."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Avoid letting your hips sag or lift too high.",
+              "Engage your core and glutes to support your lower back.",
+              "Breathe steadily throughout the exercise."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example4"
+          },
+          {
+            "name": "Tricep Dips",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Sit on the edge of a sturdy chair or bench with your hands gripping the edge, fingers pointing forward. Extend your legs out in front of you with your heels on the ground.",
+              "Slide your buttocks off the edge and lower your body by bending your elbows to a 90-degree angle. Keep your back close to the bench and elbows pointing straight back.",
+              "Press through your palms to straighten your arms and lift your body back up to the starting position.",
+              "Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your shoulders down and away from your ears.",
+              "Avoid locking your elbows at the top of the movement.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example2"
+          },
+          {
+            "name": "Jumping Jacks",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet together and arms by your sides.",
+              "Movement: Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position.",
+              "Pace: Perform the exercise at a quick and controlled pace, focusing on full range of motion."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Land softly to reduce impact on your joints.",
+              "Maintain a steady and controlled pace.",
+              "Keep your arms and legs straight throughout the movement."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example11"
+          },
+          {
+            "name": "Jumping Jacks",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet together and arms by your sides.",
+              "Movement: Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position.",
+              "Pace: Perform the exercise at a quick and controlled pace, focusing on full range of motion."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Land softly to reduce impact on your joints.",
+              "Maintain a steady and controlled pace.",
+              "Keep your arms and legs straight throughout the movement."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example11"
+          },
+          {
+            "name": "Long Arm Crunches",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Extend your arms overhead, keeping them in line with your ears.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, reaching your hands toward the ceiling.",
+              "Lower your upper body back to the starting position with control.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to lift your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example12"
+          },
+          {
+            "name": "Bicycle Crunches",
+            "duration": { "reps": 12 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and hands behind your head, elbows pointing out to the sides.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, bringing your right elbow toward your left knee while extending your right leg.",
+              "Twist to bring your left elbow toward your right knee while extending your left leg.",
+              "Pace: Continue to alternate sides in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body and legs off the ground.",
+              "Avoid pulling on your neck or using momentum to twist your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example13"
+          },
+          {
+            "name": "Plank",
+            "duration": { "time": 60000 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Engage your core, glutes, and legs to maintain a stable position.",
+              "Hold the plank position for the specified duration while breathing steadily."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Avoid letting your hips sag or lift too high.",
+              "Engage your core and glutes to support your lower back.",
+              "Breathe steadily throughout the exercise."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example4"
+          },
+          {
+            "name": "Cobra Streach",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Lie on your stomach with your hands under your shoulders and elbows close to your body.",
+              "Movement: Press through your palms to lift your chest off the ground, keeping your hips and legs on the floor.",
+              "Hold the stretch for the specified duration, focusing on opening up your chest and shoulders.",
+              "Pace: Breathe deeply and relax into the stretch."
+            ],
+            "tips": [
+              "Engage your core to protect your lower back.",
+              "Keep your shoulders down and away from your ears.",
+              "Avoid straining your neck by looking straight ahead or slightly up.",
+              "Breathe deeply and relax into the stretch."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example10"
+          }
+        ]
+      },
+      "day3": {
+        "exercises": [
+          {
+            "name": "Mountain Climbers",
+            "duration": { "time": 30000 },
+            "instruction": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders body forming a straight line from head to heels.",
+              "Movement: Bring your right knee toward your chest while keeping your core tight.",
+              "Switch: Quickly switch legs, bringing your left knee toward your chest while moving your right leg back to the starting position. ",
+              "Pace: Continue to alternate legs at a steady, controlled pace."
+            ],
+            "tips": [
+              "Keep your hips level and avoid letting them sag or lift too high.",
+              "Engage your core throughout the movement.",
+              "Maintain a consistent breathing pattern."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example1"
+          },
+          {
+            "name": "Jumping Jacks",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet together and arms by your sides.",
+              "Movement: Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position.",
+              "Pace: Perform the exercise at a quick and controlled pace, focusing on full range of motion."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Land softly to reduce impact on your joints.",
+              "Maintain a steady and controlled pace.",
+              "Keep your arms and legs straight throughout the movement."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example11"
+          },
+          {
+            "name": "Abdominal Crunches",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Place your hands behind your head, elbows pointing out to the sides.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, bringing your chest toward your knees.",
+              "Lower your upper body back to the starting position with control.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to lift your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example14"
+          },
+          {
+            "name": "Heel Touch",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Place your arms by your sides with palms facing down.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, reaching your right hand toward your right heel.",
+              "Return to the starting position and reach your left hand toward your left heel.",
+              "Pace: Continue to alternate sides in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to twist your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example15"
+          },
+          {
+            "name": "Flutter Kicks",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your legs extended and hands under your glutes for support.",
+              "Movement: Engage your core and lift your legs off the ground, alternating kicking them up and down in a fluttering motion.",
+              "Pace: Continue to alternate legs in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your legs off the ground.",
+              "Avoid arching your back or letting your legs drop too low.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example16"
+          },
+          {
+            "name": "Plank",
+            "duration": { "time": 60000 },
+            "instructions": [
+              "Start Position: Begin in a high plank position with your hands directly under your shoulders and your body forming a straight line from head to heels.",
+              "Engage your core, glutes, and legs to maintain a stable position.",
+              "Hold the plank position for the specified duration while breathing steadily."
+            ],
+            "tips": [
+              "Keep your body in a straight line from head to heels.",
+              "Avoid letting your hips sag or lift too high.",
+              "Engage your core and glutes to support your lower back.",
+              "Breathe steadily throughout the exercise."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example4"
+          },
+          {
+            "name": "Jumping Jacks",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Stand with your feet together and arms by your sides.",
+              "Movement: Jump your feet out to the sides while raising your arms overhead. Jump back to the starting position.",
+              "Pace: Perform the exercise at a quick and controlled pace, focusing on full range of motion."
+            ],
+            "tips": [
+              "Engage your core to stabilize your body.",
+              "Land softly to reduce impact on your joints.",
+              "Maintain a steady and controlled pace.",
+              "Keep your arms and legs straight throughout the movement."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example11"
+          },
+          {
+            "name": "Abdominal Crunches",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Place your hands behind your head, elbows pointing out to the sides.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, bringing your chest toward your knees.",
+              "Lower your upper body back to the starting position with control.",
+              "Pace: Perform the desired number of repetitions with controlled movements."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to lift your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example14"
+          },
+          {
+            "name": "Heel Touch",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your knees bent and feet flat on the floor. Place your arms by your sides with palms facing down.",
+              "Movement: Engage your core and lift your shoulder blades off the ground, reaching your right hand toward your right heel.",
+              "Return to the starting position and reach your left hand toward your left heel.",
+              "Pace: Continue to alternate sides in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your upper body off the ground.",
+              "Avoid pulling on your neck or using momentum to twist your body.",
+              "Maintain a steady and controlled pace."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example15"
+          },
+          {
+            "name": "Flutter Kicks",
+            "duration": { "reps": 14 },
+            "instructions": [
+              "Start Position: Lie on your back with your legs extended and hands under your glutes for support.",
+              "Movement: Engage your core and lift your legs off the ground, alternating kicking them up and down in a fluttering motion.",
+              "Pace: Continue to alternate legs in a controlled manner."
+            ],
+            "tips": [
+              "Keep your lower back pressed into the ground throughout the movement.",
+              "Engage your core to lift your legs off the ground.",
+              "Avoid arching your back or letting your legs drop too low."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example16"
+          },
+          {
+            "name": "Cobra Streach",
+            "duration": { "time": 30000 },
+            "instructions": [
+              "Start Position: Lie on your stomach with your hands under your shoulders and elbows close to your body.",
+              "Movement: Press through your palms to lift your chest off the ground, keeping your hips and legs on the floor.",
+              "Hold the stretch for the specified duration, focusing on opening up your chest and shoulders.",
+              "Pace: Breathe deeply and relax into the stretch."
+            ],
+            "tips": [
+              "Engage your core to protect your lower back.",
+              "Keep your shoulders down and away from your ears.",
+              "Avoid straining your neck by looking straight ahead or slightly up.",
+              "Breathe deeply and relax into the stretch."
+            ],
+            "youtubeLink": "https://www.youtube.com/watch?v=example10"
+          }
+        ]
+      },
+      "day4":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day8":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day12":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day16":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day20":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day24":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      },
+      "day28":{
+          "isHolyday": true,
+          "message": "Today is a rest day. Take a break and allow your body to recover. Make sure to stay hydrated and get plenty of rest."
+      }
+    }
+  }
+  

@@ -1,0 +1,279 @@
+{
+  "list": [
+    {
+      "name": "Yoga Special",
+      "plans": [
+        {
+            "name": "Iyengar Yoga",
+            "title": "Precision in Every Pose",
+            "location": "src/data/yoga/iyengar-yoga",
+            "level":"Easy",
+            "period": 1,
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Iyengar-Yoga.webp"
+          },
+          {
+            "name": "Resorative Yoga",
+            "title": "Relax, Restore, Rejuvenate",
+            "location": "src/data/yoga/restorative-yoga",
+            "period": 1,
+            "level":"Medium",
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Restorative-Yoga.webp"
+          },
+          {
+            "name": "Kundalini Yoga",
+            "title": "Awaken Your Inner Energy",
+            "location": "src/data/yoga/kundalini-yoga",
+            "period": 1,
+            "level":"Easy",
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Kundalini-Yoga.webp"
+          },
+          {
+            "name": "Hatha Yoga",
+            "title": "Balance Body and Mind",
+            "location": "src/data/yoga/hatha-yoga",
+            "period": 1,
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Hatha-Yoga.webp"
+          },
+          {
+            "name": "Ashtanga Yoga",
+            "title": "Strength Through Movement",
+            "location": "src/data/yoga/ashtanga-yoga",
+            "period": 1,
+            "level":"Hard",
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Ashtanga-Yoga.webp"
+          },
+          {
+            "name": "Vinyasa Yoga",
+            "title": "Flow with Grace and Power",
+            "location": "src/data/yoga/vinyasa-yoga",
+            "period": 1,
+            "level":"Medium",
+            "image": "https://www.ekhartyoga.com/media/image/articles/Davud-Lurey-Arm-balance.jpg"
+          },
+          {
+            "name": "Bikram Yoga",
+            "title": "Sweat, Stretch, Strengthen",
+            "location": "src/data/yoga/bikram-yoga",
+            "period": 1,
+            "image": "https://www.anahana.com/hubfs/girl-in-yoga-pose-bikram-triangle-pose-trikonasana-740.jpg"
+          },
+          {
+            "name": "Power Yoga",
+            "title": "Dynamic Strength and Flexibility",
+            "location": "src/data/yoga/power-yoga",
+            "period": 1,
+            "level":"Easy",
+            "image": "https://images.ctfassets.net/6ilvqec50fal/6uHAHypLdzsUEFQgTv7VP0/7584843222bb0bc8797a6a7e0358d83f/chaturanga-pose.jpeg"
+          },
+          {
+            "name": "Yin Yoga",
+            "title": "Deep Stretches, Deep Peace",
+            "location": "src/data/yoga/yin-yoga",
+            "period": 1,
+            "level":"Easy",
+            "image": "https://www.hellomyyoga.com/blog/wp-content/uploads/2023/07/Yin-Yoga.webp"
+          },
+          {
+            "name": "Anusara Yoga",
+            "title": "Heart-Opening Alignment",
+            "location": "src/data/yoga/anusara-yoga",
+            "period": 1,
+            "level":"Medium",
+            "image": "https://yogapractice.com/wp-content/uploads/2020/11/Methodology.jpg"
+          }
+      ]
+    },
+    {
+      "name": "Upper Body",
+      "plans": [
+        {
+            "name": "Neck Special",
+            "title": "Build Stronger Neck Muscles",
+            "location": "src/data/upper body/neck-special",
+            "period": 10,
+            "level":"Easy",
+            "image": "src/assets/exercise/upper body/neck.jpeg"
+          },
+          {
+            "name": "Abs Special",
+            "title": "Sculpt Your Core",
+            "location": "src/data/upper body/abs-special",
+            "period": 20,
+            "level":"Hard",
+            "image": "src/assets/exercise/upper body/abs.jpeg"
+          },
+          {
+            "name": "Chest Special",
+            "title": "Power Up Your Chest",
+            "location": "src/data/upper body/chest-special",
+            "period": 30,
+            "level":"Medium",
+            "image": "src/assets/exercise/upper body/chest.jpeg"
+          },
+          {
+            "name": "Upper Back ",
+            "title": "Strengthen Your Upper Back",
+            "location": "src/data/upper body/back-special",
+            "period": 40,
+            "level":"Medium",
+            "image": "src/assets/exercise/upper body/upperback.jpeg"
+          },
+          {
+            "name": "Lower Back",
+            "title": "Powerful Lower Back Workout",
+            "location": "src/data/upper body/back-special",
+            "period": 40,
+            "level":"Easy",
+            "image": "src/assets/exercise/upper body/lowerback.jpeg"
+          },
+          {
+            "name": "Tricep Special",
+            "title": "Tone Your Triceps",
+            "location": "src/data/upper body/tricep-special",
+            "period": 70,
+            "level":"Medium",
+            "image": "src/assets/exercise/arms/triceps.jpeg"
+          },
+          {
+            "name": "Lats Special",
+            "title": "Widen Your Lats",
+            "location": "src/data/upper body/lats",
+            "period": 80,
+            "level":"Hard",
+            "image": "src/assets/exercise/upper body/lats.jpeg"
+          },
+          {
+            "name": "Traps Special",
+            "title": "Enhance Your Trap Strength",
+            "location": "src/data/upper body/lats",
+            "period": 80,
+            "level":"Hard",
+            "image": "src/assets/exercise/upper body/traps.jpeg"
+          }
+      ]
+    },
+    {
+      "name": "Lower Body",
+      "plans": [
+        {
+            "name": "Abductors Special",
+            "title": "Strengthen Your Outer Thighs",
+            "location": "src/data/muscle/abductors.json",
+            "period": 1,
+            "level":"Hard",
+            "image": "src/assets/exercise/lower body/abductors.jpeg"
+          },
+          {
+            "name": "Plantarfascia Special",
+            "title": "Relief for Your Feet",
+            "location": "src/data/muscle/plantarfascia.json",
+            "period": 1,
+            "level":"Medium",
+            "image": "src/assets/exercise/lower body/plantarfascia.jpeg"
+          },
+          {
+            "name": "Itband Special",
+            "title": "Smooth Out Your IT Band",
+            "location": "src/data/muscle/itband.json",
+            "period": 1,
+            "level":"Easy",
+            "image": "src/assets/exercise/lower body/itband.jpeg"
+          },
+          {
+            "name": "Hipflexors Special",
+            "title": "Unlock Hip Flexibility",
+            "location": "src/data/muscle/hipflexors.json",
+            "period": 1,
+            "level":"Easy",
+            "image": "src/assets/exercise/lower body/hipflexors.jpeg"
+          },
+          {
+            "name": "Hamstrings Special",
+            "title": "Flexibility and Strength Boost",
+            "location": "src/data/muscle/hamstrings.json",
+            "period": 1,
+            "level":"Hard",
+            "image": "src/assets/exercise/lower body/hamstrings.jpeg"
+          },
+          {
+            "name": "Glutes Special",
+            "title": "Power Up Your Glutes",
+            "location": "src/data/muscle/glutes.json",
+            "period": 1,
+            "level":"Easy",
+            "image": "src/assets/exercise/lower body/glutes.jpeg"
+          },
+          {
+            "name": "Calves Special",
+            "title": "Build Strong Calves",
+            "location": "src/data/muscle/calves.json",
+            "period": 1,
+            "level":"Easy",
+            "image": "src/assets/exercise/lower body/calves.jpeg"
+          },
+          {
+            "name": "Adductors Special",
+            "title": "Inner Thigh Strength",
+            "location": "src/data/muscle/adductors.json",
+            "period": 1,
+            "level":"Easy",
+            "image": "src/assets/exercise/lower body/adductors.jpeg"
+          },
+          {
+            "name": "Quads Special",
+            "title": "Quad Power Boost",
+            "location": "src/data/muscle/quads.json",
+            "period": 1,
+            "level":"Medium",
+            "image": "src/assets/exercise/lower body/quads.jpeg"
+          }
+      ]
+    },
+    {
+      "name": "Iron Arms",
+      "plans": [
+        {
+            "name": "Triceps Special",
+            "title": "Tone and Sculpt Triceps",
+            "location": "src/data/muscle/triceps.json",
+            "period": 90,
+            "level":"Medium",
+            "image": "src/assets/exercise/arms/triceps.jpeg"
+          },
+          {
+            "name": "Forearms Special",
+            "title": "Grip Strength and Size",
+            "location": "src/data/muscle/forearms.json",
+            "period": 90,
+            "level":"Easy",
+            "image": "src/assets/exercise/arms/forearms.jpeg"
+          },
+          {
+            "name": "Biceps Special",
+            "title": "Bulk Up Your Biceps",
+            "location": "src/data/muscle/biceps.json",
+            "period": 90,
+            "level":"Medium",
+
+            "image": "src/assets/exercise/arms/biceps.jpeg"
+          },
+          {
+            "name": "Palmarfacsia Special",
+            "title": "Hand Strength and Flexibility",
+            "location": "src/data/muscle/palmarfacsia.json",
+            "period": 90,
+            "level":"Medium",
+            "image": "src/assets/exercise/arms/palmarfacsia.jpeg"
+          },
+          {
+            "name": "Shoulders Special",
+            "title": "Broaden Your Shoulders",
+            "location": "src/data/muscle/shoulders.json",
+            "period": 90,
+            "level":"Hard",
+            "image": "src/assets/exercise/arms/shoulders.jpeg"
+          }
+      ]
+    }
+  ]
+}
