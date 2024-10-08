@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
+import SuccessStories from "../components/SuccessStories";
 
 function Home({mode , textcolor}) {
   const [fontVarient, setFontVarient] = useState("h1");
@@ -114,8 +115,11 @@ function Home({mode , textcolor}) {
               <Typography
                 variant="h4"
                 color="white"
-             
-                style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}
+                style={{
+                  fontSize: "25px",
+                  fontWeight: "600",
+                  lineHeight: "30px",
+                }}
               >
                 Transform Your Space, Transform Your Body
               </Typography>
@@ -157,11 +161,23 @@ function Home({mode , textcolor}) {
                   backdropFilter: "blur(5px)",
                 }}
               >
-                <Typography variant="h2" color="white" style={{ fontWeight: "900"}}>
+                <Typography
+                  variant="h2"
+                  color="white"
+                  style={{ fontWeight: "900" }}
+                >
                   {TopMessage[count]}
                 </Typography>
 
-                <Typography variant="h4" color="white" style={{fontSize:'25px', fontWeight: "600", lineHeight:'30px'}}>
+                <Typography
+                  variant="h4"
+                  color="white"
+                  style={{
+                    fontSize: "25px",
+                    fontWeight: "600",
+                    lineHeight: "30px",
+                  }}
+                >
                   {BottomMessage[count]}
                 </Typography>
               </Box>
@@ -193,9 +209,19 @@ function Home({mode , textcolor}) {
         {/* cusotmn css button */}
 
         {/* do not touch below code, idk how it works, {ps: just added marginTop, marginBottom} */}
-        <div className="wrapper" style={{marginTop:'50px', marginBottom: '50px'}}>
+        <div
+          className="wrapper"
+          style={{ marginTop: "50px", marginBottom: "50px" }}
+        >
           <NavLink to="/plans" className="cta">
-            <span style={{display:'flex', justifyContent:'center', alignItems:'center', gap:'20px'}}>
+            <span
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
               Start Exercise
               <FontAwesomeIcon icon={faFire} />
             </span>
@@ -258,7 +284,7 @@ function Home({mode , textcolor}) {
           style={{
             fontWeight: { sm: "normal", md: "bold" },
             textAlign: "center",
-            marginBottom: '10px',
+            marginBottom: "10px",
           }}
         >
           Experience the{" "}
@@ -272,7 +298,6 @@ function Home({mode , textcolor}) {
               backgroundClip: "text",
               textFillColor: "transparent",
               fontWeight: "bold",
-              
             }}
           >
             #TransformWithFitFlex
@@ -314,7 +339,7 @@ function Home({mode , textcolor}) {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               gap: "10px",
               // width:"50%",
@@ -344,7 +369,7 @@ function Home({mode , textcolor}) {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               textAlign: "center",
               gap: "10px",
@@ -375,7 +400,7 @@ function Home({mode , textcolor}) {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              JustifyContent: "center",
+              justifyContent: "center",
               color: "#AF47D2",
               gap: "10px",
               textAlign: "center",
@@ -407,7 +432,7 @@ function Home({mode , textcolor}) {
       <br />
       <Box
         sx={{
-          marginTop:'50px',
+          marginTop: "50px",
           width: "100vw",
           position: "relative",
         }}
@@ -426,37 +451,48 @@ function Home({mode , textcolor}) {
         ></div>
         <Box
           sx={{
-            position:"relative",
+            position: "relative",
             width: { sm: "100%", md: "80%" },
             height: { sm: "50vh", md: "95vh" },
             margin: "auto",
             boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
             borderLeft: { sm: "0px solid grey", md: "30px solid grey" },
             borderRight: { sm: "0px solid grey", md: "30px solid grey" },
-            backgroundColor:"black"
+            backgroundColor: "black",
           }}
         >
           <HomeSlider object={hehe} />
-      
         </Box>
-       
       </Box>
       <Box
         sx={{
-          background: 'linear-gradient(to right, #4CAF50, #81C784)',
-          padding: '40px 0',
-          minHeight: '100vh',
+          width: "100%",
+          padding: "40px 0",
+          backgroundColor: "#f5f5f5",
         }}
+      >
+        <SuccessStories />
+      </Box>
 
-      ><FAQSection  sx={{
-        marginTop: '40px',  // Add gap on top (adjust value as needed)
-        marginBottom: 0,     // Ensure no gap at the bottom
-      }}/></Box>
+      <Box
+        sx={{
+          background: "linear-gradient(to right, #4CAF50, #81C784)",
+          padding: "40px 0",
+          minHeight: "100vh",
+        }}
+      >
+        <FAQSection
+          sx={{
+            marginTop: "40px", // Add gap on top (adjust value as needed)
+            marginBottom: 0, // Ensure no gap at the bottom
+          }}
+        />
+      </Box>
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
-          JustifyContent: "center",
+          justifyContent: "center",
           color: "#AF47D2",
           gap: "10px",
         }}
