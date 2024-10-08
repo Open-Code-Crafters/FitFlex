@@ -28,10 +28,10 @@ const Footer = () => {
               fontSize: "1rem",  // Adjusted to fit the compact design
             }}
           >
-            Product
+            About
           </Typography>
           <Box>
-            {["Landing Page", "Popup Builder", "Web-design", "Content", "Integrations"].map((item, index) => (
+            {["Our Story", "Team", "Career", "Content", "Press"].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -60,10 +60,10 @@ const Footer = () => {
               fontSize: "1rem",
             }}
           >
-            Use Cases
+            Services
           </Typography>
           <Box>
-            {["Web-designers", "Marketers", "Small Business", "Website Builder"].map((item, index) => (
+            {["Personal Coachings", "Group Classes", "Online Programs", "Corporate Wellness"].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -95,7 +95,7 @@ const Footer = () => {
             Resources
           </Typography>
           <Box>
-            {["Academy", "Blog", "Themes", "Hosting", "Developers", "Support"].map((item, index) => (
+            {["Academy", "Blog", "Health Tips", "FaQs", "Support"].map((item, index) => (
               <Link
                 key={index}
                 href="#"
