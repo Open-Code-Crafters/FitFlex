@@ -31,8 +31,8 @@ const Services = ({mode,textcolor}) => {
             alt="Personal Training"
             style={styles.image}
           />
-          <h2 tyle={{...styles.subheading , color : textcolor}}>Personal Training</h2>
-          <p style={styles.description}>
+          <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
+          <p style={{...styles.subheading , color : textcolor}}>
             Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.
           </p>
           <button
@@ -79,7 +79,7 @@ const Services = ({mode,textcolor}) => {
             style={styles.image}
           />
           <h2 style={{...styles.subheading ,  color : textcolor}}>Online Virtual Training</h2>
-          <p style={styles.description}>
+          <p style={{...styles.subheading , color : textcolor}}>
             Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.
           </p>
           <button
@@ -125,7 +125,6 @@ const styles = {
     padding: "40px",
     textAlign: "center",
     background: "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
-    color: "#fff",
   },
   heading: {
     fontSize: "2.8em",
@@ -147,7 +146,6 @@ const styles = {
     cursor: "pointer",
     overflow: "hidden",
     textAlign: "left",
-    color: "#333",
     position: "relative",
     overflow: "hidden",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
