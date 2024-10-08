@@ -4,6 +4,9 @@ import { Grid, Typography, Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import PlansCard from "../components/PlansCard";
 import plansObject from "../data/plans.json";
+
+import GymExercises from "../components/GymExercises";
+
 const Plans = () => {
   useEffect(() => {
     document.title = "FitFlex-Know Your Plans";
@@ -156,7 +159,8 @@ const Plans = () => {
           </div>
         );
       })}
-
+      {/* created a new component GymRxercises for showing Different Exercises */}
+<GymExercises/>
       {/* yoga specials
       <Typography
         variant="h3"
