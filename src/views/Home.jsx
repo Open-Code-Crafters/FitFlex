@@ -468,10 +468,10 @@ function Home({mode , textcolor}) {
         sx={{
           width: "100%",
           padding: "40px 0",
-          backgroundColor: "#f5f5f5",
+          backgroundColor: mode,
         }}
       >
-        <SuccessStories />
+        <SuccessStories mode = {mode} textcolor = {textcolor}/>
       </Box>
 
       <Box
