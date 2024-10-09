@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Box, Typography, Link, IconButton, Grid, TextField, Button } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,7 +6,9 @@ import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaTelegramPlane } from "react-icons/fa";
 import logo from "../assets/fitness1.png";  // Replace with your logo
 import GoogleTranslate from './GoogleTranslate';
+import Subscribe from "./Subscribe";
 const Footer = () => {
+
   return (
     <Box
       component="footer"
@@ -21,7 +23,7 @@ const Footer = () => {
         container
         spacing={3}
         justifyContent={{ xs: "center", sm: "space-between" }}  // Center content for mobile screens
-        alignItems="center"
+        alignItems={{ xs: "center", sm: "normal" }} // Normal content for PC screens
         direction={{ xs: "column", sm: "row" }}  // Stack items on mobile
       >
         {/* Column 1: About */}
@@ -182,54 +184,8 @@ const Footer = () => {
           >
             Subscribe
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              maxWidth: "100%",  // Ensure input is responsive
-              backgroundColor: "#fff",
-              borderRadius: "30px",
-              padding: "2px",
-            }}
-          >
-            <TextField
-              variant="outlined"
-              placeholder="Enter your email Address"
-              fullWidth
-              sx={{
-                backgroundColor: "transparent",
-                input: {
-                  padding: { xs: "8px", sm: "10px 12px" },
-                  color: "#000",
-                  "&::placeholder": {
-                    color: "#777",
-                  },
-                },
-                "& .MuiOutlinedInput-root": {
-                  "& fieldset": {
-                    border: "none",
-                  },
-                },
-              }}
-            />
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#fff",
-                color: "#000",
-                borderRadius: "30px",
-                padding: { xs: "8px 15px", sm: "10px 20px" },
-                boxShadow: "0px 0px 8px rgba(255, 255, 255, 0.6)",
-                "&:hover": {
-                  backgroundColor: "#f1c40f",
-                },
-              }}
-            >
-              Subscribe
-            </Button>
-            
-          </Box>
+          {/* Subscribe Newsletter */}
+          <Subscribe />
           
         </Grid>
         
