@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const Blog = ({mode,textcolor}) => {
+const Blog = ({ mode, textcolor }) => {
   const blogPosts = [
     {
       title: "The Best Gym Workout Plan For Gaining Muscle",
@@ -30,6 +32,23 @@ const Blog = ({mode,textcolor}) => {
   const [comments, setComments] = useState(blogPosts.map(() => []));
   const [commentInputs, setCommentInputs] = useState(blogPosts.map(() => ""));
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
   const handleLike = (index) => {
     const newLikes = [...likes];
     newLikes[index] += 1;
@@ -37,6 +56,10 @@ const Blog = ({mode,textcolor}) => {
   };
 
   const toggleCommentBox = (index) => {
+    if (!isLoggedIn) {
+      navigate('/register');
+      return;
+    }
     const newShowCommentBox = [...showCommentBox];
     newShowCommentBox[index] = !newShowCommentBox[index];
     setShowCommentBox(newShowCommentBox);
@@ -213,7 +236,7 @@ const Blog = ({mode,textcolor}) => {
             </button>
           </div>
 
-          {showCommentBox[index] && (
+          {isLoggedIn && showCommentBox[index] && (
             <div>
               <textarea
                 style={styles.commentBox}
