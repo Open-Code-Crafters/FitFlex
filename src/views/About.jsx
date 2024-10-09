@@ -49,13 +49,12 @@ const About = ({mode,textcolor}) => {
       </div>
 
       {/* What We Offer Section */}
-      {/* What We Offer - Grid Section */}
       <Box sx={{ mb: 6 }}>
         <Typography
           variant="h4"
           align="center"
           gutterBottom
-          sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem', paddingBottom: '4px' }}
+          sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem', marginTop:"2rem", marginBottom:"1rem" }}
         >
           What We Offer
         </Typography>
@@ -127,60 +126,79 @@ const About = ({mode,textcolor}) => {
 
       {/* Stats Section */}
       <Box sx={{ mb: 6 }}>
-        <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
-          Our Stats
-        </Typography>
-        <Grid container spacing={3} justifyContent="center">
-          <Grid item xs={6} sm={3} textAlign="center">
-            <Card className="stat-card">
-              <CardContent>
-                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
-                  {({ isVisible }) => (
-                    <div style={{fontSize:"1.2rem"}}>{viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}</div>
-                  )}
-                </VisibilitySensor>
-                <Typography variant="body1">Total Users</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={6} sm={3} textAlign="center">
-            <Card className="stat-card">
-              <CardContent>
-                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
-                  {({ isVisible }) => (
-                    <div style={{fontSize:"1.2rem"}}>{viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}</div>
-                  )}
-                </VisibilitySensor>
-                <Typography variant="body1">Total Diet Plans</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={6} sm={3} textAlign="center">
-            <Card className="stat-card">
-              <CardContent>
-                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
-                  {({ isVisible }) => (
-                    <div style={{fontSize:"1.2rem"}}>{viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}</div>
-                  )}
-                </VisibilitySensor>
-                <Typography variant="body1">Programs</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={6} sm={3} textAlign="center">
-            <Card className="stat-card">
-              <CardContent>
-                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
-                  {({ isVisible }) => (
-                    <div style={{fontSize:"1.2rem"}}>{viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}</div>
-                  )}
-                </VisibilitySensor>
-                <Typography variant="body1" style={{fontSize:"1.2rem"}}>Personal Trainers</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Box>
+  <Typography 
+    variant="h4" 
+    align="center" 
+    gutterBottom 
+    sx={{ 
+      fontWeight: 'bold', 
+      color: '#ff8c00', 
+      pb: 4 // Added padding bottom here
+    }}
+  >
+    Our Stats
+  </Typography>
+  <Grid container spacing={3} justifyContent="center">
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card">
+        <CardContent>
+        <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
+  {({ isVisible }) => (
+    <div className='numbers'>
+      {viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}
+    </div>
+  )}
+</VisibilitySensor>
+
+          <Typography variant="body1" className='numbers'>Total Users</Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card">
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers'>Diet Plans</Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card">
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1"  className='numbers'>Total Programs</Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card4">
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers4'>Personal Trainers</Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  </Grid>
+</Box>
+
 
       <Box
       sx={{
@@ -194,7 +212,7 @@ const About = ({mode,textcolor}) => {
         variant="h4"
         align="center"
         gutterBottom
-        sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem' }}
+        sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem'}}
       >
         Why Choose FitFlex?
       </Typography>
