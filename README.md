@@ -113,6 +113,26 @@ We also have a Discord server to discuss doubts and suggestions! Make sure to jo
 5. **Contribution Guidelines**
 Move detailed steps to a new `CONTRIBUTING.md` file and link to it:
 
+<h3> Steps using Docker</h3>
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Open-Code-Crafters/FitFlex.git
+   ```
+2. **Navigate to the project directory**:
+    ```bash
+   cd FitFlex
+   ```
+  
+3. **Install Docker Image**:
+    ```bash
+   docker build -t my-app .
+   ```
+4. **Run Docker Image**:
+   ```bash
+   docker run -p 5173:5173 my-app
+   ```
+
 
 
 
