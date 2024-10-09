@@ -132,7 +132,9 @@ Move detailed steps to a new `CONTRIBUTING.md` file and link to it:
    ```bash
    docker run -p 5173:5173 my-app
    ```
-
+5. **Steps to get Docker Desktop for running the application using docker**
+    Go to "https://www.docker.com/products/docker-desktop/" and download Docker Desktop for Mac/Windows/Linux
+  
 
 
 
