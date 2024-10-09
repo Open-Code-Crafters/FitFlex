@@ -24,6 +24,16 @@
   font-weight: 500;
 }
 
+@media (prefers-color-scheme: dark) {
+  .slogan {
+    color: white; /* Change the slogan color for dark mode */
+  }
+  
+  .slogan h3, .slogan p {
+    color: white; /* Change h3 and p color for dark mode */
+  }
+}
+
 .mission-vision-container {
   display: flex;
   justify-content: space-around;
