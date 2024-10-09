@@ -1,54 +1,54 @@
-// this component is temperary and will be replaced with the actual workout and exercise components
-
-import { Typography, Container, Box, Grid, Button } from '@mui/material';
+import { Typography, Container, Box, Grid, Button, Card, CardContent } from '@mui/material';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import mission from "../assets/about/mission.jpg"
+import mission from "../assets/about/mission.png"
 import vision from "../assets/about/vision.png"
 import "../styles/about.css";
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
-
 import { useState } from 'react';
 
-const About = () => {
+const About = ({mode,textcolor}) => {
   const [viewed, setViewed] = useState({
     users: false,
     opd: false,
     accidents: false,
     hospitals: false,
   });
+  
+
   return (
     <Container maxWidth="lg" sx={{ padding: '2rem 0' }}>
       {/* Hero Section */}
-      <div class="slogan">
+      <div className="slogan">
         <h2>"Your Fitness, Your Future!"</h2>
         <h3>- FitFlex Motto</h3>
-        <p style={{ fontSize: "24px", fontWeight: "600" }}>Welcome to FitFlex, where we help you transform your space, transform your body, and ultimately, transform your life! Our team is dedicated to providing you with the best fitness experience, whether you're working out from home or in the gym.</p>
+        <p>Welcome to FitFlex, where we help you transform your space, transform your body, and ultimately, transform your life! Our team is dedicated to providing you with the best fitness experience, whether you're working out from home or in the gym.</p>
       </div>
 
+      {/* Our Mission & Vision Section */}
+      <div className="mission-vision-container">
+        <Card className="mission-vision-card">
+          <CardContent>
+          <h4>Our Vision</h4>
+            <img src={vision} alt="Vision" />
+            
+            <p>At <b>FitFlex</b>, our vision is to create a world where <b>Fitness is accessible, enjoyable, and adaptable for everyone</b>.</p>
+          </CardContent>
+        </Card>
+        <Card className="mission-vision-card">
+          <CardContent>
+          <h4>Our Mission</h4>
+            <img src={mission} alt="Mission" className='imgclass'/>
+            <p>At <b>FitFlex</b>, our mission is to provide a fitness solution that adapts to your lifestyle and goals. <b>Transform your space, transform your body</b>.</p>
+          </CardContent>
+        </Card>
+      </div>
 
-      {/* Our Mission Section */}
-      <div class="container">
-
-    <div class="vision-box">
-        <h4>Our Vision</h4>
-        <img src={vision} alt="Vision" />
-        <p>At FitFlex, our vision is to create a world where fitness is accessible, enjoyable, and adaptable for everyone. We believe in helping people achieve their goals by making fitness a part of everyday life.</p>
-    </div>
-
-    <div class="mission-box">
-        <h4>Our Mission</h4>
-        <img src={mission} alt="Mission" />
-        <p>At <b>FitFlex</b>, our mission is to provide a fitness solution that adapts to your lifestyle and goals. Whether you’re a busy professional, a stay-at-home parent, or just someone who wants to stay fit, we have programs designed just for you. <b>Transform your space, transform your body</b>.</p>
-    </div>
-</div>
-
-
-
+      {/* What We Offer Section */}
       {/* What We Offer - Grid Section */}
       <Box sx={{ mb: 6 }}>
         <Typography
@@ -75,7 +75,7 @@ const About = () => {
               <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
                 Personalized Workouts
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: '#666' ,  fontSize:"1.2rem"}}>
                 Get customized workout plans based on your goals, fitness level, and available equipment.
               </Typography>
             </Box>
@@ -96,7 +96,7 @@ const About = () => {
               <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
                 Fitness Challenges
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: '#666' , fontSize:"1.2rem"}}>
                 Participate in exciting challenges to keep you motivated and pushing your limits.
               </Typography>
             </Box>
@@ -117,7 +117,7 @@ const About = () => {
               <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>
                 Nutrition Guidance
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: '#666' ,  fontSize:"1.2rem"}}>
                 Our experts will help you with personalized meal plans and nutrition advice for your goals.
               </Typography>
             </Box>
@@ -125,248 +125,140 @@ const About = () => {
         </Grid>
       </Box>
 
+      {/* Stats Section */}
+      <Box sx={{ mb: 6 }}>
+        <Typography variant="h4" align="center" gutterBottom sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
+          Our Stats
+        </Typography>
+        <Grid container spacing={3} justifyContent="center">
+          <Grid item xs={6} sm={3} textAlign="center">
+            <Card className="stat-card">
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
+                  {({ isVisible }) => (
+                    <div style={{fontSize:"1.2rem"}}>{viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}</div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1">Total Users</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6} sm={3} textAlign="center">
+            <Card className="stat-card">
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
+                  {({ isVisible }) => (
+                    <div style={{fontSize:"1.2rem"}}>{viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}</div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1">Total Diet Plans</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6} sm={3} textAlign="center">
+            <Card className="stat-card">
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
+                  {({ isVisible }) => (
+                    <div style={{fontSize:"1.2rem"}}>{viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}</div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1">Programs</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={6} sm={3} textAlign="center">
+            <Card className="stat-card">
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
+                  {({ isVisible }) => (
+                    <div style={{fontSize:"1.2rem"}}>{viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}</div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1" style={{fontSize:"1.2rem"}}>Personal Trainers</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
 
-      {/* Why Choose Us Section */}
-      <Box sx={{ mb: 6, padding: '2rem', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
-        <Typography
-          variant="h4"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem' }}
-        >
-          Why Choose FitFlex?
-        </Typography>
-        <Typography variant="body1" align="center" paragraph sx={{ fontSize: '1.2rem', color: '#666' }}>
-          With <strong>FitFlex</strong>, you’re not just working out — you’re part of a community that pushes
-          you to be the best version of yourself. Our trainers, programs, and tracking tools are
-          designed to keep you motivated, on track, and seeing results.
-        </Typography>
-        <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-          <Grid item xs={12} sm={4} textAlign="center">
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '70%', // Ensures all cards are of equal height
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
+      <Box
+      sx={{
+        mb: 6,
+        padding: '2rem',
+        backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
+        borderRadius: '8px',
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem' }}
+      >
+        Why Choose FitFlex?
+      </Typography>
+      <Typography
+        variant="body1"
+        align="center"
+        paragraph
+        sx={{ fontSize: '1.2rem', color: textcolor, fontSize: '1.2rem' }}
+      >
+        With <bold>FitFlex</bold>, you’re not just working out — you’re part of a community that pushes you to be the best version of yourself. Our trainers, programs, and tracking tools are designed to keep you motivated, on track, and seeing results.
+      </Typography>
+      <Grid container spacing={3} justifyContent="center">
+        <Grid item xs={12} sm={4}>
+          <Card sx={{ backgroundColor: 'white', textAlign: 'center' }}>
+            <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
                 24/7 Access
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: textcolor, fontSize: '1.2rem'  }}>
                 Workout at your convenience, anytime, anywhere.
               </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} textAlign="center">
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '70%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Card sx={{ backgroundColor: 'white', textAlign: 'center' }}>
+            <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
                 Experienced Trainers
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: textcolor, fontSize: '1.2rem'  }}>
                 Learn from the best in the industry with personalized attention.
               </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} textAlign="center">
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                padding: 3,
-                borderRadius: 2,
-                border: '1px solid #e0e0e0',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '70%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Card sx={{ backgroundColor: 'white', textAlign: 'center' }}>
+            <CardContent>
               <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
                 Track Your Progress
               </Typography>
-              <Typography variant="body1" sx={{ color: '#666' }}>
+              <Typography variant="body1" sx={{ color: textcolor , fontSize: '1.2rem' }}>
                 Use our advanced tools to measure your progress and hit your targets.
               </Typography>
-            </Box>
-          </Grid>
+            </CardContent>
+          </Card>
         </Grid>
-     <Typography
-          variant="h4"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem', marginTop:"2.5rem" , marginBottom:"-1rem"}}
-        >
-         Our Stats
-        </Typography>
-        <SectionWrapper>
-      {/* First Stat */}
-     
-      <StatItem>
-        <VisibilitySensor
-          partialVisibility
-          offset={{ bottom: 200 }}
-          onChange={(isVisible) => {
-            if (isVisible) {
-              setViewed((prev) => ({ ...prev, users: true }));
-            }
-          }}
-        >
-          {({ isVisible }) => (
-            <StatNumber>
-              {viewed.users || isVisible ? (
-                <CountUp start={0} end={234} duration={3} suffix="+" />
-              ) : (
-                234
-              )}
-            </StatNumber>
-          )}
-        </VisibilitySensor>
-        Total Users
-      </StatItem>
+      </Grid>
+    </Box>
 
-      {/* Second Stat */}
-      <StatItem>
-        <VisibilitySensor
-          partialVisibility
-          offset={{ bottom: 200 }}
-          onChange={(isVisible) => {
-            if (isVisible) {
-              setViewed((prev) => ({ ...prev, opd: true }));
-            }
-          }}
-        >
-          {({ isVisible }) => (
-            <StatNumber>
-              {viewed.opd || isVisible ? (
-                <CountUp start={0} end={40} duration={3} suffix="+" />
-              ) : (
-                40
-              )}
-            </StatNumber>
-          )}
-        </VisibilitySensor>
-        Total Diet Plan
-      </StatItem>
-
-      {/* Third Stat */}
-      <StatItem>
-        <VisibilitySensor
-          partialVisibility
-          offset={{ bottom: 200 }}
-          onChange={(isVisible) => {
-            if (isVisible) {
-              setViewed((prev) => ({ ...prev, accidents: true }));
-            }
-          }}
-        >
-          {({ isVisible }) => (
-            <StatNumber>
-              {viewed.accidents || isVisible ? (
-                <CountUp start={0} end={35} duration={3} suffix="+" />
-              ) : (
-                35
-              )}
-            </StatNumber>
-          )}
-        </VisibilitySensor>
-       Programs
-      </StatItem>
-
-      {/* Fourth Stat */}
-      <StatItem>
-        <VisibilitySensor
-          partialVisibility
-          offset={{ bottom: 200 }}
-          onChange={(isVisible) => {
-            if (isVisible) {
-              setViewed((prev) => ({ ...prev, hospitals: true }));
-            }
-          }}
-        >
-          {({ isVisible }) => (
-            <StatNumber>
-              {viewed.hospitals || isVisible ? (
-                <CountUp start={0} end={25} duration={3} suffix="+" />
-              ) : (
-                25
-              )}
-            </StatNumber>
-          )}
-        </VisibilitySensor>
-        Personal Trainer
-      </StatItem>
-    </SectionWrapper>
-
-
-      </Box>
-      
       {/* Call to Action Section */}
       <Box sx={{ textAlign: 'center', mt: 6 }}>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
-          endIcon={<ArrowForwardIcon />}
-        >
-          Join FitFlex Now
-        </Button>
-      </Box>
+                <Button
+                    variant="contained"
+                    size="large"
+                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
+                    endIcon={<ArrowForwardIcon />}
+                >
+                    Join FitFlex Now
+                </Button>
+            </Box>
     </Container>
   );
 };
-
-const SectionWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 150px;
-  width: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto;
-    padding: 2rem 0;
-  }
-`;
-
-const StatItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 1.2rem;
-  color: #333;
-  font-weight: bold;
-  text-align: center;
-    @media (max-width: 768px) {
-    flex-direction: column;
-    height: auto;
-    padding: 1rem 0;
-  }
-`;
-
-const StatNumber = styled.div`
-  font-size: 2rem;
-  color :#ff8c00;
-  margin-bottom: 0.3rem;
-
-`;
 
 export default About;
