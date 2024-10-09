@@ -27,7 +27,8 @@ const Blog = ({mode,textcolor}) => {
 
   const [likes, setLikes] = useState(blogPosts.map(() => 0));
   const [showCommentBox, setShowCommentBox] = useState(blogPosts.map(() => false));
-  const [comments, setComments] = useState(blogPosts.map(() => ""));
+  const [comments, setComments] = useState(blogPosts.map(() => []));
+  const [commentInputs, setCommentInputs] = useState(blogPosts.map(() => ""));
 
   const handleLike = (index) => {
     const newLikes = [...likes];
@@ -42,16 +43,21 @@ const Blog = ({mode,textcolor}) => {
   };
 
   const handleCommentChange = (index, event) => {
-    const newComments = [...comments];
-    newComments[index] = event.target.value;
-    setComments(newComments);
+    const newCommentInputs = [...commentInputs];
+    newCommentInputs[index] = event.target.value;
+    setCommentInputs(newCommentInputs);
   };
 
   const handleCommentSubmit = (index) => {
-    alert(`Comment for post "${blogPosts[index].title}": ${comments[index]}`);
-    const newComments = [...comments];
-    newComments[index] = ""; // Clear the comment after submission
-    setComments(newComments);
+    if (commentInputs[index].trim() !== "") {
+      const newComments = [...comments];
+      newComments[index] = [...newComments[index], commentInputs[index]];
+      setComments(newComments);
+      
+      const newCommentInputs = [...commentInputs];
+      newCommentInputs[index] = ""; // Clear the comment input after submission
+      setCommentInputs(newCommentInputs);
+    }
   };
 
   // Adding useEffect for debugging
@@ -162,6 +168,19 @@ const Blog = ({mode,textcolor}) => {
       borderRadius: "5px",
       cursor: "pointer",
     },
+    commentList: {
+      marginTop: "15px",
+      borderTop: "1px solid #ddd",
+      paddingTop: "10px",
+    },
+    commentItem: {
+      backgroundColor: mode === 'light' ? '#ffffff' : '#2c3e50',
+      border: "1px solid #ddd",
+      borderRadius: "5px",
+      padding: "10px",
+      marginBottom: "10px",
+      color: textcolor,
+    },
   };
 
   return (
@@ -198,7 +217,7 @@ const Blog = ({mode,textcolor}) => {
             <div>
               <textarea
                 style={styles.commentBox}
-                value={comments[index]}
+                value={commentInputs[index]}
                 onChange={(e) => handleCommentChange(index, e)}
                 placeholder="Write your comment here..."
               />
@@ -208,6 +227,17 @@ const Blog = ({mode,textcolor}) => {
               >
                 Submit Comment
               </button>
+            </div>
+          )}
+
+          {comments[index].length > 0 && (
+            <div style={styles.commentList}>
+              <h3>Comments:</h3>
+              {comments[index].map((comment, commentIndex) => (
+                <div key={commentIndex} style={styles.commentItem}>
+                  {comment}
+                </div>
+              ))}
             </div>
           )}
         </div>
