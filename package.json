@@ -33,12 +33,15 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.53.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.1",
     "react-slick": "^0.30.2",
+    "react-visibility-sensor": "^5.1.1",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.13",
     "zod": "^3.23.8"
   },
   "devDependencies": {
