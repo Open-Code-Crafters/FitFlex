@@ -21,7 +21,7 @@ const Footer = () => {
         container
         spacing={3}
         justifyContent={{ xs: "center", sm: "space-between" }}  // Center content for mobile screens
-        alignItems="center"
+        alignItems={{ xs: "center", sm: "normal" }} // Normal content for PC screens
         direction={{ xs: "column", sm: "row" }}  // Stack items on mobile
       >
         {/* Column 1: About */}
