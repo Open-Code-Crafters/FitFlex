@@ -1,33 +1,29 @@
-// import { create } from "@mui/material/styles/createTransitions";
-import { createContext, useContext } from "react";
-import {initializeApp} from "firebase/app";
-import {getAuth} from "firebase/auth";
+import React, { createContext, useContext } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBDW-uU9llqmCAw5yf207WZ4IcIIa5Fekw",
-    authDomain: "fir-auth-69b4c.firebaseapp.com",
-    projectId: "fir-auth-69b4c",
-    storageBucket: "fir-auth-69b4c.appspot.com",
-    messagingSenderId: "462936464600",
-    appId: "1:462936464600:web:af0ddd26b87f78d5be8bad",
-     
-};
+    apiKey: "AIzaSyDx_19T2NadPO43rrqZWKt6i7I2Ssbkmq8",
+    authDomain: "fitflex-78e15.firebaseapp.com",
+    projectId: "fitflex-78e15",
+    storageBucket: "fitflex-78e15.appspot.com",
+    messagingSenderId: "220563280186",
+    appId: "1:220563280186:web:63f6fe15b152eaedcf8003"
+  };
+  ;
 const firebaseApp = initializeApp(firebaseConfig);
-// const firebaseAuth = getAuth(firebaseApp);
+const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app);
 
-const FirebaseContext = createContext(null);
+const FirebaseContext = createContext();
+
+export const FirebaseProvider = ({ children }) => {
+  return (
+    <FirebaseContext.Provider value={{ firestore }}>
+      {children}
+    </FirebaseContext.Provider>
+  );
+};
 
 export const useFirebase = () => useContext(FirebaseContext);
-
-export const FirebaseProvider =(props) =>{
-    
-  
-    return(
-
-        <FirebaseContext.Provider>
-            {props.children}
-        </FirebaseContext.Provider>
-    )
-}
-
