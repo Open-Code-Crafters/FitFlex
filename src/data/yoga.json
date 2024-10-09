@@ -1,0 +1,68 @@
+{
+    "plans": [
+        {
+            "title": "Beginner Yoga",
+            "subtitle": "Start Your Yoga Journey",
+            "image": "path/to/yoga_image1.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/yoga_detailedData1.json"
+        },
+        {
+            "title": "Intermediate Yoga",
+            "subtitle": "Deepen Your Practice",
+            "image": "path/to/yoga_image2.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/yoga_detailedData2.json"
+        },
+        {
+            "title": "Advanced Yoga",
+            "subtitle": "Master Advanced Poses",
+            "image": "path/to/yoga_image3.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/yoga_detailedData3.json"
+        },
+        {
+            "title": "Yoga for Flexibility",
+            "subtitle": "Enhance Your Flexibility",
+            "image": "path/to/yoga_image4.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/yoga_detailedData4.json"
+        },
+        {
+            "title": "Yoga for Strength",
+            "subtitle": "Build Strength with Yoga",
+            "image": "path/to/yoga_image5.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/yoga_detailedData5.json"
+        },
+        {
+            "title": "Yoga for Relaxation",
+            "subtitle": "Find Peace and Relaxation",
+            "image": "path/to/yoga_image6.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/yoga_detailedData6.json"
+        },
+        {
+            "title": "Power Yoga",
+            "subtitle": "Boost Your Energy",
+            "image": "path/to/yoga_image7.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/yoga_detailedData7.json"
+        },
+        {
+            "title": "Yoga for Balance",
+            "subtitle": "Improve Your Balance",
+            "image": "path/to/yoga_image8.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/yoga_detailedData8.json"
+        }
+    ]
+}

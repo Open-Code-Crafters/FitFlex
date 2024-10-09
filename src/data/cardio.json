@@ -1,0 +1,100 @@
+{
+    "plans": [
+        {
+            "title": "Beginner Cardio",
+            "subtitle": "Start Your Cardio Journey",
+            "image": "path/to/cardio_image1.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/cardio_detailedData1.json"
+        },
+        {
+            "title": "Intermediate Cardio",
+            "subtitle": "Boost Your Cardio Endurance",
+            "image": "path/to/cardio_image2.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/cardio_detailedData2.json"
+        },
+        {
+            "title": "Advanced Cardio",
+            "subtitle": "Achieve Peak Cardio Fitness",
+            "image": "path/to/cardio_image3.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/cardio_detailedData3.json"
+        },
+        {
+            "title": "HIIT Cardio",
+            "subtitle": "High-Intensity Interval Training",
+            "image": "path/to/cardio_image4.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/cardio_detailedData4.json"
+        },
+        {
+            "title": "Endurance Cardio",
+            "subtitle": "Build Cardio Endurance",
+            "image": "path/to/cardio_image5.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/cardio_detailedData5.json"
+        },
+        {
+            "title": "Low Impact Cardio",
+            "subtitle": "Gentle Cardio Workouts",
+            "image": "path/to/cardio_image6.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/cardio_detailedData6.json"
+        },
+        {
+            "title": "Cardio for Weight Loss",
+            "subtitle": "Burn Calories with Cardio",
+            "image": "path/to/cardio_image7.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/cardio_detailedData7.json"
+        },
+        {
+            "title": "Cardio for Runners",
+            "subtitle": "Improve Running Performance",
+            "image": "path/to/cardio_image8.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/cardio_detailedData8.json"
+        },
+        {
+            "title": "Cardio Dance",
+            "subtitle": "Fun Dance Workouts",
+            "image": "path/to/cardio_image9.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/cardio_detailedData9.json"
+        },
+        {
+            "title": "Cardio Kickboxing",
+            "subtitle": "High-Energy Cardio Kickboxing",
+            "image": "path/to/cardio_image10.jpg",
+            "totalDays": 45,
+            "difficulty": "intermediate",
+            "detailedData": "path/to/cardio_detailedData10.json"
+        },
+        {
+            "title": "Cardio for Seniors",
+            "subtitle": "Gentle Cardio for Seniors",
+            "image": "path/to/cardio_image11.jpg",
+            "totalDays": 30,
+            "difficulty": "beginner",
+            "detailedData": "path/to/cardio_detailedData11.json"
+        },
+        {
+            "title": "Full Body Cardio",
+            "subtitle": "Complete Body Cardio Workouts",
+            "image": "path/to/cardio_image12.jpg",
+            "totalDays": 60,
+            "difficulty": "expert",
+            "detailedData": "path/to/cardio_detailedData12.json"
+        }
+    ]
+}
