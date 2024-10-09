@@ -10,8 +10,15 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { text } from '@fortawesome/fontawesome-svg-core';
+import { useNavigate } from 'react-router-dom';
 
 const About = ({mode,textcolor}) => {
+    const navigate = useNavigate();
+
+    const handleJoinClick = () => {
+        navigate('/register');
+    };
+
     return (
         <Container maxWidth="lg" sx={{ padding: '2rem 0' }}>
             {/* Hero Section */}
@@ -140,6 +147,7 @@ const About = ({mode,textcolor}) => {
                     size="large"
                     sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
                     endIcon={<ArrowForwardIcon />}
+                    onClick={handleJoinClick}
                 >
                     Join FitFlex Now
                 </Button>
@@ -149,3 +157,4 @@ const About = ({mode,textcolor}) => {
 };
 
 export default About;
+
