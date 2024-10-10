@@ -1,0 +1,29 @@
+.log-meal-page {
+    padding: 20px;
+  }
+  
+  .meal-list {
+    margin-top: 20px;
+  }
+  
+  .meal-item {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .meal-item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .meal-item button:hover {
+    background-color: #c82333;
+  }
+  

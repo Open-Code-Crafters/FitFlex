@@ -1,3 +1,4 @@
+
 import "./App.css";
 import { Suspense, lazy, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -8,19 +9,20 @@ import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 import { color } from "framer-motion";
 
-const Navbar = lazy(() => import("./components/Navbar.jsx"));
-const Home = lazy(() => import("./views/Home.jsx"));
-const Contact = lazy(() => import("./views/Contact.jsx"));
-const Register = lazy(() => import("./views/Register.jsx"));
-const Login = lazy(() => import("./views/Login.jsx"));
-const About = lazy(() => import("./views/About.jsx"));
-const Profile = lazy(() => import("./views/Profile.jsx"));
-const Plans = lazy(() => import("./views/Plans.jsx"));
-const Workout = lazy(() => import("./views/Workout.jsx"));
-// const HealthTips = lazy(() => import("./components/Healthtips.jsx"));
-// import HealthTips from './components/HealthTips'; // Make sure this path is correct
-const Blog = lazy(() => import("./views/Blog.jsx"));
-const Services = lazy(() => import("./views/Services.jsx"));
+
+// Lazy load components
+const Navbar = lazy(() => import('./components/Navbar.jsx'));
+const Home = lazy(() => import('./views/Home.jsx'));
+const Contact = lazy(() => import('./views/Contact.jsx'));
+const Register = lazy(() => import('./views/Register.jsx'));
+const Login = lazy(() => import('./views/Login.jsx'));
+const About = lazy(() => import('./views/About.jsx'));
+const Profile = lazy(() => import('./views/Profile.jsx'));
+const Plans = lazy(() => import('./views/Plans.jsx'));
+const Workout = lazy(() => import('./views/Workout.jsx'));
+const Blog = lazy(() => import('./views/Blog.jsx'));
+const Services = lazy(() => import('./views/Services.jsx'));
+const LogMeal = lazy(() => import('./components/Nutrition/LogMeal.jsx')); // Make sure the path is correct
 
 function App() {
 
@@ -43,35 +45,33 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Suspense fallback={<Loading />}>
-        <BrowserRouter>
-          <Navbar  mode = {mode} toggleMode = {toggleMode} />
-          <Routes>
-            <Route path="/" element={<Home mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/home" element={<Home mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About mode = {mode} textcolor = {textcolor} />} />
-            <Route path="/plans" element={<Plans mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/plans/:plansId" element={<Plans mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/workout/:workoutId" element={<Workout mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/progress" element={<Profile />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/*" element={<NotFound />} />
-            <Route path="/healthtips" element={<HealthTips />} />
-            <Route path="/blog" element={<Blog mode = {mode} textcolor = {textcolor}/>} />
-            <Route path="/services" element={<Services mode = {mode} textcolor = {textcolor}/>} /> 
 
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/plans" element={<Plans />} />
+          <Route path="/plans/:plansId" element={<Plans />} />
+          <Route path="/workout/:workoutId" element={<Workout />} />
+          <Route path="/progress" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/log-meal" element={<LogMeal />} />
+          <Route path="/healthtips" element={<HealthTips />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <BackToTopButton /> {/* Add Back to Top Button here */}
 
-          </Routes>
-
-          <Footer />
-          <BackToTopButton /> {/* Add Back to Top Button here */}
-        </BrowserRouter>
       </Suspense>
-    </>
+    </Router>
   );
 }
 
