@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -30,7 +30,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import BackgrundImg from "../assets/home/homeImg1.jpg";
 import { useFirebase } from "../context/Firebase";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { getAuth,createUserWithEmailAndPassword , GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import GoogleIcon from '@mui/icons-material/Google';
 const registerSchema = z
   .object({
@@ -95,8 +95,13 @@ const registerSchema = z
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, seterror] = useState(null);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state for confirm password
   const navigate = useNavigate();
+
+  const email=useRef(null);
+  const password=useRef(null);
+
   const {
     register,
     handleSubmit,
@@ -134,9 +139,23 @@ const Register = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    navigate("/home");
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    // ..
+  });
+
     setOpenSnackbar(true);
-    setTimeout(() => navigate("/Login"), 2000);
+    
   };
 
   const height = watch("height");
@@ -172,20 +191,10 @@ const Register = () => {
     }
   }, [height, weight, errors]);
 
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        navigate('/Profile');
-      } else {
-        setUser(null);
-        
 
-      }
-    });
-  }, []);
+  
+
+
 
   const firebase = useFirebase();
   const auth = getAuth();
@@ -194,6 +203,8 @@ const Register = () => {
   const signInWithGoogle = () =>{
       signInWithPopup(auth,googleProvider);
   }
+
+  
 
   
 
@@ -326,6 +337,7 @@ const Register = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                ref={email}
                 fullWidth
                 label="Email"
                 type="email"
@@ -405,6 +417,7 @@ const Register = () => {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                ref={password}
                 fullWidth
                 label="Password"
                 type={showPassword ? "text" : "password"}
