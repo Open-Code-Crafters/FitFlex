@@ -7,9 +7,9 @@ import {
   Container,
   Box,
   MenuItem,
-  Menu
+  Menu,
 } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4"; 
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
@@ -20,8 +20,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
-import PropTypes from 'prop-types' ;
-const pages = ["Home", "About", "Contact","Blog", "Services", "Register"];
+import PropTypes from "prop-types";
+const pages = [
+  "Home",
+  "About",
+  "Contact",
+  "Privacy-policy",
+  "Blog",
+  "Services",
+  "Register",
+];
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -232,7 +240,7 @@ function Navbar(props) {
                   position: "absolute",
                   top: "100%",
                   zIndex: 1,
-                  scale: scale-0.1,
+                  scale: scale - 0.1,
                   y: y2,
                   x: x3,
                   transition:
@@ -266,7 +274,7 @@ function Navbar(props) {
                   color: "white",
                   fontSize: window.innerWidth < 600 ? "1rem" : "1.6rem", // Responsive font size for mobile
                   fontWeight: "bold",
-                  marginRight:"30px",
+                  marginRight: "30px",
                   zIndex: 10,
                   transition:
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
@@ -293,23 +301,28 @@ function Navbar(props) {
                   {page}
                 </Button>
               ))}
-
-              
-
             </Box>
             <Box>
-              <IconButton sx={{ 
-                    ml: 1, 
-                    "@media (max-width: 900px)": {
-                      position: 'absolute',
-                      right: '0px',
-                      top: '50%',
-                      transform: 'translateY(-50%)', 
-                    }, 
-                    '&:hover': { backgroundColor: 'transparent' }, 
-                  }} onClick={props.toggleMode} color="inherit" >
-                  {props.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-                </IconButton>
+              <IconButton
+                sx={{
+                  ml: 1,
+                  "@media (max-width: 900px)": {
+                    position: "absolute",
+                    right: "0px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                  },
+                  "&:hover": { backgroundColor: "transparent" },
+                }}
+                onClick={props.toggleMode}
+                color="inherit"
+              >
+                {props.mode === "dark" ? (
+                  <Brightness7Icon />
+                ) : (
+                  <Brightness4Icon />
+                )}
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>

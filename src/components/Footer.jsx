@@ -1,30 +1,43 @@
-import React, {useState} from "react";
-import { Box, Typography, Link, IconButton, Grid, TextField, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Link,
+  IconButton,
+  Grid,
+  TextField,
+  Button,
+} from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaTelegramPlane } from "react-icons/fa";
-import logo from "../assets/fitness1.png";  // Replace with your logo
-import GoogleTranslate from './GoogleTranslate';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedinIn,
+  FaTelegramPlane,
+} from "react-icons/fa";
+import logo from "../assets/fitness1.png"; // Replace with your logo
+import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 const Footer = () => {
-
   return (
     <Box
       component="footer"
       sx={{
         backgroundColor: "#000",
         color: "white",
-        padding: { xs: "20px 10px", sm: "30px 20px", md: "40px 20px" },  // Responsive padding
+        padding: { xs: "20px 10px", sm: "30px 20px", md: "40px 20px" }, // Responsive padding
         fontFamily: "'Helvetica Neue', sans-serif",
       }}
     >
       <Grid
         container
         spacing={3}
-        justifyContent={{ xs: "center", sm: "space-between" }}  // Center content for mobile screens
+        justifyContent={{ xs: "center", sm: "space-between" }} // Center content for mobile screens
         alignItems={{ xs: "center", sm: "normal" }} // Normal content for PC screens
-        direction={{ xs: "column", sm: "row" }}  // Stack items on mobile
+        direction={{ xs: "column", sm: "row" }} // Stack items on mobile
       >
         {/* Column 1: About */}
         <Grid item xs={12} sm={6} md={2}>
@@ -33,29 +46,33 @@ const Footer = () => {
             gutterBottom
             sx={{
               fontWeight: "bold",
-              fontSize: { xs: "1rem", md: "1.2rem" },  // Responsive font size
-              textAlign: { xs: "center", sm: "left" },  // Center text on mobile
+              fontSize: { xs: "1rem", md: "1.2rem" }, // Responsive font size
+              textAlign: { xs: "center", sm: "left" }, // Center text on mobile
             }}
           >
             About
           </Typography>
-          <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>  {/* Center links on mobile */}
-            {["Our Story", "Team", "Career", "Content", "Press"].map((item, index) => (
-              <Link
-                key={index}
-                href="#"
-                color="grey.400"
-                display="block"
-                gutterBottom
-                sx={{
-                  textDecoration: "none",
-                  fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                  "&:hover": { color: "#fff" },
-                }}
-              >
-                {item}
-              </Link>
-            ))}
+          <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+            {" "}
+            {/* Center links on mobile */}
+            {["Our Story", "Team", "Career", "Content", "Press"].map(
+              (item, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  color="grey.400"
+                  display="block"
+                  gutterBottom
+                  sx={{
+                    textDecoration: "none",
+                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                    "&:hover": { color: "#fff" },
+                  }}
+                >
+                  {item}
+                </Link>
+              )
+            )}
           </Box>
         </Grid>
 
@@ -73,7 +90,12 @@ const Footer = () => {
             Services
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {["Personal Coachings", "Group Classes", "Online Programs", "Corporate Wellness"].map((item, index) => (
+            {[
+              "Personal Coachings",
+              "Group Classes",
+              "Online Programs",
+              "Corporate Wellness",
+            ].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -106,22 +128,24 @@ const Footer = () => {
             Resources
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {["Academy", "Blog", "Health Tips", "FaQs", "Support"].map((item, index) => (
-              <Link
-                key={index}
-                href="#"
-                color="grey.400"
-                display="block"
-                gutterBottom
-                sx={{
-                  textDecoration: "none",
-                  fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                  "&:hover": { color: "#fff" },
-                }}
-              >
-                {item}
-              </Link>
-            ))}
+            {["Academy", "Blog", "Health Tips", "FaQs", "Support"].map(
+              (item, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  color="grey.400"
+                  display="block"
+                  gutterBottom
+                  sx={{
+                    textDecoration: "none",
+                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                    "&:hover": { color: "#fff" },
+                  }}
+                >
+                  {item}
+                </Link>
+              )
+            )}
           </Box>
         </Grid>
 
@@ -139,7 +163,13 @@ const Footer = () => {
             Company
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {["About Us", "Careers", "Teams", "Contact Us"].map((item, index) => (
+            {[
+              "About Us",
+              "Careers",
+              "Teams",
+              "Contact Us",
+              "Privacy Policy",
+            ].map((item, index) => (
               <Link
                 key={index}
                 href="#"
@@ -157,23 +187,24 @@ const Footer = () => {
             ))}
           </Box>
         </Grid>
-        
+
         {/* Newsletter Subscription */}
         <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }}>
-        <Box className="translator"
-              sx={{
-                position:'relative',
-                marginLeft: 'auto',
-                marginRight: '0',
-                marginBottom : '4px',
-                color: "white",
-                display: "block",
-                alignItems: "center",
-                width: 'fit-content',
-
-              }}>
-                            <GoogleTranslate/>
-                        </Box>
+          <Box
+            className="translator"
+            sx={{
+              position: "relative",
+              marginLeft: "auto",
+              marginRight: "0",
+              marginBottom: "4px",
+              color: "white",
+              display: "block",
+              alignItems: "center",
+              width: "fit-content",
+            }}
+          >
+            <GoogleTranslate />
+          </Box>
           <Typography
             variant="h6"
             gutterBottom
@@ -186,9 +217,7 @@ const Footer = () => {
           </Typography>
           {/* Subscribe Newsletter */}
           <Subscribe />
-          
         </Grid>
-        
       </Grid>
 
       {/* Bottom Links */}
@@ -209,7 +238,13 @@ const Footer = () => {
             marginBottom: "10px",
           }}
         >
-          {["Privacy Policy", "Terms of Use", "Sales and Refunds", "Legal", "Site Map"].map((item, index) => (
+          {[
+            "Privacy Policy",
+            "Terms of Use",
+            "Sales and Refunds",
+            "Legal",
+            "Site Map",
+          ].map((item, index) => (
             <Link
               key={index}
               href="#"
@@ -236,27 +271,32 @@ const Footer = () => {
           marginTop: "10px",
         }}
       >
-        {[FaFacebookF, FaTelegramPlane, FaLinkedinIn, FaInstagram, FaYoutube, faXTwitter].map(
-          (Icon, index) => (
-            <IconButton
-              key={index}
-              href="#"
-              color="inherit"
-              sx={{
-                fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
-                mx: { xs: 0.5, sm: 1 },
-                color: "grey.500",
-                "&:hover": { color: "#fff" },
-              }}
-            >
-              {index === 5 ? (
-                <FontAwesomeIcon icon={Icon} />
-              ) : (
-                <Icon fontSize="inherit" />
-              )}
-            </IconButton>
-          )
-        )}
+        {[
+          FaFacebookF,
+          FaTelegramPlane,
+          FaLinkedinIn,
+          FaInstagram,
+          FaYoutube,
+          faXTwitter,
+        ].map((Icon, index) => (
+          <IconButton
+            key={index}
+            href="#"
+            color="inherit"
+            sx={{
+              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+              mx: { xs: 0.5, sm: 1 },
+              color: "grey.500",
+              "&:hover": { color: "#fff" },
+            }}
+          >
+            {index === 5 ? (
+              <FontAwesomeIcon icon={Icon} />
+            ) : (
+              <Icon fontSize="inherit" />
+            )}
+          </IconButton>
+        ))}
       </Box>
     </Box>
   );
