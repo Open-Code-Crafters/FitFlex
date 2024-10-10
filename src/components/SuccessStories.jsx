@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Card, CardContent, Avatar, Box } from "@mui/material";
 import Slider from "react-slick";
 
@@ -17,7 +17,17 @@ import customer9 from "../assets/img/steve.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const SuccessStories = ({mode,textcolor}) => {
+const SuccessStories = ({ mode, textcolor }) => {
+  const [flipped, setFlipped] = useState({});
+
+  const handleMouseEnter = (index) => {
+    setFlipped((prev) => ({ ...prev, [index]: true }));
+  };
+
+  const handleMouseLeave = (index) => {
+    setFlipped((prev) => ({ ...prev, [index]: false }));
+  };
+
   const originalStories = [
     {
       image: customer9,
@@ -37,7 +47,6 @@ const SuccessStories = ({mode,textcolor}) => {
       story:
         "FitFlex's personalized plans are fantastic! I've never felt stronger.",
     },
-
     {
       image: customer8,
       name: "Sara Miller",
@@ -76,7 +85,6 @@ const SuccessStories = ({mode,textcolor}) => {
     },
   ];
 
-  // Slick settings for the slider
   const settings = {
     dots: true,
     infinite: true,
@@ -107,7 +115,10 @@ const SuccessStories = ({mode,textcolor}) => {
     <Box
       sx={{
         padding: { xs: "20px", sm: "40px", md: "60px" },
-        backgroundColor: mode === 'light' ? '#ffffff' : '#111118',
+        backgroundImage:
+          mode === "light"
+            ? "linear-gradient(to bottom right, gray 50%, black 50%)"
+            : `linear-gradient(to bottom right, #111118 50%, white 50%)`,
         position: "relative",
         borderTop: "2px solid #f0f0f0",
       }}
@@ -127,38 +138,44 @@ const SuccessStories = ({mode,textcolor}) => {
         Success Stories
       </Typography>
 
-      {/* Slider Container */}
       <Slider {...settings}>
         {originalStories.map((story, index) => (
           <Box
             key={index}
             sx={{
               padding: { xs: "10px", sm: "15px", md: "20px" },
+              perspective: "1000px",
             }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
-            <Card
+            <Box
               sx={{
-                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                borderRadius: "12px",
-                backgroundColor: mode === 'light' ? '#f4f2f2' : '#2e2a2a',
-                display: "flex",
-                flexDirection: "column",
-                padding: { xs: "16px", sm: "20px", md: "24px" },
-                minHeight: "300px",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "translateY(-10px)",
-                  boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
-                },
+                position: "relative",
+                width: "90%",
+                height: "60%",
+                transformStyle: "preserve-3d",
+                transform: flipped[index] ? "rotateY(180deg)" : "none",
+                transition: "transform 0.3s",
               }}
             >
-              <Box
+              <Card
                 sx={{
+                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                  backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
+                  padding: { xs: "16px", sm: "20px", md: "24px" },
+                  minHeight: "300px",
+                  backfaceVisibility: "hidden",
+                  position: "absolute",
+                  width: "80%",
+                  height: "60%",
                   display: "flex",
-                  alignItems: "center",
-                  marginBottom: "16px",
-                  justifyContent: "center",
                   flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  border:
+                    mode === "dark" ? "2px solid white" : "2px solid gray",
                 }}
               >
                 <Avatar
@@ -184,30 +201,52 @@ const SuccessStories = ({mode,textcolor}) => {
                 >
                   {story.name}
                 </Typography>
-              </Box>
+              </Card>
 
-              <CardContent
+              <Card
                 sx={{
+                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                  backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
+                  padding: { xs: "16px", sm: "20px", md: "24px" },
+                  minHeight: "300px",
+                  backfaceVisibility: "hidden",
+                  transform: "rotateY(180deg)",
+                  top: 0,
+                  left: 0,
+                  width: "80%",
+                  height: "60%",
                   display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
+                  alignItems: "center",
                   textAlign: "center",
-                  flexGrow: 1,
+                  border:
+                    mode === "dark" ? "2px solid white" : "2px solid gray",
                 }}
               >
-                <Typography
-                  variant="body1"
-                  color="text.primary"
+                <CardContent
                   sx={{
-                    fontSize: { xs: "0.9rem", sm: "1rem" },
-                    lineHeight: "1.6",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    flexGrow: 1,
                     color: textcolor,
                   }}
                 >
-                  {story.story}
-                </Typography>
-              </CardContent>
-            </Card>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "0.9rem", sm: "1rem" },
+                      lineHeight: "1.6",
+                      color: textcolor,
+                    }}
+                  >
+                    {story.story}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
           </Box>
         ))}
       </Slider>
