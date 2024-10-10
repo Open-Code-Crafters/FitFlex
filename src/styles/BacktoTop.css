@@ -1,10 +1,10 @@
 #backToTopBtn {
   position: fixed;
-  bottom: 40px;
-  right: 30px;
+  bottom: 100px;
+  right: 35px;
   z-index: 1000;
   display: none;
-  background-color: #555;
+  background-color: #ff6a00;
   color: white;
   border: none;
   border-radius: 50%;
@@ -21,7 +21,6 @@
 }
 
 #backToTopBtn svg {
-  vertical-align: middle;
   display: block;
   margin: 0 auto;
 }
