@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Blog = () => {
+const Blog = ({mode,textcolor}) => {
   const blogPosts = [
     {
       title: "The Best Gym Workout Plan For Gaining Muscle",
@@ -66,7 +66,7 @@ const Blog = () => {
       padding: "20px",
       fontFamily: "Arial, sans-serif",
       color: "#333",
-      backgroundColor: "#f5f5f5",
+      backgroundColor: mode === 'light' ? '#f7f7f7' : '#322220',
       borderRadius: "8px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     },
@@ -93,14 +93,14 @@ const Blog = () => {
       border: "1px solid #eaeaea",
       borderRadius: "8px",
       padding: "20px",
-      backgroundColor: "#ffffff",
+      backgroundColor: mode === 'light' ? '#f7f7f7' :'#1e2a2b',
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
       lineHeight: "1.6",
     },
     postTitle: {
       fontSize: "1.8em",
       marginBottom: "10px",
-      color: "black",
+      color: textcolor,
       fontWeight: "bold",
       background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
       padding: "10px",
@@ -109,7 +109,7 @@ const Blog = () => {
     },
     postDate: {
       fontSize: "0.9em",
-      color: "#333",
+      color: textcolor,
       marginBottom: "10px",
       fontWeight: "bold",
     },
@@ -122,7 +122,7 @@ const Blog = () => {
       fontSize: "1.1em",
       lineHeight: "1.6",
       marginBottom: "20px",
-      color: "#000",
+      color: textcolor,
     },
     buttonContainer: {
       display: "flex",

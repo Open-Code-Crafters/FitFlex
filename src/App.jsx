@@ -1,11 +1,14 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Footer from './components/Footer.jsx';
-import Loading from './components/Loading.jsx';
-import NotFound from './views/NotFound.jsx';
-import BackToTopButton from './components/BacktoTop.jsx';
-import HealthTips from './components/Healthtips.jsx'; 
+
+import "./App.css";
+import { Suspense, lazy, useState } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer.jsx";
+import Loading from "./components/Loading.jsx";
+import NotFound from "./views/NotFound.jsx";
+import BackToTopButton from "./components/BacktoTop.jsx";
+import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
+import { color } from "framer-motion";
+
 
 // Lazy load components
 const Navbar = lazy(() => import('./components/Navbar.jsx'));
@@ -22,9 +25,29 @@ const Services = lazy(() => import('./views/Services.jsx'));
 const LogMeal = lazy(() => import('./components/Nutrition/LogMeal.jsx')); // Make sure the path is correct
 
 function App() {
+
+  const [mode,setMode] = useState('light') ;
+  const [textcolor,settextcolor] = useState('black') ;
+
+  let toggleMode = () => {
+    if(mode === 'light'){
+      setMode('dark') ;
+      document.body.style.backgroundColor = '#111118';
+      document.body.style.color = '#ffffff';
+      settextcolor('white') ;
+    }
+    else{
+      setMode('light') ;
+      document.body.style.backgroundColor = '#ffffff';
+      document.body.style.color = '#000000';
+      settextcolor('black') ;
+    }
+  };
+
   return (
     <Router>
       <Suspense fallback={<Loading />}>
+
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -46,6 +69,7 @@ function App() {
         </Routes>
         <Footer />
         <BackToTopButton /> {/* Add Back to Top Button here */}
+
       </Suspense>
     </Router>
   );
