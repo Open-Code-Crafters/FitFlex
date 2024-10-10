@@ -217,6 +217,21 @@ const SuccessStories = ({ mode, textcolor }) => {
                   }}
                 >
                   <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      fontSize: { xs: "1rem", sm: "1.25rem" },
+                      fontWeight: "600",
+                      textAlign: "center",
+                      fontFamily: "'Roboto', sans-serif",
+                      color: textcolor,
+                      marginBottom: "10px",
+                      zIndex: 2,
+                    }}
+                  >
+                    Author : {story.name}
+                  </Typography>
+                  <Typography
                     variant="body1"
                     sx={{
                       fontSize: { xs: "0.9rem", sm: "1rem" },
