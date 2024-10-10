@@ -163,16 +163,27 @@ const Footer = () => {
             Company
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {[
-              "About Us",
-              "Careers",
-              "Teams",
-              "Contact Us",
-              "Privacy Policy",
-            ].map((item, index) => (
+            {["About Us", "Careers", "Teams", "Contact Us"].map(
+              (item, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  color="grey.400"
+                  display="block"
+                  gutterBottom
+                  sx={{
+                    textDecoration: "none",
+                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                    "&:hover": { color: "#fff" },
+                  }}
+                >
+                  {item}
+                </Link>
+              )
+            )}
+            <RouterLink to="privacy-policy" style={{ textDecoration: "none" }}>
               <Link
-                key={index}
-                href="#"
+                key={5}
                 color="grey.400"
                 display="block"
                 gutterBottom
@@ -182,9 +193,9 @@ const Footer = () => {
                   "&:hover": { color: "#fff" },
                 }}
               >
-                {item}
+                Privacy Policy
               </Link>
-            ))}
+            </RouterLink>
           </Box>
         </Grid>
 
