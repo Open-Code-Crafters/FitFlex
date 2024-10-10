@@ -144,7 +144,7 @@ const Register = () => {
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    navigate("/home");
+    navigate("/Login");
     // ...
   })
   .catch((error) => {
