@@ -157,6 +157,7 @@ const SuccessStories = ({ mode, textcolor }) => {
             sx={{
               padding: { xs: "10px", sm: "15px", md: "20px" },
               perspective: "1000px",
+              marginLeft: "10px",
             }}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
@@ -199,7 +200,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                     left: -20,
                     right: -10,
                     height: "25px", // Height of the separator
-                    backgroundColor: mode === "light" ? "#6ebe71" : "#fcbf30",
+                    backgroundColor: "#fcbf30",
                     opacity: 1, // Low opacity
                     transform: "rotate(-45deg)", // Diagonal rotation
                     transformOrigin: "top left",
@@ -274,7 +275,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                     left: -20,
                     right: -10,
                     height: "25px", // Height of the separator
-                    backgroundColor: mode === "light" ? "#6ebe71" : "#fcbf30",
+                    backgroundColor: "#fcbf30",
                     opacity: 1, // Low opacity
                     transform: "rotate(-45deg)", // Diagonal rotation
                     transformOrigin: "top left",
