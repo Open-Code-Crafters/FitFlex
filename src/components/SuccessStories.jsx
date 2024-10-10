@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Typography, Card, CardContent, Avatar, Box } from "@mui/material";
 import Slider from "react-slick";
+import Rating from "@mui/material/Rating"; // Import Rating component
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 // Import customer images
 import customer1 from "../assets/img/customer-1.jpg";
@@ -34,54 +38,63 @@ const SuccessStories = ({ mode, textcolor }) => {
       name: "John Doe",
       story:
         "Joining FitFlex changed my life! I lost 20 pounds and gained confidence.",
+      rating: 5,
     },
     {
       image: customer1,
       name: "Jane Smith",
       story:
         "The variety of workouts kept me motivated and helped me achieve my fitness goals.",
+      rating: 4.5,
     },
     {
       image: customer4,
       name: "Mike Johnson",
       story:
         "FitFlex's personalized plans are fantastic! I've never felt stronger.",
+      rating: 5,
     },
     {
       image: customer8,
       name: "Sara Miller",
       story:
         "FitFlex helped me get back in shape after having my second baby. The workouts are fun and flexible with my schedule.",
+      rating: 4,
     },
     {
       image: customer2,
       name: "David Brown",
       story:
         "I've tried many fitness programs, but FitFlex is the one that stuck. The trainers are motivating, and the results speak for themselves.",
+      rating: 4.5,
     },
     {
       image: customer3,
       name: "Lisa Williams",
       story:
         "The variety of classes keeps me engaged and excited to work out every day. It's the best fitness decision I've ever made.",
+      rating: 5,
     },
     {
       image: customer7,
       name: "James Anderson",
       story:
         "FitFlex made me love working out again. The balance between strength training and cardio is perfect for my fitness goals.",
+      rating: 5,
     },
     {
       image: customer6,
       name: "Rachel Thompson",
       story:
         "The FitFlex community has been a game changer. The accountability and support have helped me stick to my routine.",
+      rating: 4.5,
     },
     {
       image: customer5,
       name: "Kevin Martinez",
       story:
         "The flexibility FitFlex offers is amazing. I can work out at my own pace, and it's still challenging and rewarding.",
+      rating: 4,
     },
   ];
 
@@ -159,6 +172,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                 transition: "transform 0.3s",
               }}
             >
+              {/* Card showing the story (front) */}
               <Card
                 sx={{
                   boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
@@ -168,6 +182,52 @@ const SuccessStories = ({ mode, textcolor }) => {
                   minHeight: "300px",
                   backfaceVisibility: "hidden",
                   position: "absolute",
+                  width: "80%",
+                  height: "60%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  textAlign: "center",
+                  border:
+                    mode === "dark" ? "2px solid white" : "2px solid gray",
+                }}
+              >
+                <CardContent
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    flexGrow: 1,
+                    color: textcolor,
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "0.9rem", sm: "1rem" },
+                      lineHeight: "1.6",
+                      color: textcolor,
+                    }}
+                  >
+                    {story.story}
+                  </Typography>
+                </CardContent>
+              </Card>
+
+              {/* Card showing the name, image, and rating (back) */}
+              <Card
+                sx={{
+                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+                  borderRadius: "12px",
+                  backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
+                  padding: { xs: "16px", sm: "20px", md: "24px" },
+                  minHeight: "300px",
+                  backfaceVisibility: "hidden",
+                  transform: "rotateY(180deg)",
+                  top: 0,
+                  left: 0,
                   width: "80%",
                   height: "60%",
                   display: "flex",
@@ -197,54 +257,59 @@ const SuccessStories = ({ mode, textcolor }) => {
                     textAlign: "center",
                     fontFamily: "'Roboto', sans-serif",
                     color: textcolor,
+                    marginBottom: "10px",
                   }}
                 >
                   {story.name}
                 </Typography>
-              </Card>
-
-              <Card
-                sx={{
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "12px",
-                  backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
-                  padding: { xs: "16px", sm: "20px", md: "24px" },
-                  minHeight: "300px",
-                  backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)",
-                  top: 0,
-                  left: 0,
-                  width: "80%",
-                  height: "60%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  textAlign: "center",
-                  border:
-                    mode === "dark" ? "2px solid white" : "2px solid gray",
-                }}
-              >
-                <CardContent
+                {/* <Rating
+                  name="read-only"
+                  value={story.rating}
+                  readOnly
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
+                    color: mode === "light" ? "black" : "white",
+                    marginBottom: "10px",
+                  }}
+                /> */}
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{
+                    fontSize: { xs: "1rem", sm: "1.25rem" },
+                    fontWeight: "600",
                     textAlign: "center",
-                    flexGrow: 1,
+                    fontFamily: "'Roboto', sans-serif",
                     color: textcolor,
+                    marginBottom: "10px",
                   }}
                 >
-                  <Typography
-                    variant="body1"
+                  Rating : {index % 2 === 0 ? '⭐⭐⭐⭐⭐' : '⭐⭐⭐⭐'}
+                </Typography>
+
+                {/* Social icons */}
+                <Box>
+                  <FacebookIcon
                     sx={{
-                      fontSize: { xs: "0.9rem", sm: "1rem" },
-                      lineHeight: "1.6",
-                      color: textcolor,
+                      color: mode === "light" ? "black" : "white",
+                      margin: "0 5px",
+                      cursor: "pointer",
                     }}
-                  >
-                    {story.story}
-                  </Typography>
-                </CardContent>
+                  />
+                  <TwitterIcon
+                    sx={{
+                      color: mode === "light" ? "black" : "white",
+                      margin: "0 5px",
+                      cursor: "pointer",
+                    }}
+                  />
+                  <InstagramIcon
+                    sx={{
+                      color: mode === "light" ? "black" : "white",
+                      margin: "0 5px",
+                      cursor: "pointer",
+                    }}
+                  />
+                </Box>
               </Card>
             </Box>
           </Box>
