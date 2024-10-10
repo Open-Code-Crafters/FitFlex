@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Typography, Card, CardContent, Avatar, Box } from "@mui/material";
 import Slider from "react-slick";
-import Rating from "@mui/material/Rating"; // Import Rating component
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -102,7 +101,7 @@ const SuccessStories = ({ mode, textcolor }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -179,7 +178,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                   borderRadius: "12px",
                   backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
                   padding: { xs: "16px", sm: "20px", md: "24px" },
-                  minHeight: "300px",
+                  minHeight: "250px",
                   backfaceVisibility: "hidden",
                   position: "absolute",
                   width: "80%",
@@ -193,6 +192,20 @@ const SuccessStories = ({ mode, textcolor }) => {
                     mode === "dark" ? "2px solid white" : "2px solid gray",
                 }}
               >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: -20,
+                    right: -10,
+                    height: "25px", // Height of the separator
+                    backgroundColor: mode === "light" ? "#6ebe71" : "#fcbf30",
+                    opacity: 1, // Low opacity
+                    transform: "rotate(-45deg)", // Diagonal rotation
+                    transformOrigin: "top left",
+
+                  }}
+                />
                 <CardContent
                   sx={{
                     display: "flex",
@@ -209,6 +222,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                       fontSize: { xs: "0.9rem", sm: "1rem" },
                       lineHeight: "1.6",
                       color: textcolor,
+                      zIndex: 2,
                     }}
                   >
                     {story.story}
@@ -223,7 +237,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                   borderRadius: "12px",
                   backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
                   padding: { xs: "16px", sm: "20px", md: "24px" },
-                  minHeight: "300px",
+                  minHeight: "250px",
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
                   top: 0,
@@ -238,6 +252,19 @@ const SuccessStories = ({ mode, textcolor }) => {
                     mode === "dark" ? "2px solid white" : "2px solid gray",
                 }}
               >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: -20,
+                    right: -10,
+                    height: "25px", // Height of the separator
+                    backgroundColor: mode === "light" ? "#6ebe71" : "#fcbf30",
+                    opacity: 1, // Low opacity
+                    transform: "rotate(-45deg)", // Diagonal rotation
+                    transformOrigin: "top left",
+                  }}
+                />
                 <Avatar
                   src={story.image}
                   alt={story.name}
@@ -262,15 +289,7 @@ const SuccessStories = ({ mode, textcolor }) => {
                 >
                   {story.name}
                 </Typography>
-                {/* <Rating
-                  name="read-only"
-                  value={story.rating}
-                  readOnly
-                  sx={{
-                    color: mode === "light" ? "black" : "white",
-                    marginBottom: "10px",
-                  }}
-                /> */}
+
                 <Typography
                   variant="h6"
                   component="div"
