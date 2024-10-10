@@ -11,6 +11,7 @@ import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
 import workhard from "../assets/home/hardworkout.jpg";
+import { useLocation } from "react-router-dom";
 
 import {
   faDharmachakra,
@@ -75,6 +76,17 @@ function Home({mode , textcolor}) {
       setFontVarient("h3");
     }
   }, [window.innerWidth]);
+
+const location = useLocation();
+
+useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <div style={{ backgroundColor: mode , color: textcolor }}>
@@ -472,6 +484,11 @@ function Home({mode , textcolor}) {
         }}
       >
         <SuccessStories mode = {mode} textcolor = {textcolor}/>
+      </Box>
+
+      <Box
+        id="faq"
+        paddingTop={"190px"}>
       </Box>
 
       <Box
