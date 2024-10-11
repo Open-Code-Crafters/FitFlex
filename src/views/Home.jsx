@@ -139,7 +139,7 @@ function Home({ mode, textcolor }) {
           >
             <Box
               sx={{
-                backgroundImage: `linear-gradient(45deg, rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)), url(${Imgs[count]})`,
+                backgroundImage: `url(${Imgs[count]})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",  // Ensures image covers the box
                 backgroundPosition: "center center",  // Centers the image
