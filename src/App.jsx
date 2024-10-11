@@ -15,6 +15,7 @@ const Contact = lazy(() => import("./views/Contact.jsx"));
 const Register = lazy(() => import("./views/Register.jsx"));
 const Login = lazy(() => import("./views/Login.jsx"));
 const About = lazy(() => import("./views/About.jsx"));
+const Fitcalc = lazy(() => import("./views/Fitcalc.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
 const Workout = lazy(() => import("./views/Workout.jsx"));
@@ -62,6 +63,7 @@ function App() {
               path="/about"
               element={<About mode={mode} textcolor={textcolor} />}
             />
+            
             <Route
               path="/plans"
               element={<Plans mode={mode} textcolor={textcolor} />}
@@ -75,6 +77,7 @@ function App() {
               element={<Workout mode={mode} textcolor={textcolor} />}
             />
             <Route path="/progress" element={<Profile />} />
+            <Route path="/fitcalc" element={<Fitcalc />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
