@@ -2,7 +2,7 @@ import "./App.css";
 import { Suspense, lazy, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
-import Loading from "./components/Loading.jsx";
+import LoadingSpinner from "./components/Loading.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<LoadingSpinner message="Please wait while we fetch your data..." />}>
         <BrowserRouter>
           <Navbar mode={mode} toggleMode={toggleMode} />
           <Routes>
