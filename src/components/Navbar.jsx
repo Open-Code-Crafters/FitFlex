@@ -21,7 +21,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
 import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services", "Register"];
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login","Register"];
 
 function Navbar(props) {
   const navigate = useNavigate();
