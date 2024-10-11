@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import {React, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BackgrundImg from "../assets/home/homeImg3.jpg";
-import { getAuth, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useFirebase } from "../context/Firebase";
 import Register from "./Register";
 import Profile from "./Profile";
@@ -32,6 +32,12 @@ const loginSchema = z.object({
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [error,setError]=useState();
+
+  const email=useRef(null);
+  const password=useRef(null);
+  
+
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, trigger } = useForm({
     resolver: zodResolver(loginSchema),
@@ -50,9 +56,23 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    setOpenSnackbar(true);
-    setTimeout(() => navigate("/home"), 2000); // Redirect after 2 seconds
+       
+
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth,data.email, data.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        navigate("/home")
+        // ...
+        
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError("Sorry, your email or password is wrong!");
+      });
+    
   };
 
   const [user, setUser] = useState(null);
@@ -61,7 +81,7 @@ const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        navigate('/Profile');
+        
       } else {
         setUser(null);
         // navigate('/Login');
@@ -153,8 +173,11 @@ const Login = () => {
         >
           Log In
         </Typography>
+
+
         <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
           <TextField
+            ref={email} 
             fullWidth
             label="Email"
             {...register("email")}
@@ -192,6 +215,7 @@ const Login = () => {
             }}
           />
           <TextField
+            ref={password}
             fullWidth
             label="Password"
             type={showPassword ? "text" : "password"}
@@ -269,6 +293,12 @@ const Login = () => {
           >
             Log In
           </Button>
+          
+        {error && (
+          <Typography color="error" sx={{ mb: 2, fontSize: "1.2rem" }}>
+            {error}
+          </Typography>
+        )}
 
 
            {/* Google Login Button */}

@@ -280,30 +280,20 @@ const About = ({ mode, textcolor }) => {
         </Grid>
       </Box>
 
-      {/* Call to Action Section */}
-      <Box sx={{ textAlign: 'center', mt: 6 }}>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            backgroundColor: '#ff8c00',
-            color: '#fff',
-            padding: '1rem 2rem',
-            fontSize: '1.2rem',
-            transition: 'background 0.3s ease', // smooth transition for hover
-            '&:hover': {
-              background: 'linear-gradient(45deg, #FF4500, #FF8C00)', // dark orange gradient
-            }
-          }}
-          endIcon={<ArrowForwardIcon />}
-          onClick={() => navigate('/register')} // using React Router for redirection
-        // onClick={() => window.location.href = '/register'} // alternative if not using React Router
-        >
-          Join FitFlex Now
-        </Button>
-      </Box>
-    </Container>
-  );
+            {/* Call to Action Section */}
+            <Box sx={{ textAlign: 'center', mt: 6 }}>
+                <Button
+                    variant="contained"
+                    size="large"
+                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
+                    endIcon={<ArrowForwardIcon />}
+                >
+                    Join FitFlex Now
+                </Button>
+            </Box>
+        </Container>
+    );
 };
 
 export default About;
+
