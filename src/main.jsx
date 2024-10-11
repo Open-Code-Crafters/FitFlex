@@ -14,6 +14,10 @@ import Navbar from "./components/Navbar.jsx";
 import Contact from "./views/Contact.jsx";
 import { FirebaseProvider } from "./context/Firebase.jsx";
 import Profile from "./views/Profile.jsx";
+
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +60,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <FirebaseProvider>
       <App />
+      <ToastContainer />
     </FirebaseProvider>
 
   </React.StrictMode>
