@@ -23,8 +23,6 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
-import FItFlexChatBot from "./components/ChatBot.jsx";
-
 function App() {
   const [mode, setMode] = useState("light");
   const [textcolor, settextcolor] = useState("black");
@@ -91,8 +89,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
-          <BackToTopButton />
-          <FItFlexChatBot/>
+          <BackToTopButton /> {/* Add Back to Top Button here */}
         </BrowserRouter>
       </Suspense>
     </>
