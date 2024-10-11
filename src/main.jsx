@@ -42,6 +42,10 @@ const router = createBrowserRouter([
         element: <div>About</div>,
       },
       {
+        path: "fitcalc",
+        element: <div>Fitness Calculator</div>,
+      },
+      {
         path: "contact",
         element: <Contact />,
       },
