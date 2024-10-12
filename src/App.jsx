@@ -24,6 +24,7 @@ const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
 import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
+import ProgressBar from "./components/ProgressBar.jsx";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -47,6 +48,7 @@ function App() {
     <>
       <Suspense fallback={<Loading />}>
         <BrowserRouter>
+          <ProgressBar/>
           <Navbar mode={mode} toggleMode={toggleMode} />
           <Routes>
             <Route
