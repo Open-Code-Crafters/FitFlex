@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
-import logo from '../assets/fitness1.png';
+import Loader from '../assets/Loader.png';
 
 const LoadingSpinner = ({ message = 'Loading...' }) => {
   const theme = useTheme();
@@ -22,13 +22,31 @@ const LoadingSpinner = ({ message = 'Loading...' }) => {
       }}
     >
       <img
-        src={logo}
+        src={Loader}
         alt="FitFlex Logo"
-        style={{ width: '120px', marginBottom: '2px' }}
+        style={{
+          width: '120px',
+          marginBottom: '2px',
+          animation: 'spin 2s linear infinite', // Add spin animation
+        }}
       />
       <Typography variant="h6" sx={{ mt: 2 }}>
         {message}
       </Typography>
+
+      {/* Keyframe for spin animation */}
+      <style>
+        {`
+          @keyframes spin {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+        `}
+      </style>
     </Box>
   );
 };
