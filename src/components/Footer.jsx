@@ -201,21 +201,9 @@ const Footer = () => {
 
         {/* Newsletter Subscription */}
         <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }}>
-          <Box
-            className="translator"
-            sx={{
-              position: "relative",
-              marginLeft: "auto",
-              marginRight: "0",
-              marginBottom: "4px",
-              color: "white",
-              display: "block",
-              alignItems: "center",
-              width: "fit-content",
-            }}
-          >
-            <GoogleTranslate />
-          </Box>
+          {/* Subscribe Newsletter */}
+          <Subscribe />
+
           <Typography
             variant="h6"
             gutterBottom
@@ -224,15 +212,67 @@ const Footer = () => {
               fontSize: { xs: "1rem", md: "1.2rem" },
             }}
           >
-            Subscribe
           </Typography>
-          {/* Subscribe Newsletter */}
-          <Subscribe />
+          
+          <Box
+            className="translator"
+            sx={{
+              position: "relative",
+              marginLeft: "20px",
+              marginRight: "0",
+              marginBottom: "0px",
+              marginTop: "50px",
+              color: "white",
+              display: "block",
+              alignItems: "center",
+              width: "fit-content",
+            }}
+          >
+            <GoogleTranslate />
+          </Box>
         </Grid>
       </Grid>
 
-      {/* Bottom Links */}
+      {/* Social Media Icons */}
       <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "40px",
+          marginBottom:"40px",
+          marginLeft:"35px",
+        }}
+      >
+        {[
+          FaFacebookF,
+          FaTelegramPlane,
+          FaLinkedinIn,
+          FaInstagram,
+          FaYoutube,
+          faXTwitter,
+        ].map((Icon, index) => (
+          <IconButton
+            key={index}
+            href="#"
+            color="inherit"
+            sx={{
+              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+              mx: { xs: 0.5, sm: 1 },
+              color: "grey.500",
+              "&:hover": { color: "#fff" },
+            }}
+          >
+            {index === 5 ? (
+              <FontAwesomeIcon icon={Icon} />
+            ) : (
+              <Icon fontSize="inherit" />
+            )}
+          </IconButton>
+        ))}
+      </Box>
+
+       {/* Bottom Links */}
+       <Box
         sx={{
           marginTop: { xs: "15px", sm: "20px" },
           textAlign: "center",
@@ -272,42 +312,6 @@ const Footer = () => {
         <Typography variant="body2" sx={{ color: "grey.500" }}>
           &copy; 2024 All Rights Reserved
         </Typography>
-      </Box>
-
-      {/* Social Media Icons */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "10px",
-        }}
-      >
-        {[
-          FaFacebookF,
-          FaTelegramPlane,
-          FaLinkedinIn,
-          FaInstagram,
-          FaYoutube,
-          faXTwitter,
-        ].map((Icon, index) => (
-          <IconButton
-            key={index}
-            href="#"
-            color="inherit"
-            sx={{
-              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
-              mx: { xs: 0.5, sm: 1 },
-              color: "grey.500",
-              "&:hover": { color: "#fff" },
-            }}
-          >
-            {index === 5 ? (
-              <FontAwesomeIcon icon={Icon} />
-            ) : (
-              <Icon fontSize="inherit" />
-            )}
-          </IconButton>
-        ))}
       </Box>
     </Box>
   );
