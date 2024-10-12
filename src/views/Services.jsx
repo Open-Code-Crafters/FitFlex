@@ -55,7 +55,7 @@ const Services = ({mode,textcolor}) => {
             style={styles.image}
           />
           <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
+                   <p style={{ ...styles.subheading, color: textcolor, paddingBottom: '1.9rem' }}>
             Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
           </p>
           <button
