@@ -44,7 +44,6 @@
 .mission-vision-card {
   flex: 1;
   padding: 1.5rem;
-  background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -97,7 +96,7 @@
 
 .stat-card {
   padding: 1rem;
-  background-color: #fff;
+
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -107,7 +106,7 @@
 
 .stat-card4 {
   padding: 1rem;
-  background-color: #fff;
+
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -118,7 +117,6 @@
 
 .feature-card {
   padding: 1.5rem;
-  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
