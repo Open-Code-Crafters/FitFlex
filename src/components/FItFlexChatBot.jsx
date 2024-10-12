@@ -1,7 +1,22 @@
+import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import { useEffect, useState } from 'react';
+
+const ChatBotContainer = styled.div`
+  @media screen and (max-width: 568px) {
+    .rsc-container {
+      border-radius: 0;
+      bottom: 0 !important;
+      left: initial !important;
+      height: 80% !important;
+      right: 0 !important;
+      top: 175px !important;
+      width: 100% !important;
+    }
+  }
+`;
 
 const FItFlexChatBot = () => {
     const arr = [];
@@ -221,7 +236,7 @@ const FItFlexChatBot = () => {
     };
 
     return (
-        <div className="App">
+        <ChatBotContainer>
             <ThemeProvider theme={theme}>
                 <ChatBot
                     headerTitle="FitFlex Customer Support"
@@ -230,7 +245,7 @@ const FItFlexChatBot = () => {
                     endChat={handleEnd}
                 />
             </ThemeProvider>
-        </div>
+        </ChatBotContainer>
     );
 };
 
