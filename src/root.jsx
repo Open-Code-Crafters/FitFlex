@@ -26,10 +26,8 @@ export default function Root() {
           ))}
       </Grid>
       <br />
-
       <Grid container>
         <Grid>
-
         </Grid>
       </Grid>
     </>
