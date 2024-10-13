@@ -12,7 +12,6 @@ export default function Root() {
   
   return (
     <>
-    
       <FontAwesomeIcon icon={faHome} />
       Website for fitness
       <br />

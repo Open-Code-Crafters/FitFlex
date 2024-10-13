@@ -31,8 +31,3 @@ Close #<issue_no>
 <!--Mention it here-->
 - [ ] I'm a GSSOC-EXT contributor
 - [ ] I'm a HACKTOBERFEST contributor
-       
-
-
-
-

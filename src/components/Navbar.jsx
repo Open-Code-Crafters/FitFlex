@@ -19,8 +19,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { size } from "lodash";
-import PropTypes from "prop-types";
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Login","Register"];
 
 function Navbar(props) {
@@ -40,11 +38,7 @@ function Navbar(props) {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
-    setAnchorElNav(null);
-  };
+
   // const { scrollYProgress } = useViewportScroll();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -206,7 +200,7 @@ function Navbar(props) {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem
+                  <MenuItem class
                     key={page}
                     onClick={() => {
                       setAnchorElNav(null);

@@ -77,7 +77,7 @@ function Home({ mode, textcolor }) {
   }, [window.innerWidth]);
 
   return (
-    <div className="" style={{ backgroundColor: mode, color: textcolor }}>
+    <div style={{ backgroundColor: mode, color: textcolor }}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={5}>
           <div
@@ -141,13 +141,13 @@ function Home({ mode, textcolor }) {
               sx={{
                 backgroundImage: `url(${Imgs[count]})`,
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",  // Ensures image covers the box
-                backgroundPosition: "center center",  // Centers the image
+                backgroundSize: "cover",
+                backgroundPosition: "center",
                 width: "100%",
-                height: { xs: "55vh", md: "100vh" },  // Responsive height
+                height: { xs: "55vh", md: "100%" },
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                alignItems: "center", // changed to "center"
                 justifyContent: "center",
               }}
             >
