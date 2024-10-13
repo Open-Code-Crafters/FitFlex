@@ -145,7 +145,7 @@ const About = ({mode,textcolor}) => {
                 <Button
                     variant="contained"
                     size="large"
-                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem' }}
+                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', }}
                     endIcon={<ArrowForwardIcon />}
                     onClick={handleJoinClick}
                 >
