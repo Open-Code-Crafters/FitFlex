@@ -1,12 +1,44 @@
+import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
+import { useEffect, useState } from 'react';
+
+const ChatBotContainer = styled.div`
+  @media screen and (max-width: 568px) {
+    .rsc-container {
+      border-radius: 0;
+      bottom: 0 !important;
+      left: initial !important;
+      height: 80% !important;
+      right: 0 !important;
+      top: 175px !important;
+      width: 100% !important;
+    }
+  }
+`;
 
 const FItFlexChatBot = () => {
     const arr = [];
     const navigate = useNavigate();
+    const [isNewUser, setIsNewUser] = useState(localStorage.getItem('username')?false:true);
+    const [username, setUsername] = useState(localStorage.getItem('username'));
+
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername) {
+            setUsername(storedUsername);
+            setIsNewUser(false);
+        }
+    }, []);
+
     const handleEnd = () => {
         navigate('/services');
+    };
+
+    const handleSaveUsername = (name) => {
+        localStorage.setItem('username', name);
+        setUsername(name);
     };
 
     const calculateBMI = () => {
@@ -14,8 +46,10 @@ const FItFlexChatBot = () => {
         console.log("W:", arr[1]);
 
         const heightInMeters = parseFloat(arr[0]) / 100;
+        const bmi = (parseFloat(arr[1]) / (heightInMeters * heightInMeters)).toFixed(2);
         if (heightInMeters > 0) {
-            return (parseFloat(arr[1]) / (heightInMeters * heightInMeters)).toFixed(2);
+            localStorage.setItem('bmi', bmi);
+            return bmi;
         }
         return "Invalid height";
     };
@@ -24,7 +58,7 @@ const FItFlexChatBot = () => {
         {
             id: '0',
             message: 'Hello from FitFlex! Ready to achieve your fitness goals?',
-            trigger: '1',
+            trigger: isNewUser ? '1' : 'skipToOptions',
         },
         {
             id: '1',
@@ -38,7 +72,15 @@ const FItFlexChatBot = () => {
         },
         {
             id: '3',
-            message: "Hi {previousValue}, how can I assist you today?",
+            message: ({ previousValue }) => {
+                handleSaveUsername(previousValue);
+                return `Hi ${previousValue}, how can I assist you today?`;
+            },
+            trigger: '4',
+        },
+        {
+            id: 'skipToOptions',
+            message: `Welcome back, ${username}! How can I assist you today?`,
             trigger: '4',
         },
         {
@@ -47,7 +89,7 @@ const FItFlexChatBot = () => {
                 { value: 'workout plans', label: 'Workout Plans', trigger: '5' },
                 { value: 'nutrition advice', label: 'Nutrition Advice', trigger: '6' },
                 { value: 'customer support', label: 'Customer Support', trigger: '7' },
-                { value: 'calculate bmi', label: 'Calculate BMI', trigger: 'bmiInput' },
+                { value: 'calculate bmi', label: 'Calculate BMI', trigger: ({ previousValue }) => { return localStorage.getItem('bmi') ? 'bmiResult' : 'bmiInput' }  },
                 { value: 'other', label: 'Other', trigger: '8' },
             ],
         },
@@ -97,11 +139,14 @@ const FItFlexChatBot = () => {
         {
             id: 'bmiResult',
             message: ({ previousValue }) => {
+                if (localStorage.getItem('bmi')){
+                    return `Your BMI is ${localStorage.getItem('bmi') }`;
+                }
                 arr.push(previousValue);
                 const bmi = calculateBMI();
-                return `Your BMI is ${ bmi }`;
+                return `Your BMI is ${bmi}`;
             },
-            trigger: 'endChat',
+            trigger: 'preEndChat',
         },
         {
             id: '9',
@@ -151,6 +196,23 @@ const FItFlexChatBot = () => {
             trigger: 'endChat',
         },
         {
+            id: 'preEndChat',
+            message: "Want to recalculate BMI ?",
+            trigger: 'reCalculate',
+        },
+        {
+            id: 'reCalculate',
+            options: [
+                {
+                    value: 'yes', label: 'Yes', trigger: ({ previousValue }) => {
+                        localStorage.removeItem('bmi');
+                        return 'bmiInput'
+                    }
+                },
+                { value: 'no', label: 'No', trigger: 'endChat' },
+            ],
+        },
+        {
             id: 'endChat',
             message: "Thanks for your input! Feel free to explore our website for more information.",
             end: true,
@@ -174,7 +236,7 @@ const FItFlexChatBot = () => {
     };
 
     return (
-        <div className="App">
+        <ChatBotContainer>
             <ThemeProvider theme={theme}>
                 <ChatBot
                     headerTitle="FitFlex Customer Support"
@@ -183,7 +245,7 @@ const FItFlexChatBot = () => {
                     endChat={handleEnd}
                 />
             </ThemeProvider>
-        </div>
+        </ChatBotContainer>
     );
 };
 
