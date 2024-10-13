@@ -22,7 +22,7 @@ import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
 
-function Home({mode , textcolor}) {
+function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
     {
@@ -77,13 +77,14 @@ function Home({mode , textcolor}) {
   }, [window.innerWidth]);
 
   return (
-    <div style={{ backgroundColor: mode , color: textcolor }}>
+    <div style={{ backgroundColor: mode, color: textcolor }}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={5}>
           <div
             style={{
               background: "linear-gradient(45deg, #FDC830 0%,#F37335)",
               width: "100%",
+              height: "100vh",
               display: "flex",
               alignItems: "center",
             }}
@@ -138,18 +139,15 @@ function Home({mode , textcolor}) {
           >
             <Box
               sx={{
-                backgroundImage: `linear-gradient(45deg,rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)),
-                
-                url(${Imgs[count]})`,
+                backgroundImage: `linear-gradient(45deg, rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)), url(${Imgs[count]})`,
                 backgroundRepeat: "no-repeat",
-                setBackgroundSize: "contain",
+                backgroundSize: "cover",
                 backgroundPosition: "center",
-                // background:'linear-gradient(45deg, #F37335 0%,#FDC830 100%)',
                 width: "100%",
                 height: { xs: "55vh", md: "100%" },
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                alignItems: "center", // changed to "center"
                 justifyContent: "center",
               }}
             >
@@ -352,7 +350,7 @@ function Home({mode , textcolor}) {
               icon={faStar}
               size="5x"
             />
-            <Typography variant="h3" color={textcolor} style={{fontSize:'35px'}}>
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
               Variety
             </Typography>
             <Typography color={textcolor}>
@@ -383,7 +381,7 @@ function Home({mode , textcolor}) {
               icon={faDharmachakra}
               size="5x"
             />
-            <Typography variant="h3" color={textcolor}style={{fontSize:'35px'}}>
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
               Flexibility
             </Typography>
             <Typography color={textcolor}>
@@ -415,10 +413,10 @@ function Home({mode , textcolor}) {
               icon={faDumbbell}
               size="5x"
             />
-            <Typography variant="h3" color={textcolor} style={{fontSize:'35px'}}>
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
               Motivation
             </Typography>
-            <Typography style={{color: textcolor}}>
+            <Typography style={{ color: textcolor }}>
               Stay on track with interactive features, progress tracking, and
               regular updates. We will help you keep your eyes on the prize and
               push through challenges.
@@ -471,7 +469,7 @@ function Home({mode , textcolor}) {
           backgroundColor: mode,
         }}
       >
-        <SuccessStories mode = {mode} textcolor = {textcolor}/>
+        <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
       <Box
