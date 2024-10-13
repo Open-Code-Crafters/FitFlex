@@ -196,6 +196,21 @@ const Footer = () => {
                 Privacy Policy
               </Link>
             </RouterLink>
+            <RouterLink to="/terms-of-use" style={{ textDecoration: "none" }}>
+  <Link
+    key={1} // Change the key as necessary
+    color="grey.400"
+    display="block"
+    gutterBottom
+    sx={{
+      textDecoration: "none",
+      fontSize: { xs: "0.8rem", sm: "0.9rem" }, // Responsive font size
+      "&:hover": { color: "#fff" }, // Change color on hover
+    }}
+  >
+    Terms of Use
+  </Link>
+</RouterLink>
           </Box>
         </Grid>
 
