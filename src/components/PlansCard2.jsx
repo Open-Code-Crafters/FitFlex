@@ -9,17 +9,14 @@ import {
     CardContent,
   } from "@mui/material";
   import { motion } from "framer-motion";
-  import requirejs from "requirejs";
   import img from "../assets/home/biceps.webp";
   import forearms from "../assets/exercise/arms/forearms.jpeg";
   import { useState, useEffect } from "react";
 
-  requirejs.config({
-    nodeRequire: require,
-  });
-
   function PlansCard({info}) {
     const [difficultyColor, setColor] = useState("green");
+    const [imagePath, setImagePath] = useState('');
+
     
     if(!info){
       info={
@@ -32,8 +29,6 @@ import {
         
       }
     }
-
-    const image = require(`${info.image}`);
     
     useEffect(() => {
       
@@ -45,6 +40,11 @@ import {
         setColor("red");
       }
     },[info.level])
+
+    
+  useEffect(() => {
+    setImagePath(info.image);
+  }, [info.image]);
     
     return (
       <Card
@@ -68,7 +68,7 @@ import {
           transition: { duration: 0.2 },
         }}
       >
-        <CardMedia component="img" height="160" image={info.image} alt="Chevrolet" />
+        <CardMedia component="img" height="160" image={imagePath} alt="Chevrolet" />
         <CardContent>
           <div
             style={{
