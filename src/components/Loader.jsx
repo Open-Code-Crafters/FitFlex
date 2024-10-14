@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
-import LoaderImg from '../assets/Loader.png';
+import LoaderImg from '../assets/img/Loader.gif';
 
 const Loader = ({ message = 'Loading...' }) => {
   const theme = useTheme();
@@ -27,7 +27,6 @@ const Loader = ({ message = 'Loading...' }) => {
         style={{
           width: '120px',
           marginBottom: '2px',
-          animation: 'spin 2s linear infinite', // Add spin animation
         }}
       />
       <Typography variant="h6" sx={{ mt: 2 }}>
