@@ -283,16 +283,18 @@ const Footer = () => {
         }}
       >
         {[
-          FaFacebookF,
-          FaTelegramPlane,
-          FaLinkedinIn,
-          FaInstagram,
-          FaYoutube,
-          faXTwitter,
-        ].map((Icon, index) => (
+          { Icon: FaFacebookF, url: "https://www.facebook.com" },
+          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
+          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
+          { Icon: FaInstagram, url: "https://www.instagram.com" },
+          { Icon: FaYoutube, url: "https://www.youtube.com" },
+          { Icon: faXTwitter, url: "https://twitter.com" },
+        ].map(({ Icon, url }, index) => (
           <IconButton
             key={index}
-            href="#"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
             color="inherit"
             sx={{
               fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
@@ -301,7 +303,7 @@ const Footer = () => {
               "&:hover": { color: "#fff" },
             }}
           >
-            {index === 5 ? (
+            {Icon === faXTwitter ? (
               <FontAwesomeIcon icon={Icon} />
             ) : (
               <Icon fontSize="inherit" />
