@@ -9,9 +9,15 @@ import {
     CardContent,
   } from "@mui/material";
   import { motion } from "framer-motion";
+  import requirejs from "requirejs";
   import img from "../assets/home/biceps.webp";
   import forearms from "../assets/exercise/arms/forearms.jpeg";
   import { useState, useEffect } from "react";
+
+  requirejs.config({
+    nodeRequire: require,
+  });
+
   function PlansCard({info}) {
     const [difficultyColor, setColor] = useState("green");
     
