@@ -53,27 +53,30 @@ const Footer = () => {
             About
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {" "}
-            {/* Center links on mobile */}
-            {["Our Story", "Team", "Career", "Content", "Press"].map(
-              (item, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  color="grey.400"
-                  display="block"
-                  gutterBottom
-                  sx={{
-                    textDecoration: "none",
-                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                    "&:hover": { color: "#fff" },
-                  }}
-                >
-                  {item}
-                </Link>
-              )
-            )}
-          </Box>
+  {[
+    { name: "Our Story", path: "/home" },
+    { name: "Team", path: "/about" },
+    { name: "Career", path: "/servies" },
+    { name: "Content", path: "/Blog" },
+    { name: "Press", path: "#" },
+  ].map((item, index) => (
+    <Link
+      key={index}
+      href={item.path} 
+      color="grey.400"
+      display="block"
+      gutterBottom
+      sx={{
+        textDecoration: "none",
+        fontSize: { xs: "0.8rem", sm: "0.9rem" },
+        "&:hover": { color: "#fff" },
+      }}
+    >
+      {item.name}  {/* Use item.name for display */}
+    </Link>
+  ))}
+</Box>
+
         </Grid>
 
         {/* Column 2: Services */}
@@ -90,28 +93,24 @@ const Footer = () => {
             Services
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {[
-              "Personal Coachings",
-              "Group Classes",
-              "Online Programs",
-              "Corporate Wellness",
-            ].map((item, index) => (
-              <Link
-                key={index}
-                href="#"
-                color="grey.400"
-                display="block"
-                gutterBottom
-                sx={{
-                  textDecoration: "none",
-                  fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                  "&:hover": { color: "#fff" },
-                }}
-              >
-                {item}
-              </Link>
-            ))}
-          </Box>
+  {["Personal Coachings", "Group Classes", "Online Programs", "Corporate Wellness"].map((item, index) => (
+    <Link
+      key={index}
+      href="/services"  // All links point to /services
+      color="grey.400"
+      display="block"
+      gutterBottom
+      sx={{
+        textDecoration: "none",
+        fontSize: { xs: "0.8rem", sm: "0.9rem" },
+        "&:hover": { color: "#fff" },
+      }}
+    >
+      {item}
+    </Link>
+  ))}
+</Box>
+
         </Grid>
 
         {/* Column 3: Resources */}
@@ -126,27 +125,32 @@ const Footer = () => {
             }}
           >
             Resources
-          </Typography>
-          <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {["Academy", "Blog", "Health Tips", "FaQs", "Support"].map(
-              (item, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  color="grey.400"
-                  display="block"
-                  gutterBottom
-                  sx={{
-                    textDecoration: "none",
-                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                    "&:hover": { color: "#fff" },
-                  }}
-                >
-                  {item}
-                </Link>
-              )
-            )}
-          </Box>
+            </Typography>
+<Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+  {[
+    { name: "Academy", path: "/about" },  // Link to Resources section
+    { name: "Blog", path: "/Blog" },     // Link to Resources section
+    { name: "Health Tips", path: "/healthtips" }, // Link to HealthTips
+    { name: "FAQs", path: "/#faq" },           // Link to FAQs section
+    { name: "Support", path: "/#resources" },   // Link to Resources section
+  ].map((item, index) => (
+    <Link
+      key={index}
+      href={item.path}  // Update to use item.path
+      smooth={true}
+      color="grey.400"
+      display="block"
+      gutterBottom
+      sx={{
+        textDecoration: "none",
+        fontSize: { xs: "0.8rem", sm: "0.9rem" },
+        "&:hover": { color: "#fff" },
+      }}
+    >
+      {item.name}
+    </Link>
+  ))}
+</Box>
         </Grid>
 
         {/* Column 4: Company */}
@@ -163,39 +167,29 @@ const Footer = () => {
             Company
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {["About Us", "Careers", "Teams", "Contact Us"].map(
-              (item, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  color="grey.400"
-                  display="block"
-                  gutterBottom
-                  sx={{
-                    textDecoration: "none",
-                    fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                    "&:hover": { color: "#fff" },
-                  }}
-                >
-                  {item}
-                </Link>
+  {[
+    { name: "About Us", path: "/about" }, 
+    { name: "Careers", path: "#" }, 
+    { name: "Teams", path: "#" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Privacy Policy",path:"/privacy-policy"}
+  ].map((item, index) => (
+    <Link
+      key={index}
+      href={item.path}
+      color="grey.400"
+      display="block"
+      gutterBottom
+      sx={{
+        textDecoration: "none",
+        fontSize: { xs: "0.8rem", sm: "0.9rem" },
+        "&:hover": { color: "#fff" },
+      }}
+    >
+      {item.name}  
+    </Link>
               )
             )}
-            <RouterLink to="privacy-policy" style={{ textDecoration: "none" }}>
-              <Link
-                key={5}
-                color="grey.400"
-                display="block"
-                gutterBottom
-                sx={{
-                  textDecoration: "none",
-                  fontSize: { xs: "0.8rem", sm: "0.9rem" },
-                  "&:hover": { color: "#fff" },
-                }}
-              >
-                Privacy Policy
-              </Link>
-            </RouterLink>
           </Box>
         </Grid>
 
