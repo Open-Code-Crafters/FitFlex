@@ -51,20 +51,25 @@ const Blog = ({ mode, textcolor }) => {
   }, []);
 
   const handleLike = (index) => {
+    if (!isLoggedIn) {
+      navigate('/register'); // Redirect to login if not logged in
+      return;
+    }
+  
     const newLikes = [...likes];
     const newLiked = [...liked];
-
+  
     // Toggle like status
     if (newLiked[index]) {
-        newLikes[index] -= 1; // Decrement if already liked
+      newLikes[index] -= 1; // Decrement if already liked
     } else {
-        newLikes[index] += 1; // Increment if not liked
+      newLikes[index] += 1; // Increment if not liked
     }
-
+  
     newLiked[index] = !newLiked[index]; // Toggle the liked state
     setLikes(newLikes);
     setLiked(newLiked);
-};
+  };  
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
