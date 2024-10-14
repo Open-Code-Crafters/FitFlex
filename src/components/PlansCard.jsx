@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import img from "../assets/home/biceps.webp";
+import forearms from "../assets/exercise/arms/forearms.jpeg";
 import { useState, useEffect } from "react";
 function PlansCard({info}) {
   const [difficultyColor, setColor] = useState("green");
@@ -19,12 +20,14 @@ function PlansCard({info}) {
       name:"Biceps Special",
       title:"Super Biceps Special",
       period:30,
-      image:"src/assets/exercise/arms/forearms.jpeg",
+      image: forearms,
       location:"Home",
       level:"Easy",
       
     }
   }
+
+  const image = require(`${info.image}`);
   
   useEffect(() => {
     
@@ -59,7 +62,7 @@ function PlansCard({info}) {
         transition: { duration: 0.2 },
       }}
     >
-      <CardMedia component="img" height="160" image={info.image} alt="Chevrolet" />
+      <CardMedia component="img" height="160" image={image} alt="Chevrolet" />
       <CardContent >
         <div
           style={{
