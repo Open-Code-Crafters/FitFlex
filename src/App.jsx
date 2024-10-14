@@ -59,7 +59,7 @@ function App() {
               path="/home"
               element={<Home mode={mode} textcolor={textcolor} />}
             />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact mode={mode}/>} />
             <Route
               path="/about"
               element={<About mode={mode} textcolor={textcolor} />}
