@@ -1,0 +1,53 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  background : linear-gradient(135deg, #1F1C2C 10%, #232526 100%);
+}
+
+/* Text animation */
+.animate-stroke {
+  text-transform: uppercase;
+  animation: stroke 2.5s infinite alternate;
+  stroke-width: 2;
+  stroke: rgb(255, 255, 255);
+  font-size: 110px;
+  font-family: "Future2";
+}
+
+/* Keyframes for the stroke animation */
+@keyframes stroke {
+  0% {
+    fill: #fff;
+    stroke: #f3621a;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 1;
+  }
+
+  70% {
+    fill: #fff;
+    stroke: #f3a71a;
+  }
+
+  80% {
+    fill: #fff;
+    stroke: #f3c81a;
+    stroke-width: 1;
+  }
+
+  100% {
+    fill: #fff;
+    stroke: #f3ef1a;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+    text-shadow: 0 0 10px #fff, 0 0 15px whitesmoke;
+  }
+}
