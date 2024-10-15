@@ -28,7 +28,6 @@ const Blog = ({ mode, textcolor }) => {
   ];
 
   const [likes, setLikes] = useState(blogPosts.map(() => 0));
-  const [liked, setLiked] = useState(blogPosts.map(() => false));
   const [showCommentBox, setShowCommentBox] = useState(blogPosts.map(() => false));
   const [comments, setComments] = useState(blogPosts.map(() => []));
   const [commentInputs, setCommentInputs] = useState(blogPosts.map(() => ""));
@@ -52,19 +51,9 @@ const Blog = ({ mode, textcolor }) => {
 
   const handleLike = (index) => {
     const newLikes = [...likes];
-    const newLiked = [...liked];
-
-    // Toggle like status
-    if (newLiked[index]) {
-        newLikes[index] -= 1; // Decrement if already liked
-    } else {
-        newLikes[index] += 1; // Increment if not liked
-    }
-
-    newLiked[index] = !newLiked[index]; // Toggle the liked state
+    newLikes[index] += 1;
     setLikes(newLikes);
-    setLiked(newLiked);
-};
+  };
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
