@@ -6,8 +6,6 @@ import {
   Button,
   Container,
   Box,
-  MenuItem,
-  Menu,
 } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -19,9 +17,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { size } from "lodash";
-import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services","Login", "Register"];
+import ResponsiveSheet from "./responsive-sheet";
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -33,18 +30,7 @@ function Navbar(props) {
       },
     },
   });
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [isLogged, setLogged] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
-    setAnchorElNav(null);
-  };
   // const { scrollYProgress } = useViewportScroll();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -84,19 +70,23 @@ function Navbar(props) {
     <ThemeProvider theme={navTheme}>
       <AppBar
         position="sticky"
-        className=""
+
         sx={{
           background:
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
+          zIndex: 50
         }}
       >
         <Container maxWidth="xl" sx={{}}>
           <Toolbar
             disableGutters
             sx={{
-              height: scrollPosition > 0 ? "50px" : "100px",
+              height: scrollPosition > 0 ? "50px" : "50px",
               transition: "height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
               alignItems: "center",
+              position: 'relative',
+              paddingBottom: '5px'
+
             }}
           >
             <Typography
@@ -169,55 +159,11 @@ function Navbar(props) {
                 FitFlex
               </motion.div>
             </Typography>
+            {/* this import responsive sidebar  */}
+            <div className="md:hidden">
+              <ResponsiveSheet />
 
-            <Box
-              sx={{
-                flexGrow: 0,
-                display: { xs: "flex", md: "none" },
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                size="small"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={() => setAnchorElNav(null)}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={() => {
-                      setAnchorElNav(null);
-                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
-                    }}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+            </div>
             <Typography
               sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               component="div"
@@ -285,9 +231,12 @@ function Navbar(props) {
                   }}
                   sx={{
                     my: 2,
+                    py: 2,
                     color: "white",
                     display: "block",
                     alignItems: "center",
+                    width: "auto",
+                    height: '100%'
                   }}
                 >
                   {page}

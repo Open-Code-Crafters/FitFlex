@@ -1,7 +1,6 @@
 import { Grid, Typography, Box } from "@mui/material";
 import homeImg1 from "../assets/home/homeImg1.jpg";
 import "../styles/shared.css";
-
 import homeImg2 from "../assets/home/homeImg2.avif";
 import homeImg3 from "../assets/home/homeImg3.jpg";
 import homeImg4 from "../assets/home/homeImg4.jpg";
@@ -22,10 +21,7 @@ import {
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
-import {
-  Card,
-  CardContent,
-} from "../components/ui/card"
+
 function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
@@ -81,40 +77,112 @@ function Home({ mode, textcolor }) {
   }, [window.innerWidth]);
 
   return (
-    <div className=" relative overflow-hidden">
-      <div className="grid  grid-cols-1 md:grid-cols-12 h-screen w-screen overflow-hidden">
-        {/* Left section */}
-        <div className=" md:col-span-5  bg-gradient-to-br from-[#FDC830] to-[#F37335] flex items-center justify-center">
-          <div className="w-full px-8 text-center py-10 md:py-0">
-            <h3 className="text-white text-4xl md:text-5xl font-bold mb-4">Welcome to</h3>
-            <h1 className="text-white text-6xl md:text-8xl font-extrabold">FitFlex</h1>
-            <h1 className="text-white text-6xl md:text-8xl font-semibold -mt-4">Zone</h1>
-            <h4 className="text-white text-xl md:text-3xl font-semibold leading-8 mt-6">
-              Transform Your Space, Transform Your Body
-            </h4>
-          </div>
-        </div>
-
-        {/* Right section */}
-        <div className="col-span-12 md:col-span-7 flex items-center justify-center">
+    <div className=" bg-red-900 w-full">
+      <Grid container spacing={0}>
+        <Grid item xs={12} md={5}>
           <div
-            className="w-full h-[55vh] md:h-full bg-cover bg-center flex flex-col items-center justify-center"
             style={{
-              backgroundImage: `linear-gradient(45deg, rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)), url(${Imgs[count]})`,
+              background: "linear-gradient(45deg, #FDC830 0%,#F37335)",
+              width: "100%",
+              height: "100vh",
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            <div className="relative z-10 p-2 md:p-5 backdrop-blur-sm">
-              <h2 className="text-white text-4xl font-extrabold">
-                {TopMessage[count]}
-              </h2>
-              <h4 className="text-white text-lg font-semibold leading-7">
-                {BottomMessage[count]}
-              </h4>
+            <div style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
+              <Typography
+                gutterBottom
+                variant="h3"
+                color="white"
+                style={{ fontWeight: "bold" }}
+              >
+                Welcome to
+              </Typography>
+              <Typography
+                variant="h1"
+                color="white"
+                style={{ fontWeight: "700" }}
+              >
+                FitFlex
+              </Typography>
+
+              <Typography
+                variant="h1"
+                color="white"
+                style={{ fontWeight: "600", marginTop: "-20px" }}
+              >
+                Zone
+              </Typography>
+              <Typography
+                variant="h4"
+                color="white"
+                style={{
+                  fontSize: "25px",
+                  fontWeight: "600",
+                  lineHeight: "30px",
+                }}
+              >
+                Transform Your Space, Transform Your Body
+              </Typography>
             </div>
           </div>
-        </div>
-      </div>
+        </Grid>
+        <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              height: "100%",
+              background: "",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                backgroundImage: `linear-gradient(45deg, rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)), url(${Imgs[count]})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: { xs: "55vh", md: "100%" },
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center", // changed to "center"
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  padding: { xs: "5px", md: "20px" },
+                  zIndex: 1,
+                  position: "relative",
+                  backdropFilter: "blur(5px)",
+                }}
+              >
+                <Typography
+                  variant="h2"
+                  color="white"
+                  style={{ fontWeight: "900" }}
+                >
+                  {TopMessage[count]}
+                </Typography>
 
+                <Typography
+                  variant="h4"
+                  color="white"
+                  style={{
+                    fontSize: "25px",
+                    fontWeight: "600",
+                    lineHeight: "30px",
+                  }}
+                >
+                  {BottomMessage[count]}
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
       <Box
         sx={{
           display: "flex",
@@ -144,7 +212,7 @@ function Home({ mode, textcolor }) {
           style={{ marginTop: "50px", marginBottom: "50px" }}
         >
           <NavLink to="/plans" className="cta">
-            <span className="transform skew-x-15"
+            <span
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -200,63 +268,162 @@ function Home({ mode, textcolor }) {
           }}
         ></div>
       </Box>
-      <div className="flex flex-col items-center justify-center w-full">
-        <div className=" md:text-4xl text-3xl w-full flex space-x-2 flex-col items-center justify-center text-center md:flex-row">
-          <span className=" text-gray-600 sapce-x-4">Experience the</span>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <Typography
+          variant={fontVarient}
+          style={{
+            fontWeight: { sm: "normal", md: "bold" },
+            textAlign: "center",
+            marginBottom: "10px",
+          }}
+        >
+          Experience the{" "}
           <span
-            className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#F37335] to-[#FDC830]"
+            style={{
+              // color:'linear-gradient(45deg, #FDC830 0%,#F37335 100%)',
+              background: "linear-gradient(45deg, #F37335, #FDC830)",
+              WebkitBackgroundClip: "text",
+              fontFamily: "sans-serif",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textFillColor: "transparent",
+              fontWeight: "bold",
+            }}
           >
-            #Transform With FitFlex
+            #TransformWithFitFlex
           </span>
-        </div>
+        </Typography>
+        <Typography
+          variant={window.innerWidth < 700 ? "h6" : "h5"}
+          style={{
+            textAlign: "center",
+            fontWeight: { sm: "thin", md: "normal" },
+            // width: {sm:"90%", md:"60%"},
+            width: { sm: "80%", md: "60%" },
+            marginBottom: "50px",
+            fontSize: "20px",
+            color: textcolor
+          }}
+        >
+          Join our fitness program and transform your body and mind. Our expert
+          trainers and supportive community will help you reach your goals,
+          whether you're a beginner or an experienced athlete. Start your
+          transformation with FitFlex today!
+        </Typography>
 
+        <Grid
+          container
+          spacing={10}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "80%",
+          }}
+        >
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#AF47D2",
+              gap: "10px",
+              // width:"50%",
+              textAlign: "center",
+              // textColor:"black",
+            }}
+          >
+            <FontAwesomeIcon
+              style={{ color: "orange" }}
+              icon={faStar}
+              size="5x"
+            />
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+              Variety
+            </Typography>
+            <Typography color={textcolor}>
+              From HIIT to yoga, strength training to dance,explore a diverse
+              range of workouts to keep your routine exciting and effective.
+            </Typography>
+          </Grid>
 
-        <div className="w-full text-center p-4  text-base  md:text-xl  text-gray-500  font-semibold">
-          Join our fitness program and transform your body and mind. Our expert trainers and supportive community will help you reach your goals, whether you're a beginner or an experienced athlete. Start your transformation with FitFlex today!
-        </div>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#AF47D2",
+              textAlign: "center",
+              gap: "10px",
+              // width:"40%",
 
-        <div className="w-full py-24 grid grid-cols-1 md:grid-cols-3 gap-6 px-4 lg:px-24">
-          {/* Variety Card */}
-          <Card className="bg-gradient-to-b from-purple-500 to-purple-400 text-center p-6 shadow-md rounded-lg">
-            <CardContent className="flex flex-col items-center text-white">
-              <FontAwesomeIcon icon={faStar} size="5x" style={{ color: "orange" }} />
-              <Typography className="text-3xl font-bold mt-4" style={{ fontSize: '35px' }}>
-                Variety
-              </Typography>
-              <Typography className="mt-2">
-                From HIIT to yoga, strength training to dance, explore a diverse range of workouts to keep your routine exciting and effective.
-              </Typography>
-            </CardContent>
-          </Card>
+              // textColor:"black",
+            }}
+          >
+            <FontAwesomeIcon
+              style={{ color: "orange" }}
+              icon={faDharmachakra}
+              size="5x"
+            />
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+              Flexibility
+            </Typography>
+            <Typography color={textcolor}>
+              Enjoy the freedom to exercise whenever it fits your day. No gym
+              hours, no commutes just you and your fitness goals.
+            </Typography>
+          </Grid>
 
-          {/* Flexibility Card */}
-          <Card className="bg-gradient-to-b from-indigo-500 to-indigo-400 text-center p-6 shadow-md rounded-lg">
-            <CardContent className="flex flex-col items-center text-white">
-              <FontAwesomeIcon icon={faDharmachakra} size="5x" style={{ color: "orange" }} />
-              <Typography className="text-3xl font-bold mt-4" style={{ fontSize: '35px' }}>
-                Flexibility
-              </Typography>
-              <Typography className="mt-2">
-                Enjoy the freedom to exercise whenever it fits your day. No gym hours, no commutes—just you and your fitness goals.
-              </Typography>
-            </CardContent>
-          </Card>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#AF47D2",
+              gap: "10px",
+              textAlign: "center",
 
-          {/* Motivation Card */}
-          <Card className="bg-gradient-to-b from-orange-500 to-orange-400 text-center p-6 shadow-md rounded-lg">
-            <CardContent className="flex flex-col items-center text-white">
-              <FontAwesomeIcon icon={faDumbbell} size="5x" style={{ color: "orange" }} />
-              <Typography className="text-3xl font-bold mt-4" style={{ fontSize: '35px' }}>
-                Motivation
-              </Typography>
-              <Typography className="mt-2">
-                Stay on track with interactive features, progress tracking, and regular updates. We will help you keep your eyes on the prize and push through challenges.
-              </Typography>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+              // width:"50%",
 
+              // textColor:"black",
+            }}
+          >
+            <FontAwesomeIcon
+              style={{ color: "orange" }}
+              icon={faDumbbell}
+              size="5x"
+            />
+            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+              Motivation
+            </Typography>
+            <Typography style={{ color: textcolor }}>
+              Stay on track with interactive features, progress tracking, and
+              regular updates. We will help you keep your eyes on the prize and
+              push through challenges.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Box>
 
       {/* banner */}
       <br />
@@ -280,19 +447,19 @@ function Home({ mode, textcolor }) {
             zIndex: -1,
           }}
         ></div>
-        <Box className=" rounded"
+        <Box
           sx={{
             position: "relative",
             width: { sm: "100%", md: "80%" },
             height: { sm: "50vh", md: "95vh" },
             margin: "auto",
-
-
+            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+            borderLeft: { sm: "0px solid grey", md: "30px solid grey" },
+            borderRight: { sm: "0px solid grey", md: "30px solid grey" },
             backgroundColor: "black",
           }}
         >
           <HomeSlider object={hehe} />
-
         </Box>
       </Box>
       <Box
@@ -328,7 +495,7 @@ function Home({ mode, textcolor }) {
           gap: "10px",
         }}
       >
-
+        {/* <CounterCard val={20} icon={faMountain} text="Yoga Guides" /> */}
       </Box>
     </div>
   );

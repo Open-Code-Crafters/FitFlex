@@ -84,10 +84,7 @@ const Blog = ({ mode, textcolor }) => {
   };
 
   // Adding useEffect for debugging
-  useEffect(() => {
-    console.log("Blog component rendered");
-  }, []);
-
+  
   const styles = {
     blogContainer: {
       maxWidth: "800px",
