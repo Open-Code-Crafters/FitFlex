@@ -92,7 +92,7 @@
             "location": "src/data/upper body/neck-special",
             "period": 10,
             "level":"Easy",
-            "image": "src/assets/exercise/upper body/neck.jpeg"
+            "image": "neck"
           },
           {
             "name": "Abs Special",
@@ -100,7 +100,7 @@
             "location": "src/data/upper body/abs-special",
             "period": 20,
             "level":"Hard",
-            "image": "src/assets/exercise/upper body/abs.jpeg"
+            "image": "abs"
           },
           {
             "name": "Chest Special",
@@ -108,7 +108,7 @@
             "location": "src/data/upper body/chest-special",
             "period": 30,
             "level":"Medium",
-            "image": "src/assets/exercise/upper body/chest.jpeg"
+            "image": "chest"
           },
           {
             "name": "Upper Back ",
@@ -116,7 +116,7 @@
             "location": "src/data/upper body/back-special",
             "period": 40,
             "level":"Medium",
-            "image": "src/assets/exercise/upper body/upperback.jpeg"
+            "image": "upperback"
           },
           {
             "name": "Lower Back",
@@ -124,7 +124,7 @@
             "location": "src/data/upper body/back-special",
             "period": 40,
             "level":"Easy",
-            "image": "src/assets/exercise/upper body/lowerback.jpeg"
+            "image": "lowerback"
           },
           {
             "name": "Tricep Special",
@@ -132,7 +132,7 @@
             "location": "src/data/upper body/tricep-special",
             "period": 70,
             "level":"Medium",
-            "image": "src/assets/exercise/arms/triceps.jpeg"
+            "image": "triceps"
           },
           {
             "name": "Lats Special",
@@ -140,7 +140,7 @@
             "location": "src/data/upper body/lats",
             "period": 80,
             "level":"Hard",
-            "image": "src/assets/exercise/upper body/lats.jpeg"
+            "image": "lats"
           },
           {
             "name": "Traps Special",
@@ -148,7 +148,7 @@
             "location": "src/data/upper body/lats",
             "period": 80,
             "level":"Hard",
-            "image": "src/assets/exercise/upper body/traps.jpeg"
+            "image": "traps"
           }
       ]
     },
@@ -161,7 +161,7 @@
             "location": "src/data/muscle/abductors.json",
             "period": 1,
             "level":"Hard",
-            "image": "src/assets/exercise/lower body/abductors.jpeg"
+            "image": "abductors"
           },
           {
             "name": "Plantarfascia Special",
@@ -169,7 +169,7 @@
             "location": "src/data/muscle/plantarfascia.json",
             "period": 1,
             "level":"Medium",
-            "image": "src/assets/exercise/lower body/plantarfascia.jpeg"
+            "image": "plantarfascia"
           },
           {
             "name": "Itband Special",
@@ -177,7 +177,7 @@
             "location": "src/data/muscle/itband.json",
             "period": 1,
             "level":"Easy",
-            "image": "src/assets/exercise/lower body/itband.jpeg"
+            "image": "itband"
           },
           {
             "name": "Hipflexors Special",
@@ -185,7 +185,7 @@
             "location": "src/data/muscle/hipflexors.json",
             "period": 1,
             "level":"Easy",
-            "image": "src/assets/exercise/lower body/hipflexors.jpeg"
+            "image": "hipflexors"
           },
           {
             "name": "Hamstrings Special",
@@ -193,7 +193,7 @@
             "location": "src/data/muscle/hamstrings.json",
             "period": 1,
             "level":"Hard",
-            "image": "src/assets/exercise/lower body/hamstrings.jpeg"
+            "image": "hamstrings"
           },
           {
             "name": "Glutes Special",
@@ -201,7 +201,7 @@
             "location": "src/data/muscle/glutes.json",
             "period": 1,
             "level":"Easy",
-            "image": "src/assets/exercise/lower body/glutes.jpeg"
+            "image": "glutes"
           },
           {
             "name": "Calves Special",
@@ -209,7 +209,7 @@
             "location": "src/data/muscle/calves.json",
             "period": 1,
             "level":"Easy",
-            "image": "src/assets/exercise/lower body/calves.jpeg"
+            "image": "calves"
           },
           {
             "name": "Adductors Special",
@@ -217,7 +217,7 @@
             "location": "src/data/muscle/adductors.json",
             "period": 1,
             "level":"Easy",
-            "image": "src/assets/exercise/lower body/adductors.jpeg"
+            "image": "adductors"
           },
           {
             "name": "Quads Special",
@@ -225,7 +225,7 @@
             "location": "src/data/muscle/quads.json",
             "period": 1,
             "level":"Medium",
-            "image": "src/assets/exercise/lower body/quads.jpeg"
+            "image": "quads"
           }
       ]
     },
@@ -238,7 +238,7 @@
             "location": "src/data/muscle/triceps.json",
             "period": 90,
             "level":"Medium",
-            "image": "src/assets/exercise/arms/triceps.jpeg"
+            "image": "triceps"
           },
           {
             "name": "Forearms Special",
@@ -246,7 +246,7 @@
             "location": "src/data/muscle/forearms.json",
             "period": 90,
             "level":"Easy",
-            "image": "src/assets/exercise/arms/forearms.jpeg"
+            "image": "forearms"
           },
           {
             "name": "Biceps Special",
@@ -255,7 +255,7 @@
             "period": 90,
             "level":"Medium",
 
-            "image": "src/assets/exercise/arms/biceps.jpeg"
+            "image": "biceps"
           },
           {
             "name": "Palmarfacsia Special",
@@ -263,7 +263,7 @@
             "location": "src/data/muscle/palmarfacsia.json",
             "period": 90,
             "level":"Medium",
-            "image": "src/assets/exercise/arms/palmarfacsia.jpeg"
+            "image": "palmarfacsia"
           },
           {
             "name": "Shoulders Special",
@@ -271,7 +271,7 @@
             "location": "src/data/muscle/shoulders.json",
             "period": 90,
             "level":"Hard",
-            "image": "src/assets/exercise/arms/shoulders.jpeg"
+            "image": "shoulders"
           }
       ]
     }
