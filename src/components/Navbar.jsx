@@ -19,6 +19,8 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ResponsiveSheet from "./responsive-sheet";
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
+import { size } from "lodash";
+import PropTypes from "prop-types";
 
 function Navbar(props) {
   const navigate = useNavigate();

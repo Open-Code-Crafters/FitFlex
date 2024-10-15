@@ -12,6 +12,7 @@ import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
 import workhard from "../assets/home/hardworkout.jpg";
+import { useLocation } from "react-router-dom";
 
 import {
   faDharmachakra,
@@ -26,6 +27,7 @@ import {
   Card,
   CardContent,
 } from "../components/ui/card"
+
 function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
@@ -79,6 +81,17 @@ function Home({ mode, textcolor }) {
       setFontVarient("h3");
     }
   }, [window.innerWidth]);
+
+const location = useLocation();
+
+useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <div className=" relative overflow-hidden">
