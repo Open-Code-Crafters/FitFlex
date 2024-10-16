@@ -8,6 +8,7 @@ import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 import { color } from "framer-motion";
 import PrivacyPolicy from "./views/PrivacyPolicy.jsx";
+import TermsOfUse from "./views/Terms.jsx";
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -91,6 +92,7 @@ function App() {
               element={<Services mode={mode} textcolor={textcolor} />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
           </Routes>
           <Footer />
           <BackToTopButton />
