@@ -132,7 +132,17 @@ const About = ({ mode, textcolor }) => {
               </Typography>
             </Box>
           </Grid>
-
+            {/* Call to Action Section */}
+            <Box sx={{ textAlign: 'center', mt: 6 }}>
+                <Button
+                    variant="contained"
+                    size="large"
+                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', }}
+                    endIcon={<ArrowForwardIcon />}
+                    onClick={handleJoinClick}
+                >
+                    Join FitFlex Now
+                </Button>
           <Grid item xs={12} sm={4} textAlign="center">
             <Box
               sx={{
