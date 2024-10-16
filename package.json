@@ -43,7 +43,7 @@
     "react-visibility-sensor": "^5.1.1",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.13",
+    "styled-components": "^4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
