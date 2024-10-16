@@ -14,36 +14,42 @@ const Plans = ({mode , textcolor}) => {
       id: 1,
       name: "Basic Plan",
       price: "Rs 9.99",
+      image: "triceps",
       features: ["Access to basic workouts", "Limited support"],
     },
     {
       id: 2,
       name: "Premium Plan",
       price: "Rs 19.99",
+      image: "triceps",
       features: ["Access to premium workouts", "24/7 support"],
     },
     {
       id: 3,
       name: "Pro Plan",
       price: "Rs 29.99",
+      image: "triceps",
       features: ["Access to all workouts", "Personal trainer support"],
     },
     {
       id: 3,
       name: "Pro Plan",
       price: "Rs 29.99",
+      image: "triceps",
       features: ["Access to all workouts", "Personal trainer support"],
     },
     {
       id: 4,
       name: "Pro Plan",
       price: "Rs 29.99",
+      image: "triceps",
       features: ["Access to all workouts", "Personal trainer support"],
     },
     {
       id: 5,
       name: "Pro Plan",
       price: "Rs 29.99",
+      image: "triceps",
       features: ["Access to all workouts", "Personal trainer support"],
     },
   ];
@@ -106,7 +112,7 @@ const Plans = ({mode , textcolor}) => {
             >
               {plans.map((obj, index) => {
                 // console.log(obj)
-                return <PlansCard key={index} />;
+                return <PlansCard key={index} info={obj}/>;
               })}
             </div>
             {/* <p style={{textWrap:'nowrap'}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores sequi adipisci aliquam obcaecati deleniti ipsam, modi iusto necessitatibus tempora rerum optio, blanditiis ducimus. Necessitatibus aliquam quasi sint, sequi vero voluptatum.</p> */}

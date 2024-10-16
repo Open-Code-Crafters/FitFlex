@@ -23,7 +23,7 @@ const ContactForm = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   maxWidth: "600px",
   margin: "auto",
-  backgroundColor: "rgba(0, 0, 0, 0)",
+  backgroundColor: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
   backdropFilter: "blur(10px)",
   borderRadius: theme.shape.borderRadius,
   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
@@ -55,7 +55,7 @@ const theme = createTheme({
 // Background container styled
 const BackgroundContainer = styled(Box)(() => ({
   minHeight: "100vh",
-  backgroundImage: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
+  // backgroundImage: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   display: "flex",
