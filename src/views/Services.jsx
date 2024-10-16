@@ -40,19 +40,55 @@ const Services = ({ mode, textcolor }) => {
   ];
 
   return (
-    <div className={`service-grid ${mode}`}>
-      {services.map((service) => (
-        <div className="service-card" key={service.name}>
-          <img src={service.imageUrl} alt={service.name} />
-          <h2>{service.name}</h2>
-          <p>{service.description}</p>
-          <button onClick={() => handleOpenModal(service.name)}>Learn More</button>
-          <div className="stats">
-            <span className="views">👁️ Views: {service.views}</span>
-            <span className="likes">❤️ Likes: {service.likes}</span>
-          </div>
+    <div style={styles.container}>
+      <h1 style={styles.heading}>Our Premium Services</h1>
+      
+      <div style={styles.serviceGrid}>
+        {/* Personal Training Section */}
+        <div
+                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
+                    className="service-card"
+                    onClick={() => handleOpenModal("Personal Training")}
+        >
+          <img
+            src="https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp"
+            alt="Personal Training"
+            style={styles.image}
+          />
+          <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
+          <p style={{...styles.subheading , color : textcolor}}>
+            Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.
+          </p>
+          <button
+            style={styles.button}
+            onClick={() => handleOpenModal("Personal Training")}
+          >
+            Schedule a Session
+          </button>
         </div>
-      ))}
+
+        {/* Nutritional Counseling Section */}
+        <div
+                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
+                    className="service-card"
+                    onClick={() => handleOpenModal("Nutritional Counseling")}
+        >
+          <img
+            src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp"
+            alt="Nutritional Counseling"
+            style={styles.image}
+          />
+          <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
+          <p style={{ ...styles.subheading, color: textcolor, paddingBottom: '1.9rem' }}>
+            Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
+          </p>
+          <button
+            style={styles.button}
+            onClick={() => handleOpenModal("Nutritional Counseling")}
+          >
+            Get Started
+          </button>
+        </div>
 
       {/* Modal for Contact */}
       {modalOpen && (
@@ -80,6 +116,75 @@ const Services = ({ mode, textcolor }) => {
 };
 
 const styles = {
+  container: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "40px",
+    textAlign: "center",
+    background: "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
+  },
+  heading: {
+    fontSize: "2.8em",
+    marginBottom: "30px",
+    fontWeight: "bold",
+    letterSpacing: "0.5px",
+  },
+  serviceGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "20px",
+  },
+  serviceCard: {
+    background: "#fff",
+    borderRadius: "15px",
+    padding: "20px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    cursor: "pointer",
+    overflow: "hidden",
+    textAlign: "left",
+    position: "relative",
+    backgroundColor: "#fff",
+    "&:hover": {
+      transform: "scale(1.05)",
+      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+    },
+  },
+  image: {
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "10px",
+    transition: "transform 0.3s ease",
+  },
+  subheading: {
+    fontSize: "1.6em",
+    color: "#FF4500",
+    margin: "15px 0 10px",
+    fontWeight: "bold",
+  },
+  description: {
+    color: "#555",
+    lineHeight: "1.6",
+    fontSize: "0.95em",
+    marginBottom: "20px",
+  },
+  button: {
+    padding: "10px 20px",
+    background: "linear-gradient(90deg, blue, lightblue)",
+    backgroundSize: "200% 100%",
+    transition: "background-position 0.5s ease, color 0.3s ease",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    fontWeight: "bold",
+    position: "relative",
+    overflow: "hidden",
+    "&:hover": {
+      backgroundPosition: "100% 0",
+    },
+  },
   modalOverlay: {
     position: "fixed",
     top: 0,
