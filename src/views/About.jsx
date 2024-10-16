@@ -83,7 +83,7 @@ const About = ({ mode, textcolor }) => {
           What We Offer
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={4} textAlign="center">
+          <Grid item xs={12} sm={4} textAlign="center"> 
             <Box
               sx={{
                 background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
@@ -132,7 +132,18 @@ const About = ({ mode, textcolor }) => {
               </Typography>
             </Box>
           </Grid>
-
+            {/* Call to Action Section */}
+            {/* <Box sx={{ textAlign: 'center', mt: 6 }}>
+                <Button
+                    variant="contained"
+                    size="large"
+                    sx={{ backgroundColor: '#ff8c00', color: '#fff', padding: '1rem 2rem', fontSize: '1.2rem', margin: '0 auto', display: 'flex', justifyContent: 'center', alignItems: 'center', }}
+                    endIcon={<ArrowForwardIcon />}
+                    onClick={handleJoinClick}
+                >
+                    Join FitFlex Now
+                </Button>
+            </Box> */}
           <Grid item xs={12} sm={4} textAlign="center">
             <Box
               sx={{

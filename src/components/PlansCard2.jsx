@@ -9,17 +9,19 @@ import {
     CardContent,
   } from "@mui/material";
   import { motion } from "framer-motion";
-  import img from "../assets/home/biceps.webp";
+  import forearms from "../assets/exercise/arms/forearms.jpeg";
   import { useState, useEffect } from "react";
+
   function PlansCard({info}) {
     const [difficultyColor, setColor] = useState("green");
+
     
     if(!info){
       info={
         name:"Biceps Special",
         title:"Super Biceps Special",
         period:30,
-        image:"src/assets/exercise/arms/forearms.jpeg",
+        image: forearms,
         location:"Home",
         level:"Easy",
         
