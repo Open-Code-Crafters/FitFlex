@@ -55,7 +55,7 @@ const Services = ({mode,textcolor}) => {
             style={styles.image}
           />
           <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
+          <p style={{ ...styles.subheading, color: textcolor, paddingBottom: '1.9rem' }}>
             Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
           </p>
           <button
@@ -147,12 +147,7 @@ const styles = {
     overflow: "hidden",
     textAlign: "left",
     position: "relative",
-    overflow: "hidden",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    padding: "20px",
-    borderRadius: "10px",
     backgroundColor: "#fff",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
     "&:hover": {
       transform: "scale(1.05)",
       boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",

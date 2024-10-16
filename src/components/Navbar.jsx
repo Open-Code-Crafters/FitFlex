@@ -13,7 +13,6 @@ import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
 import { motion } from "framer-motion";
 import Toolbar from "@mui/material/Toolbar";
-import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -226,7 +225,6 @@ function Navbar(props) {
                 <Button
                   key={page}
                   onClick={() => {
-                    setAnchorElNav(null);
                     navigate(`/${page.toLowerCase()}`);
                   }}
                   sx={{

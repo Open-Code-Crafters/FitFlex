@@ -2,12 +2,13 @@ import "./App.css";
 import { Suspense, lazy, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
-import Loading from "./components/Loading.jsx";
+import Loader from "./components/Loader.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 import { color } from "framer-motion";
 import PrivacyPolicy from "./views/PrivacyPolicy.jsx";
+import TermsOfUse from "./views/Terms.jsx";
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loader />}>
         <BrowserRouter>
           <ProgressBar/>
           <Navbar mode={mode} toggleMode={toggleMode} />
@@ -91,6 +92,7 @@ function App() {
               element={<Services mode={mode} textcolor={textcolor} />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
           </Routes>
           <Footer />
           <BackToTopButton />
