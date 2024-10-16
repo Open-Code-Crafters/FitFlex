@@ -757,7 +757,7 @@ const Register = () => {
             <Grid item>
               Already have an account?
               <Link
-                href="/Login"
+                href="/login"
                 variant="body2"
                 sx={{
                   fontFamily: "Future2",
