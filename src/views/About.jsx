@@ -83,7 +83,7 @@ const About = ({ mode, textcolor }) => {
           What We Offer
         </Typography>
         <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={4} textAlign="center">
+          <Grid item xs={12} sm={4} textAlign="center"> 
             <Box
               sx={{
                 background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
@@ -133,7 +133,7 @@ const About = ({ mode, textcolor }) => {
             </Box>
           </Grid>
             {/* Call to Action Section */}
-            <Box sx={{ textAlign: 'center', mt: 6 }}>
+            {/* <Box sx={{ textAlign: 'center', mt: 6 }}>
                 <Button
                     variant="contained"
                     size="large"
@@ -143,6 +143,7 @@ const About = ({ mode, textcolor }) => {
                 >
                     Join FitFlex Now
                 </Button>
+            </Box> */}
           <Grid item xs={12} sm={4} textAlign="center">
             <Box
               sx={{

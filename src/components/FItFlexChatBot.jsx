@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
-import chatBotAvatar from "/robot.png"
 import { ThemeProvider } from 'styled-components';
 import { useEffect, useState } from 'react';
+import chatBotAvatar from '/robot.png';
 
 const ChatBotContainer = styled.div`
   @media screen and (max-width: 568px) {

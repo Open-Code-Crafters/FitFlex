@@ -147,12 +147,7 @@ const styles = {
     overflow: "hidden",
     textAlign: "left",
     position: "relative",
-    overflow: "hidden",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    padding: "20px",
-    borderRadius: "10px",
     backgroundColor: "#fff",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
     "&:hover": {
       transform: "scale(1.05)",
       boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
