@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
+import chatBotAvatar from "/robot.png"
 import { ThemeProvider } from 'styled-components';
 import { useEffect, useState } from 'react';
 
@@ -231,7 +232,7 @@ const FItFlexChatBot = () => {
     };
 
     const config = {
-        botAvatar: "src/assets/img/robot.png",
+        botAvatar: chatBotAvatar,
         floating: true,
     };
 
