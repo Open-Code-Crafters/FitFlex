@@ -87,7 +87,6 @@ const styles = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -105,6 +104,7 @@ const styles = {
     position: "relative",
     transform: "scale(0.7)",
     animation: "scaleIn 0.3s ease forwards",
+    fontFamily: "sans-serif",
   },
   modalHeading: {
     fontSize: "2em",
