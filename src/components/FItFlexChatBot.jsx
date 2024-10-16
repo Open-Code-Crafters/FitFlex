@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import { useEffect, useState } from 'react';
-import robot from '../assets/img/robot.png';
+import chatBotAvatar from '/robot.png';
 
 const ChatBotContainer = styled.div`
   @media screen and (max-width: 568px) {
@@ -232,7 +232,7 @@ const FItFlexChatBot = () => {
     };
 
     const config = {
-        botAvatar: robot,
+        botAvatar: chatBotAvatar,
         floating: true,
     };
 
