@@ -2,7 +2,7 @@ import "./App.css";
 import { Suspense, lazy, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
-import Loading from "./components/Loading.jsx";
+import Loader from "./components/Loader.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
@@ -24,6 +24,9 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
+import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
+import ProgressBar from "./components/ProgressBar.jsx";
+
 function App() {
   const [mode, setMode] = useState("light");
   const [textcolor, settextcolor] = useState("black");
@@ -44,8 +47,9 @@ function App() {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loader />}>
         <BrowserRouter>
+          <ProgressBar/>
           <Navbar mode={mode} toggleMode={toggleMode} />
           <Routes>
             <Route
@@ -91,7 +95,8 @@ function App() {
             <Route path="/terms-of-use" element={<TermsOfUse />} />
           </Routes>
           <Footer />
-          <BackToTopButton /> {/* Add Back to Top Button here */}
+          <BackToTopButton />
+          <FItFlexChatBot/>
         </BrowserRouter>
       </Suspense>
     </>

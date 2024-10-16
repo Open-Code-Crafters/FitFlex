@@ -40,7 +40,7 @@ const BackToTopButton = () => {
             style={{ display: isVisible ? 'block' : 'none' }}
             onClick={scrollToTop}
         >
-            <FaArrowUp size={24} />
+            <FaArrowUp size={24} style={{marginLeft:"-2px"}}/>
         </button>
     );
 };

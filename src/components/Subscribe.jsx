@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFirebase } from "../context/Firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { Box, TextField, Button } from "@mui/material";  
+import { toast } from "react-toastify";
 
 function Subscribe() {
   const [email, setEmail] = useState("");
@@ -17,21 +18,21 @@ function Subscribe() {
     e.preventDefault();
 
     if (!validateEmail(email)) {
-      alert("Please enter a valid email address.");
+      toast.error("Please enter a valid email address.");
       return;
     }
-
+    toast.success("Newsletter Successfully Subscribed!");
     try {
       await addDoc(collection(firestore, "subscribers"), {
         email: email,  
         timestamp: new Date(),
       });
 
-      alert("Email successfully added!");
+      toast.success("Email successfully added!");
       setEmail("");
     } catch (error) {
       console.error("Error adding document: ", error);
-      alert("Failed to add email.");
+      toast.error("Failed to add email.");
     }
   };
 
@@ -41,7 +42,7 @@ function Subscribe() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "100%",
+        maxWidth: "70%",
         backgroundColor: "#fff",
         borderRadius: "30px",
         padding: "2px",
@@ -59,7 +60,8 @@ function Subscribe() {
             padding: { xs: "8px", sm: "10px 12px" },
             color: "#000",
             "&::placeholder": {
-              color: "#777",
+              color: "black",
+              fontSize: "20px"
             },
           },
           "& .MuiOutlinedInput-root": {
@@ -73,13 +75,14 @@ function Subscribe() {
         onClick={handleSubmit}
         variant="contained"
         sx={{
-          backgroundColor: "#fff",
-          color: "#000",
+          backgroundColor: "orange",
+          color: "white",
           borderRadius: "30px",
           padding: { xs: "8px 15px", sm: "10px 20px" },
           boxShadow: "0px 0px 8px rgba(255, 255, 255, 0.6)",
           "&:hover": {
-            backgroundColor: "#f1c40f",
+            backgroundColor: "green",
+            color:"white"
           },
         }}
       >
