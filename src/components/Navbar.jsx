@@ -1,5 +1,5 @@
 import "../fonts/index.css";
-import Home from "../views/Home";
+
 import {
   AppBar,
   IconButton,
@@ -146,7 +146,7 @@ useEffect(() => {
   return () => {
     ctx.revert();
   };
-}, [Home]); 
+}, []); 
 
 //gsap ends
 
