@@ -1,0 +1,129 @@
+.diet-recommendation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    background-image: url('../assets/img/Food_Diet_Bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.diet-recommendation-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+
+.heading {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.glassmorphic-box {
+    background: rgba(255, 119, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.recommendation-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.recommendation-form label {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.recommendation-form input,
+.recommendation-form select,
+.recommendation-form button {
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.recommendation-form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.recommendation-form button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.recommendations-box {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    animation: fadeIn 0.5s;
+}
+
+.recommendation-category {
+    margin-bottom: 20px;
+}
+
+.recommendation-category h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recommendation-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recommendation-category li {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px 0;
+    transition: transform 0.2s;
+}
+
+.recommendation-category li:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
