@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import '../styles/Services.css'
+import "../styles/Services.css";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
-const Services = ({mode,textcolor}) => {
+const Services = ({ mode, textcolor }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentService, setCurrentService] = useState("");
 
@@ -15,25 +16,52 @@ const Services = ({mode,textcolor}) => {
     setCurrentService("");
   };
 
+  const notify = () => {
+    toast("✅ Thank you, We'll get in touch soon.", {
+      theme: "light",
+      style: { fontWeight: "bold", color: "black" },
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      position: "top-center",
+      autoClose: 3000,
+      role: "alert",
+      transition: Slide,
+    });
+  };
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    setModalOpen(false);
+    notify();
+  };
+
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Our Premium Services</h1>
-      
+
       <div style={styles.serviceGrid}>
         {/* Personal Training Section */}
         <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-                    onClick={() => handleOpenModal("Personal Training")}
+          style={{
+            ...styles.serviceCard,
+            backgroundColor: mode === "light" ? "#fffc" : "#3d2c2ccc",
+          }}
+          className="service-card"
+          onClick={() => handleOpenModal("Personal Training")}
         >
           <img
             src="https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp"
             alt="Personal Training"
             style={styles.image}
           />
-          <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.
+          <h2 style={{ ...styles.subheading, color: textcolor }}>
+            Personal Training
+          </h2>
+          <p style={{ ...styles.subheading, color: textcolor }}>
+            Efficient and effective personal training with a client-centric
+            approach. Customized plans for strength training, cardio, and more.
           </p>
           <button
             style={styles.button}
@@ -45,18 +73,24 @@ const Services = ({mode,textcolor}) => {
 
         {/* Nutritional Counseling Section */}
         <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-                    onClick={() => handleOpenModal("Nutritional Counseling")}
+          style={{
+            ...styles.serviceCard,
+            backgroundColor: mode === "light" ? "#fffc" : "#3d2c2ccc",
+          }}
+          className="service-card"
+          onClick={() => handleOpenModal("Nutritional Counseling")}
         >
           <img
             src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp"
             alt="Nutritional Counseling"
             style={styles.image}
           />
-          <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
+          <h2 style={{ ...styles.subheading, color: textcolor }}>
+            Nutritional Counseling
+          </h2>
+          <p style={{ ...styles.subheading, color: textcolor }}>
+            Tailored nutrition counseling to help you optimize your health. Get
+            personalized advice on nourishment for your body.
           </p>
           <button
             style={styles.button}
@@ -68,9 +102,11 @@ const Services = ({mode,textcolor}) => {
 
         {/* Online Training Section */}
         <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-
+          style={{
+            ...styles.serviceCard,
+            backgroundColor: mode === "light" ? "#fffc" : "#3d2c2ccc",
+          }}
+          className="service-card"
           onClick={() => handleOpenModal("Online Virtual Training")}
         >
           <img
@@ -78,9 +114,12 @@ const Services = ({mode,textcolor}) => {
             alt="Online Virtual Training"
             style={styles.image}
           />
-          <h2 style={{...styles.subheading ,  color : textcolor}}>Online Virtual Training</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.
+          <h2 style={{ ...styles.subheading, color: textcolor }}>
+            Online Virtual Training
+          </h2>
+          <p style={{ ...styles.subheading, color: textcolor }}>
+            Join our online virtual training sessions, blending technology with
+            personalized fitness to help you stay fit from anywhere.
           </p>
           <button
             style={styles.button}
@@ -104,15 +143,32 @@ const Services = ({mode,textcolor}) => {
             <p style={styles.modalText}>
               Fill out the form below, and we’ll be in touch shortly.
             </p>
-            <form>
-              <input type="text" placeholder="Your Name" style={styles.input} required />
-              <input type="text" placeholder="Your Name" style={styles.input} required />
-              <textarea placeholder="Your Message" style={styles.textarea} required></textarea>
-              <button type="submit" style={styles.submitButton}>Send Message</button>
+            <form onSubmit={(e) => handleSendMessage(e)}>
+              <input
+                type="text"
+                placeholder="Your Name"
+                style={styles.input}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Your Name"
+                style={styles.input}
+                required
+              />
+              <textarea
+                placeholder="Your Message"
+                style={styles.textarea}
+                required
+              ></textarea>
+              <button type="submit" style={styles.submitButton}>
+                Send Message
+              </button>
             </form>
           </div>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };
@@ -124,7 +180,8 @@ const styles = {
     margin: "0 auto",
     padding: "40px",
     textAlign: "center",
-    background: "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
+    background:
+      "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
   },
   heading: {
     fontSize: "2.8em",
@@ -200,7 +257,7 @@ const styles = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
-    
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
