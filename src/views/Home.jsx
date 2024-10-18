@@ -10,6 +10,7 @@ import HomeSlider from "../components/HomeSlider";
 import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
+
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
 import gsap from 'gsap'
@@ -23,6 +24,7 @@ import {
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
+import Tracker from "../components/Tracker";
 
 function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
@@ -534,17 +536,26 @@ useEffect(() => {
       <Box
         sx={{
           width: "100%",
-          padding: "40px 0",
+          padding: "10px 0",
           backgroundColor: mode,
         }}
       >
         <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
-      <Box
+      {/* <Box
         id="faq"
         paddingTop={"190px"}>
-      </Box>
+      </Box> */}
+      {/* <Box
+        sx={{
+          width: "100%",
+          padding: "40px 0",
+          backgroundColor: mode,
+        }}
+      > */}
+        <Tracker mode={mode} textcolor={textcolor} />
+      {/* </Box> */}
 
       <Box
         sx={{
@@ -560,17 +571,10 @@ useEffect(() => {
           }}
         />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#AF47D2",
-          gap: "10px",
-        }}
-      >
-        {/* <CounterCard val={20} icon={faMountain} text="Yoga Guides" /> */}
-      </Box>
+      
+      
+   
+
     </div>
   );
 }
