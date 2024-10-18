@@ -13,6 +13,10 @@ import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
 import workhard from "../assets/home/hardworkout.jpg";
 
+import { useLocation } from "react-router-dom";
+import gsap from 'gsap'
+
+
 import {
   faDharmachakra,
   faDumbbell,
@@ -80,6 +84,73 @@ function Home({ mode, textcolor }) {
     }
   }, [window.innerWidth]);
 
+
+const location = useLocation();
+
+useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+
+  //gsap starts
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Ensure initial styles are set to scale 1 and opacity 1
+    
+        // Timeline for animation
+       
+      gsap.fromTo(
+        ".homeGsap",
+        {
+          scale: 5, // Small size to simulate starting from a distance (z-axis)
+           // Start from above the viewport
+          opacity: 0, // Hidden initially
+        },
+        {
+          scale: 1, // Full size upon impact
+          y: 0, // Drop to its final position
+          opacity: 1, // Fade in
+          duration: 0.2, // Duration of the drop
+          ease: "bounce.inOut",
+          delay:0.5,// Bounce effect on landing
+          onComplete: () => {
+            // Optional: Apply squash/stretch effect on impact
+            gsap.to(".homeGsap", {
+              scaleX: 0.5,
+              scaleY: 0.5,
+              duration: 0.2,
+              yoyo: true,
+              repeat: 1,
+              ease: "bounce.inOut",
+            });
+          },
+        }
+      );
+  
+  
+    
+  
+     
+      
+  
+  
+      
+    });
+  
+    // Cleanup GSAP context
+    return () => {
+      ctx.revert();
+    };
+  }, []); 
+
+  //gsap ends
+
   return (
     <div className=" relative overflow-hidden">
       <div className="grid  grid-cols-1 md:grid-cols-12 h-screen w-screen overflow-hidden">
@@ -98,11 +169,15 @@ function Home({ mode, textcolor }) {
         {/* Right section */}
         <div className="col-span-12 md:col-span-7 flex items-center justify-center">
           <div
+
             className="w-full h-[55vh] md:h-full bg-cover bg-center flex flex-col items-center justify-center"
+
+
             style={{
               backgroundImage: `linear-gradient(45deg, rgba(253, 200, 48, 0.5), rgba(243, 115, 53, 0.1)), url(${Imgs[count]})`,
             }}
           >
+
             <div className="relative z-10 p-2 md:p-5 backdrop-blur-sm">
               <h2 className="text-white text-4xl font-extrabold">
                 {TopMessage[count]}
@@ -110,6 +185,43 @@ function Home({ mode, textcolor }) {
               <h4 className="text-white text-lg font-semibold leading-7">
                 {BottomMessage[count]}
               </h4>
+
+            <div   className="homeGsap" style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
+              <Typography
+                gutterBottom
+                variant="h3"
+                color="white"
+                style={{ fontWeight: "bold" }}
+              >
+                Welcome to
+              </Typography>
+              <Typography
+                variant="h1"
+                color="white"
+                style={{ fontWeight: "700" }}
+              >
+                FitFlex
+              </Typography>
+
+              <Typography
+                variant="h1"
+                color="white"
+                style={{ fontWeight: "600", marginTop: "-20px" }}
+              >
+                Zone
+              </Typography>
+              <Typography
+                variant="h4"
+                color="white"
+                style={{
+                  fontSize: "25px",
+                  fontWeight: "600",
+                  lineHeight: "30px",
+                }}
+              >
+                Transform Your Space, Transform Your Body
+              </Typography>
+
             </div>
           </div>
         </div>
