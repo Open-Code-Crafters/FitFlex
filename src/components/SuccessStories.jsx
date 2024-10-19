@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Typography, Card, CardContent, Avatar, Box } from "@mui/material";
 import Slider from "react-slick";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 // Import customer images
 import customer1 from "../assets/img/customer-1.jpg";
@@ -166,24 +166,24 @@ const SuccessStories = ({ mode, textcolor }) => {
               sx={{
                 position: "relative",
                 width: "90%",
-                height: "60%",
+                height: "100%",
                 transformStyle: "preserve-3d",
                 transform: flipped[index] ? "rotateY(180deg)" : "none",
                 transition: "transform 0.3s",
               }}
             >
-              {/* Card showing the story (front) */}
+              {/* Front Card */}
               <Card
                 sx={{
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "12px",
+                  boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.15)",
+                  borderRadius: "16px",
                   backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
-                  padding: { xs: "16px", sm: "20px", md: "24px" },
-                  minHeight: "250px",
+                  padding: { xs: "20px", sm: "24px", md: "28px" },
+                  minHeight: "350px",
                   backfaceVisibility: "hidden",
                   position: "absolute",
-                  width: "80%",
-                  height: "60%",
+                  width: "100%",
+                  height: "100%",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
@@ -191,28 +191,21 @@ const SuccessStories = ({ mode, textcolor }) => {
                   textAlign: "center",
                   border:
                     mode === "dark" ? "2px solid white" : "2px solid gray",
+                  transition: "transform 0.3s ease-in-out",
                 }}
               >
-                <Box
+                <Avatar
+                  alt={story.name}
+                  src={story.image}
                   sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: -20,
-                    right: -10,
-                    height: "25px", // Height of the separator
-                    backgroundColor: "#fcbf30",
-                    opacity: 1, // Low opacity
-                    transform: "rotate(-45deg)", // Diagonal rotation
-                    transformOrigin: "top left",
-
+                    width: "80px",
+                    height: "80px",
+                    marginBottom: "10px",
+                    border: "3px solid #fcbf30", // Border for modern look
                   }}
                 />
                 <CardContent
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    textAlign: "center",
                     flexGrow: 1,
                     color: textcolor,
                   }}
@@ -223,14 +216,12 @@ const SuccessStories = ({ mode, textcolor }) => {
                     sx={{
                       fontSize: { xs: "1rem", sm: "1.25rem" },
                       fontWeight: "600",
-                      textAlign: "center",
+                      marginBottom: "10px",
                       fontFamily: "'Roboto', sans-serif",
                       color: textcolor,
-                      marginBottom: "10px",
-                      zIndex: 2,
                     }}
                   >
-                    Author : {story.name}
+                    {story.name}
                   </Typography>
                   <Typography
                     variant="body1"
@@ -238,7 +229,6 @@ const SuccessStories = ({ mode, textcolor }) => {
                       fontSize: { xs: "0.9rem", sm: "1rem" },
                       lineHeight: "1.6",
                       color: textcolor,
-                      zIndex: 2,
                     }}
                   >
                     {story.story}
@@ -246,102 +236,106 @@ const SuccessStories = ({ mode, textcolor }) => {
                 </CardContent>
               </Card>
 
-              {/* Card showing the name, image, and rating (back) */}
+              {/* Back Card */}
               <Card
                 sx={{
-                  boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "12px",
+                  boxShadow: "0px 6px 16px rgba(0, 0, 0, 0.15)",
+                  borderRadius: "16px",
                   backgroundColor: mode === "light" ? "#f4f2f2" : "#2e2a2a",
-                  padding: { xs: "16px", sm: "20px", md: "24px" },
-                  minHeight: "250px",
+                  padding: { xs: "20px", sm: "24px", md: "28px" },
+                  minHeight: "350px",
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
                   top: 0,
                   left: 0,
-                  width: "80%",
-                  height: "60%",
+                  width: "100%",
+                  height: "100%",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   border:
                     mode === "dark" ? "2px solid white" : "2px solid gray",
+                  transition: "transform 0.3s ease-in-out",
                 }}
               >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: -20,
-                    right: -10,
-                    height: "25px", // Height of the separator
-                    backgroundColor: "#fcbf30",
-                    opacity: 1, // Low opacity
-                    transform: "rotate(-45deg)", // Diagonal rotation
-                    transformOrigin: "top left",
-                  }}
-                />
-                <Avatar
-                  src={story.image}
-                  alt={story.name}
-                  sx={{
-                    width: { xs: 60, sm: 80 },
-                    height: { xs: 60, sm: 80 },
-                    marginBottom: "12px",
-                    border: "2px solid #e0e0e0",
-                  }}
-                />
                 <Typography
                   variant="h6"
-                  component="div"
                   sx={{
                     fontSize: { xs: "1rem", sm: "1.25rem" },
                     fontWeight: "600",
                     textAlign: "center",
                     fontFamily: "'Roboto', sans-serif",
                     color: textcolor,
-                    marginBottom: "10px",
                   }}
                 >
                   {story.name}
                 </Typography>
-
                 <Typography
-                  variant="h6"
-                  component="div"
+                  variant="body2"
                   sx={{
-                    fontSize: { xs: "1rem", sm: "1.25rem" },
-                    fontWeight: "600",
+                    fontSize: { xs: "0.8rem", sm: "1rem" },
+                    lineHeight: "1.6",
                     textAlign: "center",
-                    fontFamily: "'Roboto', sans-serif",
                     color: textcolor,
-                    marginBottom: "10px",
+                    marginTop: "10px",
                   }}
                 >
-                  Rating : {index % 2 === 0 ? '⭐⭐⭐⭐⭐' : '⭐⭐⭐⭐'}
+                  Rating: {story.rating.toFixed(1)} / 5
                 </Typography>
 
-                {/* Social icons */}
-                <Box>
+                {/* Star Rating */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "10px",
+                  }}
+                >
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <span
+                      key={index}
+                      style={{
+                        color: index < story.rating ? "#fcbf30" : "#ccc",
+                        fontSize: "24px",
+                        margin: "0 2px",
+                      }}
+                    >
+                      ★
+                    </span>
+                  ))}
+                </Box>
+
+                {/* Social Media Icons */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "20px",
+                  }}
+                >
                   <FacebookIcon
                     sx={{
-                      color: mode === "light" ? "black" : "white",
-                      margin: "0 5px",
+                      margin: "0 10px",
                       cursor: "pointer",
+                      color: textcolor,
+                      "&:hover": { color: "#3b5998" },
                     }}
                   />
                   <TwitterIcon
                     sx={{
-                      color: mode === "light" ? "black" : "white",
-                      margin: "0 5px",
+                      margin: "0 10px",
                       cursor: "pointer",
+                      color: textcolor,
+                      "&:hover": { color: "#1da1f2" },
                     }}
                   />
                   <InstagramIcon
                     sx={{
-                      color: mode === "light" ? "black" : "white",
-                      margin: "0 5px",
+                      margin: "0 10px",
                       cursor: "pointer",
+                      color: textcolor,
+                      "&:hover": { color: "#e1306c" },
                     }}
                   />
                 </Box>
