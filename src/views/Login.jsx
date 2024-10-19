@@ -1,368 +1,226 @@
+import PropTypes from 'prop-types';
+import { useEffect, useReducer } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ChatBot from 'react-simple-chatbot';
+import styled, { ThemeProvider } from 'styled-components';
+import chatBotAvatar from '/robot.png'; // Assuming the correct path to your avatar image
 
-import {React, useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Container,
-  IconButton,
-  Snackbar,
-  Alert,
-  Grid,
-  Link,
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import BackgrundImg from "../assets/home/homeImg3.jpg";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useFirebase } from "../context/Firebase";
-import Register from "./Register";
-import Profile from "./Profile";
-
-const loginSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters long"),
-});
-
-const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [error,setError]=useState();
-
-  const email=useRef(null);
-  const password=useRef(null);
-  
-
-  const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors }, trigger } = useForm({
-    resolver: zodResolver(loginSchema),
-    mode: "onBlur",
-  });
-
-  const handleClickShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleCloseSnackbar = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
+// Styled component to adjust chatbot layout on small screens
+const ChatBotContainer = styled.div`
+  @media screen and (max-width: 568px) {
+    .rsc-container {
+      border-radius: 0;
+      bottom: 0 !important;
+      height: 80% !important;
+      width: 100% !important;
+      top: 175px !important;
     }
-    setOpenSnackbar(false);
-  };
+  }
+`;
 
-  const onSubmit = (data) => {
-       
+// Reducer function to manage user state effectively
+const userReducer = (state, action) => {
+  switch (action.type) {
+    case 'LOAD_FROM_STORAGE':
+      const storedUsername = localStorage.getItem('username');
+      return storedUsername ? { ...state, username: storedUsername, isNewUser: false } : state;
+    case 'RESET_BMI':
+      localStorage.removeItem('bmi');
+      return { ...state, bmi: null };
+    default:
+      return state;
+  }
+};
 
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth,data.email, data.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        navigate("/home")
-        // ...
-        
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setError("Sorry, your email or password is wrong!");
-      });
-    
-  };
+// Component for handling the chatbot functionality
+const FitFlexChatBot = () => {
+  const navigate = useNavigate();
+  const [state, dispatch] = useReducer(userReducer, {
+    username: null,
+    isNewUser: !localStorage.getItem('username'),
+  });
+  const { isNewUser } = state;
+  const arr = [];
 
-  const [user, setUser] = useState(null);
+  // Load username from localStorage on component mount
   useEffect(() => {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        
-      } else {
-        setUser(null);
-        // navigate('/Login');
-
-      }
-    });
+    dispatch({ type: 'LOAD_FROM_STORAGE' });
   }, []);
 
-  const firebase = useFirebase();
-  const auth = getAuth();
-  const googleProvider =new  GoogleAuthProvider();
+  // Utility function to calculate BMI
+  const calculateBMI = (height, weight) => {
+    const heightInMeters = parseFloat(height) / 100;
+    const bmi = (parseFloat(weight) / (heightInMeters ** 2)).toFixed(2);
+    if (heightInMeters > 0 && weight > 0) {
+      localStorage.setItem('bmi', bmi);
+      return bmi;
+    }
+    return "Invalid height or weight";
+  };
 
-  const signInWithGoogle = () =>{
-      signInWithPopup(auth,googleProvider);
-  }
+  // Steps definition for the chatbot
+  const steps = [
+    {
+      id: '0',
+      message: 'Hello! How can I assist you today?',
+      trigger: isNewUser ? 'showOptions' : 'showOptions',
+    },
+    {
+      id: 'showOptions',
+      options: [
+        { value: 'workout plans', label: 'Workout Plans', trigger: 'workoutPlans' },
+        { value: 'nutrition advice', label: 'Nutrition Advice', trigger: 'nutritionAdvice' },
+        { value: 'customer support', label: 'Customer Support', trigger: 'customerSupport' },
+        { value: 'calculate bmi', label: 'Calculate BMI', trigger: () => localStorage.getItem('bmi') ? 'showBMI' : 'askHeight' },
+        { value: 'other', label: 'Other', trigger: 'otherQuery' },
+      ],
+    },
+    {
+      id: 'workoutPlans',
+      message: "Great! We offer personalized workout plans. Would you like to know more?",
+      trigger: 'yesOrNo',
+    },
+    {
+      id: 'nutritionAdvice',
+      message: "Nutrition is key to fitness. Do you have any specific dietary goals?",
+      trigger: 'getDietaryGoals',
+    },
+    {
+      id: 'customerSupport',
+      message: "For customer support, please briefly describe your issue.",
+      trigger: 'getSupportIssue',
+    },
+    {
+      id: 'askHeight',
+      message: "Let's calculate your BMI! Please enter your height in cm.",
+      trigger: 'getHeight',
+    },
+    {
+      id: 'getHeight',
+      user: true,
+      validator: value => !isNaN(value) && value > 0,  // Validate height input
+      trigger: ({ previousValue }) => {
+        arr[0] = previousValue;
+        return 'askWeight';
+      },
+    },
+    {
+      id: 'askWeight',
+      message: "Now, please enter your weight in kg.",
+      trigger: 'getWeight',
+    },
+    {
+      id: 'getWeight',
+      user: true,
+      validator: value => !isNaN(value) && value > 0,  // Validate weight input
+      trigger: ({ previousValue }) => {
+        arr[1] = previousValue;
+        return 'showBMI';
+      },
+    },
+    {
+      id: 'showBMI',
+      message: () => {
+        const bmi = calculateBMI(arr[0], arr[1]);
+        return `Your BMI is ${bmi}`;
+      },
+      trigger: 'askRecalculateBMI',
+    },
+    {
+      id: 'askRecalculateBMI',
+      message: "Would you like to recalculate your BMI?",
+      trigger: 'recalculateOptions',
+    },
+    {
+      id: 'recalculateOptions',
+      options: [
+        { value: 'yes', label: 'Yes', trigger: 'resetBMI' },
+        { value: 'no', label: 'No', trigger: 'showOptions' },
+      ],
+    },
+    {
+      id: 'resetBMI',
+      message: "Let's start again!",
+      trigger: () => {
+        dispatch({ type: 'RESET_BMI' });
+        return 'askHeight';
+      },
+    },
+    {
+      id: 'yesOrNo',
+      options: [
+        { value: 'yes', label: 'Yes', trigger: 'goToServices' },
+        { value: 'no', label: 'No', trigger: 'showOptions' },
+      ],
+    },
+    {
+      id: 'getDietaryGoals',
+      user: true,
+      trigger: 'showOptions',
+    },
+    {
+      id: 'getSupportIssue',
+      user: true,
+      trigger: 'showOptions',
+    },
+    {
+      id: 'otherQuery',
+      user: true,
+      trigger: 'showOptions',
+    },
+    {
+      id: 'goToServices',
+      message: "Fantastic! Let's get started by visiting the services page!",
+      end: true,
+    },
+  ];
 
+  // Define chatbot theme with a modern yellow and grey look
+  const theme = {
+    background: '#f7f7f7',
+    headerBgColor: '#FFD700',  // Yellow
+    headerFontSize: '20px',
+    botBubbleColor: '#FFD700',  // Yellow
+    headerFontColor: 'white',
+    botFontColor: 'white',
+    userBubbleColor: '#808080',  // Grey
+    userFontColor: 'white',
+  };
 
-  // // Only render Register component if user is null
-  // if (user === null) {
-  //   return (
-  //     <div>
-  //       <Register />
-  //     </div>
-  //   );
-  // }
-  // const provider = new GoogleAuthProvider();
-  // const auth = getAuth();
-  // const handleGoogleLogin = async () => {
-  //   const auth = getAuth();
-  //   const provider = new GoogleAuthProvider();
-
-  //   try {
-  //     const result = signInWithPopup(auth, provider);
-  //     const user = result.user;
-  //     console.log("Google login successful:", user);
-  //     navigate("/home"); // Redirect to home after login
-  //   } catch (error) {
-  //     console.error("Error during Google login:", error);
-  //     // Handle errors if necessary
-  //   }
-  // };
+  const config = {
+    botAvatar: chatBotAvatar,
+    floating: true,
+  };
 
   return (
-    <Container
-      component="main"
-      maxWidth={false}
-      disableGutters
-      sx={{
-        backgroundImage: `url(${BackgrundImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 0,
-        margin: 0,
-        fontFamily: "Future2",
-      }}
-    >
-      <Box
-        sx={{
-          backgroundColor: "rgba(255, 255, 255, 0.3)",
-          backdropFilter: "blur(4px)",
-          padding: 4,
-          borderRadius: 2,
-          boxShadow: 3,
-          width: "90%",
-          maxWidth: "400px",
-          margin: "auto",
-          fontFamily: "Future2",
-        }}
-      >
-        <Typography
-          component="h1"
-          variant="h5"
-          sx={{
-            mb: 3,
-            display: "flex",
-            justifyContent: "center",
-            fontFamily: "Future2",
-            letterSpacing: { sm: "0rem", md: "0.3rem" },
-            color: "red",
-            fontSize: "1.9rem",
-            fontWeight: "bold",
-            zIndex: 10,
-          }}
-        >
-          Log In
-        </Typography>
-
-
-        <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
-          <TextField
-            ref={email} 
-            fullWidth
-            label="Email"
-            {...register("email")}
-            error={!!errors.email}
-            helperText={errors.email ? errors.email.message : ""}
-            onBlur={() => trigger("email")}
-            margin="normal"
-            InputLabelProps={{
-              sx: {
-                "&.Mui-focused": {
-                  color: "green",
-                },
-                fontFamily: "Future2",
-              },
-            }}
-            InputProps={{
-              sx: {
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "green",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: errors.email ? "red" : "green",
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  color: errors.email ? "red" : "green",
-                  opacity: 1,
-                },
-                fontFamily: "Future2",
-              },
-            }}
-            FormHelperTextProps={{
-              sx: {
-                fontFamily: "Future2",
-              },
-            }}
-          />
-          <TextField
-            ref={password}
-            fullWidth
-            label="Password"
-            type={showPassword ? "text" : "password"}
-            {...register("password")}
-            error={!!errors.password}
-            helperText={errors.password ? errors.password.message : ""}
-            onBlur={() => trigger("password")}
-            margin="normal"
-            InputLabelProps={{
-              sx: {
-                "&.Mui-focused": {
-                  color: "green",
-                },
-                fontFamily: "Future2",
-              },
-            }}
-            InputProps={{
-              sx: {
-                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "green",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: errors.password ? "red" : "green",
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  color: errors.password ? "red" : "green",
-                  opacity: 1,
-                },
-              },
-              endAdornment: (
-                <IconButton onClick={handleClickShowPassword}>
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              ),
-            }}
-            FormHelperTextProps={{
-              sx: {
-                fontFamily: "Future2",
-              },
-            }}
-          />
-          {/* <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{
-              mt: 3,
-              mb: 2,
-              padding: 1,
-              background: "linear-gradient(to right, #972525, #e80b0b)",
-              color: "#fff",
-              fontFamily: "Future2",
-              "&:hover": {
-                background: "linear-gradient(to left, #972525, #e80b0b)",
-              },
-            }}
-          >
-            Log In
-          </Button> */}
-           <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{
-              mt: 3,
-              mb: 2,
-              padding: 1,
-              background: "linear-gradient(to right, #972525, #e80b0b)",
-              color: "#fff",
-              fontFamily: "Future2",
-              "&:hover": {
-                background: "linear-gradient(to left, #972525, #e80b0b)",
-              },
-            }}
-          >
-            Log In
-          </Button>
-          
-        {error && (
-          <Typography color="error" sx={{ mb: 2, fontSize: "1.2rem" }}>
-            {error}
-          </Typography>
-        )}
-
-
-           {/* Google Login Button */}
-           <Button
-            fullWidth
-            variant="outlined"
-            onClick={signInWithGoogle}
-            
-            sx={{
-              mt: 2,
-              mb: 2,
-              padding: 1,
-              borderColor: "white",
-              color: "white",
-              fontFamily: "Future2",
-              backgroundColor:'#4285F4',
-              "&:hover": {
-                borderColor: 'white',
-                backgroundColor: '#357ae8', 
-              },
-            }}
-          >
-            Sign in with Google
-          </Button>
-          
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              Don't have an account?
-              <Link
-                href="/register"
-                variant="body2"
-                sx={{
-                  fontFamily: "Future2",
-                  color: "green",
-                  padding: "0.5rem",
-                  textDecoration: "none",
-                  fontSize: "1.2rem",
-                  "&:hover": {
-                    color: "#2b6f0e",
-                  },
-                }}
-              >
-                Register
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert
-          onClose={handleCloseSnackbar}
-          severity="success"
-          sx={{ width: "100%" }}
-        >
-          {"Login successful! Redirecting to home page..."}
-        </Alert>
-      </Snackbar>
-    </Container>
+    <ChatBotContainer>
+      <ThemeProvider theme={theme}>
+        <ChatBot
+          headerTitle="FitFlex Customer Support"
+          steps={steps}
+          {...config}
+        />
+      </ThemeProvider>
+    </ChatBotContainer>
   );
 };
 
-export default Login;
+// Type checking with PropTypes
+FitFlexChatBot.propTypes = {
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      message: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      options: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired,
+          trigger: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired,
+        })
+      ),
+    })
+  ),
+};
+
+export default FitFlexChatBot;
