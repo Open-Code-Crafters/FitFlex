@@ -10,6 +10,7 @@ import HomeSlider from "../components/HomeSlider";
 import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
+import BMICalculator from '../components/BMICalculator'; 
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
 import gsap from 'gsap'
@@ -541,15 +542,12 @@ useEffect(() => {
         <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
-      <Box
-        id="faq"
-        paddingTop={"190px"}>
-      </Box>
+      <BMICalculator />
 
       <Box
         sx={{
           background: "linear-gradient(to right, #4CAF50, #81C784)",
-          padding: "40px 0",
+          // padding: "40px 0",
           minHeight: "100vh",
         }}
       >
