@@ -93,7 +93,6 @@ function App() {
               element={<Services mode={mode} textcolor={textcolor} />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/dietrecommendation" element={<DietRecommendation/>} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
           </Routes>
           <Footer />

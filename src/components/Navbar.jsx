@@ -7,8 +7,6 @@ import {
   Button,
   Container,
   Box,
-  MenuItem,
-  Menu,
 } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
@@ -16,13 +14,12 @@ import fitnessPrimaryLogo from "../assets/fitness1.png";
 import fitnessSecondayrLogo from "../assets/fitness2.png";
 import { motion } from "framer-motion";
 import Toolbar from "@mui/material/Toolbar";
-import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { size } from "lodash";
-import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services","Login", "Register"];
+import ResponsiveSheet from "./responsive-sheet";
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
+
 import gsap from 'gsap'
 
 function Navbar(props) {
@@ -35,18 +32,7 @@ function Navbar(props) {
       },
     },
   });
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [isLogged, setLogged] = useState(false);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
-    setAnchorElNav(null);
-  };
   // const { scrollYProgress } = useViewportScroll();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -162,19 +148,23 @@ useEffect(() => {
       <AppBar
 
         position="sticky"
-        className="navGsap"
+        className="  fixed-top"
         sx={{
           background:
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
+          zIndex: 50
         }}
       >
         <Container maxWidth="xl" sx={{}}>
           <Toolbar
             disableGutters
             sx={{
-              height: scrollPosition > 0 ? "50px" : "100px",
+              height: scrollPosition > 0 ? "50px" : "50px",
               transition: "height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
               alignItems: "center",
+              position: 'relative',
+              paddingBottom: '5px'
+
             }}
           >
             <Typography
@@ -248,55 +238,11 @@ useEffect(() => {
                 FitFlex
               </motion.div>
             </Typography>
+            {/* this import responsive sidebar  */}
+            <div className="md:hidden">
+              <ResponsiveSheet />
 
-            <Box
-              sx={{
-                flexGrow: 0,
-                display: { xs: "flex", md: "none" },
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                size="small"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={() => setAnchorElNav(null)}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={() => {
-                      setAnchorElNav(null);
-                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
-                    }}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+            </div>
             <Typography
               sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               component="div"
@@ -318,14 +264,7 @@ useEffect(() => {
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   cursor: "pointer",
                 }}
-                // Responsive styles for smartphones
-                // sx={{
-                //   "@media (max-width: 600px)": {
-                //     height: "20px", // Reduced height for small screens
-                //     width: "0px", // Reduced width for small screens
-                //     marginRight: "30px",
-                //   },
-                // }}
+               
                 whileHover={{ scale: scale + 0.2 }}
               />
             </Typography>
@@ -360,11 +299,11 @@ useEffect(() => {
                   className="nav-link"
                   key={page}
                   onClick={() => {
-                    setAnchorElNav(null);
                     navigate(`/${page.toLowerCase()}`);
                   }}
                   sx={{
                     my: 2,
+                    py: 2,
                     color: "white",
                     display: "block",
                     alignItems: "center",
