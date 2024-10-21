@@ -10,71 +10,6 @@ import customer7 from "../assets/img/ben.jpg";
 import customer8 from "../assets/img/hannah.jpg";
 import customer9 from "../assets/img/steve.jpg";
 
-//   const originalStories = [
-//     {
-//       image: customer9,
-//       name: "John Doe",
-//       story:
-//         "Joining FitFlex changed my life! I lost 20 pounds and gained confidence.",
-//       rating: 5,
-//     },
-//     {
-//       image: customer1,
-//       name: "Jane Smith",
-//       story:
-//         "The variety of workouts kept me motivated and helped me achieve my fitness goals.",
-//       rating: 4.5,
-//     },
-//     {
-//       image: customer4,
-//       name: "Mike Johnson",
-//       story:
-//         "FitFlex's personalized plans are fantastic! I've never felt stronger.",
-//       rating: 5,
-//     },
-//     {
-//       image: customer8,
-//       name: "Sara Miller",
-//       story:
-//         "FitFlex helped me get back in shape after having my second baby. The workouts are fun and flexible with my schedule.",
-//       rating: 4,
-//     },
-//     {
-//       image: customer2,
-//       name: "David Brown",
-//       story:
-//         "I've tried many fitness programs, but FitFlex is the one that stuck. The trainers are motivating, and the results speak for themselves.",
-//       rating: 4.5,
-//     },
-//     {
-//       image: customer3,
-//       name: "Lisa Williams",
-//       story:
-//         "The variety of classes keeps me engaged and excited to work out every day. It's the best fitness decision I've ever made.",
-//       rating: 5,
-//     },
-//     {
-//       image: customer7,
-//       name: "James Anderson",
-//       story:
-//         "FitFlex made me love working out again. The balance between strength training and cardio is perfect for my fitness goals.",
-//       rating: 5,
-//     },
-//     {
-//       image: customer6,
-//       name: "Rachel Thompson",
-//       story:
-//         "The FitFlex community has been a game changer. The accountability and support have helped me stick to my routine.",
-//       rating: 4.5,
-//     },
-// {
-//   image: customer5,
-//   name: "Kevin Martinez",
-//   story:
-//     "The flexibility FitFlex offers is amazing. I can work out at my own pace, and it's still challenging and rewarding.",
-//   rating: 4,
-// },
-//   ];
 
 import { useEffect, useState } from 'react';
 import '../styles/SuccessStories.css'
@@ -191,12 +126,11 @@ const SuccessStories = () => {
       </h1>
       <div style={{ position: 'relative', marginTop: '120px', width: '100%', height: '550px', overflow: 'hidden' }}>
         {items.map((item, index) => (
-          <div className="item max-sm:!w-[300px] max-sm:!h-[430px]" key={index} style={{
+          <div className="item" key={index} style={{
             position: 'absolute',
             width: '280px',
             height: '340px',
             textAlign: 'justify',
-            background: '#016457', // Dark green to light yellow gradient
             borderRadius: '12px',
             padding: '20px',
             transition: '0.5s',
@@ -206,14 +140,13 @@ const SuccessStories = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
             overflow: 'hidden', // Ensures the image does not overflow
             color: 'white',
           }}>
             <img
               src={item.image}
               alt="User Avatar"
-              className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer max-sm:h-[120px] mb-0'
+              className=' '
               style={{
                 transition: 'transform 0.3s ease, filter 0.3s ease',
                 border: '3px solid #d0e7b0' // Green border for the image
@@ -227,16 +160,16 @@ const SuccessStories = () => {
                 e.currentTarget.style.filter = 'brightness(1)'; // Reset brightness
               }}
             />
-            <div className="stars text-[#ffd700] text-2xl mt-auto max-sm:mt-2">{item.rating}</div>
-            <p className='text-justify mb-[20px] max-sm:text-xs max-sm:mb-0'>{item.story}</p>
-            <h2 className='mb-[10px] text-xl font-semibold max-sm:mb-1 max-sm:text-lg'>{item.name}</h2>
+            <div className="stars ">{item.rating}</div>
+            <p className=''>{item.story}</p>
+            <h2 className=' '>{item.name}</h2>
           </div>
 
 
         ))}
 
-        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
-        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
+        <button id="next" className='  ' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
+        <button id="prev" className=' ' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
       </div>
     </div>
   );
