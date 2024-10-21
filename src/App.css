@@ -12,28 +12,7 @@ body {
   -ms-overflow-style: none;
 }
 
-/* 
-Uncomment this for custome scrollbar
-body::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
 
-body::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #484848; 
-  border-radius: 10px;
-  border: 3px solid #f0f0f0;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-  cursor: pointer;
-} */
 
 /*Css for the health tips page*/
 .health-tips-container {
