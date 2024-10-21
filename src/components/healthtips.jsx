@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Box, Card, CardMedia, CardContent, Grid } from "@mui/material";
 import { motion } from "framer-motion";
+import hydrate from "../assets/health/water-hydration.jpg";
 
 // HealthTipCard component
 function HealthTipsCard({ tip }) {
@@ -11,7 +12,7 @@ function HealthTipsCard({ tip }) {
     tip = {
       title: "Stay Hydrated",
       description: "Drinking enough water is crucial for your overall health.",
-      image: "src/assets/health/water-hydration.jpg",
+      image: hydrate,
     };
   }
 

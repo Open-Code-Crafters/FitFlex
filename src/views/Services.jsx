@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import '../styles/Services.css'
+import '../styles/Services.css';
 
-const Services = ({mode,textcolor}) => {
+const Services = ({ mode, textcolor }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentService, setCurrentService] = useState("");
 
@@ -15,81 +15,44 @@ const Services = ({mode,textcolor}) => {
     setCurrentService("");
   };
 
+  const services = [
+    {
+      name: "Personal Training",
+      description: "Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.",
+      imageUrl: "https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp",
+      views: 262,
+      likes: 40,
+    },
+    {
+      name: "Nutritional Counseling",
+      description: "Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.",
+      imageUrl: "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp",
+      views: 205,
+      likes: 37,
+    },
+    {
+      name: "Online Virtual Training",
+      description: "Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.",
+      imageUrl: "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp",
+      views: 237,
+      likes: 46,
+    },
+  ];
+
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Our Premium Services</h1>
-      
-      <div style={styles.serviceGrid}>
-        {/* Personal Training Section */}
-        <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-                    onClick={() => handleOpenModal("Personal Training")}
-        >
-          <img
-            src="https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp"
-            alt="Personal Training"
-            style={styles.image}
-          />
-          <h2 style={{...styles.subheading , color : textcolor}}>Personal Training</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.
-          </p>
-          <button
-            style={styles.button}
-            onClick={() => handleOpenModal("Personal Training")}
-          >
-            Schedule a Session
-          </button>
+    <div className={`service-grid ${mode}`}>
+      {services.map((service) => (
+        <div className="service-card" key={service.name}>
+          <img src={service.imageUrl} alt={service.name} />
+          <h2>{service.name}</h2>
+          <p>{service.description}</p>
+          <button onClick={() => handleOpenModal(service.name)}>Learn More</button>
+          <div className="stats">
+            <span className="views">👁️ Views: {service.views}</span>
+            <span className="likes">❤️ Likes: {service.likes}</span>
+          </div>
         </div>
-
-        {/* Nutritional Counseling Section */}
-        <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-                    onClick={() => handleOpenModal("Nutritional Counseling")}
-        >
-          <img
-            src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp"
-            alt="Nutritional Counseling"
-            style={styles.image}
-          />
-          <h2 style={{...styles.subheading ,  color : textcolor}}>Nutritional Counseling</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.
-          </p>
-          <button
-            style={styles.button}
-            onClick={() => handleOpenModal("Nutritional Counseling")}
-          >
-            Get Started
-          </button>
-        </div>
-
-        {/* Online Training Section */}
-        <div
-                    style={{ ...styles.serviceCard, backgroundColor: mode === 'light' ? '#fffc' : '#3d2c2ccc' }}
-                    className="service-card"
-
-          onClick={() => handleOpenModal("Online Virtual Training")}
-        >
-          <img
-            src="https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp"
-            alt="Online Virtual Training"
-            style={styles.image}
-          />
-          <h2 style={{...styles.subheading ,  color : textcolor}}>Online Virtual Training</h2>
-          <p style={{...styles.subheading , color : textcolor}}>
-            Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.
-          </p>
-          <button
-            style={styles.button}
-            onClick={() => handleOpenModal("Online Virtual Training")}
-          >
-            Join Now
-          </button>
-        </div>
-      </div>
+      ))}
 
       {/* Modal for Contact */}
       {modalOpen && (
@@ -106,7 +69,6 @@ const Services = ({mode,textcolor}) => {
             </p>
             <form>
               <input type="text" placeholder="Your Name" style={styles.input} required />
-              <input type="text" placeholder="Your Name" style={styles.input} required />
               <textarea placeholder="Your Message" style={styles.textarea} required></textarea>
               <button type="submit" style={styles.submitButton}>Send Message</button>
             </form>
@@ -117,82 +79,7 @@ const Services = ({mode,textcolor}) => {
   );
 };
 
-// Styles for the component
 const styles = {
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "40px",
-    textAlign: "center",
-    background: "linear-gradient(135deg, rgb(255, 215, 0), rgb(255, 69, 0), rgb(255, 99, 71))",
-  },
-  heading: {
-    fontSize: "2.8em",
-    marginBottom: "30px",
-    fontWeight: "bold",
-    letterSpacing: "0.5px",
-  },
-  serviceGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "20px",
-  },
-  serviceCard: {
-    background: "#fff",
-    borderRadius: "15px",
-    padding: "20px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    cursor: "pointer",
-    overflow: "hidden",
-    textAlign: "left",
-    position: "relative",
-    overflow: "hidden",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    padding: "20px",
-    borderRadius: "10px",
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-    "&:hover": {
-      transform: "scale(1.05)",
-      boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-    },
-  },
-  image: {
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-    borderRadius: "10px",
-    transition: "transform 0.3s ease",
-  },
-  subheading: {
-    fontSize: "1.6em",
-    color: "#FF4500",
-    margin: "15px 0 10px",
-    fontWeight: "bold",
-  },
-  description: {
-    color: "#555",
-    lineHeight: "1.6",
-    fontSize: "0.95em",
-    marginBottom: "20px",
-  },
-  button: {
-    padding: "10px 20px",
-    background: "linear-gradient(90deg, blue, lightblue)",
-    backgroundSize: "200% 100%",
-    transition: "background-position 0.5s ease, color 0.3s ease",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontWeight: "bold",
-    position: "relative",
-    overflow: "hidden",
-    "&:hover": {
-      backgroundPosition: "100% 0",
-    },
-  },
   modalOverlay: {
     position: "fixed",
     top: 0,
@@ -200,7 +87,6 @@ const styles = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
-    
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -218,6 +104,7 @@ const styles = {
     position: "relative",
     transform: "scale(0.7)",
     animation: "scaleIn 0.3s ease forwards",
+    fontFamily: "sans-serif",
   },
   modalHeading: {
     fontSize: "2em",
@@ -266,6 +153,6 @@ const styles = {
     fontSize: "1.5em",
     cursor: "pointer",
   },
-};
+}
 
 export default Services;
