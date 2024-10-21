@@ -12,6 +12,8 @@ import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
 import workhard from "../assets/home/hardworkout.jpg";
+import { useLocation } from "react-router-dom";
+import gsap from 'gsap'
 
 import {
   faDharmachakra,
@@ -26,6 +28,7 @@ import {
   Card,
   CardContent,
 } from "../components/ui/card"
+
 function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
   const hehe = [
@@ -80,8 +83,65 @@ function Home({ mode, textcolor }) {
     }
   }, [window.innerWidth]);
 
+const location = useLocation();
+
+useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+
+  //gsap starts
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Ensure initial styles are set to scale 1 and opacity 1
+    
+        // Timeline for animation
+       
+      gsap.fromTo(
+        ".homeGsap",
+        {
+          scale: 5, // Small size to simulate starting from a distance (z-axis)
+           // Start from above the viewport
+          opacity: 0, // Hidden initially
+        },
+        {
+          scale: 1, // Full size upon impact
+          y: 0, // Drop to its final position
+          opacity: 1, // Fade in
+          duration: 0.2, // Duration of the drop
+          ease: "bounce.inOut",
+          delay:0.5,// Bounce effect on landing
+          onComplete: () => {
+            // Optional: Apply squash/stretch effect on impact
+            gsap.to(".homeGsap", {
+              scaleX: 0.5,
+              scaleY: 0.5,
+              duration: 0.2,
+              yoyo: true,
+              repeat: 1,
+              ease: "bounce.inOut",
+            });
+          },
+        }
+      );
+    });
+  
+    // Cleanup GSAP context
+    return () => {
+      ctx.revert();
+    };
+  }, []); 
+
+  //gsap ends
+
   return (
-    <div className=" relative overflow-hidden">
+    <div className="  overflow-hidden">
       <div className="grid  grid-cols-1 md:grid-cols-12 h-screen w-screen overflow-hidden">
         {/* Left section */}
         <div className=" md:col-span-5  bg-gradient-to-br from-[#FDC830] to-[#F37335] flex items-center justify-center">
