@@ -12,6 +12,7 @@ import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
 import workhard from "../assets/home/hardworkout.jpg";
+import gsap from 'gsap'
 
 import {
   faDharmachakra,
@@ -81,7 +82,7 @@ function Home({ mode, textcolor }) {
   }, [window.innerWidth]);
 
   return (
-    <div className=" relative overflow-hidden">
+    <div className="  overflow-hidden">
       <div className="grid  grid-cols-1 md:grid-cols-12 h-screen w-screen overflow-hidden">
         {/* Left section */}
         <div className=" md:col-span-5  bg-gradient-to-br from-[#FDC830] to-[#F37335] flex items-center justify-center">

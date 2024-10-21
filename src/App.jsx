@@ -26,6 +26,7 @@ const Services = lazy(() => import("./views/Services.jsx"));
 
 import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
+import DietRecommendation from "./components/DietRecommendation.jsx";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -60,7 +61,7 @@ function App() {
               path="/home"
               element={<Home mode={mode} textcolor={textcolor} />}
             />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact mode={mode}/>} />
             <Route
               path="/about"
               element={<About mode={mode} textcolor={textcolor} />}
