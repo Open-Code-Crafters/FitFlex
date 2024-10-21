@@ -22,7 +22,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
 import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services","Login", "Register"];
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
 import gsap from 'gsap'
 
 function Navbar(props) {
@@ -84,71 +84,71 @@ function Navbar(props) {
   }, [window.pageYOffset]);
 
 
-//gsap starts
+  //gsap starts
 
-useEffect(() => {
-  const ctx = gsap.context(() => {
-    // Ensure initial styles are set to scale 1 and opacity 1
-  
-
-    // Timeline for animation
-    const tl = gsap.timeline();
- 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Ensure initial styles are set to scale 1 and opacity 1
 
 
-    gsap.utils.toArray('.nav-link').forEach((link) => {
+      // Timeline for animation
+      const tl = gsap.timeline();
+
+
+
+      gsap.utils.toArray('.nav-link').forEach((link) => {
+        tl.fromTo(
+          link,
+          { x: 200, opacity: 0 }, // Starting position off-screen
+          {
+            x: 0, // Sliding in from the right
+            opacity: 1, // Fading in
+            duration: 0.3, // Duration of animation
+            ease: "bounce.out", // Smooth easing effect
+
+          }
+        );
+      });
+
+      const logo = document.querySelector(".website-name");
       tl.fromTo(
-        link, 
-        { x: 200, opacity: 0 }, // Starting position off-screen
-      {
-        x: 0, // Sliding in from the right
-        opacity: 1, // Fading in
-        duration: 0.3, // Duration of animation
-        ease: "bounce.out", // Smooth easing effect
-         
-      }
+        logo,
+        {
+          scale: 5, // Small size to simulate starting from a distance (z-axis)
+          // Start from above the viewport
+          opacity: 0, // Hidden initially
+        },
+        {
+          scale: 1, // Full size upon impact
+          y: 0, // Drop to its final position
+          opacity: 1, // Fade in
+          duration: 0.2, // Duration of the drop
+          ease: "bounce.inOut",// Bounce effect on landing
+          onComplete: () => {
+            // Optional: Apply squash/stretch effect on impact
+            gsap.to(logo, {
+              scaleX: 0.5,
+              scaleY: 0.5,
+              duration: 0.2,
+              yoyo: true,
+              repeat: 1,
+              ease: "bounce.inOut",
+            });
+          },
+        }
       );
+
+
+
     });
 
-    const logo = document.querySelector(".website-name");
-    tl.fromTo(
-      logo,
-      {
-        scale: 5, // Small size to simulate starting from a distance (z-axis)
-         // Start from above the viewport
-        opacity: 0, // Hidden initially
-      },
-      {
-        scale: 1, // Full size upon impact
-        y: 0, // Drop to its final position
-        opacity: 1, // Fade in
-        duration: 0.2, // Duration of the drop
-        ease: "bounce.inOut",// Bounce effect on landing
-        onComplete: () => {
-          // Optional: Apply squash/stretch effect on impact
-          gsap.to(logo, {
-            scaleX: 0.5,
-            scaleY: 0.5,
-            duration: 0.2,
-            yoyo: true,
-            repeat: 1,
-            ease: "bounce.inOut",
-          });
-        },
-      }
-    );
+    // Cleanup GSAP context
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
-
-    
-  });
-
-  // Cleanup GSAP context
-  return () => {
-    ctx.revert();
-  };
-}, []); 
-
-//gsap ends
+  //gsap ends
 
 
 
@@ -161,7 +161,7 @@ useEffect(() => {
     <ThemeProvider theme={navTheme}>
       <AppBar
 
-        position="sticky"
+        position="fixed"
         className="navGsap"
         sx={{
           background:
@@ -368,7 +368,7 @@ useEffect(() => {
                     color: "white",
                     display: "block",
                     alignItems: "center",
-                    mx:1,
+                    mx: 1,
                     "&:hover": {
                       backgroundColor: "#0e2338",
                       transform: "scale(1.1)",

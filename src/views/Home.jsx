@@ -78,9 +78,9 @@ function Home({ mode, textcolor }) {
     }
   }, [window.innerWidth]);
 
-const location = useLocation();
+  const location = useLocation();
 
-useEffect(() => {
+  useEffect(() => {
     if (location.hash === "#faq") {
       const faqSection = document.getElementById("faq");
       if (faqSection) {
@@ -95,14 +95,14 @@ useEffect(() => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Ensure initial styles are set to scale 1 and opacity 1
-    
-        // Timeline for animation
-       
+
+      // Timeline for animation
+
       gsap.fromTo(
         ".homeGsap",
         {
           scale: 5, // Small size to simulate starting from a distance (z-axis)
-           // Start from above the viewport
+          // Start from above the viewport
           opacity: 0, // Hidden initially
         },
         {
@@ -111,7 +111,7 @@ useEffect(() => {
           opacity: 1, // Fade in
           duration: 0.2, // Duration of the drop
           ease: "bounce.inOut",
-          delay:0.5,// Bounce effect on landing
+          delay: 0.5,// Bounce effect on landing
           onComplete: () => {
             // Optional: Apply squash/stretch effect on impact
             gsap.to(".homeGsap", {
@@ -125,31 +125,31 @@ useEffect(() => {
           },
         }
       );
-  
-  
-    
-  
-     
-      
-  
-  
-      
+
+
+
+
+
+
+
+
+
     });
-  
+
     // Cleanup GSAP context
     return () => {
       ctx.revert();
     };
-  }, []); 
+  }, []);
 
   //gsap ends
 
   return (
-    <div style={{ backgroundColor: mode, color: textcolor }}>
+    <div style={{ backgroundColor: mode, color: textcolor, paddingTop: '80px' }}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={5}>
           <div
-        
+
             style={{
               background: "linear-gradient(45deg, #FDC830 0%,#F37335)",
               width: "100%",
@@ -158,7 +158,7 @@ useEffect(() => {
               alignItems: "center",
             }}
           >
-            <div   className="homeGsap" style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
+            <div className="homeGsap" style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
               <Typography
                 gutterBottom
                 variant="h3"
