@@ -94,7 +94,7 @@ const SuccessStories = () => {
   }, [active]);
 
   const loadShow = () => {
-    const itemsElement = document.querySelectorAll('.slider .item');
+    const itemsElement = document.querySelectorAll('.sliderSuccess .item');
     itemsElement[active].style.transform = `none`;
     itemsElement[active].style.zIndex = 1;
     itemsElement[active].style.filter = 'none';
@@ -119,7 +119,7 @@ const SuccessStories = () => {
   };
 
   return (
-    <div className="slider">
+    <div className="sliderSuccess">
 
       <h1>
         Success Stories
