@@ -10,7 +10,6 @@ import HomeSlider from "../components/HomeSlider";
 import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
-import BMICalculator from '../components/BMICalculator'; 
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
 import gsap from 'gsap'
@@ -542,7 +541,6 @@ function Home({ mode, textcolor }) {
         <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
-      <BMICalculator />
 
       <Box
         sx={{

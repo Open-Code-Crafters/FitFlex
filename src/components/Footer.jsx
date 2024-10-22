@@ -72,10 +72,11 @@ const Footer = () => {
                   "&:hover": { color: "#fff" },
                 }}
               >
-                {item.name} {/* Use item.name for display */}
+                {item.name}  {/* Use item.name for display */}
               </Link>
             ))}
           </Box>
+
         </Grid>
 
         {/* Column 2: Services */}
@@ -92,15 +93,10 @@ const Footer = () => {
             Services
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
-            {[
-              "Personal Coachings",
-              "Group Classes",
-              "Online Programs",
-              "Corporate Wellness",
-            ].map((item, index) => (
+            {["Personal Coachings", "Group Classes", "Online Programs", "Corporate Wellness"].map((item, index) => (
               <Link
                 key={index}
-                href="/services" // All links point to /services
+                href="/services"  // All links point to /services
                 color="grey.400"
                 display="block"
                 gutterBottom
@@ -113,7 +109,22 @@ const Footer = () => {
                 {item}
               </Link>
             ))}
+            {/* Instant BMI with a different link */}
+            <Link
+              href="/bmi"
+              color="grey.400"
+              display="block"
+              gutterBottom
+              sx={{
+                textDecoration: "none",
+                fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                "&:hover": { color: "#fff" },
+              }}
+            >
+              Instant BMI
+            </Link>
           </Box>
+
         </Grid>
 
         {/* Column 3: Resources */}
@@ -131,15 +142,15 @@ const Footer = () => {
           </Typography>
           <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
             {[
-              { name: "Academy", path: "/about" }, // Link to Resources section
-              { name: "Blog", path: "/Blog" }, // Link to Resources section
+              { name: "Academy", path: "/about" },  // Link to Resources section
+              { name: "Blog", path: "/Blog" },     // Link to Resources section
               { name: "Health Tips", path: "/healthtips" }, // Link to HealthTips
-              { name: "FAQs", path: "/#faq" }, // Link to FAQs section
-              { name: "Support", path: "/#resources" }, // Link to Resources section
+              { name: "FAQs", path: "/#faq" },           // Link to FAQs section
+              { name: "Support", path: "/#resources" },   // Link to Resources section
             ].map((item, index) => (
               <Link
                 key={index}
-                href={item.path} // Update to use item.path
+                href={item.path}  // Update to use item.path
                 smooth={true}
                 color="grey.400"
                 display="block"
@@ -175,7 +186,7 @@ const Footer = () => {
               { name: "Careers", path: "#" },
               { name: "Teams", path: "#" },
               { name: "Contact Us", path: "/contact" },
-              { name: "Privacy Policy", path: "/privacy-policy" },
+              { name: "Privacy Policy", path: "/privacy-policy" }
             ].map((item, index) => (
               <Link
                 key={index}
@@ -191,7 +202,8 @@ const Footer = () => {
               >
                 {item.name}
               </Link>
-            ))}
+            )
+            )}
             <RouterLink to="privacy-policy" style={{ textDecoration: "none" }}>
               <Link
                 key={5}
@@ -222,6 +234,7 @@ const Footer = () => {
                 Terms of Use
               </Link>
             </RouterLink>
+
           </Box>
         </Grid>
 
@@ -252,7 +265,8 @@ const Footer = () => {
               fontWeight: "bold",
               fontSize: { xs: "1rem", md: "1.2rem" },
             }}
-          ></Typography>
+          >
+          </Typography>
         </Grid>
       </Grid>
 
@@ -262,22 +276,20 @@ const Footer = () => {
           display: "flex",
           justifyContent: "center",
           marginTop: "40px",
-          marginBottom: "40px",
+          marginBottom: "40px"
         }}
       >
         {[
-          { Icon: FaFacebookF, url: "https://www.facebook.com" },
-          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
-          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
-          { Icon: FaInstagram, url: "https://www.instagram.com" },
-          { Icon: FaYoutube, url: "https://www.youtube.com" },
-          { Icon: faXTwitter, url: "https://twitter.com" },
-        ].map(({ Icon, url }, index) => (
+          FaFacebookF,
+          FaTelegramPlane,
+          FaLinkedinIn,
+          FaInstagram,
+          FaYoutube,
+          faXTwitter,
+        ].map((Icon, index) => (
           <IconButton
             key={index}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             color="inherit"
             sx={{
               fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },

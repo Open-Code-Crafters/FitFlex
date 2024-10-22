@@ -1,133 +1,115 @@
 /* General body styling */
 .bmi-body {
-    margin: 0px;
-    /* padding: 50px; */
-    font-family: Arial, sans-serif;
-    background-color: #fffbfb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden;
-    width: 100%;
-    padding-bottom: 50px;
-  }
-  
-  /* Wrapper for the container to align items in column */
-  .container.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    gap: 0.5rem;
-  }
-  
-  /* Container styling for form */
+  margin-top: 150px;
+  font-family: Arial, sans-serif;
+  background-color: #fffbfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+/* Wrapper for the container to align items in column */
+.container.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: 0.5rem;
+}
+
+/* Container styling for form */
+.container {
+  width: 60%; /* Reduce the width */
+  max-width: 600px; /* Set a max-width to prevent it from being too wide */
+  padding: 40px;
+  background-color: #000000;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.85);
+  border-radius: 5px;
+}
+
+h1.tag {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fffefe;
+}
+
+/* BMI Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.2rem;
+  color: #fffefe;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #d44f3b;
+}
+
+.bmibut {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #d44f3b;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bmibut:hover {
+  background-color: rgba(245, 66, 84, 0.5);
+}
+
+p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #888;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fffefe;
+}
+
+/* BMI Responsive styling */
+@media only screen and (max-width: 768px) {
   .container {
-    width: 90%;
-    max-width: 1260px;
-    padding: 50px;
-    background-color: #000000;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.85);
-    border-radius: 5px;
+    width: 90%; /* Allow more room on smaller screens */
   }
-  
-  h1.tag {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fffefe;
-  }
-  
-  /* BMI Form styling */
-  form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  /* Form-group styling: Flexbox-based row layout */
-  .form-group {
-    margin-bottom: 15px;
-    flex-basis: 45%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  label {
-    font-size: 1.2rem;
-    color: #fffefe;
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  input[type="number"],
-  select {
-    width: 69%;
-    padding: 8px;
-    font-size: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    outline: none;
-  }
-  
-  input[type="number"]:focus,
-  select:focus {
-    border-color: #d44f3b;
-  }
-  
-  .bmibut {
-    width: 13%;
-    padding: 8px;
-    margin: 8px 6px;
-    font-size: 1.1rem;
-    color: #fff;
-    background-color: #d44f3b;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .bmibut:hover {
-    background-color: rgba(245, 66, 84, 0.5);
-  }
-  
-  p {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    text-align: center;
-    color: #888;
-  }
-  
-  #result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    color: #fffefe;
-  }
-  
-  /* BMI Responsive landscape styling */
-  @media only screen and (max-width: 768px) {
-    .container {
-      width: 95%;
-    }
-  
-    form {
-      flex-direction: column;
-    }
-  
-    .form-group {
-      flex-basis: 100%;
-    }
-  
-    button {
-      width: 100%;
-    }
-  }
-  
+}
