@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Container, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {faqData} from '../data/FAQ'
+import { faqData } from '../data/FAQ'
 // Sample FAQ Data
 
 // Custom theme for styling
@@ -36,10 +36,10 @@ const theme = createTheme({
 });
 
 const FAQSection = () => {
-  
+
   const [expanded, setExpanded] = useState(false);
 
- 
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
