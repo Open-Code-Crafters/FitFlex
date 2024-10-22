@@ -6,3 +6,30 @@
 body {
     overflow-x: hidden;
 }
+
+.css-1v2ihrm-MuiTypography-root {
+    margin:0;
+    font-family:"Roboto","Helvetica","Arial",sans-serif;
+    font-weight:500;
+    font-size:1.25rem;
+    line-height:1.6;
+    letter-spacing:0.0075em;
+    color:black;
+    font-weight:600;
+    text-align:center;
+    font-family:'Roboto',sans-serif;
+    margin-bottom:10px;
+    z-index:0 !important;
+  }
+
+  .css-1kakyq6-MuiTypography-root {
+    margin: 0;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: black;
+    line-height: 1.6;
+    z-index: 0 !important;
+  }  
