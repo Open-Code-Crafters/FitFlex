@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import '../styles/Services.css';
+import "../styles/Services.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const Services = ({ mode, textcolor }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,67 +16,114 @@ const Services = ({ mode, textcolor }) => {
     setCurrentService("");
   };
 
+  const notify = () => {
+    toast("✅ Thank you, We'll get in touch soon.", {
+      theme: "light",
+      style: { fontWeight: "500", color: "black", fontFamily: "sans-serif" },
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      position: "top-center",
+      autoClose: 3000,
+      role: "alert",
+    });
+  };
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    setModalOpen(false);
+    notify();
+  };
+
   const services = [
     {
       name: "Personal Training",
-      description: "Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.",
-      imageUrl: "https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp",
+      description:
+        "Efficient and effective personal training with a client-centric approach. Customized plans for strength training, cardio, and more.",
+      imageUrl:
+        "https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp",
       views: 262,
       likes: 40,
     },
     {
       name: "Nutritional Counseling",
-      description: "Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.",
-      imageUrl: "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp",
+      description:
+        "Tailored nutrition counseling to help you optimize your health. Get personalized advice on nourishment for your body.",
+      imageUrl:
+        "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp",
       views: 205,
       likes: 37,
     },
     {
       name: "Online Virtual Training",
-      description: "Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.",
-      imageUrl: "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp",
+      description:
+        "Join our online virtual training sessions, blending technology with personalized fitness to help you stay fit from anywhere.",
+      imageUrl:
+        "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp",
       views: 237,
       likes: 46,
     },
   ];
 
   return (
-    <div className={`service-grid ${mode}`}>
-      {services.map((service) => (
-        <div className="service-card" key={service.name}>
-          <img src={service.imageUrl} alt={service.name} />
-          <h2>{service.name}</h2>
-          <p>{service.description}</p>
-          <button onClick={() => handleOpenModal(service.name)}>Learn More</button>
-          <div className="stats">
-            <span className="views">👁️ Views: {service.views}</span>
-            <span className="likes">❤️ Likes: {service.likes}</span>
-          </div>
-        </div>
-      ))}
-
-      {/* Modal for Contact */}
-      {modalOpen && (
-        <div style={styles.modalOverlay} onClick={handleCloseModal}>
-          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            {/* Close Button as an X on top right */}
-            <button onClick={handleCloseModal} style={styles.closeButton}>
-              &times;
+    <>
+      <div className={`service-grid ${mode}`}>
+        {services.map((service) => (
+          <div className="service-card" key={service.name}>
+            <img src={service.imageUrl} alt={service.name} />
+            <h2>{service.name}</h2>
+            <p>{service.description}</p>
+            <button onClick={() => handleOpenModal(service.name)}>
+              Learn More
             </button>
-
-            <h2 style={styles.modalHeading}>Contact Us for {currentService}</h2>
-            <p style={styles.modalText}>
-              Fill out the form below, and we’ll be in touch shortly.
-            </p>
-            <form>
-              <input type="text" placeholder="Your Name" style={styles.input} required />
-              <textarea placeholder="Your Message" style={styles.textarea} required></textarea>
-              <button type="submit" style={styles.submitButton}>Send Message</button>
-            </form>
+            <div className="stats">
+              <span className="views">👁️ Views: {service.views}</span>
+              <span className="likes">❤️ Likes: {service.likes}</span>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        ))}
+
+        {/* Modal for Contact */}
+        {modalOpen && (
+          <div style={styles.modalOverlay} onClick={handleCloseModal}>
+            <div
+              style={styles.modalContent}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button as an X on top right */}
+              <button onClick={handleCloseModal} style={styles.closeButton}>
+                &times;
+              </button>
+
+              <h2 style={styles.modalHeading}>
+                Contact Us for {currentService}
+              </h2>
+              <p style={styles.modalText}>
+                Fill out the form below, and we’ll be in touch shortly.
+              </p>
+              <form onSubmit={(e) => handleSendMessage(e)}>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  style={styles.input}
+                  required
+                />
+                <textarea
+                  placeholder="Your Message"
+                  style={styles.textarea}
+                  required
+                ></textarea>
+                <button type="submit" style={styles.submitButton}>
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+      <ToastContainer />
+    </>
   );
 };
 
@@ -153,6 +201,6 @@ const styles = {
     fontSize: "1.5em",
     cursor: "pointer",
   },
-}
+};
 
 export default Services;
