@@ -14,27 +14,46 @@ function Subscribe() {
     return re.test(String(email).toLowerCase());
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!validateEmail(email)) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-    toast.success("Newsletter Successfully Subscribed!");
-    try {
-      await addDoc(collection(firestore, "subscribers"), {
-        email: email,  
-        timestamp: new Date(),
-      });
+  if (!validateEmail(email)) {
+    toast.error("Please enter a valid email address.");
+    return;
+  }
 
-      toast.success("Email successfully added!");
-      setEmail("");
-    } catch (error) {
-      console.error("Error adding document: ", error);
-      toast.error("Failed to add email.");
+  try {
+
+    await addDoc(collection(firestore, "subscribers"), {
+      email: email,
+      timestamp: new Date(),
+    });
+
+    toast.success("Email successfully added!");
+
+    const response = await fetch("http://localhost:5000/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      toast.success("Subscription confirmation email sent!");
+    } else {
+      toast.error("Failed to send confirmation email.");
     }
-  };
+
+    setEmail(""); 
+  } catch (error) {
+    console.error("Error adding document: ", error);
+    toast.error("Failed to add email.");
+  }
+};
+
 
   return (
     <Box
