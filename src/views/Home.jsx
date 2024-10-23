@@ -272,6 +272,8 @@ function Home({ mode, textcolor }) {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay="500"
         ></div>
         {/* cusotmn css button */}
 
@@ -279,6 +281,8 @@ function Home({ mode, textcolor }) {
         <div
           className="wrapper"
           style={{ marginTop: "50px", marginBottom: "50px" }}
+          data-aos="fade-right"
+          data-aos-delay='400'
         >
           <NavLink to="/plans" className="cta">
             <span
@@ -335,6 +339,8 @@ function Home({ mode, textcolor }) {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay='300'
         ></div>
       </Box>
       <Box
@@ -353,6 +359,8 @@ function Home({ mode, textcolor }) {
             textAlign: "center",
             marginBottom: "10px",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="500"
         >
           Experience the{" "}
           <span
@@ -381,6 +389,8 @@ function Home({ mode, textcolor }) {
             fontSize: "20px",
             color: textcolor
           }}
+          data-aos="zoom-in"
+          data-aos-delay="600"
         >
           Join our fitness program and transform your body and mind. Our expert
           trainers and supportive community will help you reach your goals,
@@ -397,6 +407,8 @@ function Home({ mode, textcolor }) {
             alignItems: "center",
             width: "80%",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="700"
         >
           <Grid
             item
@@ -503,6 +515,8 @@ function Home({ mode, textcolor }) {
           width: "100vw",
           position: "relative",
         }}
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
         <div
           style={{

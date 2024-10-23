@@ -1,5 +1,5 @@
 import "./App.css";
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Loader from "./components/Loader.jsx";
@@ -27,6 +27,8 @@ const Services = lazy(() => import("./views/Services.jsx"));
 // import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -45,6 +47,12 @@ function App() {
       settextcolor("black");
     }
   };
+
+  useEffect(() => {
+    AOS.init({
+      offset: 80,
+    });
+  }, [])
 
   return (
     <>
@@ -98,8 +106,9 @@ function App() {
           </Routes>
           <Footer />
           <BackToTopButton />
+ 
           {/* <FItFlexChatBot/> */}
-        </BrowserRouter>
+         </BrowserRouter>
       </Suspense>
     </>
   );

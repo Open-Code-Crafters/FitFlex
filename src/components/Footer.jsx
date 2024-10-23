@@ -57,7 +57,7 @@ const Footer = () => {
         direction={{ xs: "column", sm: "row" }} // Stack items on mobile
       >
         {/* Column 1: About */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} data-aos="fade-up">
           <Typography
             variant="h6"
             gutterBottom
@@ -96,7 +96,8 @@ const Footer = () => {
         </Grid>
 
         {/* Column 2: Services */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} data-aos="fade-up"
+          data-aos-delay="100">
           <Typography
             variant="h6"
             gutterBottom
@@ -134,7 +135,8 @@ const Footer = () => {
         </Grid>
 
         {/* Column 3: Resources */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} data-aos="fade-up"
+          data-aos-delay="200">
           <Typography
             variant="h6"
             gutterBottom
@@ -174,7 +176,8 @@ const Footer = () => {
         </Grid>
 
         {/* Column 4: Company */}
-        <Grid item xs={12} sm={6} md={2}>
+        <Grid item xs={12} sm={6} md={2} data-aos="fade-up"
+          data-aos-delay="300">
           <Typography
             variant="h6"
             gutterBottom
@@ -243,7 +246,8 @@ const Footer = () => {
         </Grid>
 
         {/* Newsletter Subscription */}
-        <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }}>
+        <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }} data-aos="fade-up"
+          data-aos-delay="400">
           {/* Subscribe Newsletter */}
           <Subscribe />
           <Box
@@ -281,6 +285,8 @@ const Footer = () => {
           marginTop: "40px",
           marginBottom: "40px",
         }}
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
         {[
           { Icon: FaFacebookF, url: "https://www.facebook.com" },
@@ -320,6 +326,8 @@ const Footer = () => {
           fontSize: { xs: "0.7rem", sm: "0.8rem" },
           color: "grey.500",
         }}
+        data-aos="fade-up"
+        data-aos-delay="100"
       >
         <Box
           sx={{
