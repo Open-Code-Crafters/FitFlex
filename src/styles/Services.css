@@ -24,6 +24,8 @@
   background-color: var(--card-bg-color);
   border-radius: 10px;
   padding: 20px;
+  background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -56,12 +58,14 @@
   font-size: 1.6em;
   margin-bottom: 15px;
   text-transform: capitalize;
+  color:#682f2f;
 }
 
 .service-card p {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.6;
   margin-bottom: 20px;
+  color:rgb(40, 39, 39)
 }
 
 /* Button styling */
@@ -136,6 +140,6 @@
 
 .service-grid.light {
   --card-bg-color: #ffffff;
-  --button-bg-color: #007bff;
-  --button-hover-bg-color: #0056b3;
+  --button-bg-color: #682f2f;
+  --button-hover-bg-color: #291313;
 }
