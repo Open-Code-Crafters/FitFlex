@@ -24,7 +24,7 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
-import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
+// import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
 
@@ -50,7 +50,7 @@ function App() {
     <>
       <Suspense fallback={<Loader />}>
         <BrowserRouter>
-          <ProgressBar/>
+          <ProgressBar />
           <Navbar mode={mode} toggleMode={toggleMode} />
           <Routes>
             <Route
@@ -61,7 +61,7 @@ function App() {
               path="/home"
               element={<Home mode={mode} textcolor={textcolor} />}
             />
-            <Route path="/contact" element={<Contact mode={mode}/>} />
+            <Route path="/contact" element={<Contact mode={mode} />} />
             <Route
               path="/about"
               element={<About mode={mode} textcolor={textcolor} />}
@@ -93,12 +93,12 @@ function App() {
               element={<Services mode={mode} textcolor={textcolor} />}
             />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/dietrecommendation" element={<DietRecommendation/>} />
+            <Route path="/dietrecommendation" element={<DietRecommendation />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
           </Routes>
           <Footer />
           <BackToTopButton />
-          <FItFlexChatBot/>
+          {/* <FItFlexChatBot/> */}
         </BrowserRouter>
       </Suspense>
     </>
