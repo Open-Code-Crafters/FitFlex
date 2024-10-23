@@ -165,8 +165,14 @@
   .mission-vision-card{
     max-height: 400px;
   }
+
+  .grid-container{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   
   .stat-card {
+    max-width: 100%;
     margin-bottom: 1.5rem;
   }
 
