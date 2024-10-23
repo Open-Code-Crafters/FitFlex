@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -22,6 +22,23 @@ import logo from "../assets/fitness1.png"; // Replace with your logo
 import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 const Footer = () => {
+
+  useEffect(() => {
+    // Load the embedded chatbot script
+    const script = document.createElement('script');
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.defer = true;
+    script.setAttribute('chatbotId', "3CQjUebCFQdRORiKuycVw");
+    script.setAttribute('domain', "www.chatbase.co");
+
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <Box
       component="footer"
