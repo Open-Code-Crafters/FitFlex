@@ -65,7 +65,8 @@ background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
   font-size: 0.9em;
   line-height: 1.6;
   margin-bottom: 20px;
-  color:rgb(40, 39, 39)
+  color:#020d1d;
+  font-weight: 700;
 }
 
 /* Button styling */
