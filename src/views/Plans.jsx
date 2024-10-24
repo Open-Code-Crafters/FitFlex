@@ -59,7 +59,8 @@ const Plans = ({mode , textcolor}) => {
       sx={{
         marginRight: { sm: "5%", md: "15%" },
         marginLeft: { sm: "5%", md: "15%" },
-        marginTop: "2%",
+        marginTop: "10%",
+        marginBottom: "2%",
         display: "flex",
         flexDirection: "column",
       }}

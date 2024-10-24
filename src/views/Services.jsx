@@ -68,7 +68,7 @@ const Services = ({ mode, textcolor }) => {
 
   return (
     <>
-      <div className={`service-grid ${mode}`}>
+      <div className={`service-grid ${mode}`} style={{ marginTop: '100px'}}>
         {services.map((service) => (
           <div className="service-card" key={service.name}>
             <img src={service.imageUrl} alt={service.name} />
