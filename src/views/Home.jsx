@@ -541,15 +541,11 @@ function Home({ mode, textcolor }) {
         <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
-      <Box
-        id="faq"
-        paddingTop={"190px"}>
-      </Box>
 
       <Box
         sx={{
           background: "linear-gradient(to right, #4CAF50, #81C784)",
-          padding: "40px 0",
+          // padding: "40px 0",
           minHeight: "100vh",
         }}
       >

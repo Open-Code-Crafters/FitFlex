@@ -186,99 +186,95 @@ const About = ({ mode, textcolor }) => {
   >
     Our Stats
   </Typography>
-  <Grid container spacing={3} justifyContent="center" className="grid-container">
-      {/* Total Users Card */}
-      <Grid item xs={6} sm={3} textAlign="center">
-        <Card className="stat-card" 
-          sx={{
-            background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-            color: mode === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          <CardContent>
-            <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
-              {({ isVisible }) => (
-                <div className='numbers'>
-                  {viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}
-                </div>
-              )}
-            </VisibilitySensor>
-            <Typography variant="body1" className="numbers">
-              Total Users
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-
-      {/* Diet Plans Card */}
-      <Grid item xs={6} sm={3} textAlign="center">
-        <Card className="stat-card"
-          sx={{
-            background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-            color: mode === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          <CardContent>
-            <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
-              {({ isVisible }) => (
-                <div className='numbers'>
-                  {viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}
-                </div>
-              )}
-            </VisibilitySensor>
-            <Typography variant="body1" className="numbers">
-              Diet Plans
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-
-      {/* Total Programs Card */}
-      <Grid item xs={6} sm={3} textAlign="center">
-        <Card className="stat-card"
-          sx={{
-            background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-            color: mode === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          <CardContent>
-            <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
-              {({ isVisible }) => (
-                <div className='numbers'>
-                  {viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}
-                </div>
-              )}
-            </VisibilitySensor>
-            <Typography variant="body1" className="numbers">
-              Total Programs
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-
-      {/* Personal Trainers Card */}
-      <Grid item xs={6} sm={3} textAlign="center">
-        <Card className="stat-card"
-          sx={{
-            background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-            color: mode === 'dark' ? '#fff' : '#000',
-          }}
-        >
-          <CardContent>
-            <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
-              {({ isVisible }) => (
-                <div className='numbers'>
-                  {viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}
-                </div>
-              )}
-            </VisibilitySensor>
-            <Typography variant="body1" className="numbers">
-              Personal Trainers
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
+  <Grid container spacing={3} justifyContent="center">
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card"
+        sx={{
+          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
+        }}
+      >
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
+            Total Users
+          </Typography>
+        </CardContent>
+      </Card>
     </Grid>
+    
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card"
+        sx={{
+          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
+        }}
+      >
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
+            Diet Plans
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card"
+        sx={{
+          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
+        }}
+      >
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
+            Total Programs
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+
+    <Grid item xs={6} sm={3} textAlign="center">
+      <Card className="stat-card"
+        sx={{
+          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
+        }}
+      >
+        <CardContent>
+          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
+            {({ isVisible }) => (
+              <div className='numbers'>
+                {viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}
+              </div>
+            )}
+          </VisibilitySensor>
+          <Typography variant="body1" className='numbers4' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
+            Personal Trainers
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  </Grid>
 </Box>
 
 {/* Why Choose FitFlex Section */}

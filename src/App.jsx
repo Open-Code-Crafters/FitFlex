@@ -9,6 +9,7 @@ import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Butt
 import { color } from "framer-motion";
 import PrivacyPolicy from "./views/PrivacyPolicy.jsx";
 import TermsOfUse from "./views/Terms.jsx";
+import BMICalculator from './components/BMICalculator'; 
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -84,6 +85,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
             <Route path="/healthtips" element={<HealthTips />} />
+            <Route path="/bmi" element={<BMICalculator />} />
             <Route
               path="/blog"
               element={<Blog mode={mode} textcolor={textcolor} />}
