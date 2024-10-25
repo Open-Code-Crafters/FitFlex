@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useFirebase } from "../context/Firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { Box, TextField, Button } from "@mui/material";  
+import { Box, TextField, Button, Typography } from "@mui/material";
 import { toast } from "react-toastify";
 
 function Subscribe() {
   const [email, setEmail] = useState("");
   const { firestore } = useFirebase();
 
-  // using regex to make sure user enter valid email
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
@@ -21,14 +20,14 @@ function Subscribe() {
       toast.error("Please enter a valid email address.");
       return;
     }
-    toast.success("Newsletter Successfully Subscribed!");
+
     try {
       await addDoc(collection(firestore, "subscribers"), {
-        email: email,  
+        email: email,
         timestamp: new Date(),
       });
 
-      toast.success("Email successfully added!");
+      toast.success("You have successfully subscribed!");
       setEmail("");
     } catch (error) {
       console.error("Error adding document: ", error);
@@ -40,54 +39,80 @@ function Subscribe() {
     <Box
       sx={{
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "70%",
-        backgroundColor: "#fff",
-        borderRadius: "30px",
-        padding: "2px",
+        padding: "24px",
+        maxWidth: "500px",
+        margin: "0 auto",
+        backgroundColor: "#1E1E1E",
+        borderRadius: "8px",
+        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.4)",
       }}
     >
-      <TextField
-        variant="outlined"
-        placeholder="Enter your email address"
-        fullWidth
-        value={email}  
-        onChange={(e) => setEmail(e.target.value)}
+      <Typography variant="h5" sx={{ mb: 2, color: "#E0E0E0", fontWeight: 500 }}>
+        Subscribe to our Newsletter
+      </Typography>
+
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
         sx={{
-          backgroundColor: "transparent",
-          input: {
-            padding: { xs: "8px", sm: "10px 12px" },
-            color: "#000",
-            "&::placeholder": {
-              color: "black",
-              fontSize: "20px"
-            },
-          },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              border: "none",
-            },
-          },
-        }}
-      />
-      <Button
-        onClick={handleSubmit}
-        variant="contained"
-        sx={{
-          backgroundColor: "orange",
-          color: "white",
-          borderRadius: "30px",
-          padding: { xs: "8px 15px", sm: "10px 20px" },
-          boxShadow: "0px 0px 8px rgba(255, 255, 255, 0.6)",
-          "&:hover": {
-            backgroundColor: "green",
-            color:"white"
-          },
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: "center",
+          width: "100%",
         }}
       >
-        Subscribe
-      </Button>
+        <TextField
+          type="email"
+          variant="outlined"
+          placeholder="Enter your email"
+          fullWidth
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{
+            backgroundColor: "#333",
+            mb: { xs: 2, sm: 0 },
+            mr: { sm: 2 },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#555",
+              },
+              "&:hover fieldset": {
+                borderColor: "#777",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "#E0E0E0",
+              },
+              input: {
+                color: "#E0E0E0",
+                "::placeholder": {
+                  color: "#aaa",
+                  opacity: 1,
+                },
+              },
+            },
+          }}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundColor: "#007ACC",
+            color: "white",
+            borderRadius: "4px",
+            padding: "10px 20px",
+            boxShadow: "0px 2px 8px rgba(0, 122, 204, 0.4)",
+            "&:hover": {
+              backgroundColor: "#005a99",
+            },
+          }}
+        >
+          Subscribe
+        </Button>
+      </Box>
     </Box>
   );
 }
