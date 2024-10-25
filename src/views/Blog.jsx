@@ -11,12 +11,14 @@ const Blog = ({ mode, textcolor }) => {
       author: "Spencer Cartwright",
       image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
       content: `Building muscle requires a person to commit to regular strength training...`,
+      content: `Building muscle requires a person to commit to regular strength training...`,
     },
     {
       title: "The Best Gym Workout Plans for Beginners",
       date: "Wednesday, 8 November 2023",
       author: "Doni Thomson",
       image: "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
+      content: `If you're just getting started at the gym, it can feel challenging knowing...`,
       content: `If you're just getting started at the gym, it can feel challenging knowing...`,
     },
     {
@@ -41,6 +43,7 @@ const Blog = ({ mode, textcolor }) => {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
       setIsLoggedIn(!!user);
     });
     return () => unsubscribe();
