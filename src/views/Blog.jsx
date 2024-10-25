@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import '../styles/blog.css';
 
 const Blog = ({ mode, textcolor }) => {
   const blogPosts = [
@@ -9,21 +10,70 @@ const Blog = ({ mode, textcolor }) => {
       date: "Wednesday, 15 November 2023",
       author: "Spencer Cartwright",
       image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
-      content: `Building muscle requires a person to commit to regular strength training...`, // shortened for brevity
+      content: `Building muscle requires a person to commit to regular strength training...`,
     },
     {
       title: "The Best Gym Workout Plans for Beginners",
       date: "Wednesday, 8 November 2023",
       author: "Doni Thomson",
       image: "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
-      content: `If you're just getting started at the gym, it can feel challenging knowing...`, // shortened for brevity
+      content: `If you're just getting started at the gym, it can feel challenging knowing...`,
     },
     {
       title: "Calories and Weight Loss - What You Need To Know",
       date: "Wednesday, 25 October 2023",
       author: "Salmon",
       image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
-      content: `If you're looking to lose weight, the huge number of diet plans...`, // shortened for brevity
+      content: `If you're looking to lose weight, the huge number of diet plans...`,
+    },
+    {
+      title: "Strength Training for Seniors: The Complete Guide",
+      date: "Monday, 20 November 2023",
+      author: "Jane Martin",
+      image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
+      content: `Strength training is important at any age, but for seniors, it helps improve mobility, balance...`,
+    },
+    {
+      title: "How to Create a Balanced Meal Plan for Weight Loss",
+      date: "Friday, 10 November 2023",
+      author: "Emily Harper",
+      image: "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
+      content: `A balanced meal plan is key to successful weight loss. In this post, we discuss how to structure meals...`,
+    },
+    {
+      title: "The Importance of Hydration During Workouts",
+      date: "Saturday, 4 November 2023",
+      author: "Liam Fox",
+      image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
+      content: `Staying hydrated is essential for performance during workouts. Learn how much water your body needs during...`,
+    },
+    {
+      title: "Yoga for Flexibility: A Beginner's Guide",
+      date: "Tuesday, 31 October 2023",
+      author: "Rachel Green",
+      image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
+      content: `Yoga is a powerful tool for improving flexibility. This guide outlines the best poses for beginners...`,
+    },
+    {
+      title: "5 Best Cardio Workouts to Burn Fat Fast",
+      date: "Sunday, 22 October 2023",
+      author: "Mike Robinson",
+      image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
+      content: `Cardio is key when it comes to fat loss. In this post, we explore the top five cardio workouts...`,
+    },
+    {
+      title: "The Science Behind Rest Days and Recovery",
+      date: "Wednesday, 18 October 2023",
+      author: "Sarah Johnson",
+      image: "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
+      content: `Rest days are just as important as your workout routine. Discover why rest is vital for muscle recovery...`,
+    },
+    {
+      title: "How to Stay Motivated at the Gym: Tips and Tricks",
+      date: "Monday, 9 October 2023",
+      author: "Alex Turner",
+      image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
+      content: `Struggling to stay motivated? Here are some practical tips to keep you consistent with your gym routine...`,
     },
   ];
 
@@ -39,32 +89,20 @@ const Blog = ({ mode, textcolor }) => {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
+      setIsLoggedIn(!!user);
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
   const handleLike = (index) => {
     const newLikes = [...likes];
     const newLiked = [...liked];
-
-    // Toggle like status
-    if (newLiked[index]) {
-        newLikes[index] -= 1; // Decrement if already liked
-    } else {
-        newLikes[index] += 1; // Increment if not liked
-    }
-
-    newLiked[index] = !newLiked[index]; // Toggle the liked state
+    newLikes[index] = newLiked[index] ? newLikes[index] - 1 : newLikes[index] + 1;
+    newLiked[index] = !newLiked[index];
     setLikes(newLikes);
     setLiked(newLiked);
-};
+  };
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
@@ -87,193 +125,26 @@ const Blog = ({ mode, textcolor }) => {
       const newComments = [...comments];
       newComments[index] = [...newComments[index], commentInputs[index]];
       setComments(newComments);
-      
-      const newCommentInputs = [...commentInputs];
-      newCommentInputs[index] = ""; // Clear the comment input after submission
-      setCommentInputs(newCommentInputs);
+      setCommentInputs(blogPosts.map(() => ""));
     }
   };
 
-  // Adding useEffect for debugging
-  useEffect(() => {
-    console.log("Blog component rendered");
-  }, []);
-
-  const styles = {
-    blogContainer: {
-      maxWidth: "800px",
-      margin: "0 auto",
-      padding: "20px",
-      fontFamily: "Arial, sans-serif",
-      color: "#333",
-      backgroundColor: mode === 'light' ? '#f7f7f7' : '#322220',
-      borderRadius: "8px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    },
-    motivationalQuote: {
-      fontSize: "1.5em",
-      fontStyle: "italic",
-      textAlign: "center",
-      marginBottom: "20px",
-      color: "#FF4500",
-      fontWeight: "bold",
-    },
-    blogTitle: {
-      textAlign: "center",
-      fontSize: "3em",
-      marginBottom: "20px",
-      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      fontWeight: "bold",
-      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-    },
-    blogPost: {
-      marginBottom: "40px",
-      border: "1px solid #eaeaea",
-      borderRadius: "8px",
-      padding: "20px",
-      backgroundColor: mode === 'light' ? '#f7f7f7' :'#1e2a2b',
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      lineHeight: "1.6",
-    },
-    postTitle: {
-      fontSize: "1.8em",
-      marginBottom: "10px",
-      color: textcolor,
-      fontWeight: "bold",
-      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
-      padding: "10px",
-      borderRadius: "5px",
-      border: "2px solid black",
-    },
-    postDate: {
-      fontSize: "0.9em",
-      color: textcolor,
-      marginBottom: "10px",
-      fontWeight: "bold",
-    },
-    postImage: {
-      width: "100%",
-      borderRadius: "8px",
-      marginBottom: "15px",
-    },
-    postContent: {
-      fontSize: "1.1em",
-      lineHeight: "1.6",
-      marginBottom: "20px",
-      color: textcolor,
-    },
-    buttonContainer: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginTop: "10px",
-    },
-    likeButton: {
-      backgroundColor: "#FF4500",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentButton: {
-      backgroundColor: "#FFA500",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentBox: {
-      marginTop: "10px",
-      marginBottom: "10px",
-      width: "100%",
-      padding: "10px",
-      borderRadius: "5px",
-      border: "1px solid #ddd",
-      fontSize: "1em",
-    },
-    submitButton: {
-      backgroundColor: "#008CBA",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentList: {
-      marginTop: "15px",
-      borderTop: "1px solid #ddd",
-      paddingTop: "10px",
-    },
-    commentItem: {
-      backgroundColor: mode === 'light' ? '#ffffff' : '#2c3e50',
-      border: "1px solid #ddd",
-      borderRadius: "5px",
-      padding: "10px",
-      marginBottom: "10px",
-      color: textcolor,
-    },
-  };
-
   return (
-    <div style={styles.blogContainer}>
-      <h1 style={styles.blogTitle}>Fitness Blog</h1>
-      <p style={styles.motivationalQuote}>
-        "The only bad workout is the one that didn't happen."
-      </p>
+    <div className="blog-container">
       {blogPosts.map((post, index) => (
-        <div style={styles.blogPost} key={index}>
-          <h2 style={styles.postTitle}>{post.title}</h2>
-          <p style={styles.postDate}>
-            {post.date} by {post.author}
-          </p>
-          <img src={post.image} alt={post.title} style={styles.postImage} />
-          <div style={styles.postContent}>{post.content}</div>
-
-          <div style={styles.buttonContainer}>
-            <button
-              style={styles.likeButton}
-              onClick={() => handleLike(index)}
-            >
-              👍 Like ({likes[index]})
-            </button>
-            <button
-              style={styles.commentButton}
-              onClick={() => toggleCommentBox(index)}
-            >
-              💬 Comment
-            </button>
+        <div className="blog-card" key={index}>
+          <img className="blog-image" src={post.image} alt={post.title} />
+          <div className="blog-content">
+            <h2 className="blog-title">{post.title}</h2>
+            <p className="blog-author">{post.date} by {post.author}</p>
+            <p className="blog-excerpt">{post.content}</p>
+            <button className="read-more-button">Read More</button>
+            <div className="blog-metrics">
+              <span className="views">👁️ Views: {Math.floor(Math.random() * 300)}</span>
+              <span className="likes">❤️ Likes: {likes[index]}</span>
+              <button className="like-button" onClick={() => handleLike(index)}>👍 Like</button>
+            </div>
           </div>
-
-          {isLoggedIn && showCommentBox[index] && (
-            <div>
-              <textarea
-                style={styles.commentBox}
-                value={commentInputs[index]}
-                onChange={(e) => handleCommentChange(index, e)}
-                placeholder="Write your comment here..."
-              />
-              <button
-                style={styles.submitButton}
-                onClick={() => handleCommentSubmit(index)}
-              >
-                Submit Comment
-              </button>
-            </div>
-          )}
-
-          {comments[index].length > 0 && (
-            <div style={styles.commentList}>
-              <h3>Comments:</h3>
-              {comments[index].map((comment, commentIndex) => (
-                <div key={commentIndex} style={styles.commentItem}>
-                  {comment}
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       ))}
     </div>
