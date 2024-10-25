@@ -144,6 +144,19 @@ const FItFlexChatBot = () => {
                 const bmi = calculateBMI();
                 return `Your BMI is ${bmi}`;
             },
+            trigger: () => {
+                const bmi = localStorage.getItem('bmi')
+                return (bmi>=18 ? ( bmi<=25 ? 'preEndChat' : 'overweight' ) : 'underweight');
+            },
+        },
+        {
+            id: 'underweight',
+            message: "You are underweight. Please consult a nutritionist for a balanced diet.",
+            trigger: 'preEndChat',
+        },
+        {
+            id: 'overweight',
+            message: "You are overweight. Checkout our workout plans for better health.",
             trigger: 'preEndChat',
         },
         {
