@@ -94,26 +94,58 @@
   transform: translateY(-5px);
 }
 
+
 .stat-card {
-  padding: 1rem;
-
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 250px;
+  max-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stat-card4 {
-  padding: 1rem;
-
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 400px;
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
+
+.numbers {
+  font-size: 2.5rem; /* Increase font size */
+  font-weight: 900;
+  background: linear-gradient(135deg, #3498db, #e74c3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+  margin: 0; /* Remove margin */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.stat-card:hover .numbers {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+.stat-card .MuiTypography-root {
+  font-family: 'Poppins', sans-serif; /* Use a modern font */
+  font-size: 1.2rem; /* Increase font size */
+  font-weight: 500;
+  color: #7f8c8d;
+  letter-spacing: 0.03rem; /* Add slight letter spacing */
+  margin-top: 0.5rem;
+}
+
+
+.grid-container {
+  display: flex;
+  justify-content: space-around;
+  
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 2rem 0;
+}
 
 .feature-card {
   padding: 1.5rem;
@@ -123,17 +155,6 @@
   text-align: center;
 }
 
-.numbers{
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding-bottom: 2px;
-}
-
-.numbers4{
-  font-size: 1.49rem;
-  font-weight: 600;
-  padding-bottom: 2px;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
