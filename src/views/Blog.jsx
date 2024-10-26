@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { padding } from "@mui/system";
 
 const Blog = ({ mode, textcolor }) => {
   const blogPosts = [
@@ -122,6 +123,7 @@ const Blog = ({ mode, textcolor }) => {
       textAlign: "center",
       fontSize: "3em",
       marginBottom: "20px",
+      marginTop: "120px",
       background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
