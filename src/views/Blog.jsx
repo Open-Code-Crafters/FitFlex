@@ -56,15 +56,15 @@ const Blog = ({ mode, textcolor }) => {
 
     // Toggle like status
     if (newLiked[index]) {
-        newLikes[index] -= 1; // Decrement if already liked
+      newLikes[index] -= 1; // Decrement if already liked
     } else {
-        newLikes[index] += 1; // Increment if not liked
+      newLikes[index] += 1; // Increment if not liked
     }
 
     newLiked[index] = !newLiked[index]; // Toggle the liked state
     setLikes(newLikes);
     setLiked(newLiked);
-};
+  };
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
@@ -87,7 +87,7 @@ const Blog = ({ mode, textcolor }) => {
       const newComments = [...comments];
       newComments[index] = [...newComments[index], commentInputs[index]];
       setComments(newComments);
-      
+
       const newCommentInputs = [...commentInputs];
       newCommentInputs[index] = ""; // Clear the comment input after submission
       setCommentInputs(newCommentInputs);
@@ -133,7 +133,7 @@ const Blog = ({ mode, textcolor }) => {
       border: "1px solid #eaeaea",
       borderRadius: "8px",
       padding: "20px",
-      backgroundColor: mode === 'light' ? '#f7f7f7' :'#1e2a2b',
+      backgroundColor: mode === 'light' ? '#f7f7f7' : '#1e2a2b',
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
       lineHeight: "1.6",
     },
@@ -224,7 +224,8 @@ const Blog = ({ mode, textcolor }) => {
         "The only bad workout is the one that didn't happen."
       </p>
       {blogPosts.map((post, index) => (
-        <div style={styles.blogPost} key={index}>
+        <div style={styles.blogPost} key={index} data-aos="zoom-in"
+          data-aos-duration="1200">
           <h2 style={styles.postTitle}>{post.title}</h2>
           <p style={styles.postDate}>
             {post.date} by {post.author}
@@ -268,7 +269,7 @@ const Blog = ({ mode, textcolor }) => {
             <div style={styles.commentList}>
               <h3>Comments:</h3>
               {comments[index].map((comment, commentIndex) => (
-                <div key={commentIndex} style={styles.commentItem}>
+                <div key={commentIndex} style={styles.commentItem} >
                   {comment}
                 </div>
               ))}
