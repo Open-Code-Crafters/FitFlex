@@ -292,7 +292,7 @@ const TeamSection = ({ mode }) => {
             sx={{
               position: "absolute",
               top: "50%",
-              left: "-3rem",
+              left: "-1rem",
               transform: "translateY(-50%)",
               borderRadius: "9999px",
               padding: "0.5rem",
@@ -312,7 +312,7 @@ const TeamSection = ({ mode }) => {
             sx={{
               position: "absolute",
               top: "50%",
-              right: "-3rem",
+              right: "-1rem",
               transform: "translateY(-50%)",
               borderRadius: "9999px",
               padding: "0.5rem",
