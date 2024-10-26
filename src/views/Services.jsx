@@ -70,9 +70,11 @@ const Services = ({ mode, textcolor }) => {
     <>
      <h1>Our Premium Services</h1>
       <div className={`service-grid ${mode}`}>
-       
-        {services.map((service) => (
-          <div className="service-card" key={service.name}>
+        {services.map((service, index) => (
+          <div className="service-card" key={service.name}
+            data-aos="fade-up"
+            data-aos-delay={index * 200}
+            data-aos-duration="1200">
             <img src={service.imageUrl} alt={service.name} />
             <h2>{service.name}</h2>
             <p>{service.description}</p>
@@ -80,8 +82,8 @@ const Services = ({ mode, textcolor }) => {
               Learn More
             </button>
             <div className="stats">
-              <span className="views">👁️ Views: {service.views}</span>
-              <span className="likes">❤️ Likes: {service.likes}</span>
+              <span>👁️ Views: <span className="data"> {service.views}</span></span>
+              <span>❤️ Likes: <span className="data">{service.likes}</span></span>
             </div>
           </div>
         ))}

@@ -121,10 +121,10 @@ const SuccessStories = () => {
   return (
     <div className="sliderSuccess">
 
-      <h1>
+      <h1 data-aos="zoom-in">
         Success Stories
       </h1>
-      <div style={{ position: 'relative', marginTop: '120px', width: '100%', height: '550px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', marginTop: '120px', width: '100%', height: '550px', overflow: 'hidden' }} data-aos="fade-up">
         {items.map((item, index) => (
           <div className="item" key={index} style={{
             position: 'absolute',
