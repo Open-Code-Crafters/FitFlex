@@ -30,7 +30,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import BackgrundImg from "../assets/home/homeImg1.jpg";
 import { useFirebase } from "../context/Firebase";
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { getAuth,createUserWithEmailAndPassword , GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import GoogleIcon from '@mui/icons-material/Google';
 const registerSchema = z
   .object({
@@ -99,8 +99,8 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Separate state for confirm password
   const navigate = useNavigate();
 
-  const email = useRef(null);
-  const password = useRef(null);
+  const email=useRef(null);
+  const password=useRef(null);
 
   const {
     register,
@@ -141,21 +141,21 @@ const Register = () => {
   const onSubmit = (data) => {
 
     createUserWithEmailAndPassword(auth, data.email, data.password)
-      .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
-        navigate("/Login");
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    navigate("/Login");
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
 
-        // ..
-      });
+    // ..
+  });
 
     setOpenSnackbar(true);
-
+    
   };
 
   const height = watch("height");
@@ -192,21 +192,21 @@ const Register = () => {
   }, [height, weight, errors]);
 
 
-
+  
 
 
 
   const firebase = useFirebase();
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
+  const googleProvider =new  GoogleAuthProvider();
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider);
+  const signInWithGoogle = () =>{
+      signInWithPopup(auth,googleProvider);
   }
 
+  
 
-
-
+  
 
   return (
     <Container
@@ -239,8 +239,6 @@ const Register = () => {
           margin: "auto",
           fontFamily: "Future2",
         }}
-        data-aos="zoom-in"
-        data-aos-duration="1200"
       >
         <Typography
           component="h1"
@@ -777,26 +775,26 @@ const Register = () => {
               {/* <button onClick={signInWithGoogle}>SignIn with Google</button> */}
 
               <Button
-                variant="contained"
-                color="primary"
-                startIcon={<GoogleIcon />}
-                onClick={signInWithGoogle}
-                sx={{
-                  marginTop: 10, // Adjust spacing as needed
-                  marginRight: 7,
-                  backgroundColor: '#4285F4', // Google's blue color
-                  color: 'white',
-                  borderRadius: '25px',
-                  padding: '10px 20px',
-                  textTransform: 'none',
-                  fontWeight: 'bold',
-                  "&:hover": {
-                    backgroundColor: '#357ae8',
-                  },
-                }}
-              >
-                Sign In with Google
-              </Button>
+              variant="contained"
+              color="primary"
+              startIcon={<GoogleIcon />}
+              onClick={signInWithGoogle}
+              sx={{
+                marginTop: 10, // Adjust spacing as needed
+                marginRight: 7,
+                backgroundColor: '#4285F4', // Google's blue color
+                color: 'white',
+                borderRadius: '25px',
+                padding: '10px 20px',
+                textTransform: 'none',
+                fontWeight: 'bold',
+                "&:hover": {
+                  backgroundColor: '#357ae8', 
+                },
+              }}
+            >
+              Sign In with Google
+            </Button>
 
 
             </Grid>

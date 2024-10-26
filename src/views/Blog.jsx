@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { margin } from "@mui/system";
 
 const Blog = ({ mode, textcolor }) => {
   const blogPosts = [
@@ -56,15 +57,15 @@ const Blog = ({ mode, textcolor }) => {
 
     // Toggle like status
     if (newLiked[index]) {
-      newLikes[index] -= 1; // Decrement if already liked
+        newLikes[index] -= 1; // Decrement if already liked
     } else {
-      newLikes[index] += 1; // Increment if not liked
+        newLikes[index] += 1; // Increment if not liked
     }
 
     newLiked[index] = !newLiked[index]; // Toggle the liked state
     setLikes(newLikes);
     setLiked(newLiked);
-  };
+};
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
@@ -87,7 +88,7 @@ const Blog = ({ mode, textcolor }) => {
       const newComments = [...comments];
       newComments[index] = [...newComments[index], commentInputs[index]];
       setComments(newComments);
-
+      
       const newCommentInputs = [...commentInputs];
       newCommentInputs[index] = ""; // Clear the comment input after submission
       setCommentInputs(newCommentInputs);
@@ -101,6 +102,7 @@ const Blog = ({ mode, textcolor }) => {
 
   const styles = {
     blogContainer: {
+      marginTop : "180px",
       maxWidth: "800px",
       margin: "0 auto",
       padding: "20px",
@@ -111,7 +113,7 @@ const Blog = ({ mode, textcolor }) => {
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     },
     motivationalQuote: {
-      fontSize: "1.5em",
+      fontSize: "1.2em",
       fontStyle: "italic",
       textAlign: "center",
       marginBottom: "20px",
@@ -133,22 +135,22 @@ const Blog = ({ mode, textcolor }) => {
       border: "1px solid #eaeaea",
       borderRadius: "8px",
       padding: "20px",
-      backgroundColor: mode === 'light' ? '#f7f7f7' : '#1e2a2b',
+      backgroundColor: mode === 'light' ? '#f7f7f7' :'#1e2a2b',
       boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
       lineHeight: "1.6",
     },
     postTitle: {
-      fontSize: "1.8em",
+      fontSize: "1.5em",
       marginBottom: "10px",
       color: textcolor,
       fontWeight: "bold",
       background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
       padding: "10px",
       borderRadius: "5px",
-      border: "2px solid black",
+      border: "1px solid black",
     },
     postDate: {
-      fontSize: "0.9em",
+      fontSize: "0.8em",
       color: textcolor,
       marginBottom: "10px",
       fontWeight: "bold",
@@ -218,13 +220,14 @@ const Blog = ({ mode, textcolor }) => {
   };
 
   return (
-    <div style={styles.blogContainer}>
+    <div style={styles.blogContainer} >
       <h1 style={styles.blogTitle}>Fitness Blog</h1>
       <p style={styles.motivationalQuote}>
         "The only bad workout is the one that didn't happen."
       </p>
       {blogPosts.map((post, index) => (
-        <div style={styles.blogPost} key={index} data-aos="zoom-in"
+        <div style={styles.blogPost} key={index}
+          data-aos="zoom-in"
           data-aos-duration="1200">
           <h2 style={styles.postTitle}>{post.title}</h2>
           <p style={styles.postDate}>
@@ -269,7 +272,7 @@ const Blog = ({ mode, textcolor }) => {
             <div style={styles.commentList}>
               <h3>Comments:</h3>
               {comments[index].map((comment, commentIndex) => (
-                <div key={commentIndex} style={styles.commentItem} >
+                <div key={commentIndex} style={styles.commentItem}>
                   {comment}
                 </div>
               ))}

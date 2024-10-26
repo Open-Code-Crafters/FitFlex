@@ -217,7 +217,7 @@ const Contact = () => {
     <ThemeProvider theme={theme}>
       <BackgroundContainer>
         <Container>
-          <Box sx={{ py: 5 }} data-aos="zoom-in">
+          <Box sx={{ py: 5 }}>
             <ContactForm>
               <Typography
                 variant="h4"
@@ -341,7 +341,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src={github}
+                        src={github} 
                         alt="GitHub"
                         className="logo"
                         style={{ height: "35px", width: "auto" }}
@@ -349,7 +349,7 @@ const Contact = () => {
                     </a>
                     <a href="#" className="text-gray-600 hover:text-green-600">
                       <img
-                        src={phone}
+                        src={phone} 
                         alt="Phone"
                         className="logo"
                         style={{ height: "35px", width: "auto" }}
@@ -360,7 +360,7 @@ const Contact = () => {
                         src={gmail}
                         alt="Email"
                         className="logo"
-                        style={{ height: "35px", width: "auto" }}
+                        style={{ height: "35px", width: "auto" }} 
                       />
                     </a>
                   </Box>

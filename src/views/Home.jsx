@@ -163,22 +163,31 @@ function Home({ mode, textcolor }) {
                 gutterBottom
                 variant="h3"
                 color="white"
-                style={{ fontWeight: "bold" }}
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "calc(2rem + 1vw)" // Responsive font size
+                }}
               >
                 Welcome to
               </Typography>
               <Typography
                 variant="h1"
                 color="white"
-                style={{ fontWeight: "700" }}
+                style={{
+                  fontWeight: "700",
+                  fontSize: "calc(2.5rem + 2vw)" // Responsive font size
+                }}
               >
                 FitFlex
               </Typography>
-
               <Typography
                 variant="h1"
                 color="white"
-                style={{ fontWeight: "600", marginTop: "-20px" }}
+                style={{
+                  fontWeight: "600",
+                  marginTop: "-10px",
+                  fontSize: "calc(2.5rem + 2vw)" // Responsive font size
+                }}
               >
                 Zone
               </Typography>
@@ -186,9 +195,9 @@ function Home({ mode, textcolor }) {
                 variant="h4"
                 color="white"
                 style={{
-                  fontSize: "25px",
+                  fontSize: "calc(1.2rem + 0.5vw)", // Responsive font size
                   fontWeight: "600",
-                  lineHeight: "30px",
+                  lineHeight: "1.4"
                 }}
               >
                 Transform Your Space, Transform Your Body
@@ -231,7 +240,10 @@ function Home({ mode, textcolor }) {
                 <Typography
                   variant="h2"
                   color="white"
-                  style={{ fontWeight: "900" }}
+                  style={{ 
+                    fontWeight: "900",
+                    fontSize: "calc(2rem + 2vw)",
+                   }}
                 >
                   {TopMessage[count]}
                 </Typography>
@@ -240,7 +252,7 @@ function Home({ mode, textcolor }) {
                   variant="h4"
                   color="white"
                   style={{
-                    fontSize: "25px",
+                    fontSize: "calc(1.2rem + 0.5vw)",
                     fontWeight: "600",
                     lineHeight: "30px",
                   }}
@@ -355,7 +367,7 @@ function Home({ mode, textcolor }) {
         <Typography
           variant={fontVarient}
           style={{
-            fontWeight: { sm: "normal", md: "bold" },
+            fontWeight: window.innerWidth < 768 ? "normal" : "bold", // Responsive font weight
             textAlign: "center",
             marginBottom: "10px",
           }}
@@ -382,20 +394,19 @@ function Home({ mode, textcolor }) {
           variant={window.innerWidth < 700 ? "h6" : "h5"}
           style={{
             textAlign: "center",
-            fontWeight: { sm: "thin", md: "normal" },
-            // width: {sm:"90%", md:"60%"},
-            width: { sm: "80%", md: "60%" },
+            fontWeight: window.innerWidth < 768 ? "thin" : "normal", // Responsive font weight
+            width: window.innerWidth < 768 ? "90%" : "60%", // Responsive width
             marginBottom: "50px",
-            fontSize: "20px",
-            color: textcolor
+            fontSize: window.innerWidth < 768 ? "18px" : "20px", // Responsive font size
+            color: textcolor,
           }}
           data-aos="zoom-in"
           data-aos-delay="600"
         >
           Join our fitness program and transform your body and mind. Our expert
-          trainers and supportive community will help you reach your goals,
-          whether you're a beginner or an experienced athlete. Start your
-          transformation with FitFlex today!
+          trainers and supportive community will help you reach your goals, whether
+          you're a beginner or an experienced athlete. Start your transformation with
+          FitFlex today!
         </Typography>
 
         <Grid
@@ -421,24 +432,33 @@ function Home({ mode, textcolor }) {
               justifyContent: "center",
               color: "#AF47D2",
               gap: "10px",
-              // width:"50%",
               textAlign: "center",
-              // textColor:"black",
             }}
           >
             <FontAwesomeIcon
-              style={{ color: "orange" }}
+              style={{ color: "orange", fontSize: { xs: "3rem", md: "5rem" } }}
               icon={faStar}
-              size="5x"
             />
-            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+            <Typography
+              variant="h3"
+              color={textcolor}
+              sx={{
+                fontSize: { xs: "24px", md: "35px" },
+              }}
+            >
               Variety
             </Typography>
-            <Typography color={textcolor}>
-              From HIIT to yoga, strength training to dance,explore a diverse
-              range of workouts to keep your routine exciting and effective.
+            <Typography
+              color={textcolor}
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                width: { xs: "90%", md: "70%" },
+              }}
+            >
+              From HIIT to yoga, strength training to dance, explore a diverse range of workouts to keep your routine exciting and effective.
             </Typography>
           </Grid>
+
 
           <Grid
             item
@@ -458,14 +478,24 @@ function Home({ mode, textcolor }) {
             }}
           >
             <FontAwesomeIcon
-              style={{ color: "orange" }}
+              style={{ color: "orange", fontSize: { xs: "3rem", md: "5rem" } }}
               icon={faDharmachakra}
               size="5x"
             />
-            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+            <Typography 
+              variant="h3"
+              color={textcolor} 
+              sx={{
+                fontSize: { xs: "24px", md: "35px" },
+              }}>
               Flexibility
             </Typography>
-            <Typography color={textcolor}>
+            <Typography 
+              color={textcolor}
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                width: { xs: "90%", md: "70%" },
+              }}>
               Enjoy the freedom to exercise whenever it fits your day. No gym
               hours, no commutes just you and your fitness goals.
             </Typography>
@@ -490,14 +520,24 @@ function Home({ mode, textcolor }) {
             }}
           >
             <FontAwesomeIcon
-              style={{ color: "orange" }}
+              style={{ color: "orange", fontSize: { xs: "3rem", md: "5rem" } }}
               icon={faDumbbell}
               size="5x"
             />
-            <Typography variant="h3" color={textcolor} style={{ fontSize: '35px' }}>
+            <Typography 
+              variant="h3" 
+              color={textcolor} 
+              sx={{
+                fontSize: { xs: "24px", md: "35px" },
+              }}>
               Motivation
             </Typography>
-            <Typography style={{ color: textcolor }}>
+            <Typography 
+              style={{ color: textcolor }}
+              sx={{
+                fontSize: { xs: "14px", md: "16px" },
+                width: { xs: "90%", md: "70%" },
+              }}>
               Stay on track with interactive features, progress tracking, and
               regular updates. We will help you keep your eyes on the prize and
               push through challenges.

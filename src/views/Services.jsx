@@ -68,11 +68,11 @@ const Services = ({ mode, textcolor }) => {
 
   return (
     <>
-      <div className={`service-grid ${mode}`}>
-        {services.map((service, index) => (
-          <div className="service-card" key={service.name}
+      <div className={`service-grid ${mode}`} style={{paddingTop: '200px'}}>
+        {services.map((service) => (
+          <div className="service-card" key={service.name} style={{minWidth: '300px'}}
             data-aos="fade-up"
-            data-aos-delay={index * 200}
+            data-aos-delay={200}
             data-aos-duration="1200">
             <img src={service.imageUrl} alt={service.name} />
             <h2>{service.name}</h2>
