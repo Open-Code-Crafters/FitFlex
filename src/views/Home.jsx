@@ -13,6 +13,7 @@ import fitbody from "../assets/home/getinshape.jpg";
 
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
+import gsap from 'gsap'
 
 import {
   faDharmachakra,
@@ -79,9 +80,9 @@ function Home({ mode, textcolor }) {
     }
   }, [window.innerWidth]);
 
-const location = useLocation();
+  const location = useLocation();
 
-useEffect(() => {
+  useEffect(() => {
     if (location.hash === "#faq") {
       const faqSection = document.getElementById("faq");
       if (faqSection) {
@@ -90,11 +91,67 @@ useEffect(() => {
     }
   }, [location]);
 
+
+  //gsap starts
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Ensure initial styles are set to scale 1 and opacity 1
+
+      // Timeline for animation
+
+      gsap.fromTo(
+        ".homeGsap",
+        {
+          scale: 5, // Small size to simulate starting from a distance (z-axis)
+          // Start from above the viewport
+          opacity: 0, // Hidden initially
+        },
+        {
+          scale: 1, // Full size upon impact
+          y: 0, // Drop to its final position
+          opacity: 1, // Fade in
+          duration: 0.2, // Duration of the drop
+          ease: "bounce.inOut",
+          delay: 0.5,// Bounce effect on landing
+          onComplete: () => {
+            // Optional: Apply squash/stretch effect on impact
+            gsap.to(".homeGsap", {
+              scaleX: 0.5,
+              scaleY: 0.5,
+              duration: 0.2,
+              yoyo: true,
+              repeat: 1,
+              ease: "bounce.inOut",
+            });
+          },
+        }
+      );
+
+
+
+
+
+
+
+
+
+    });
+
+    // Cleanup GSAP context
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
+  //gsap ends
+
   return (
-    <div style={{ backgroundColor: mode, color: textcolor }}>
+    <div style={{ backgroundColor: mode, color: textcolor, paddingTop: '80px' }}>
       <Grid container spacing={0}>
         <Grid item xs={12} md={5}>
           <div
+
             style={{
               background: "linear-gradient(45deg, #FDC830 0%,#F37335)",
               width: "100%",
@@ -103,7 +160,7 @@ useEffect(() => {
               alignItems: "center",
             }}
           >
-            <div style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
+            <div className="homeGsap" style={{ width: "100%", padding: "35px", marginTop: "50px" }}>
               <Typography
                 gutterBottom
                 variant="h3"
@@ -217,6 +274,8 @@ useEffect(() => {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay="500"
         ></div>
         {/* cusotmn css button */}
 
@@ -224,6 +283,8 @@ useEffect(() => {
         <div
           className="wrapper"
           style={{ marginTop: "50px", marginBottom: "50px" }}
+          data-aos="fade-right"
+          data-aos-delay='400'
         >
           <NavLink to="/plans" className="cta">
             <span
@@ -280,6 +341,8 @@ useEffect(() => {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay='300'
         ></div>
       </Box>
       <Box
@@ -298,6 +361,8 @@ useEffect(() => {
             textAlign: "center",
             marginBottom: "10px",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="500"
         >
           Experience the{" "}
           <span
@@ -326,6 +391,8 @@ useEffect(() => {
             fontSize: "20px",
             color: textcolor
           }}
+          data-aos="zoom-in"
+          data-aos-delay="600"
         >
           Join our fitness program and transform your body and mind. Our expert
           trainers and supportive community will help you reach your goals,
@@ -342,6 +409,8 @@ useEffect(() => {
             alignItems: "center",
             width: "80%",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="700"
         >
           <Grid
             item
@@ -448,6 +517,8 @@ useEffect(() => {
           width: "100vw",
           position: "relative",
         }}
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
         <div
           style={{

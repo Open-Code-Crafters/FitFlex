@@ -11,7 +11,8 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import TeamMembers from '../components/TeamCarousel';
+import { width } from '@mui/system';
 const About = ({ mode, textcolor }) => {
   const [viewed, setViewed] = useState({
     users: false,
@@ -29,7 +30,7 @@ const About = ({ mode, textcolor }) => {
     <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0' }}>
 
       {/* Hero Section */}
-      <div className="slogan">
+      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000">
         <h2>"Your Fitness, Your Future!"</h2>
         <h3 style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>- FitFlex Motto</h3>
         <p style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>
@@ -45,6 +46,9 @@ const About = ({ mode, textcolor }) => {
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
           }}
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="2000"
         >
           <CardContent>
             <h4 style={{ color: mode === 'dark' ? '#fff' : '#000' }}>Our Vision</h4>
@@ -61,6 +65,9 @@ const About = ({ mode, textcolor }) => {
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
           }}
+          data-aos="fade-left"
+          data-aos-delay="200"
+          data-aos-duration="2000"
         >
           <CardContent>
             <h4 style={{ color: mode === 'dark' ? '#fff' : '#000' }}>Our Mission</h4>
@@ -79,11 +86,14 @@ const About = ({ mode, textcolor }) => {
           align="center"
           gutterBottom
           sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem', marginTop: "2rem", marginBottom: "1rem" }}
+          data-aos="zoom-in"
+          data-aos-delay="200"
+          data-aos-duration="2000"
         >
           What We Offer
         </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={4} textAlign="center"> 
+        <Grid container spacing={4} justifyContent="center" data-aos="fade-up" data-aos-duration="2000">
+          <Grid item xs={12} sm={4} textAlign="center">
             <Box
               sx={{
                 background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
@@ -132,8 +142,8 @@ const About = ({ mode, textcolor }) => {
               </Typography>
             </Box>
           </Grid>
-            {/* Call to Action Section */}
-            {/* <Box sx={{ textAlign: 'center', mt: 6 }}>
+          {/* Call to Action Section */}
+          {/* <Box sx={{ textAlign: 'center', mt: 6 }}>
                 <Button
                     variant="contained"
                     size="large"
@@ -173,188 +183,205 @@ const About = ({ mode, textcolor }) => {
 
       {/* Stats Section */}
       {/* Stats Section */}
-<Box sx={{ mb: 6 }}>
-  <Typography
-    variant="h4"
-    align="center"
-    gutterBottom
-    sx={{
-      fontWeight: 'bold',
-      color: '#ff8c00',
-      pb: 4 // Added padding bottom here
-    }}
-  >
-    Our Stats
-  </Typography>
-  <Grid container spacing={3} justifyContent="center">
-    <Grid item xs={6} sm={3} textAlign="center">
-      <Card className="stat-card"
+      <Box sx={{ mb: 6 }}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{
+            fontWeight: 'bold',
+            color: '#ff8c00',
+            pb: 4 // Added padding bottom here
+          }}
+          data-aos="zoom-in"
+          data-aos-duration="1500"
+        >
+          Our Stats
+        </Typography>
+        <Grid container spacing={3} justifyContent="center" className="grid-container">
+          {/* Total Users Card */}
+          <Grid item xs={6} sm={3} textAlign="center" data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="300">
+            <Card className="stat-card"
+              sx={{
+                background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+                color: mode === 'dark' ? '#fff' : '#000',
+              }}
+            >
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
+                  {({ isVisible }) => (
+                    <div className='numbers'>
+                      {viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}
+                    </div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1" className="numbers">
+                  Total Users
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* Diet Plans Card */}
+          <Grid item xs={6} sm={3} textAlign="center" data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="200">
+            <Card className="stat-card"
+              sx={{
+                background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+                color: mode === 'dark' ? '#fff' : '#000',
+              }}
+            >
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
+                  {({ isVisible }) => (
+                    <div className='numbers'>
+                      {viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}
+                    </div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1" className="numbers">
+                  Diet Plans
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* Total Programs Card */}
+          <Grid item xs={6} sm={3} textAlign="center" data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="100">
+            <Card className="stat-card"
+              sx={{
+                background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+                color: mode === 'dark' ? '#fff' : '#000',
+              }}
+            >
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
+                  {({ isVisible }) => (
+                    <div className='numbers'>
+                      {viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}
+                    </div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1" className="numbers">
+                  Total Programs
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* Personal Trainers Card */}
+          <Grid item xs={6} sm={3} textAlign="center" data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="300">
+            <Card className="stat-card"
+              sx={{
+                background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+                color: mode === 'dark' ? '#fff' : '#000',
+              }}
+            >
+              <CardContent>
+                <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
+                  {({ isVisible }) => (
+                    <div className='numbers'>
+                      {viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}
+                    </div>
+                  )}
+                </VisibilitySensor>
+                <Typography variant="body1" className="numbers">
+                  Personal Trainers
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
+
+      {/* Why Choose FitFlex Section */}
+      <Box
         sx={{
-          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
+          mb: 6,
+          padding: '2rem',
+          backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
+          borderRadius: '8px',
         }}
       >
-        <CardContent>
-          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, users: true })); }}>
-            {({ isVisible }) => (
-              <div className='numbers'>
-                {viewed.users || isVisible ? <CountUp start={0} end={234} duration={3} suffix="+" /> : 234}
-              </div>
-            )}
-          </VisibilitySensor>
-          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
-            Total Users
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-    
-    <Grid item xs={6} sm={3} textAlign="center">
-      <Card className="stat-card"
-        sx={{
-          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
-        }}
-      >
-        <CardContent>
-          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, opd: true })); }}>
-            {({ isVisible }) => (
-              <div className='numbers'>
-                {viewed.opd || isVisible ? <CountUp start={0} end={40} duration={3} suffix="+" /> : 40}
-              </div>
-            )}
-          </VisibilitySensor>
-          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
-            Diet Plans
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem' }}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          Why Choose FitFlex?
+        </Typography>
+        <Typography
+          variant="body1"
+          align="center"
+          paragraph
+          sx={{ fontSize: '1.2rem', color: textcolor }}
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          With <b>FitFlex</b>, you’re not just working out — you’re part of a community that pushes you to be the best version of yourself. Our trainers, programs, and tracking tools are designed to keep you motivated, on track, and seeing results.
+        </Typography>
+        <Grid container spacing={3} justifyContent="center">
+          <Grid item xs={12} sm={4} data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="500">
+            <Card sx={{
+              background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+              textAlign: 'center',
+              color: mode === 'dark' ? '#fff' : '#000',
+            }}>
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
+                  24/7 Access
+                </Typography>
+                <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
+                  Workout at your convenience, anytime, anywhere.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-    <Grid item xs={6} sm={3} textAlign="center">
-      <Card className="stat-card"
-        sx={{
-          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
-        }}
-      >
-        <CardContent>
-          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, accidents: true })); }}>
-            {({ isVisible }) => (
-              <div className='numbers'>
-                {viewed.accidents || isVisible ? <CountUp start={0} end={35} duration={3} suffix="+" /> : 35}
-              </div>
-            )}
-          </VisibilitySensor>
-          <Typography variant="body1" className='numbers' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
-            Total Programs
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
+          <Grid item xs={12} sm={4} data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="300">
+            <Card sx={{
+              background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+              textAlign: 'center',
+              color: mode === 'dark' ? '#fff' : '#000',
+            }}>
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
+                  Experienced Trainers
+                </Typography>
+                <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
+                  Learn from the best in the industry with personalized attention.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
 
-    <Grid item xs={6} sm={3} textAlign="center">
-      <Card className="stat-card"
-        sx={{
-          background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-          color: mode === 'dark' ? '#fff' : '#000', // Set text color in dark mode
-        }}
-      >
-        <CardContent>
-          <VisibilitySensor onChange={(isVisible) => { if (isVisible) setViewed((prev) => ({ ...prev, hospitals: true })); }}>
-            {({ isVisible }) => (
-              <div className='numbers'>
-                {viewed.hospitals || isVisible ? <CountUp start={0} end={25} duration={3} suffix="+" /> : 25}
-              </div>
-            )}
-          </VisibilitySensor>
-          <Typography variant="body1" className='numbers4' sx={{ color: mode === 'dark' ? '#fff' : '#000' }}>
-            Personal Trainers
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  </Grid>
-</Box>
-
-{/* Why Choose FitFlex Section */}
-<Box
-  sx={{
-    mb: 6,
-    padding: '2rem',
-    backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
-    borderRadius: '8px',
-  }}
->
-  <Typography
-    variant="h4"
-    align="center"
-    gutterBottom
-    sx={{ fontWeight: 'bold', color: '#ff8c00', fontSize: '2rem' }}
-  >
-    Why Choose FitFlex?
-  </Typography>
-  <Typography
-    variant="body1"
-    align="center"
-    paragraph
-    sx={{ fontSize: '1.2rem', color: textcolor }}
-  >
-    With <b>FitFlex</b>, you’re not just working out — you’re part of a community that pushes you to be the best version of yourself. Our trainers, programs, and tracking tools are designed to keep you motivated, on track, and seeing results.
-  </Typography>
-  <Grid container spacing={3} justifyContent="center">
-    <Grid item xs={12} sm={4}>
-      <Card sx={{
-        background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-        textAlign: 'center',
-        color: mode === 'dark' ? '#fff' : '#000',
-      }}>
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
-            24/7 Access
-          </Typography>
-          <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
-            Workout at your convenience, anytime, anywhere.
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-
-    <Grid item xs={12} sm={4}>
-      <Card sx={{
-        background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-        textAlign: 'center',
-        color: mode === 'dark' ? '#fff' : '#000',
-      }}>
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
-            Experienced Trainers
-          </Typography>
-          <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
-            Learn from the best in the industry with personalized attention.
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-
-    <Grid item xs={12} sm={4}>
-      <Card sx={{
-        background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
-        textAlign: 'center',
-        color: mode === 'dark' ? '#fff' : '#000',
-      }}>
-        <CardContent>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
-            Track Your Progress
-          </Typography>
-          <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
-            Use our advanced tools to measure your progress and hit your targets.
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  </Grid>
-</Box>
+          <Grid item xs={12} sm={4} data-aos="fade-up"
+            data-aos-duration="1500" data-aos-delay="100">
+            <Card sx={{
+              background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
+              textAlign: 'center',
+              color: mode === 'dark' ? '#fff' : '#000',
+            }}>
+              <CardContent>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#ff8c00' }}>
+                  Track Your Progress
+                </Typography>
+                <Typography variant="body1" sx={{ mt: 2, fontWeight: 'semi-bold', fontSize: "1.2rem" }}>
+                  Use our advanced tools to measure your progress and hit your targets.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
 
       {/* Call to Action Section */}
       <Box sx={{ textAlign: 'center', mt: 6 }}>
@@ -373,10 +400,25 @@ const About = ({ mode, textcolor }) => {
           }}
           endIcon={<ArrowForwardIcon />}
           onClick={() => navigate('/register')}
+          data-aos="fade-right"
+          data-aos-duration="1500" data-aos-delay="300"
         >
           Join FitFlex Now
         </Button>
       </Box>
+     <Box sx={{
+        backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
+        textAlign: 'center',
+        color: mode === 'dark' ? '#fff' : '#000',
+        marginTop: '2rem',
+        borderRadius: 2
+      }}>
+
+        <TeamMembers mode={mode}/>
+     </Box>
+
+     
+   
     </Container>
   );
 };
