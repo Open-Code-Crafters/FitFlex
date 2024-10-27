@@ -248,9 +248,18 @@ git push origin YourBranchName
   <img align="center" src="https://contrib.rocks/image?max=100&repo=Open-Code-Crafters/FitFlex" />
 </a> 
 
+---
+## Stargazers ❤️
 
+<div align='left'>
 
+[![Stargazers repo roster for Open-Code-Crafters/FitFlex](https://reporoster.com/stars/Open-Code-Crafters/FitFlex)](https://github.com/Open-Code-Crafters/FitFlex/stargazers)
 
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for Open-Code-Crafters/FitFlex](https://reporoster.com/forks/Open-Code-Crafters/FitFlex)](https://github.com/Open-Code-Crafters/FitFlex/network/members)
  
 # License
 
