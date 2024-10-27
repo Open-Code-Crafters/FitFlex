@@ -497,7 +497,7 @@ useEffect(() => {
           backgroundColor: mode,
         }}
       > */}
-        <Tracker mode={mode} textcolor={textcolor} />
+        
       {/* </Box> */}
 
       <Box
