@@ -1,5 +1,5 @@
 
-import {React, useEffect, useRef, useState } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,24 +19,24 @@ import { useNavigate } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import BackgrundImg from "../assets/home/homeImg3.jpg";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useFirebase } from "../context/Firebase";
 import Register from "./Register";
 import Profile from "./Profile";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters long"),
+  password: z.string().min(1, "Invalid password"),
 });
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [error,setError]=useState();
+  const [error, setError] = useState();
 
-  const email=useRef(null);
-  const password=useRef(null);
-  
+  const email = useRef(null);
+  const password = useRef(null);
+
 
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, trigger } = useForm({
@@ -56,23 +56,23 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-       
+
 
     const auth = getAuth();
-    signInWithEmailAndPassword(auth,data.email, data.password)
+    signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         navigate("/home")
         // ...
-        
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setError("Sorry, your email or password is wrong!");
       });
-    
+
   };
 
   const [user, setUser] = useState(null);
@@ -81,7 +81,7 @@ const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        
+
       } else {
         setUser(null);
         // navigate('/Login');
@@ -92,10 +92,10 @@ const Login = () => {
 
   const firebase = useFirebase();
   const auth = getAuth();
-  const googleProvider =new  GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
 
-  const signInWithGoogle = () =>{
-      signInWithPopup(auth,googleProvider);
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider);
   }
 
 
@@ -156,6 +156,8 @@ const Login = () => {
           margin: "auto",
           fontFamily: "Future2",
         }}
+        data-aos="zoom-in"
+        data-aos-duration="1200"
       >
         <Typography
           component="h1"
@@ -178,7 +180,7 @@ const Login = () => {
 
         <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 3 }}>
           <TextField
-            ref={email} 
+            ref={email}
             fullWidth
             label="Email"
             {...register("email")}
@@ -276,7 +278,7 @@ const Login = () => {
           >
             Log In
           </Button> */}
-           <Button
+          <Button
             type="submit"
             fullWidth
             variant="contained"
@@ -294,20 +296,20 @@ const Login = () => {
           >
             Log In
           </Button>
-          
-        {error && (
-          <Typography color="error" sx={{ mb: 2, fontSize: "1.2rem" }}>
-            {error}
-          </Typography>
-        )}
+
+          {error && (
+            <Typography color="error" sx={{ mb: 2, fontSize: "1.2rem" }}>
+              {error}
+            </Typography>
+          )}
 
 
-           {/* Google Login Button */}
-           <Button
+          {/* Google Login Button */}
+          <Button
             fullWidth
             variant="outlined"
             onClick={signInWithGoogle}
-            
+
             sx={{
               mt: 2,
               mb: 2,
@@ -315,16 +317,16 @@ const Login = () => {
               borderColor: "white",
               color: "white",
               fontFamily: "Future2",
-              backgroundColor:'#4285F4',
+              backgroundColor: '#4285F4',
               "&:hover": {
                 borderColor: 'white',
-                backgroundColor: '#357ae8', 
+                backgroundColor: '#357ae8',
               },
             }}
           >
             Sign in with Google
           </Button>
-          
+
           <Grid container justifyContent="flex-end">
             <Grid item>
               Don't have an account?

@@ -1,29 +1,45 @@
-
 # <p align="center">FITFLEX</p>
   
 <p align="center">
   <img src="./src/assets/ReadMeAssests/screenShorts/Homepage.png/" alt="FITFLEX Poster" />
 </p>
 
+
 <div align="center">
-  <p>
-    <a href="https://github.com/ellerbrock/open-source-badges/">
-      <img src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" alt="Open Source Love svg1" />
+    <br>
+   <!-- Table for GitHub Repo Stats -->
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+        <thead align="center">
+            <tr>
+                <td><b>🌟 Stars</b></td>
+                <td><b>🍴 Forks</b></td>
+                <td><b>🐛 Issues</b></td>
+                <td><b>🔔 Open PRs</b></td>
+                <td><b>🔕 Closed PRs</b></td>
+                <td><b>🛠️ Languages</b></td>
+                <td><b>🌐 Contributors</b></td>
+            </tr>
+        </thead>
+        <tbody align="center">
+            <tr>
+                <td><img alt="Stars" src="https://img.shields.io/github/stars/Open-Code-Crafters/FitFlex?style=flat&logo=github"/></td>
+                <td><img alt="Forks" src="https://img.shields.io/github/forks/Open-Code-Crafters/FitFlex?style=flat&logo=github"/></td>
+                <td><img alt="Issues" src="https://img.shields.io/github/issues/Open-Code-Crafters/FitFlex?style=flat&logo=github"/></td>
+                <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Open-Code-Crafters/FitFlex?style=flat&logo=github"/></td>
+                <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Open-Code-Crafters/FitFlex?style=flat&color=critical&logo=github"/></td>
+                <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Open-Code-Crafters/FitFlex?style=flat&color=critical&logo=github"/></td>
+                <td><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/Open-Code-Crafters/FitFlex?color=2b9348"/></td>
+            </tr>
+        </tbody>
+    </table>
+    
+<br>
+  <!-- Repository link -->
+    <a href="https://github.com/Open-Code-Crafters/FitFlex" target="_blank">
+        <strong>Check out the FitFlex repository on GitHub</strong>
     </a>
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs Welcome" />
-    <img src="https://api.visitorbadge.io/api/visitors?path=Open-Code-Crafters52%2FFitFlex%20&countColor=%23263759&style=flat" alt="Visitors" />
-    <img src="https://img.shields.io/github/forks/Open-Code-Crafters/FitFlex" alt="GitHub forks" />
-    <img src="https://img.shields.io/github/stars/Open-Code-Crafters/FitFlex" alt="GitHub Repo stars" />
-    <img src="https://img.shields.io/github/contributors/Open-Code-Crafters/FitFlex" alt="GitHub contributors" />
-    <img src="https://img.shields.io/github/last-commit/Open-Code-Crafters/FitFlex" alt="GitHub last commit" />
-    <img src="https://img.shields.io/github/repo-size/Open-Code-Crafters/FitFlex" alt="GitHub repo size" />
-    <img src="https://img.shields.io/github/license/Open-Code-Crafters/FitFlex" alt="GitHub license" />
-    <img src="https://img.shields.io/github/issues/Open-Code-Crafters/FitFlex" alt="GitHub issues" />
-    <img src="https://img.shields.io/github/issues-closed-raw/Open-Code-Crafters/FitFlex" alt="GitHub closed issues" />
-    <img src="https://img.shields.io/github/issues-pr/Open-Code-Crafters/FitFlex" alt="GitHub pull requests" />
-    <img src="https://img.shields.io/github/issues-pr-closed/Open-Code-Crafters/FitFlex" alt="GitHub closed pull requests" />
-  </p>
 </div>
+
 
 <div>
   <h2>Table of Contents</h2>
