@@ -113,12 +113,12 @@ const Blog = ({ mode, textcolor }) => {
     }
   };
   const handleUploadBlog = (index) => {
-    // if (!isLoggedIn) {
-    //   toast.error("unauthenticated");
-    //   return;
-    // } else {
+    if (!isLoggedIn) {
+      toast.error("unauthenticated");
+      return;
+    } else {
       navigate("/uploadBlog");
-    // }
+    }
   };
 
   // Adding useEffect for debugging

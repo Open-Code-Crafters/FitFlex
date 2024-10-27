@@ -1,4 +1,7 @@
-import React, { useState } from "react"; 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { redirect, useNavigate } from "react-router-dom";
 import { useBlog } from "../../context/blogContext";
 
 const UploadBlog = () => {
@@ -6,14 +9,32 @@ const UploadBlog = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  },[])
+   
   
   // Get the handleUpload function from the BlogContext
   const { handleUpload } = useBlog();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Get the image name if available
+    
+    if(!isLoggedIn){
+      toast.error("unauthenticated")
+      navigate("/register");
+    }
     const imageName = image ? image.name.toString() : null;
     // console.log(imageName)
 
@@ -21,13 +42,14 @@ const UploadBlog = () => {
     handleUpload(title, author, content, imageName);
 
     // Reset form fields after submission
-    // setTitle("");
-    // setAuthor("");
-    // setContent("");
-    // setImage(null);
+    setTitle("");
+    setAuthor("");
+    setContent("");
+    setImage(null);
+
+    navigate("/blog")
 
     // console.log("Blog uploaded:", { title, author, content, imageName });
-    // Optionally add logic to send this data to your backend or API
   };
 
   const handleImageChange = (e) => {
