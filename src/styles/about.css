@@ -47,7 +47,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  max-height: 300px;
+  max-height: 400px;
   text-align: center;
   max-width: 400px;
 }
