@@ -9,6 +9,7 @@ import {
   Modal,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
@@ -122,7 +123,7 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          {[ 
+          {[
             { Icon: FaFacebookF, url: "https://www.facebook.com" },
             { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
             { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
@@ -143,7 +144,7 @@ const Footer = () => {
                 "&:hover": { color: "#fff" },
               }}
             >
-              <Icon fontSize="inherit" />
+              <FontAwesomeIcon icon={Icon} fontSize="inherit" />
             </IconButton>
           ))}
         </Grid>

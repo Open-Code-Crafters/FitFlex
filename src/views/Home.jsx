@@ -1,4 +1,6 @@
-import { Grid, Typography, Box } from "@mui/material";
+import React from 'react';
+import { Box, Grid, IconButton, Typography } from '@mui/material'; // Example MUI imports
+
 import homeImg1 from "../assets/home/homeImg1.jpg";
 import "../styles/shared.css";
 import homeImg2 from "../assets/home/homeImg2.avif";
