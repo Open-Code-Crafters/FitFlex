@@ -11,6 +11,7 @@ import HomeSlider from "../components/HomeSlider";
 import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
+
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
 import gsap from 'gsap'
@@ -374,7 +375,7 @@ function Home({ mode, textcolor }) {
       <Box
         sx={{
           width: "100%",
-          padding: "40px 0",
+          padding: "10px 0",
           backgroundColor: mode,
         }}
       >
