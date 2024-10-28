@@ -1,5 +1,5 @@
 import "./App.css";
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import Loader from "./components/Loader.jsx";
@@ -15,6 +15,7 @@ const Home = lazy(() => import("./views/Home.jsx"));
 const Contact = lazy(() => import("./views/Contact.jsx"));
 const Register = lazy(() => import("./views/Register.jsx"));
 const Login = lazy(() => import("./views/Login.jsx"));
+const ForgotPassword = lazy(() => import("./views/ForgotPassword.jsx")); {"forgot password location"}
 const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
@@ -27,6 +28,11 @@ const Services = lazy(() => import("./views/Services.jsx"));
 // import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import UploadBlog from "./views/uploadBlog.jsx";
+import { BlogProvider } from "../context/blogContext.jsx";
+// import  BlogProvider  from "../context/blogContext.jsx";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -46,9 +52,16 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    AOS.init({
+      offset: 80,
+    });
+  }, []);
+
   return (
     <>
       <Suspense fallback={<Loader />}>
+      <BlogProvider>
         <BrowserRouter>
           <ProgressBar />
           <Navbar mode={mode} toggleMode={toggleMode} />
@@ -82,6 +95,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} /> {"forgot password path"}
             <Route path="/*" element={<NotFound />} />
             <Route path="/healthtips" element={<HealthTips />} />
             <Route
@@ -95,11 +109,14 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/dietrecommendation" element={<DietRecommendation />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/uploadBlog" element={<UploadBlog />} />
           </Routes>
           <Footer />
           <BackToTopButton />
+ 
           {/* <FItFlexChatBot/> */}
-        </BrowserRouter>
+         </BrowserRouter>
+         </BlogProvider>
       </Suspense>
     </>
   );
