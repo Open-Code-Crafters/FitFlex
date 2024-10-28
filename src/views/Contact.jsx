@@ -23,7 +23,7 @@ const ContactForm = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   maxWidth: "600px",
   margin: "auto",
-  backgroundColor: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
+  backgroundColor: "rgba(20, 20, 20, 0.8)",
   backdropFilter: "blur(10px)",
   borderRadius: theme.shape.borderRadius,
   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
@@ -38,7 +38,7 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#121212",
+      default: "#ffffff",
     },
     primary: {
       main: "#ff6f61",
@@ -288,6 +288,8 @@ const Contact = () => {
                         ? "Message should be at least 10 characters long."
                         : ""
                     }
+                    multiline // Make this a textarea
+                    rows={3} // Set initial height
                   />
                 </Box>
                 <Box textAlign="center">
