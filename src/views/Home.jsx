@@ -10,6 +10,7 @@ import HomeSlider from "../components/HomeSlider";
 import banImg1 from "../assets/home/banner2_1.jpg";
 import flexible from "../assets/home/flexible.jpg";
 import fitbody from "../assets/home/getinshape.jpg";
+
 import workhard from "../assets/home/hardworkout.jpg";
 import { useLocation } from "react-router-dom";
 import gsap from 'gsap'
@@ -23,6 +24,7 @@ import {
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
+import Tracker from "../components/Tracker";
 
 function Home({ mode, textcolor }) {
   const [fontVarient, setFontVarient] = useState("h1");
@@ -272,6 +274,8 @@ function Home({ mode, textcolor }) {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay="500"
         ></div>
         {/* cusotmn css button */}
 
@@ -279,6 +283,8 @@ function Home({ mode, textcolor }) {
         <div
           className="wrapper"
           style={{ marginTop: "50px", marginBottom: "50px" }}
+          data-aos="fade-right"
+          data-aos-delay='400'
         >
           <NavLink to="/plans" className="cta">
             <span
@@ -335,6 +341,8 @@ function Home({ mode, textcolor }) {
             width: "20vw",
             background: "linear-gradient(45deg, #FDC830 0%,#F37335 100%)",
           }}
+          data-aos="fade-right"
+          data-aos-delay='300'
         ></div>
       </Box>
       <Box
@@ -353,6 +361,8 @@ function Home({ mode, textcolor }) {
             textAlign: "center",
             marginBottom: "10px",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="500"
         >
           Experience the{" "}
           <span
@@ -381,6 +391,8 @@ function Home({ mode, textcolor }) {
             fontSize: "20px",
             color: textcolor
           }}
+          data-aos="zoom-in"
+          data-aos-delay="600"
         >
           Join our fitness program and transform your body and mind. Our expert
           trainers and supportive community will help you reach your goals,
@@ -397,6 +409,8 @@ function Home({ mode, textcolor }) {
             alignItems: "center",
             width: "80%",
           }}
+          data-aos="zoom-in"
+          data-aos-delay="700"
         >
           <Grid
             item
@@ -503,6 +517,8 @@ function Home({ mode, textcolor }) {
           width: "100vw",
           position: "relative",
         }}
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
         <div
           style={{
@@ -534,17 +550,26 @@ function Home({ mode, textcolor }) {
       <Box
         sx={{
           width: "100%",
-          padding: "40px 0",
+          padding: "10px 0",
           backgroundColor: mode,
         }}
       >
         <SuccessStories mode={mode} textcolor={textcolor} />
       </Box>
 
-      <Box
+      {/* <Box
         id="faq"
         paddingTop={"190px"}>
-      </Box>
+      </Box> */}
+      {/* <Box
+        sx={{
+          width: "100%",
+          padding: "40px 0",
+          backgroundColor: mode,
+        }}
+      > */}
+        <Tracker mode={mode} textcolor={textcolor} />
+      {/* </Box> */}
 
       <Box
         sx={{
@@ -560,17 +585,10 @@ function Home({ mode, textcolor }) {
           }}
         />
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#AF47D2",
-          gap: "10px",
-        }}
-      >
-        {/* <CounterCard val={20} icon={faMountain} text="Yoga Guides" /> */}
-      </Box>
+      
+      
+   
+
     </div>
   );
 }
