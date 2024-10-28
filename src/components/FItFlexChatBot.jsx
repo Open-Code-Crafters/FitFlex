@@ -43,11 +43,8 @@ const FItFlexChatBot = () => {
     };
 
     const calculateBMI = () => {
-        console.log("H:", arr[0]);
-        console.log("W:", arr[1]);
-
         const heightInMeters = parseFloat(arr[0]) / 100;
-        const bmi = (parseFloat(arr[1]) / (heightInMeters * heightInMeters)).toFixed(2);
+        const bmi = (parseFloat(arr[arr.length - 1]) / (heightInMeters * heightInMeters)).toFixed(2);
         if (heightInMeters > 0) {
             localStorage.setItem('bmi', bmi);
             return bmi;
@@ -90,7 +87,7 @@ const FItFlexChatBot = () => {
                 { value: 'workout plans', label: 'Workout Plans', trigger: '5' },
                 { value: 'nutrition advice', label: 'Nutrition Advice', trigger: '6' },
                 { value: 'customer support', label: 'Customer Support', trigger: '7' },
-                { value: 'calculate bmi', label: 'Calculate BMI', trigger: ({ previousValue }) => { return localStorage.getItem('bmi') ? 'bmiResult' : 'bmiInput' }  },
+                { value: 'calculate bmi', label: 'Calculate BMI', trigger: () => { return localStorage.getItem('bmi') ? 'bmiResult' : 'bmiInput' }  },
                 { value: 'other', label: 'Other', trigger: '8' },
             ],
         },
@@ -147,6 +144,19 @@ const FItFlexChatBot = () => {
                 const bmi = calculateBMI();
                 return `Your BMI is ${bmi}`;
             },
+            trigger: () => {
+                const bmi = localStorage.getItem('bmi')
+                return (bmi>=18 ? ( bmi<=25 ? 'preEndChat' : 'overweight' ) : 'underweight');
+            },
+        },
+        {
+            id: 'underweight',
+            message: "You are underweight. Please consult a nutritionist for a balanced diet.",
+            trigger: 'preEndChat',
+        },
+        {
+            id: 'overweight',
+            message: "You are overweight. Checkout our workout plans for better health.",
             trigger: 'preEndChat',
         },
         {
@@ -207,6 +217,7 @@ const FItFlexChatBot = () => {
                 {
                     value: 'yes', label: 'Yes', trigger: ({ previousValue }) => {
                         localStorage.removeItem('bmi');
+                        arr.length = 0;
                         return 'bmiInput'
                     }
                 },

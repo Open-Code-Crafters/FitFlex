@@ -11,7 +11,8 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import TeamMembers from '../components/TeamCarousel';
+import { width } from '@mui/system';
 const About = ({ mode, textcolor }) => {
   const [viewed, setViewed] = useState({
     users: false,
@@ -405,6 +406,19 @@ const About = ({ mode, textcolor }) => {
           Join FitFlex Now
         </Button>
       </Box>
+     <Box sx={{
+        backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
+        textAlign: 'center',
+        color: mode === 'dark' ? '#fff' : '#000',
+        marginTop: '2rem',
+        borderRadius: 2
+      }}>
+
+        <TeamMembers mode={mode}/>
+     </Box>
+
+     
+   
     </Container>
   );
 };
