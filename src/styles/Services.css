@@ -1,18 +1,141 @@
+.service-grid {
+  font-family: 'Roboto', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  padding: 100px;
+  justify-items: center;
+}
+
+/* Dark Theme */
+.service-grid.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Light Theme */
+.service-grid.light {
+  background-color: #f7f7f7;
+  color: #000000;
+}
+
+/* Individual card styling */
 .service-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    overflow: hidden;
-    text-align: left;
-    color: #333;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .service-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure equal image size */
+.service-card img {
+  width: 100%;
+  /* max-width: 300px; */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Title and description */
+.service-card h2 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.service-card p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.service-card button {
+  padding: 12px 25px;
+  background-color: var(--button-bg-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.service-card button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Views and Likes section */
+.service-card .stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.service-card .stats span {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* Dark and Light theme variables */
+:root {
+  --card-bg-color: #2a2a2a;
+  --button-bg-color: #ff6347;
+  --button-hover-bg-color: #ff4500;
+}
+
+.service-grid.light {
+  --card-bg-color: #ffffff;
+  --button-bg-color: #007bff;
+  --button-hover-bg-color: #0056b3;
+}

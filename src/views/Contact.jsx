@@ -23,7 +23,7 @@ const ContactForm = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   maxWidth: "600px",
   margin: "auto",
-  backgroundColor: "rgba(0, 0, 0, 0)",
+  backgroundColor: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
   backdropFilter: "blur(10px)",
   borderRadius: theme.shape.borderRadius,
   boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
@@ -55,7 +55,7 @@ const theme = createTheme({
 // Background container styled
 const BackgroundContainer = styled(Box)(() => ({
   minHeight: "100vh",
-  backgroundImage: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
+  // backgroundImage: "linear-gradient(135deg, #1F1C2C 10%, #232526 100%)",
   backgroundSize: "cover",
   backgroundPosition: "center",
   display: "flex",
@@ -217,7 +217,7 @@ const Contact = () => {
     <ThemeProvider theme={theme}>
       <BackgroundContainer>
         <Container>
-          <Box sx={{ py: 5 }}>
+          <Box sx={{ py: 5 }} data-aos="zoom-in">
             <ContactForm>
               <Typography
                 variant="h4"
@@ -341,7 +341,7 @@ const Contact = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src={github} 
+                        src={github}
                         alt="GitHub"
                         className="logo"
                         style={{ height: "35px", width: "auto" }}
@@ -349,7 +349,7 @@ const Contact = () => {
                     </a>
                     <a href="#" className="text-gray-600 hover:text-green-600">
                       <img
-                        src={phone} 
+                        src={phone}
                         alt="Phone"
                         className="logo"
                         style={{ height: "35px", width: "auto" }}
@@ -360,7 +360,7 @@ const Contact = () => {
                         src={gmail}
                         alt="Email"
                         className="logo"
-                        style={{ height: "35px", width: "auto" }} 
+                        style={{ height: "35px", width: "auto" }}
                       />
                     </a>
                   </Box>

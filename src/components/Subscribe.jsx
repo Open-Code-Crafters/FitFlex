@@ -42,7 +42,7 @@ function Subscribe() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "100%",
+        maxWidth: "70%",
         backgroundColor: "#fff",
         borderRadius: "30px",
         padding: "2px",
@@ -60,7 +60,8 @@ function Subscribe() {
             padding: { xs: "8px", sm: "10px 12px" },
             color: "#000",
             "&::placeholder": {
-              color: "#777",
+              color: "black",
+              fontSize: "20px"
             },
           },
           "& .MuiOutlinedInput-root": {

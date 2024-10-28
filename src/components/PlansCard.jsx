@@ -10,7 +10,55 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import img from "../assets/home/biceps.webp";
+import forearms from "../assets/exercise/arms/forearms.jpeg";
 import { useState, useEffect } from "react";
+import abs from "../assets/exercise/upper body/abs.jpeg";
+import chest from "../assets/exercise/upper body/chest.jpeg";
+import lats from "../assets/exercise/upper body/lats.jpeg";
+import lowerback from "../assets/exercise/upper body/lowerback.jpeg";
+import neck from "../assets/exercise/upper body/neck.jpeg";
+import obliques from "../assets/exercise/upper body/obliques.jpeg";
+import shoulders from "../assets/exercise/upper body/shoulders.jpeg";
+import traps from "../assets/exercise/upper body/traps.jpeg";
+import upperback from "../assets/exercise/upper body/upperback.jpeg";
+import biceps from "../assets/exercise/arms/biceps.jpeg";
+import palmarfacsia from "../assets/exercise/arms/palmarfacsia.jpeg";
+import triceps from "../assets/exercise/arms/triceps.jpeg";
+import abductors from "../assets/exercise/lower body/abductors.jpeg";
+import adductors from "../assets/exercise/lower body/adductors.jpeg";
+import calves from "../assets/exercise/lower body/calves.jpeg";
+import glutes from "../assets/exercise/lower body/glutes.jpeg";
+import hamstrings from "../assets/exercise/lower body/hamstrings.jpeg";
+import hipflexors from "../assets/exercise/lower body/hipflexors.jpeg";
+import itband from "../assets/exercise/lower body/itband.jpeg";
+import plantarfascia from "../assets/exercise/lower body/plantarfascia.jpeg";
+import quads from "../assets/exercise/lower body/quads.jpeg";
+
+const imageMap = {
+  forearms,
+  abs,
+  chest,
+  lats,
+  lowerback,
+  neck,
+  obliques,
+  shoulders,
+  traps,
+  upperback,
+  biceps,
+  palmarfacsia,
+  triceps,
+  abductors,
+  adductors,
+  calves,
+  glutes,
+  hamstrings,
+  hipflexors,
+  itband,
+  plantarfascia,
+  quads,  
+};
+
 function PlansCard({info}) {
   const [difficultyColor, setColor] = useState("green");
   
@@ -19,7 +67,7 @@ function PlansCard({info}) {
       name:"Biceps Special",
       title:"Super Biceps Special",
       period:30,
-      image:"src/assets/exercise/arms/forearms.jpeg",
+      image: forearms,
       location:"Home",
       level:"Easy",
       
@@ -46,7 +94,7 @@ function PlansCard({info}) {
         height: "18rem",
         margin: "20px 8px",
         borderRadius: "17px",
-        boxShadow: " rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+        boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px;",
         transition: "0.4s",
         cursor: "pointer",
         position: "relative",
@@ -59,7 +107,7 @@ function PlansCard({info}) {
         transition: { duration: 0.2 },
       }}
     >
-      <CardMedia component="img" height="160" image={info.image} alt="Chevrolet" />
+      <CardMedia component="img" height="160" image={info.image.startsWith("https")?info.image:imageMap[info.image]} alt={info.image} />
       <CardContent >
         <div
           style={{
