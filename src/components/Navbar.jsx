@@ -19,8 +19,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ResponsiveSheet from "./responsive-sheet";
-const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
-
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register" ];
 import gsap from 'gsap'
 
 function Navbar(props) {

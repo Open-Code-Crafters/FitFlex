@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import backgroundImage from '../assets/img/trackerbg2.jpg';
 // import Header from './Header';
 
-function Tracker() {
+const Tracker =()=> {
     const [query, setQuery] = useState('');
     const [result, setResult] = useState([]);
     const [error, setError] = useState(null);

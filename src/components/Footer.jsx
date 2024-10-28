@@ -18,7 +18,6 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import logo from "../assets/fitness1.png";
-import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
@@ -57,7 +56,11 @@ const Footer = () => {
         {/* Logo and Description */}
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <img src={logo} alt="Logo" style={{ width: 50, height: 50, marginRight: 10 }} />
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ width: 50, height: 50, marginRight: 10 }}
+            />
             <Typography variant="h6" component="h1" sx={{ fontWeight: "bold" }}>
               FitLife
             </Typography>
