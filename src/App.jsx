@@ -37,7 +37,7 @@ import { BlogProvider } from "../context/blogContext.jsx";
 function App() {
   const [mode, setMode] = useState("light");
   const [textcolor, settextcolor] = useState("black");
-
+    
   let toggleMode = () => {
     if (mode === "light") {
       setMode("dark");

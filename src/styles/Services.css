@@ -93,6 +93,7 @@
   display: flex;
   align-items: center;
   font-size: 0.9em;
+  cursor: pointer;
 }
 
 /* Modal Styles */
@@ -139,3 +140,4 @@
   --button-bg-color: #007bff;
   --button-hover-bg-color: #0056b3;
 }
+
