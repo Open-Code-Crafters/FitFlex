@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
@@ -28,6 +28,24 @@ const Footer = () => {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  
+  useEffect(() => {
+    // Load the embedded chatbot script
+    const script = document.createElement('script');
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.defer = true;
+    script.setAttribute('chatbotId', "3CQjUebCFQdRORiKuycVw");
+    script.setAttribute('domain', "www.chatbase.co");
+
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+
   return (
     <Box
       component="footer"
@@ -45,11 +63,11 @@ const Footer = () => {
         alignItems={{ xs: "center", sm: "normal" }} // Normal content for PC screens
         direction={{ xs: "column", sm: "row" }} // Stack items on mobile
       >
-
         {/* Column 1: Logo and Description */}
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
             <img src={logo} alt="Logo" style={{ width: 50, height: 50, marginRight: 10 }} />
+
             <Typography variant="h6" component="h1" sx={{ fontWeight: "bold" }}>
               FitLife
             </Typography>
@@ -104,7 +122,6 @@ const Footer = () => {
           }}
         >
           {/* Subscribe Newsletter */}
-
           <Subscribe />
           <Button
             variant="contained"
@@ -117,11 +134,9 @@ const Footer = () => {
               backgroundColor: "grey.700",
               "&:hover": { backgroundColor: "grey.500" },
             }}
-
           >
             Open Tracker
           </Button>
-
         </Box>
       </Grid>
 
@@ -207,6 +222,7 @@ const Footer = () => {
         </Typography>
       </Box>
 
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -235,8 +251,6 @@ const Footer = () => {
           </Button>
         </Box>
       </Modal>
-
-
     </Box >
   );
 };
