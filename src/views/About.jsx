@@ -101,7 +101,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
@@ -126,7 +126,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
@@ -162,7 +162,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
