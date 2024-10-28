@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import '../styles/blogs.css';
 
 const Blog = ({ mode, textcolor }) => {
-  const blogPosts = [
+
+  const blogItems = localStorage.getItem("blogs")
+
+  const parsedBlogItems = blogItems ? JSON.parse(blogItems) : [];
+  // console.log(parsedBlogItems[0].title)
+
+  const blogs = [
     {
       title: "The Best Gym Workout Plan For Gaining Muscle",
       date: "Wednesday, 15 November 2023",
@@ -29,6 +35,10 @@ const Blog = ({ mode, textcolor }) => {
       content: `If you're looking to lose weight, the huge number of diet plans...`,
     },
   ];
+
+  const blogPosts=[...blogs,...parsedBlogItems];
+
+  console.log(blogPosts)
 
   const [likes, setLikes] = useState(Array(blogPosts.length).fill(0));
   const [liked, setLiked] = useState(Array(blogPosts.length).fill(false));
@@ -64,7 +74,7 @@ const Blog = ({ mode, textcolor }) => {
 
   const toggleCommentBox = (index) => {
     if (!isLoggedIn) {
-      navigate('/register');
+      navigate("/register");
       return;
     }
     const newShowCommentBox = [...showCommentBox];
@@ -86,6 +96,14 @@ const Blog = ({ mode, textcolor }) => {
       const newCommentInputs = [...commentInputs];
       newCommentInputs[index] = "";
       setCommentInputs(newCommentInputs);
+    }
+  };
+  const handleUploadBlog = (index) => {
+    if (!isLoggedIn) {
+      toast.error("unauthenticated");
+      return;
+    } else {
+      navigate("/uploadBlog");
     }
   };
 
