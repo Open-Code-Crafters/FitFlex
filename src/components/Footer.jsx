@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   FaFacebookF,
   FaInstagram,
@@ -122,13 +123,13 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          {[ 
+          {[
             { Icon: FaFacebookF, url: "https://www.facebook.com" },
             { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
             { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
             { Icon: FaInstagram, url: "https://www.instagram.com" },
             { Icon: FaYoutube, url: "https://www.youtube.com" },
-            { Icon: faXTwitter, url: "https://twitter.com" },
+            { Icon: () => <FontAwesomeIcon icon={faXTwitter} />, url: "https://twitter.com" },
           ].map(({ Icon, url }, index) => (
             <IconButton
               key={index}
