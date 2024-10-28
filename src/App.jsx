@@ -29,6 +29,7 @@ import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Contributor from "./components/Contributor.jsx";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -103,6 +104,10 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/dietrecommendation" element={<DietRecommendation />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route
+              path="/contributor"
+              element={<Contributor mode={mode} textcolor={textcolor} />}
+            />
           </Routes>
           <Footer />
           <BackToTopButton />
