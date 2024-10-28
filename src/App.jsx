@@ -24,7 +24,6 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
-import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
 import AOS from 'aos';
@@ -106,7 +105,6 @@ function App() {
           </Routes>
           <Footer />
           <BackToTopButton />
-          <FItFlexChatBot />
         </BrowserRouter>
       </Suspense>
     </>
