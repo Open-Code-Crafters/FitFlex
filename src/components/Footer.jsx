@@ -9,7 +9,6 @@ import {
   Modal,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
@@ -19,7 +18,6 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import logo from "../assets/fitness1.png";
-import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
@@ -130,6 +128,7 @@ const Footer = () => {
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             Stay Updated
           </Typography>
+
 
           {/* Column 1: About */}
           <Grid item xs={12} sm={6} md={2} data-aos="fade-up">
@@ -436,6 +435,7 @@ const Footer = () => {
           </IconButton>
         ))}
       </Box>
+
 
       {/* Tracker Modal */}
       <Modal
