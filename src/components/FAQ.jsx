@@ -61,8 +61,6 @@ const FAQSection = () => {
               key={index}
               expanded={expanded === index}
               onChange={handleChange(index)}
-              data-aos="zoom-in"
-              data-aos-delay={index * 100}
             >
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon sx={{ color: '#fff' }} />}
