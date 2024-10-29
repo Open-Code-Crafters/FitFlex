@@ -1,0 +1,141 @@
+.contributors-container {
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem;
+  overflow: hidden;
+  transition: background 0.3s ease-in-out; /* Add transition for smooth background change */
+}
+
+.github-icon {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  fill: white; /* Adjust color as needed */
+}
+
+.contributors-title {
+  margin-top: 8rem;
+  text-align: center;
+  color: #fb5f04;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.contributors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.contributor-card {
+  position: relative;
+  width: 100%;
+  max-width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(245, 245, 170);
+  border: 1px solid #f69207;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(255, 143, 106, 0.5);
+  padding: 1rem;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(248, 199, 21, 0.752);
+}
+
+.contributor-card:hover p {
+  text-shadow: 1px 1px 2px rgb(240, 244, 245), 0 0 0.2em rgb(251, 253, 253),
+    0 0 0.8em rgb(236, 239, 240);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.contributor-card:hover h2 {
+  text-shadow: 1px 1px 2px rgba(248, 244, 247, 0.926),
+    0 0 0.2em rgb(248, 250, 251), 0 0 0.8em rgb(252, 253, 253);
+  color: white;
+  font-size: 1.04rem;
+  font-weight: 600;
+  text-decoration: wavy;
+}
+
+.contributor-card:hover .contributor-avatar {
+  border: 3.5px solid #fb422a;
+  width: 5.2rem;
+  height: 5.2rem;
+  box-shadow: -2px 4px 10px 1px rgba(250, 250, 13, 0.75);
+}
+
+.contributor-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(152deg, #0d0b0b 50%, #fca903 50%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translate(-100%, -100%);
+  opacity: 0;
+  z-index: -1;
+}
+
+.contributor-card:hover::before {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.contributor-link {
+  display: block;
+}
+
+.contributor-avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #ff2d03;
+  transition: border 0.4s ease-in-out, height 0.4s ease-in-out,
+    width 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contributor-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #050506;
+  margin-bottom: 0.5rem;
+  transition: text-shadow 0.4s ease-in-out, font-size 0.5s ease-in-out,
+    text-decoration 0.4s ease-in-out;
+}
+
+.contributor-contributions {
+  color: #070707;
+  transition: text-shadow 0.4s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+  .contributor-card {
+    max-width: 33.333%;
+  }
+}
+
+@media (max-width: 992px) {
+  .contributor-card {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contributor-card {
+    max-width: 97%;
+  }
+}
