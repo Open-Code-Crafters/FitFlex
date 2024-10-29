@@ -6,7 +6,6 @@ import Loader from "./components/Loader.jsx";
 import NotFound from "./views/NotFound.jsx";
 import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
-import { color } from "framer-motion";
 import PrivacyPolicy from "./views/PrivacyPolicy.jsx";
 import TermsOfUse from "./views/Terms.jsx";
 
@@ -19,6 +18,7 @@ const ForgotPassword = lazy(() => import("./views/ForgotPassword.jsx"));
 {
   ("forgot password location");
 }
+
 const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
 const Plans = lazy(() => import("./views/Plans.jsx"));
@@ -28,7 +28,7 @@ const Workout = lazy(() => import("./views/Workout.jsx"));
 const Blog = lazy(() => import("./views/Blog.jsx"));
 const Services = lazy(() => import("./views/Services.jsx"));
 
-// import FItFlexChatBot from "./components/FItFlexChatBot.jsx";
+
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
 import AOS from "aos";
@@ -60,7 +60,8 @@ function App() {
     AOS.init({
       offset: 80,
     });
-  }, []);
+  }, [])
+
 
   return (
     <>
@@ -104,6 +105,7 @@ function App() {
                 element={<ForgotPassword />}
               />{" "}
               {"forgot password path"}
+
               <Route path="/*" element={<NotFound />} />
               <Route path="/healthtips" element={<HealthTips />} />
               <Route
@@ -111,6 +113,7 @@ function App() {
                 element={<Blog mode={mode} textcolor={textcolor} />}
               />
               <Route
+
                 path="/Contributors"
                 element={<Contributors mode={mode} textcolor={textcolor} />}
               />
@@ -123,6 +126,7 @@ function App() {
                 path="/dietrecommendation"
                 element={<DietRecommendation />}
               />
+              <Route path="/dietrecommendation" element={<DietRecommendation />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
               <Route path="/uploadBlog" element={<UploadBlog />} />
             </Routes>

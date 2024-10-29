@@ -23,11 +23,6 @@ import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   useEffect(() => {
     // Load the embedded chatbot script
     const script = document.createElement("script");
@@ -43,6 +38,11 @@ const Footer = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Box

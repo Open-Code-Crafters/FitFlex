@@ -40,7 +40,7 @@ const Blog = ({ mode, textcolor }) => {
     },
   ];
 
-  const blogPosts=[...blogs,...parsedBlogItems];
+  const blogPosts = [...blogs, ...parsedBlogItems];
 
   console.log(blogPosts)
 
@@ -281,7 +281,7 @@ const Blog = ({ mode, textcolor }) => {
       </div>
 
       <p style={styles.motivationalQuote}>
-        "The only bad workout is the one that didn't happen."
+        The only bad workout is the one that didn't happen.
       </p>
       {blogPosts.map((post, index) => (
         <div

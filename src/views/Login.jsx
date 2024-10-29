@@ -329,7 +329,7 @@ const Login = () => {
             Sign in with Google
           </Button>
 
-            {/* Implemented Forgot Password Button navigation = /forgot-password */}
+          {/* Implemented Forgot Password Button navigation = /forgot-password */}
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
               style={{
