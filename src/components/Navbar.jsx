@@ -1,5 +1,5 @@
 import "../fonts/index.css";
-
+import GoogleTranslate from "./GoogleTranslate";
 import {
   AppBar,
   IconButton,
@@ -8,402 +8,162 @@ import {
   Container,
   Box,
   MenuItem,
-  Menu,
+  Select,
+  Toolbar,
 } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import fitnessPrimaryLogo from "../assets/fitness1.png";
-import fitnessSecondayrLogo from "../assets/fitness2.png";
 import { motion } from "framer-motion";
-import Toolbar from "@mui/material/Toolbar";
-import MenuIcon from "@mui/icons-material/Menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { size } from "lodash";
-import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
-import gsap from 'gsap'
+import gsap from "gsap";
+
+const pages = ["Home", "About", "Contact", "Services", "Register"];
 
 function Navbar(props) {
   const navigate = useNavigate();
   const navTheme = createTheme({
     palette: {
       mode: props.mode,
-      primary: {
-        main: "#000000",
-      },
+      primary: { main: "#000000" },
     },
   });
   const [anchorElNav, setAnchorElNav] = useState(null);
-  // const [isLogged, setLogged] = useState(false);
+  const [language, setLanguage] = useState("EN");
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
+  const handleCloseNavMenu = () => setAnchorElNav(null);
+  const handleLanguageChange = (event) => setLanguage(event.target.value);
 
-  const handleCloseNavMenu = (url) => {
-    // navigate(url)sd
-    location.href = urldsd;
-    setAnchorElNav(null);
-  };
-  // const { scrollYProgress } = useViewportScroll();
-
+  // Scroll-based transformations
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scale, setScale] = useState(1);
-  const [y2, setY2] = useState(13);
   const [y, setY] = useState(0);
-  const [x, setX] = useState(0);
-  const [x2, setX2] = useState(0);
-  const [x3, setX3] = useState(10);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.pageYOffset);
       if (window.pageYOffset > 0) {
-        setY(-50);
-        setX(150);
-        setX2(60);
-        setScale(0.5);
-        setY2(-22);
-        setX3(70);
+        setScale(0.8);
+        setY(-20);
       } else {
         setScale(1);
         setY(0);
-        setX3(10);
-        setY2(13);
-        setX(0);
-        setX2(30);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [window.pageYOffset]);
-
-
-  //gsap starts
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Ensure initial styles are set to scale 1 and opacity 1
-
-
-      // Timeline for animation
-      const tl = gsap.timeline();
-
-
-
-      gsap.utils.toArray('.nav-link').forEach((link) => {
-        tl.fromTo(
-          link,
-          { x: 200, opacity: 0 }, // Starting position off-screen
-          {
-            x: 0, // Sliding in from the right
-            opacity: 1, // Fading in
-            duration: 0.3, // Duration of animation
-            ease: "bounce.out", // Smooth easing effect
-
-          }
-        );
-      });
-
-      const logo = document.querySelector(".website-name");
-      tl.fromTo(
-        logo,
-        {
-          scale: 5, // Small size to simulate starting from a distance (z-axis)
-          // Start from above the viewport
-          opacity: 0, // Hidden initially
-        },
-        {
-          scale: 1, // Full size upon impact
-          y: 0, // Drop to its final position
-          opacity: 1, // Fade in
-          duration: 0.2, // Duration of the drop
-          ease: "bounce.inOut",// Bounce effect on landing
-          onComplete: () => {
-            // Optional: Apply squash/stretch effect on impact
-            gsap.to(logo, {
-              scaleX: 0.5,
-              scaleY: 0.5,
-              duration: 0.2,
-              yoyo: true,
-              repeat: 1,
-              ease: "bounce.inOut",
-            });
-          },
-        }
-      );
-
-
-
-    });
-
-    // Cleanup GSAP context
-    return () => {
-      ctx.revert();
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //gsap ends
+  // GSAP animations
+  useEffect(() => {
+    gsap.fromTo(
+      ".nav-link",
+      { x: 200, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "bounce.out",
+      }
+    );
 
-
-
-
-
-
-
+    gsap.fromTo(
+      ".website-name",
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        ease: "bounce.out",
+      }
+    );
+  }, []);
 
   return (
     <ThemeProvider theme={navTheme}>
       <AppBar
-
         position="fixed"
-        className="navGsap"
-        sx={{
-          background:
-            "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
-        }}
+        sx={{ background: "linear-gradient(90deg, #232526 0%, #1F1C2C 100%)" }}
       >
-        <Container maxWidth="xl" sx={{}}>
-          <Toolbar
-            disableGutters
-            sx={{
-              height: scrollPosition > 0 ? "50px" : "100px",
-              transition: "height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              sx={{ display: { xs: "none", md: "flex" } }}
-              component="div"
-            >
-              <NavLink to="/">
-                <motion.img
-                  src={fitnessPrimaryLogo}
-                  alt="logo"
-                  style={{
-                    marginTop: "-55px",
-                    height: "140px",
-                    width: "150px",
-                    position: "absolute",
-                    top: "100%",
-                    zIndex: 1,
-                    scale: scale,
-                    y: y,
-                    transition:
-                      "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                    cursor: "pointer",
-                  }}
-                  // scale={scale}
-                  whileHover={{ scale: scale + 0.2 }}
-                />
-              </NavLink>
-            </Typography>
-
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, mr: 2, display: { xs: "none", md: "flex" } }}
-            >
-              <motion.div
-                sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-                style={{
-                  x: x,
-                  fontFamily: "Impact, Charcoal, sans-serif",
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                }}
-              >
-                #TransformWithFitFlex
-              </motion.div>
-            </Typography>
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{
-                flexGrow: 1,
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              <motion.div
-                // initial={{ y: -250 }}
-                // animate={{ y: 0 }}
-                // transition={{ duration: 1 }}
-                className="website-name"
-                style={{
-                  fontFamily: "Future2",
-                  letterSpacing: "0.5rem",
-                  color: "white",
-                  fontSize: { sm: "1rem", md: "2rem" },
-                  fontWeight: "bold",
-                }}
-              >
-                FitFlex
-              </motion.div>
-            </Typography>
-
-            <Box
-              sx={{
-                flexGrow: 0,
-                display: { xs: "flex", md: "none" },
-                alignItems: "center",
-              }}
-            >
-              <IconButton
-                size="small"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={() => setAnchorElNav(null)}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem
-                    key={page}
-                    onClick={() => {
-                      setAnchorElNav(null);
-                      setTimeout(() => navigate(`/${page.toLowerCase()}`), 100);
-                    }}
-                  >
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-            <Typography
-              sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
-              component="div"
-            >
+        <Container maxWidth="xl">
+          <Toolbar disableGutters sx={{ height: scrollPosition > 0 ? "70px" : "100px", transition: "height 0.3s" }}>
+            <NavLink to="/">
               <motion.img
-                src={fitnessSecondayrLogo}
+                src={fitnessPrimaryLogo}
                 alt="logo"
                 style={{
-                  marginTop: "-50px",
-                  height: "90px",
-                  width: "280px",
-                  position: "absolute",
-                  top: "100%",
-                  zIndex: 1,
-                  scale: scale - 0.1,
-                  y: y2,
-                  x: x3,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  height: "60px",
+                  width: "80px",
+                  scale,
+                  y,
+                  transition: "transform 0.3s",
                   cursor: "pointer",
                 }}
-                // Responsive styles for smartphones
-                // sx={{
-                //   "@media (max-width: 600px)": {
-                //     height: "20px", // Reduced height for small screens
-                //     width: "0px", // Reduced width for small screens
-                //     marginRight: "30px",
-                //   },
-                // }}
-                whileHover={{ scale: scale + 0.2 }}
               />
+            </NavLink>
+
+            <Typography variant="h6" component="div" className="website-name" sx={{ flexGrow: 1, ml: 2, fontSize: "1.5rem", fontWeight: "bold" }}>
+              FitFlex
             </Typography>
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
-            >
-              <motion.div
-                initial={{ y: -250 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1 }}
-                style={{
-                  fontFamily: "Future2",
-                  letterSpacing: window.innerWidth < 600 ? "0rem" : "0.0rem", // Adjust letterSpacing based on screen size
-                  color: "white",
-                  fontSize: window.innerWidth < 600 ? "1rem" : "1.6rem", // Responsive font size for mobile
-                  fontWeight: "bold",
-                  marginRight: "30px",
-                  zIndex: 10,
-                  transition:
-                    "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-                }}
-              >
-                FitFlex
-              </motion.div>
-            </Typography>
-            <Box sx={{ display: { xs: "none", md: "flex", } }}>
+
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: "right" }}>
               {pages.map((page) => (
                 <Button
-                  className="nav-link"
                   key={page}
-                  onClick={() => {
-                    setAnchorElNav(null);
-                    navigate(`/${page.toLowerCase()}`);
-                  }}
-                  sx={{
-                    my: 2,
-                    color: "white",
-                    display: "block",
-                    alignItems: "center",
-                    mx: 1,
-                    "&:hover": {
-                      backgroundColor: "#0e2338",
-                      transform: "scale(1.1)",
-                    },
-                  }}
+                  onClick={() => navigate(`/${page.toLowerCase()}`)}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  className="nav-link"
                 >
-                  {page}
+                  {page === "Register" ? (
+                    <Box
+                      component="span"
+                      sx={{
+                        backgroundColor: "#ff4081",
+                        color: "white",
+                        px: 2,
+                        py: 1,
+                        borderRadius: 1,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {page}
+                    </Box>
+                  ) : (
+                    page
+                  )}
                 </Button>
               ))}
             </Box>
-            <Box>
+
+            <Box sx={{ display: "flex", alignItems: "center",justifyContent: "center", ml: "auto" }}>
+              <Select
+                value={language}
+                onChange={handleLanguageChange}
+                sx={{ color: "white", mr: 2, minWidth: 80 }}
+              >
+                <MenuItem value="EN">EN</MenuItem>
+                <MenuItem value="ES">ES</MenuItem>
+                <MenuItem value="FR">FR</MenuItem>
+                <MenuItem value="DE">DE</MenuItem>
+                <MenuItem value="CN">CN</MenuItem>
+              </Select>
+
               <IconButton
-                sx={{
-                  ml: 1,
-                  "@media (max-width: 900px)": {
-                    position: "absolute",
-                    right: "0px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                  },
-                  "&:hover": { backgroundColor: "transparent" },
-                }}
                 onClick={props.toggleMode}
                 color="inherit"
+                sx={{ mr: 1 }}
               >
-                {props.mode === "dark" ? (
-                  <Brightness7Icon />
-                ) : (
-                  <Brightness4Icon />
-                )}
+                {props.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
             </Box>
           </Toolbar>
         </Container>
       </AppBar>
+      <GoogleTranslate />
     </ThemeProvider>
   );
 }
