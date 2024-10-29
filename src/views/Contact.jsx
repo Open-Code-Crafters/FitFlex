@@ -17,6 +17,9 @@ import {
 import CheckIcon from "@mui/icons-material/Check";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { styled } from "@mui/system";
+const serviceID = import.meta.env.VITE_emailJS_serviceID;
+const templateID = import.meta.env.VITE_emailJS_templateID;
+const publicKey = import.meta.env.VITE_emailJS_publicKey;
 
 // Styled components for the contact form
 const ContactForm = styled(Paper)(({ theme }) => ({
@@ -148,14 +151,14 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_nlds6fh",
-        "template_iyudm0r",
+        serviceID,
+        templateID,
         {
           from_name: name,
-          from_email: email,
+          to_email: email,
           message: message,
         },
-        "CPgZoAFYXY-JYOWyg"
+        publicKey
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
