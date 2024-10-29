@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import '../styles/blogs.css';
 import { Plus } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Blog = ({ mode, textcolor }) => {
 
@@ -50,6 +51,7 @@ const Blog = ({ mode, textcolor }) => {
   const [searchInput, setSearchInput] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const auth = getAuth();
@@ -233,7 +235,9 @@ const Blog = ({ mode, textcolor }) => {
     },
   };
   return (
+    
     <div className="blog-container">
+      <Toaster />
       <header className="blog-header">
         <h1>Blogs</h1>
         <input
