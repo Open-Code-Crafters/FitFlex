@@ -136,6 +136,7 @@ const Blog = ({ mode, textcolor }) => {
       backgroundColor: mode === "light" ? "#f7f7f7" : "#322220",
       borderRadius: "8px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      marginTop: '9rem',
     },
     motivationalQuote: {
       fontSize: "1.5em",

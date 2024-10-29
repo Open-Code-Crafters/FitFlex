@@ -88,6 +88,7 @@ const Services = ({ mode, textcolor }) => {
             data-aos="fade-up"
             data-aos-delay={index * 200}
             data-aos-duration="1200"
+            style={{ marginTop: '5rem' }}
           >
             <img src={service.imageUrl} alt={service.name} />
             <h2>{service.name}</h2>

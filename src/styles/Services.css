@@ -29,6 +29,7 @@
   position: relative;
   overflow: hidden;
   text-align: center;
+  margin-top: 5rem !important;
 }
 
 .service-card:hover {
@@ -140,4 +141,3 @@
   --button-bg-color: #007bff;
   --button-hover-bg-color: #0056b3;
 }
-
