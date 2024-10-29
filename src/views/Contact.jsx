@@ -138,17 +138,7 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const isNameValid = validateName(name);
-    const isEmailValid = validateEmail(email);
-    const isMessageValid = validateMessage(message);
-
-    if (!isNameValid || !isEmailValid || !isMessageValid) {
-      setShowError(true);
-      return;
-    }
-
+  const sendEmail = () => {
     emailjs
       .send(
         serviceID,
@@ -163,11 +153,15 @@ const Contact = () => {
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
         setOpen(true);
+        resetForm(); // Call a helper function to reset form and state
       })
       .catch((err) => {
         console.error("FAILED...", err);
       });
-
+  };
+  
+  // Helper function to reset form and state
+  const resetForm = () => {
     setName("");
     setEmail("");
     setMessage("");
@@ -175,6 +169,21 @@ const Contact = () => {
     setShowNameIcon(false);
     setShowEmailIcon(false);
     setShowMessageIcon(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const isNameValid = validateName(name);
+    const isEmailValid = validateEmail(email);
+    const isMessageValid = validateMessage(message);
+
+    if (!isNameValid || !isEmailValid || !isMessageValid) {
+      setShowError(true);
+      return;
+    }
+
+    sendEmail();
+    resetForm();
   };
 
   const validateName = (name) => {
