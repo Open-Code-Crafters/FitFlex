@@ -5,10 +5,22 @@ import { toast, ToastContainer } from "react-toastify";
 const Services = ({ mode, textcolor }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [currentService, setCurrentService] = useState("");
+  const [like, setLike] = useState({
+    PersonalTraining: false,
+    NutritionalCounseling: false,
+    OnlineVirtualTraining: false,
+  });
 
   const handleOpenModal = (service) => {
     setCurrentService(service);
     setModalOpen(true);
+  };
+
+  const handleLikeClick = (serviceName) => {
+    setLike((prev) => ({
+      ...prev,
+      [serviceName.replace(" ", "")]: !prev[serviceName.replace(" ", "")],
+    }));
   };
 
   const handleCloseModal = () => {
@@ -44,7 +56,7 @@ const Services = ({ mode, textcolor }) => {
       imageUrl:
         "https://d2wvwvig0d1mx7.cloudfront.net/data/org/26275/media/img/source/edit/3262615_edit.webp",
       views: 262,
-      likes: 40,
+      baseLikes: 40,
     },
     {
       name: "Nutritional Counseling",
@@ -53,7 +65,7 @@ const Services = ({ mode, textcolor }) => {
       imageUrl:
         "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2936524_edit.webp",
       views: 205,
-      likes: 37,
+      baseLikes: 37,
     },
     {
       name: "Online Virtual Training",
@@ -62,7 +74,7 @@ const Services = ({ mode, textcolor }) => {
       imageUrl:
         "https://dvm0q8ak413bh.cloudfront.net/data/org/26275/media/img/source/edit/2942210_edit.webp",
       views: 237,
-      likes: 46,
+      baseLikes: 46,
     },
   ];
 
@@ -70,10 +82,13 @@ const Services = ({ mode, textcolor }) => {
     <>
       <div className={`service-grid ${mode}`}>
         {services.map((service, index) => (
-          <div className="service-card" key={service.name}
+          <div
+            className="service-card"
+            key={service.name}
             data-aos="fade-up"
             data-aos-delay={index * 200}
-            data-aos-duration="1200">
+            data-aos-duration="1200"
+          >
             <img src={service.imageUrl} alt={service.name} />
             <h2>{service.name}</h2>
             <p>{service.description}</p>
@@ -82,7 +97,14 @@ const Services = ({ mode, textcolor }) => {
             </button>
             <div className="stats">
               <span className="views">👁️ Views: {service.views}</span>
-              <span className="likes">❤️ Likes: {service.likes}</span>
+
+              <span
+                className={`likes ${like[service.name.replace(" ", "")] ? "liked" : ""}`}
+                onClick={() => handleLikeClick(service.name)}
+              >
+                ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
+                {like[service.name.replace(" ", "")] ? service.baseLikes + 1 : service.baseLikes}
+              </span>
             </div>
           </div>
         ))}
@@ -105,7 +127,7 @@ const Services = ({ mode, textcolor }) => {
               <p style={styles.modalText}>
                 Fill out the form below, and we’ll be in touch shortly.
               </p>
-              <form onSubmit={(e) => handleSendMessage(e)}>
+              <form onSubmit={handleSendMessage}>
                 <input
                   type="text"
                   placeholder="Your Name"

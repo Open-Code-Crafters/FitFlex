@@ -9,6 +9,7 @@ import {
   Modal,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
@@ -22,18 +23,13 @@ import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   useEffect(() => {
     // Load the embedded chatbot script
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.defer = true;
-    script.setAttribute('chatbotId', "3CQjUebCFQdRORiKuycVw");
-    script.setAttribute('domain', "www.chatbase.co");
+    script.setAttribute("chatbotId", "3CQjUebCFQdRORiKuycVw");
+    script.setAttribute("domain", "www.chatbase.co");
 
     document.body.appendChild(script);
 
@@ -42,6 +38,11 @@ const Footer = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Box
@@ -73,7 +74,8 @@ const Footer = () => {
             </Typography>
           </Box>
           <Typography variant="body2" sx={{ color: "grey.400" }}>
-            Your companion for a healthy lifestyle. Track your fitness, stay motivated, and be your best self with FitLife.
+            Your companion for a healthy lifestyle. Track your fitness, stay
+            motivated, and be your best self with FitLife.
           </Typography>
         </Grid>
 
@@ -83,17 +85,46 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Box>
-            <Link component={RouterLink} to="/about" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+            <Link
+              component={RouterLink}
+              to="/about"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
               About Us
             </Link>
-            <Link component={RouterLink} to="/services" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+            <Link
+              component={RouterLink}
+              to="/services"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
               Services
             </Link>
-            <Link component={RouterLink} to="/contact" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+            <Link
+              component={RouterLink}
+              to="/contact"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
               Contact
             </Link>
-            <Link component={RouterLink} to="/blog" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+            <Link
+              component={RouterLink}
+              to="/blog"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
               Blog
+            </Link>
+
+            <Link component={RouterLink} to="/contributor" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+              Our Contributor
+
             </Link>
           </Box>
         </Grid>
@@ -122,7 +153,7 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          {[ 
+          {[
             { Icon: FaFacebookF, url: "https://www.facebook.com" },
             { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
             { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
@@ -143,7 +174,7 @@ const Footer = () => {
                 "&:hover": { color: "#fff" },
               }}
             >
-              <Icon fontSize="inherit" />
+              <FontAwesomeIcon icon={Icon} fontSize="inherit" />
             </IconButton>
           ))}
         </Grid>

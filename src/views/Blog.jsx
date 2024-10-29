@@ -36,7 +36,7 @@ const Blog = ({ mode, textcolor }) => {
     },
   ];
 
-  const blogPosts=[...blogs,...parsedBlogItems];
+  const blogPosts = [...blogs, ...parsedBlogItems];
 
   console.log(blogPosts)
 
