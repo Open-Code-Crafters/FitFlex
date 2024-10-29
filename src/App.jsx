@@ -14,10 +14,8 @@ const Home = lazy(() => import("./views/Home.jsx"));
 const Contact = lazy(() => import("./views/Contact.jsx"));
 const Register = lazy(() => import("./views/Register.jsx"));
 const Login = lazy(() => import("./views/Login.jsx"));
-const ForgotPassword = lazy(() => import("./views/ForgotPassword.jsx"));
-{
-  ("forgot password location");
-}
+const ForgotPassword = lazy(() => import("./views/ForgotPassword.jsx")); { "forgot password location" }
+
 
 const About = lazy(() => import("./views/About.jsx"));
 const Profile = lazy(() => import("./views/Profile.jsx"));
@@ -31,6 +29,8 @@ const Services = lazy(() => import("./views/Services.jsx"));
 
 import ProgressBar from "./components/ProgressBar.jsx";
 import DietRecommendation from "./components/DietRecommendation.jsx";
+
+import Contributor from "./components/Contributor.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import UploadBlog from "./views/uploadBlog.jsx";
@@ -100,11 +100,8 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route
-                path="/forgot-password"
-                element={<ForgotPassword />}
-              />{" "}
-              {"forgot password path"}
+
+              <Route path="/forgot-password" element={<ForgotPassword />} /> {"forgot password path"}
 
               <Route path="/*" element={<NotFound />} />
               <Route path="/healthtips" element={<HealthTips />} />
@@ -114,21 +111,25 @@ function App() {
               />
               <Route
 
+
                 path="/Contributors"
                 element={<Contributors mode={mode} textcolor={textcolor} />}
               />
               <Route
+
                 path="/services"
                 element={<Services mode={mode} textcolor={textcolor} />}
               />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route
-                path="/dietrecommendation"
-                element={<DietRecommendation />}
-              />
+
               <Route path="/dietrecommendation" element={<DietRecommendation />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
+              <Route
+                path="/contributor"
+                element={<Contributor mode={mode} textcolor={textcolor} />}
+              />
               <Route path="/uploadBlog" element={<UploadBlog />} />
+
             </Routes>
             <Footer />
             <BackToTopButton />

@@ -121,14 +121,10 @@ const Footer = () => {
             >
               Blog
             </Link>
-            <Link
-              component={RouterLink}
-              to="/Contributors"
-              color="inherit"
-              underline="none"
-              sx={{ display: "block", mb: 0.5 }}
-            >
-              Contributors
+
+            <Link component={RouterLink} to="/contributor" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+              Our Contributor
+
             </Link>
           </Box>
         </Grid>
