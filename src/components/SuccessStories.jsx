@@ -24,15 +24,7 @@ const SuccessStories = () => {
       rating: "★★★★",
     },
     {
-      image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=1480&q=80",
-      name: "Tania Andrew",
-      role: "Designer",
-      company: "Google",
-      testimonial:
-        "I found a solution to all my design needs from Creative Tim. I use them as a freelancer in my hobby projects for fun! And it's really affordable, very humble guys!",
-    },
-    {
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      image: customer9,
       name: "John Doe",
       story:
         "Joining FitFlex changed my life! I lost 20 pounds and gained confidence.",
@@ -87,7 +79,6 @@ const SuccessStories = () => {
         "The FitFlex community has been a game changer. The accountability and support have helped me stick to my routine.",
       rating: "★★★★★"
     },
-    // More stories here...
   ];
 
   useEffect(() => {

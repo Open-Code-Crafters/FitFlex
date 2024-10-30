@@ -8,7 +8,7 @@ export default function HomeSlider({ object }) {
   const [arrowState, setArrowState] = useState(true);
   useEffect(() => {
     const x = window.innerWidth;
-
+    console.log(x);
     if (x < 900) {
       setArrowState(false);
     } else {

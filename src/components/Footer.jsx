@@ -11,7 +11,6 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
-
 import {
   FaFacebookF,
   FaInstagram,
@@ -34,6 +33,7 @@ const Footer = () => {
 
     document.body.appendChild(script);
 
+    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.body.removeChild(script);
     };
@@ -54,9 +54,14 @@ const Footer = () => {
         fontFamily: "'Helvetica Neue', sans-serif",
       }}
     >
-      <Grid container spacing={3} justifyContent="space-between">
-        
-        {/* Logo and Description */}
+      <Grid
+        container
+        spacing={3}
+        justifyContent={{ xs: "center", sm: "space-between" }}
+        alignItems={{ xs: "center", sm: "normal" }}
+        direction={{ xs: "column", sm: "row" }}
+      >
+        {/* Column 1: Logo and Description */}
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <img
@@ -74,8 +79,8 @@ const Footer = () => {
           </Typography>
         </Grid>
 
-        {/* Quick Links */}
-        <Grid item xs={12} sm={6} md={2}>
+        {/* Column 2: Quick Links */}
+        <Grid item xs={12} sm={6} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             Quick Links
           </Typography>
@@ -124,7 +129,7 @@ const Footer = () => {
           </Box>
         </Grid>
 
-        {/* Newsletter and Tracker */}
+        {/* Column 3: Newsletter Subscription and Tracker Button */}
         <Grid item xs={12} sm={12} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             Stay Updated
@@ -176,9 +181,32 @@ const Footer = () => {
       </Grid>
 
       {/* Tracker Modal */}
-      <Modal open={open} onClose={handleClose} aria-labelledby="tracker-modal">
-        <Box sx={{ /* Add your styling here for the Modal */ }}>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="tracker-modal-title"
+        aria-describedby="tracker-modal-description"
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            width: { xs: "90%", sm: "70%", md: "50%" },
+            borderRadius: 2,
+          }}
+        >
+          <Typography id="tracker-modal-title" variant="h6" component="h2">
+            Calorie Tracker
+          </Typography>
           <Tracker />
+          <Button onClick={handleClose} sx={{ mt: 2 }}>
+            Close
+          </Button>
         </Box>
       </Modal>
     </Box>

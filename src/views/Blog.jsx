@@ -110,8 +110,6 @@ const Blog = ({ mode, textcolor }) => {
     }
   };
 
-  // Adding useEffect for debugging
-  
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setSearchInput(searchTerm);

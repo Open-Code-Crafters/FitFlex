@@ -21,12 +21,7 @@
   }
   
   .cta {
-    width: 100%;
-    height: 76px;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
       padding: 10px 45px;
       text-decoration: none;
       font-family: 'Poppins', sans-serif;
@@ -57,13 +52,15 @@
       margin-right: 45px;
   }
   
-    /* span {
+    span {
       transform: skewX(15deg) 
-    } */
+    }
   
     span:nth-child(2) {
-    
+      width: 20px;
+      margin-left: 30px;
       position: relative;
+      top: 12%;
     }
     
   /**************SVG****************/
@@ -111,11 +108,10 @@
         font-size: 25px;
         padding: 5px 20px;
     }
-
-    .cta span:nth-child(2) {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
+    span:nth-child(2) {
+        width: 15px;
+        margin-left: 23px;
+        position: relative;
+        top: 12%;
+      }
 }
-

@@ -19,13 +19,10 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@hookform/resolvers": "^3.8.0",
-    "@mui/icons-material": "^5.16.0",
-    "@mui/lab": "^5.0.0-alpha.171",
-    "@mui/material": "^6.1.5",
-    "@mui/system": "^6.1.2",
-    "@mui/x-date-pickers": "^7.9.0",
+    "@mui/icons-material": "^6.1.6",
+    "@mui/material": "^6.1.6",
     "@radix-ui/react-dialog": "^1.1.2",
-
+    "@radix-ui/react-slot": "^1.1.0",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.7.7",
     "chart.js": "^4.4.3",
@@ -38,7 +35,7 @@
     "framer-motion": "^11.11.10",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",
-    "lucide-react": "^0.452.0",
+    "lucide-react": "^0.453.0",
     "nodemailer": "^6.9.15",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -56,12 +53,12 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.0.0",
     "tailwind": "^4.0.0",
-    "tailwind-merge": "^2.5.3",
+    "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
+    "@types/node": "^22.8.4",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.5.0",
@@ -71,7 +68,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.13",
+    "tailwindcss": "^3.4.14",
     "vite": "^5.2.0"
   }
 }

@@ -97,5 +97,10 @@ body::-webkit-scrollbar-thumb:hover {
   transform: translateY(-5px);
 }
 
-
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 

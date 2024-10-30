@@ -93,7 +93,7 @@ const FAQSection = () => {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-       
+          background: '#2B2B2B',
           padding: '40px 0',
           minHeight: '100vh',
         }}
