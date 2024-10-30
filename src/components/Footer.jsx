@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
@@ -24,18 +24,13 @@ import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  
   useEffect(() => {
     // Load the embedded chatbot script
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.defer = true;
-    script.setAttribute('chatbotId', "3CQjUebCFQdRORiKuycVw");
-    script.setAttribute('domain', "www.chatbase.co");
+    script.setAttribute("chatbotId", "3CQjUebCFQdRORiKuycVw");
+    script.setAttribute("domain", "www.chatbase.co");
 
     document.body.appendChild(script);
 
@@ -45,6 +40,10 @@ const Footer = () => {
     };
   }, []);
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Box
@@ -76,8 +75,6 @@ const Footer = () => {
             <Typography variant="body2" sx={{ color: "grey.400" }}>
               Your companion for a healthy lifestyle. Track your fitness, stay motivated, and be your best self with FitLife.
             </Typography>
-          </Box>
-        </Grid>
 
         {/* Columns 2-5: About, Services, Resources, Company */}
         {[
