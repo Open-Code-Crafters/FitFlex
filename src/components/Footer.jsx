@@ -18,6 +18,7 @@ import {
   FaLinkedinIn,
   FaTelegramPlane,
 } from "react-icons/fa";
+import { FaGithub } from 'react-icons/fa';
 import logo from "../assets/fitness1.png";
 import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
@@ -38,9 +39,38 @@ const Footer = () => {
       document.body.removeChild(script);
     };
   }, []);
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/Open-Code-Crafters/FitFlex"
+        );
+        const data = await response.json();
+        setStars(data.stargazers_count);
+      } catch (error) {
+        console.error("Error fetching GitHub stars:", error);
+      }
+    };
+
+    fetchStars();
+  }, []);
+  const [visits, setVisits] = useState(0);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const storedVisits = Number(localStorage.getItem("visitCounter")) || 0;
+    setVisits(storedVisits + 1);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("visitCounter", visits);
+  }, [visits]);
 
   const [open, setOpen] = useState(false);
-
+  const [stars, setStars] = useState(0);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -77,7 +107,70 @@ const Footer = () => {
             Your companion for a healthy lifestyle. Track your fitness, stay
             motivated, and be your best self with FitLife.
           </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: 2,
+              backgroundColor: "#333333", // Slightly brighter shade
+              padding: "8px 16px",
+              borderRadius: "8px",
+              width: "200px", // Restricts width to 200px max
+            }}
+          >
+            <FaGithub style={{ marginRight: "8px", color: "#fff" }} />
+            <a
+              href="https://github.com/Open-Code-Crafters/FitFlex"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#fff",
+                textDecoration: "none",
+                fontWeight: "bold",
+                marginRight: "8px",
+                whiteSpace: "nowrap", // Keeps text on one line
+                overflow: "hidden",
+                textOverflow: "ellipsis", // Adds "..." if text overflows
+              }}
+            >
+              Star us ⭐
+            </a>
+            <Typography sx={{ color: "#fff" }}>{stars > 0 ? stars : ""}</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "200px",
+              padding: "8px",
+              backgroundColor: "#f0f0f0",
+              borderRadius: "8px",
+              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
+              mt: 2,
+            }}
+          >
+            {/* Scroll to Top Icon and Visitor Counter */}
+            <Box sx={{ display: "flex", alignItems: "center", mb: 1 , mt:1}}>
+         
+
+              {/* Visitor Counter Image */}
+              <a href="https://www.hitwebcounter.com" target="_blank" rel="noopener noreferrer" style={{ marginLeft: "10px" }}>
+              <img src="https://hitwebcounter.com/counter/counter.php?page=17135996&style=0006&nbdigits=5&type=page&initCount=1000" 
+                  alt="Visit counter for websites"
+                  style={{ border: "none" }}
+                />
+              </a>
+            </Box>
+
+            {/* Total Visitors Text */}
+            <Typography variant="body2" sx={{ fontWeight: "bold", fontSize: "19px", color: "#333" }}>
+              Total Visitors
+            </Typography>
+          </Box>
+
         </Grid>
+
 
         {/* Column 2: Quick Links */}
         <Grid item xs={12} sm={6} md={4}>
