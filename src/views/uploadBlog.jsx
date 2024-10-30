@@ -39,11 +39,15 @@ const UploadBlog = () => {
       toast.error("unauthenticated")
       navigate("/register");
     }
-    const imageName = image ? image : null;
-    console.log(image+"ADWwwwwdawwwwwwwwwwadw")
+    // console.log(image+"ADWwwwwdawwwwwwwwwwadw")
+
+    if(!image){
+      toast.error("please provide a cover image to you blog")
+      return;
+    }
 
     // Call the handleUpload function from context with the blog details
-    handleUpload(title, author, content, imageName);
+    handleUpload(title, author, content, image);
 
     // Reset form fields after submission
     setTitle("");
@@ -66,7 +70,7 @@ const UploadBlog = () => {
         onSubmit={handleSubmit}
         className="p-8 rounded-lg bg-black hover:scale-105 transition-all duration-500 shadow-md w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold mb-4 text-center">Upload Blog {image}</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Upload Blog</h2>
         <div className="mb-6 p-[.5px] bg-gradient-to-t from-orange-500 to-yellow-400">
           <div className="bg-black p-2 mb-2">
             <input
