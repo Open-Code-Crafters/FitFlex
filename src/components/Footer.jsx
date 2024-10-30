@@ -9,7 +9,6 @@ import {
   Modal,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
@@ -25,12 +24,8 @@ import Subscribe from "./Subscribe";
 import Tracker from "./Tracker";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   useEffect(() => {
+    // Load the embedded chatbot script
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.defer = true;
@@ -43,6 +38,11 @@ const Footer = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Box
@@ -69,7 +69,8 @@ const Footer = () => {
             </Typography>
           </Box>
           <Typography variant="body2" sx={{ color: "grey.400" }}>
-            Your companion for a healthy lifestyle. Track your fitness, stay motivated, and be your best self with FitLife.
+            Your companion for a healthy lifestyle. Track your fitness, stay
+            motivated, and be your best self with FitLife.
           </Typography>
         </Grid>
 
@@ -79,18 +80,47 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Box>
-            {["About Us", "Services", "Contact", "Blog"].map((text, index) => (
-              <Link
-                component={RouterLink}
-                to={`/${text.toLowerCase().replace(" ", "")}`}
-                key={index}
-                color="inherit"
-                underline="none"
-                sx={{ display: "block", mb: 0.5 }}
-              >
-                {text}
-              </Link>
-            ))}
+            <Link
+              component={RouterLink}
+              to="/about"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              About Us
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/services"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Services
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/contact"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Contact
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/blog"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Blog
+            </Link>
+
+            <Link component={RouterLink} to="/contributor" color="inherit" underline="none" sx={{ display: "block", mb: 0.5 }}>
+              Our Contributor
+
+            </Link>
           </Box>
         </Grid>
 
@@ -118,20 +148,28 @@ const Footer = () => {
 
         {/* Social Media Icons */}
         <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-
-          {[ 
-            { icon: FaFacebookF, link: "https://facebook.com" },
-            { icon: FaTelegramPlane, link: "https://web.telegram.org" },
-            { icon: FaLinkedinIn, link: "https://linkedin.com" },
-            { icon: FaInstagram, link: "https://instagram.com" },
-            { icon: FaYoutube, link: "https://youtube.com" },
-          ].map(({ icon: Icon, link }, index) => (
-            <IconButton key={index} color="inherit" href={link} target="_blank" sx={{ mx: 1 }}>
-              <Icon />
-
-          
+          {[
+            { Icon: FaFacebookF, url: "https://www.facebook.com" },
+            { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
+            { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
+            { Icon: FaInstagram, url: "https://www.instagram.com" },
+            { Icon: FaYoutube, url: "https://www.youtube.com" },
+            { Icon: faXTwitter, url: "https://twitter.com" },
+          ].map(({ Icon, url }, index) => (
+            <IconButton
+              key={index}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              color="inherit"
+              sx={{
+                fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+                mx: { xs: 0.5, sm: 1 },
+                color: "grey.500",
+                "&:hover": { color: "#fff" },
+              }}
+            >
               <FontAwesomeIcon icon={Icon} fontSize="inherit" />
-
             </IconButton>
           ))}
         </Grid>
