@@ -5,7 +5,7 @@ import '../styles/blogs.css';
 import { Plus } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
-const Blog = ({ mode, textcolor }) => {
+const Blog = () => {
 
   const blogItems = localStorage.getItem("blogs")
 
@@ -116,6 +116,7 @@ const Blog = ({ mode, textcolor }) => {
     const filtered = blogPosts.filter(post => post.title.toLowerCase().includes(searchTerm));
     setFilteredPosts(filtered);
   };
+
   const styles = {
     blogContainer: {
       maxWidth: "800px",
