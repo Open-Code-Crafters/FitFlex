@@ -270,8 +270,10 @@ function Navbar(props) {
               >
                 <MenuIcon />
               </IconButton> */}
+              <div className="md:hidden">
 
               <SheetDemo />
+              </div>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
