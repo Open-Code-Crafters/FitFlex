@@ -17,6 +17,9 @@ import {
 import CheckIcon from "@mui/icons-material/Check";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { styled } from "@mui/system";
+const serviceID = import.meta.env.VITE_emailJS_serviceID;
+const templateID = import.meta.env.VITE_emailJS_templateID;
+const publicKey = import.meta.env.VITE_emailJS_publicKey;
 
 // Styled components for the contact form
 const ContactForm = styled(Paper)(({ theme }) => ({
@@ -135,6 +138,39 @@ const Contact = () => {
     }
   };
 
+  const sendEmail = () => {
+    emailjs
+      .send(
+        serviceID,
+        templateID,
+        {
+          from_name: name,
+          to_email: email,
+          message: message,
+        },
+        publicKey
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setOpen(true);
+        resetForm(); // Call a helper function to reset form and state
+      })
+      .catch((err) => {
+        console.error("FAILED...", err);
+      });
+  };
+  
+  // Helper function to reset form and state
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+    setShowError(false);
+    setShowNameIcon(false);
+    setShowEmailIcon(false);
+    setShowMessageIcon(false);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const isNameValid = validateName(name);
@@ -146,32 +182,8 @@ const Contact = () => {
       return;
     }
 
-    emailjs
-      .send(
-        "service_nlds6fh",
-        "template_iyudm0r",
-        {
-          from_name: name,
-          from_email: email,
-          message: message,
-        },
-        "CPgZoAFYXY-JYOWyg"
-      )
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setOpen(true);
-      })
-      .catch((err) => {
-        console.error("FAILED...", err);
-      });
-
-    setName("");
-    setEmail("");
-    setMessage("");
-    setShowError(false);
-    setShowNameIcon(false);
-    setShowEmailIcon(false);
-    setShowMessageIcon(false);
+    sendEmail();
+    resetForm();
   };
 
   const validateName = (name) => {
