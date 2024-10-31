@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+import '../styles/blogs.css';
 import { Plus } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
 const Blog = ({ mode, textcolor }) => {
-  const blogItems = localStorage.getItem("blogs");
+
+  const blogItems = localStorage.getItem("blogs")
+
   const parsedBlogItems = blogItems ? JSON.parse(blogItems) : [];
   const blogs = [
     {
@@ -14,6 +18,7 @@ const Blog = ({ mode, textcolor }) => {
       author: "Spencer Cartwright",
       image:
         "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
+
       content: `Building muscle requires a person to commit to regular strength training...`,
     },
     {
@@ -22,6 +27,7 @@ const Blog = ({ mode, textcolor }) => {
       author: "Doni Thomson",
       image:
         "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
+
       content: `If you're just getting started at the gym, it can feel challenging knowing...`,
     },
     {
@@ -39,14 +45,17 @@ const Blog = ({ mode, textcolor }) => {
   const [showCommentBox, setShowCommentBox] = useState(blogPosts.map(() => false));
   const [comments, setComments] = useState(blogPosts.map(() => []));
   const [commentInputs, setCommentInputs] = useState(blogPosts.map(() => ""));
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
+
     });
     return () => unsubscribe();
   }, []);
@@ -62,6 +71,7 @@ const Blog = ({ mode, textcolor }) => {
     newLiked[index] = !newLiked[index];
     setLikes(newLikes);
     setLiked(newLiked);
+
   };
 
   const toggleCommentBox = (index) => {
@@ -99,15 +109,11 @@ const Blog = ({ mode, textcolor }) => {
     navigate("/uploadBlog");
   };
 
-  // Adding useEffect for debugging
-  useEffect(() => {
-    console.log("Blog component rendered");
-  }, []);
 
   const styles = {
     blogContainer: {
       maxWidth: "800px",
-      margin: "0 auto",
+      margin: "100px auto 0 auto",
       padding: "20px",
       fontFamily: "Arial, sans-serif",
       color: "#333",
@@ -222,10 +228,43 @@ const Blog = ({ mode, textcolor }) => {
       color: textcolor,
     },
   };
-
   return (
-    <div style={styles.blogContainer}>
+
+    <div className="blog-container">
       <Toaster />
+
+
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+
+        {/* {isLoggedIn && ( */}
+        <button
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#ff4500",
+            color: "#fff",
+            marginTop: "90px",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "1.2em",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={handleUploadBlog}
+        >
+          <Plus style={{ marginRight: "5px" }} /> Upload Blog
+        </button>
+        {/* )} */}
+      </div>
       <div className="flex justify-center mb-6 mt-28">
         <input
           type="text"
@@ -280,6 +319,7 @@ const Blog = ({ mode, textcolor }) => {
       ) : (
         <p>No blogs found matching your search.</p>
       )}
+
     </div>
   );
 };
