@@ -27,7 +27,7 @@ const About = ({ mode, textcolor }) => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0' }}>
+    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor, marginTop:100 }} sx={{ padding: '2rem 0' }}>
 
       {/* Hero Section */}
       <div className="slogan" data-aos="zoom-in" data-aos-duration="2000">

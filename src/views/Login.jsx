@@ -146,6 +146,7 @@ const Login = () => {
         justifyContent: "center",
         padding: 0,
         margin: 0,
+        marginTop: "50px",
         fontFamily: "Future2",
       }}
     >
@@ -329,7 +330,7 @@ const Login = () => {
             Sign in with Google
           </Button>
 
-            {/* Implemented Forgot Password Button navigation = /forgot-password */}
+          {/* Implemented Forgot Password Button navigation = /forgot-password */}
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <Button
               style={{
