@@ -27,7 +27,9 @@ const About = ({ mode, textcolor }) => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0' }}>
+
+    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0', marginTop: '5rem' }}>
+
 
       {/* Hero Section */}
       <div className="slogan" data-aos="zoom-in" data-aos-duration="2000">
@@ -406,7 +408,7 @@ const About = ({ mode, textcolor }) => {
           Join FitFlex Now
         </Button>
       </Box>
-     <Box sx={{
+      <Box sx={{
         backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
         textAlign: 'center',
         color: mode === 'dark' ? '#fff' : '#000',
@@ -414,11 +416,11 @@ const About = ({ mode, textcolor }) => {
         borderRadius: 2
       }}>
 
-        <TeamMembers mode={mode}/>
-     </Box>
+        <TeamMembers mode={mode} />
+      </Box>
 
-     
-   
+
+
     </Container>
   );
 };

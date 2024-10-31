@@ -1,14 +1,18 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { redirect, useNavigate } from "react-router-dom";
 import { useBlog } from "../../context/blogContext";
+import CloudinaryUpload from "../components/imageupload";
 
 const UploadBlog = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
+
+  const cloudName= import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
+  const uploadPreset= import.meta.env.VITE_CLOUDINARY_CLOUD_PRESET
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -35,11 +39,15 @@ const UploadBlog = () => {
       toast.error("unauthenticated")
       navigate("/register");
     }
-    const imageName = image ? image.name.toString() : null;
-    // console.log(imageName)
+    // console.log(image+"ADWwwwwdawwwwwwwwwwadw")
+
+    if(!image){
+      toast.error("please provide a cover image to you blog")
+      return;
+    }
 
     // Call the handleUpload function from context with the blog details
-    handleUpload(title, author, content, imageName);
+    handleUpload(title, author, content, image);
 
     // Reset form fields after submission
     setTitle("");
@@ -52,9 +60,9 @@ const UploadBlog = () => {
     // console.log("Blog uploaded:", { title, author, content, imageName });
   };
 
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
-  };
+  // const handleImageChange = (e) => {
+  //   setImage(e.target.files[0]);
+  // };
 
   return (
     <div className="flex items-center justify-center font-future  text-gray-200 pt-20 h-screen bg-gray-100">
@@ -100,7 +108,7 @@ const UploadBlog = () => {
           </div>
         </div>
         <div className="mb-4 p-[.5px] bg-gradient-to-t from-orange-500 to-yellow-400">
-          <div className="bg-black p-2 mb-2">
+          {/* <div className="bg-black p-2 mb-2">
             <input
               type="file"
               accept=".jpg, .jpeg, image/jpg, image/jpeg"
@@ -108,7 +116,8 @@ const UploadBlog = () => {
               onChange={handleImageChange}
               className="w-full bg-black px-4 py-2 border rounded-lg"
             />
-          </div>
+          </div> */}
+          <CloudinaryUpload cloudName={cloudName} uploadPreset={uploadPreset} onUploadSuccess={setImage}/>
         </div>
         <button
           type="submit"
@@ -117,6 +126,7 @@ const UploadBlog = () => {
           Upload Blog
         </button>
       </form>
+      <Toaster/>
     </div>
   );
 };
