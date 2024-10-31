@@ -7,6 +7,7 @@ import {
   Grid,
   Button,
   Modal,
+  Grid2,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -54,7 +55,7 @@ const Footer = () => {
         fontFamily: "'Helvetica Neue', sans-serif",
       }}
     >
-      <Grid
+      <Grid2
         container
         spacing={3}
         justifyContent={{ xs: "center", sm: "space-between" }}
@@ -80,7 +81,7 @@ const Footer = () => {
         </Grid>
 
         {/* Column 2: Quick Links */}
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid2 item xs={12} sm={6} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             Quick Links
           </Typography>
@@ -127,10 +128,10 @@ const Footer = () => {
 
             </Link>
           </Box>
-        </Grid>
+        </Grid2>
 
         {/* Column 3: Newsletter Subscription and Tracker Button */}
-        <Grid item xs={12} sm={12} md={4}>
+        <Grid2 item xs={12} sm={12} md={4}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             Stay Updated
           </Typography>
@@ -149,10 +150,10 @@ const Footer = () => {
           >
             Open Tracker
           </Button>
-        </Grid>
+        </Grid2>
 
         {/* Social Media Icons */}
-        <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
+        <Grid2 item xs={12} sx={{ textAlign: "center", mt: 2 }}>
           {[
             { Icon: FaFacebookF, url: "https://www.facebook.com" },
             { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
@@ -177,8 +178,8 @@ const Footer = () => {
               <FontAwesomeIcon icon={Icon} fontSize="inherit" />
             </IconButton>
           ))}
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
       {/* Tracker Modal */}
       <Modal
