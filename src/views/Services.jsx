@@ -79,7 +79,7 @@ const Services = ({ mode, textcolor }) => {
     {
       name: "Group Fitness Classes",
       description:"Engage in high-energy group sessions like HIIT, yoga, pilates, and circuit training, designed to keep clients motivated and connected.",
-      imageUrl:"./src/assets/services/groupFitness.jpg",
+      imageUrl:"./groupFitness.jpg",
       views: 256,
       baseLikes: 41,
     },
@@ -87,7 +87,7 @@ const Services = ({ mode, textcolor }) => {
       name: "Lifestyle and Wellness Coaching",
       description:
         "Offer holistic guidance on stress management, mental wellness, and lifestyle changes to support overall health.",
-      imageUrl:"./src/assets/services/coach.jpg ",
+      imageUrl:"./coach.jpg ",
       views: 200,
       baseLikes: 67,
     },
@@ -96,7 +96,7 @@ const Services = ({ mode, textcolor }) => {
       description:
         "Introduce sessions focused on enhancing posture, flexibility, and joint mobility for daily comfort and improved movement.",
       imageUrl:
-        "./src/assets/services/postureForm.jpg",
+        "./postureForm.jpg",
       views: 400,
       baseLikes: 46,
     },
@@ -105,7 +105,7 @@ const Services = ({ mode, textcolor }) => {
       description:
         "Provide regular assessments to monitor progress, set new goals, and give feedback on achievements.",
       imageUrl:
-        "./src/assets/services/tracking.jpg",
+        "./tracking.jpg",
       views: 160,
       baseLikes: 44,
     },
@@ -114,7 +114,7 @@ const Services = ({ mode, textcolor }) => {
       description:
         "Develop specialized programs for building strength, endurance, and athletic performance, ideal for athletes and enthusiasts.",
       imageUrl:
-        "./src/assets/services/strength.webp",
+        "./strength.webp",
       views: 290,
       baseLikes: 78,
     },
