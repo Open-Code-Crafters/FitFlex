@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Box,
@@ -5,6 +6,7 @@ import {
   Link,
   IconButton,
   Grid,
+
   TextField,
   Modal,
   Button,
@@ -20,30 +22,21 @@ import {
   FaTelegramPlane,
 } from "react-icons/fa";
 import logo from "../assets/fitness1.png"; // Replace with your logo
+import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
-import Tracker from "./Tracker";
 
 const Footer = () => {
   useEffect(() => {
-    // Load the embedded chatbot script
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.defer = true;
     script.setAttribute("chatbotId", "3CQjUebCFQdRORiKuycVw");
     script.setAttribute("domain", "www.chatbase.co");
-
     document.body.appendChild(script);
-
-    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.body.removeChild(script);
     };
   }, []);
-
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <Box
@@ -61,7 +54,6 @@ const Footer = () => {
         justifyContent={{ xs: "center", sm: "space-between" }} // Center content for mobile screens
         alignItems={{ xs: "center", sm: "normal" }} // Normal content for PC screens
         direction={{ xs: "column", sm: "row" }} // Stack items on mobile
-      >
         {/* Column 1: Logo and Description */}
         <Grid item xs={12} sm={6} md={4}>
           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
@@ -126,10 +118,8 @@ const Footer = () => {
             onClick={handleOpen}
             sx={{
               fontWeight: "bold",
-              mt: 2,
-              color: "#fff",
-              backgroundColor: "grey.700",
-              "&:hover": { backgroundColor: "grey.500" },
+              fontSize: { xs: "1rem", md: "1.2rem" },
+              textAlign: { xs: "center", sm: "left" },
             }}
           >
             Open Tracker
@@ -226,18 +216,42 @@ const Footer = () => {
         aria-labelledby="tracker-modal-title"
         aria-describedby="tracker-modal-description"
       >
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            width: { xs: "90%", sm: "70%", md: "50%" },
-            borderRadius: 2,
-          }}
+        {[
+          { Icon: FaFacebookF, url: "https://www.facebook.com" },
+          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
+          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
+          { Icon: FaInstagram, url: "https://www.instagram.com" },
+          { Icon: FaYoutube, url: "https://www.youtube.com" },
+          { Icon: faXTwitter, url: "https://twitter.com" },
+        ].map(({ Icon, url }, index) => (
+          <IconButton
+            key={index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="inherit"
+            sx={{
+              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+              mx: { xs: 0.5, sm: 1 },
+              color: "grey.500",
+              "&:hover": { color: "#fff" },
+            }}
+          >
+            {index === 5 ? (
+              <FontAwesomeIcon icon={Icon} />
+            ) : (
+              <Icon fontSize="inherit" />
+            )}
+          </IconButton>
+        ))}
+      </Box>
+
+      {/* Footer Bottom */}
+      <Box sx={{ textAlign: "center", paddingTop: "10px", paddingBottom: "20px" }}>
+        <Typography
+          variant="body2"
+          color="grey.500"
+          sx={{ fontSize: { xs: "0.7rem", sm: "0.9rem" } }}
         >
           <Typography id="tracker-modal-title" variant="h6" component="h2">
             Calorie Tracker
@@ -249,6 +263,10 @@ const Footer = () => {
         </Box>
       </Modal>
     </Box >
+          © {new Date().getFullYear()} TrailGo. All Rights Reserved.
+        </Typography>
+      </Box>
+    </Box>
   );
 };
 
