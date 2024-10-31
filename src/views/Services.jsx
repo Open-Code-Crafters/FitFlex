@@ -80,8 +80,7 @@ const Services = ({ mode, textcolor }) => {
 
   return (
     <>
-
-
+     <h1>Our Premium Services</h1>
       <div className={`service-grid ${mode}`} style={{ marginTop: '100px'}} >
         {services.map((service, index) => (
           <div
@@ -98,6 +97,8 @@ const Services = ({ mode, textcolor }) => {
               Learn More
             </button>
             <div className="stats">
+              <span>👁️ Views: <span className="data"> {service.views}</span></span>
+              <span>❤️ Likes: <span className="data">{service.likes}</span></span>
               <span className="views">👁️ Views: {service.views}</span>
 
               <span
@@ -106,7 +107,6 @@ const Services = ({ mode, textcolor }) => {
               >
                 ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
                 {like[service.name.replace(" ", "")] ? service.baseLikes + 1 : service.baseLikes}
-              </span>
             </div>
           </div>
         ))}
