@@ -126,7 +126,6 @@ const Blog = () => {
       color: "#333",
       backgroundColor: mode === "light" ? "#f7f7f7" : "#322220",
       borderRadius: "8px",
-      paddingTop:"150px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     },
     motivationalQuote: {
@@ -135,7 +134,6 @@ const Blog = () => {
       textAlign: "center",
       marginBottom: "20px",
       color: "#FF4500",
-      marginTop: "120px",
       fontWeight: "bold",
     },
     blogTitle: {
