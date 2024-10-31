@@ -236,9 +236,7 @@ function Navbar(props) {
               }}
             >
               <motion.div
-                // initial={{ y: -250 }}
-                // animate={{ y: 0 }}
-                // transition={{ duration: 1 }}
+             
                 className="website-name"
                 style={{
                   fontFamily: "Future2",
