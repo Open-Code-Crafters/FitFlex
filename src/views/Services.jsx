@@ -76,12 +76,54 @@ const Services = ({ mode, textcolor }) => {
       views: 237,
       baseLikes: 46,
     },
+    {
+      name: "Group Fitness Classes",
+      description:"Engage in high-energy group sessions like HIIT, yoga, pilates, and circuit training, designed to keep clients motivated and connected.",
+      imageUrl:"./src/assets/services/groupFitness.jpg",
+      views: 256,
+      baseLikes: 41,
+    },
+    {
+      name: "Lifestyle and Wellness Coaching",
+      description:
+        "Offer holistic guidance on stress management, mental wellness, and lifestyle changes to support overall health.",
+      imageUrl:"./src/assets/services/coach.jpg ",
+      views: 200,
+      baseLikes: 67,
+    },
+    {
+      name: "Posture and Mobility Improvement",
+      description:
+        "Introduce sessions focused on enhancing posture, flexibility, and joint mobility for daily comfort and improved movement.",
+      imageUrl:
+        "./src/assets/services/postureForm.jpg",
+      views: 400,
+      baseLikes: 46,
+    },
+    {
+      name: "Fitness Assessments and Tracking",
+      description:
+        "Provide regular assessments to monitor progress, set new goals, and give feedback on achievements.",
+      imageUrl:
+        "./src/assets/services/tracking.jpg",
+      views: 160,
+      baseLikes: 44,
+    },
+    {
+      name: "Strength and Conditioning Programs",
+      description:
+        "Develop specialized programs for building strength, endurance, and athletic performance, ideal for athletes and enthusiasts.",
+      imageUrl:
+        "./src/assets/services/strength.webp",
+      views: 290,
+      baseLikes: 78,
+    },
   ];
-
+  
   return (
     <>
-     <h1>Our Premium Services</h1>
-      <div className={`service-grid ${mode}`} style={{ marginTop: '100px'}} >
+      <h1>Our Premium Services</h1>
+      <div className={`service-grid ${mode}`} style={{ marginTop: "100px" }}>
         {services.map((service, index) => (
           <div
             className="service-card"
@@ -97,16 +139,20 @@ const Services = ({ mode, textcolor }) => {
               Learn More
             </button>
             <div className="stats">
-              <span>👁️ Views: <span className="data"> {service.views}</span></span>
-              <span>❤️ Likes: <span className="data">{service.likes}</span></span>
-              <span className="views">👁️ Views: {service.views}</span>
-
+              <span>
+                👁️ Views: <span className="data">{service.views}</span>
+              </span>
               <span
-                className={`likes ${like[service.name.replace(" ", "")] ? "liked" : ""}`}
+                className={`likes ${
+                  like[service.name.replace(" ", "")] ? "liked" : ""
+                }`}
                 onClick={() => handleLikeClick(service.name)}
               >
                 ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
-                {like[service.name.replace(" ", "")] ? service.baseLikes + 1 : service.baseLikes}
+                {like[service.name.replace(" ", "")]
+                  ? service.baseLikes + 1
+                  : service.baseLikes}
+              </span>
             </div>
           </div>
         ))}
