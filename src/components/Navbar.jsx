@@ -22,7 +22,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { size } from "lodash";
 import PropTypes from "prop-types";
-const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
+const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register" ];
 import gsap from 'gsap'
 
 function Navbar(props) {

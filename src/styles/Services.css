@@ -94,8 +94,12 @@ background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
    padding-inline:10px;
    
 }
-.stats .data{
-  font-weight: 700;
+
+.service-card .stats span {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  cursor: pointer;
 }
 
 
@@ -167,3 +171,4 @@ background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     padding: 10px 20px;
   }
 }
+
