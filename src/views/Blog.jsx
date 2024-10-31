@@ -119,7 +119,7 @@ const Blog = ({ mode, textcolor }) => {
   const styles = {
     blogContainer: {
       maxWidth: "800px",
-      margin: "0 auto",
+      margin: "100px auto 0 auto",
       padding: "20px",
       fontFamily: "Arial, sans-serif",
       color: "#333",

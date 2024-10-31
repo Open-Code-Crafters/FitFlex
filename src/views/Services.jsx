@@ -80,7 +80,9 @@ const Services = ({ mode, textcolor }) => {
 
   return (
     <>
-      <div className={`service-grid ${mode}`}>
+
+
+      <div className={`service-grid ${mode}`} style={{ marginTop: '100px'}} >
         {services.map((service, index) => (
           <div
             className="service-card"
