@@ -1,47 +1,96 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import '../styles/blogs.css';
-import { Plus } from "lucide-react";
+import { Plus, Heart, MessageSquare, Share2, Dumbbell, Timer, TrendingUp, User } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
-const Blog = () => {
-
-  const blogItems = localStorage.getItem("blogs")
-
+const Blog = ({ mode, textcolor }) => {
+  const blogItems = localStorage.getItem("blogs");
   const parsedBlogItems = blogItems ? JSON.parse(blogItems) : [];
-  // console.log(parsedBlogItems[0].title)
 
   const blogs = [
     {
-      title: "The Best Gym Workout Plan For Gaining Muscle",
+      title: "Ultimate Guide to Building Muscle Mass",
       date: "Wednesday, 15 November 2023",
       author: "Spencer Cartwright",
+      authorRole: "Senior Fitness Trainer",
+      readTime: "8 min read",
+      tags: ["Strength Training", "Muscle Growth", "Nutrition"],
+      difficulty: "Intermediate",
       image: "https://www.puregym.com/media/wt0cjh0u/gym-workout-plan-for-gaining-muscle_header.jpg?quality=80",
-      content: `Building muscle requires a person to commit to regular strength training...`,
-      content: `Building muscle requires a person to commit to regular strength training...`,
+      content: `Building muscle requires a precise combination of proper nutrition, consistent training, and adequate rest. Our comprehensive guide breaks down the science behind muscle growth and provides you with actionable steps to achieve your goals.`,
+      popularity: 856,
+      category: "Training"
     },
     {
-      title: "The Best Gym Workout Plans for Beginners",
+      title: "Zero to Hero: Complete Beginner's Workout Guide",
       date: "Wednesday, 8 November 2023",
       author: "Doni Thomson",
+      authorRole: "Certified Personal Trainer",
+      readTime: "12 min read",
+      tags: ["Beginners", "Workout Plan", "Form Guide"],
+      difficulty: "Beginner",
       image: "https://www.puregym.com/media/kyjdlozn/beginner-gym-workout-plan_header.jpg?quality=80",
-      content: `If you're just getting started at the gym, it can feel challenging knowing...`,
-      content: `If you're just getting started at the gym, it can feel challenging knowing...`,
+      content: `Starting your fitness journey can be intimidating, but it doesn't have to be. This comprehensive guide walks you through everything you need to know, from gym etiquette to proper form for basic exercises.`,
+      popularity: 1023,
+      category: "Basics"
     },
     {
-      title: "Calories and Weight Loss - What You Need To Know",
+      title: "The Science of Fat Loss: Beyond Calories",
       date: "Wednesday, 25 October 2023",
-      author: "Salmon",
+      author: "Dr. Sarah Chen",
+      authorRole: "Sports Nutritionist",
+      readTime: "10 min read",
+      tags: ["Weight Loss", "Nutrition", "Metabolism"],
+      difficulty: "All Levels",
       image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
-      content: `If you're looking to lose weight, the huge number of diet plans...`,
+      content: `Discover the intricate relationship between nutrition, exercise, and fat loss. Learn how hormones, sleep, and stress affect your weight loss journey and how to optimize each factor for maximum results.`,
+      popularity: 945,
+      category: "Nutrition"
     },
+    {
+      title: "The Science of Fat Loss: Beyond Calories",
+      date: "Wednesday, 25 October 2023",
+      author: "Dr. Sarah Chen",
+      authorRole: "Sports Nutritionist",
+      readTime: "10 min read",
+      tags: ["Weight Loss", "Nutrition", "Metabolism"],
+      difficulty: "All Levels",
+      image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
+      content: `Discover the intricate relationship between nutrition, exercise, and fat loss. Learn how hormones, sleep, and stress affect your weight loss journey and how to optimize each factor for maximum results.`,
+      popularity: 945,
+      category: "Nutrition"
+    },
+    {
+      title: "The Science of Fat Loss: Beyond Calories",
+      date: "Wednesday, 25 October 2023",
+      author: "Dr. Sarah Chen",
+      authorRole: "Sports Nutritionist",
+      readTime: "10 min read",
+      tags: ["Weight Loss", "Nutrition", "Metabolism"],
+      difficulty: "All Levels",
+      image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
+      content: `Discover the intricate relationship between nutrition, exercise, and fat loss. Learn how hormones, sleep, and stress affect your weight loss journey and how to optimize each factor for maximum results.`,
+      popularity: 945,
+      category: "Nutrition"
+    },
+    {
+      title: "The Science of Fat Loss: Beyond Calories",
+      date: "Wednesday, 25 October 2023",
+      author: "Dr. Sarah Chen",
+      authorRole: "Sports Nutritionist",
+      readTime: "10 min read",
+      tags: ["Weight Loss", "Nutrition", "Metabolism"],
+      difficulty: "All Levels",
+      image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
+      content: `Discover the intricate relationship between nutrition, exercise, and fat loss. Learn how hormones, sleep, and stress affect your weight loss journey and how to optimize each factor for maximum results.`,
+      popularity: 945,
+      category: "Nutrition"
+    },
+
   ];
 
   const blogPosts = [...blogs, ...parsedBlogItems];
-
-  console.log(blogPosts)
-
   const [likes, setLikes] = useState(Array(blogPosts.length).fill(0));
   const [liked, setLiked] = useState(Array(blogPosts.length).fill(false));
   const [showCommentBox, setShowCommentBox] = useState(blogPosts.map(() => false));
@@ -49,280 +98,213 @@ const Blog = () => {
   const [commentInputs, setCommentInputs] = useState(blogPosts.map(() => ""));
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
   const [searchInput, setSearchInput] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  const categories = ["All", "Training", "Nutrition", "Cardio", "Basics"];
 
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsLoggedIn(!!user);
       setIsLoggedIn(!!user);
     });
     return () => unsubscribe();
   }, []);
 
   const handleLike = (index) => {
-    setLiked((prev) => {
+    if (!isLoggedIn) {
+      toast.error("Please login to like posts");
+      return;
+    }
+    setLiked(prev => {
       const newLiked = [...prev];
       newLiked[index] = !newLiked[index];
       return newLiked;
     });
-    setLikes((prev) => {
+    setLikes(prev => {
       const newLikes = [...prev];
       newLikes[index] += liked[index] ? -1 : 1;
       return newLikes;
     });
   };
 
-  const toggleCommentBox = (index) => {
-    if (!isLoggedIn) {
-      navigate("/register");
-      return;
-    }
-    const newShowCommentBox = [...showCommentBox];
-    newShowCommentBox[index] = !newShowCommentBox[index];
-    setShowCommentBox(newShowCommentBox);
-  };
-
-  const handleCommentChange = (index, event) => {
-    const newCommentInputs = [...commentInputs];
-    newCommentInputs[index] = event.target.value;
-    setCommentInputs(newCommentInputs);
-  };
-
-  const handleCommentSubmit = (index) => {
-    if (commentInputs[index].trim() !== "") {
-      const newComments = [...comments];
-      newComments[index] = [...newComments[index], commentInputs[index]];
-      setComments(newComments);
-      const newCommentInputs = [...commentInputs];
-      newCommentInputs[index] = "";
-      setCommentInputs(newCommentInputs);
-    }
-  };
-  const handleUploadBlog = (index) => {
-    if (!isLoggedIn) {
-      toast.error("unauthenticated");
-      return;
-    } else {
-      navigate("/uploadBlog");
-    }
+  const handleShare = () => {
+    toast.success("Link copied to clipboard!");
   };
 
   const handleSearchChange = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setSearchInput(searchTerm);
-    const filtered = blogPosts.filter(post => post.title.toLowerCase().includes(searchTerm));
+    filterPosts(searchTerm, selectedCategory);
+  };
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    filterPosts(searchInput, category);
+  };
+
+  const filterPosts = (searchTerm, category) => {
+    let filtered = blogPosts;
+    if (searchTerm) {
+      filtered = filtered.filter(post =>
+        post.title.toLowerCase().includes(searchTerm) ||
+        post.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+      );
+    }
+    if (category !== "All") {
+      filtered = filtered.filter(post => post.category === category);
+    }
     setFilteredPosts(filtered);
   };
 
-  const styles = {
-    blogContainer: {
-      maxWidth: "800px",
-      margin: "100px auto 0 auto",
-      padding: "20px",
-      fontFamily: "Arial, sans-serif",
-      color: "#333",
-      backgroundColor: mode === "light" ? "#f7f7f7" : "#322220",
-      borderRadius: "8px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-      marginTop: '9rem',
-    },
-    motivationalQuote: {
-      fontSize: "1.5em",
-      fontStyle: "italic",
-      textAlign: "center",
-      marginBottom: "20px",
-      color: "#FF4500",
-      fontWeight: "bold",
-    },
-    blogTitle: {
-      textAlign: "center",
-      fontSize: "3em",
-      marginBottom: "20px",
-      marginTop: "120px",
-      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      fontWeight: "bold",
-      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-    },
-    blogPost: {
-      marginBottom: "40px",
-      border: "1px solid #eaeaea",
-      borderRadius: "8px",
-      padding: "20px",
-      backgroundColor: mode === "light" ? "#f7f7f7" : "#1e2a2b",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-      lineHeight: "1.6",
-    },
-    postTitle: {
-      fontSize: "1.8em",
-      marginBottom: "10px",
-      color: textcolor,
-      fontWeight: "bold",
-      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
-      padding: "10px",
-      borderRadius: "5px",
-      border: "2px solid black",
-    },
-    postDate: {
-      fontSize: "0.9em",
-      color: textcolor,
-      marginBottom: "10px",
-      fontWeight: "bold",
-    },
-    postImage: {
-      width: "100%",
-      borderRadius: "8px",
-      marginBottom: "15px",
-    },
-    postContent: {
-      fontSize: "1.1em",
-      lineHeight: "1.6",
-      marginBottom: "20px",
-      color: textcolor,
-    },
-    buttonContainer: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginTop: "10px",
-    },
-    likeButton: {
-      backgroundColor: "#FF4500",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentButton: {
-      backgroundColor: "#FFA500",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentBox: {
-      marginTop: "10px",
-      marginBottom: "10px",
-      width: "100%",
-      padding: "10px",
-      borderRadius: "5px",
-      border: "1px solid #ddd",
-      fontSize: "1em",
-    },
-    submitButton: {
-      backgroundColor: "#008CBA",
-      color: "#fff",
-      padding: "10px 20px",
-      border: "none",
-      borderRadius: "5px",
-      cursor: "pointer",
-    },
-    commentList: {
-      marginTop: "15px",
-      borderTop: "1px solid #ddd",
-      paddingTop: "10px",
-    },
-    commentItem: {
-      backgroundColor: mode === "light" ? "#ffffff" : "#2c3e50",
-      border: "1px solid #ddd",
-      borderRadius: "5px",
-      padding: "10px",
-      marginBottom: "10px",
-      color: textcolor,
-    },
-  };
   return (
-    
-    <div className="blog-container">
+    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-gray-800">
       <Toaster />
-      <header className="blog-header">
-        <h1>Blogs</h1>
-        <input
-          type="text"
-          placeholder="Search for blogs..."
-          value={searchInput}
-          onChange={handleSearchChange}
-          className="search-bar"
-        />
-      </header>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: "20px",
-        }}
-      >
 
-        {/* {isLoggedIn && ( */}
-        <button
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#ff4500",
-            color: "#fff",
-            marginTop: "90px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "1.2em",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          onClick={handleUploadBlog}
-        >
-          <Plus style={{ marginRight: "5px" }} /> Upload Blog
-        </button>
-        {/* )} */}
+      {/* Header Section */}
+      <div className="pt-24 pb-12 text-center">
+        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-transparent bg-clip-text">
+          FITNESS BLOG
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300 mb-8">
+          Your source for expert fitness advice and training tips
+        </p>
+
+        {/* Search and Filter Section */}
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-8">
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchInput}
+              onChange={handleSearchChange}
+              className="w-full md:w-96 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
+                       bg-white dark:bg-gray-800 focus:ring-2 focus:ring-orange-500"
+            />
+            <div className="flex gap-2 overflow-x-auto pb-2">
+              {categories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap
+                            ${selectedCategory === category
+                      ? 'bg-orange-500 text-white'
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="blog-grid">
-        {filteredPosts.length > 0 ? (
-          filteredPosts.map((post, index) => (
-            <div className="blog-card" key={index}>
-              <img className="blog-image" src={post.image} alt={post.title} />
-              <div className="blog-content">
-                <h2 className="blog-title">{post.title}</h2>
-                <p className="blog-author">{post.date} by {post.author}</p>
-                <p className="blog-excerpt">{post.content}</p>
-                <button className="read-more-button">Read More</button>
-                <div className="blog-metrics">
-                  <span className="likes">❤️ Likes: {likes[index]}</span>
-                  <button className="like-button" onClick={() => handleLike(index)}>👍 Like</button>
-                  <button className="comment-button" onClick={() => toggleCommentBox(index)}>💬 Comment</button>
-                </div>
-                {isLoggedIn && showCommentBox[index] && (
-                  <div className="comment-section">
-                    <textarea
-                      className="comment-input"
-                      value={commentInputs[index]}
-                      onChange={(e) => handleCommentChange(index, e)}
-                      placeholder="Write your comment here..."
-                    />
-                    <button className="submit-comment" onClick={() => handleCommentSubmit(index)}>Submit</button>
-                  </div>
-                )}
-                {comments[index].length > 0 && (
-                  <div className="comments-list">
-                    <h3>Comments:</h3>
-                    {comments[index].map((comment, commentIndex) => (
-                      <div key={commentIndex} className="comment-item">
-                        {comment}
-                      </div>
-                    ))}
-                  </div>
-                )}
+      {/* Blog Grid */}
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {filteredPosts.map((post, index) => (
+          <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden 
+                                    transform hover:scale-102 transition-transform duration-200">
+            {/* Image Container */}
+            <div className="relative h-48 overflow-hidden">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm">
+                {post.difficulty}
               </div>
             </div>
-          ))
-        ) : (
-          <p className="no-results-message">No blogs found. Try a different search term.</p>
-        )}
+
+            {/* Content Container */}
+            <div className="p-6">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.tags.map((tag, tagIndex) => (
+                  <span
+                    key={tagIndex}
+                    className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 
+                             px-3 py-1 rounded-full text-sm"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Title and Author */}
+              <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                {post.title}
+              </h2>
+
+              <div className="flex items-center gap-2 mb-4">
+                <User size={16} className="text-gray-500" />
+                <span className="text-sm text-gray-500">
+                  {post.author} • {post.authorRole}
+                </span>
+              </div>
+
+              {/* Metadata */}
+              <div className="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                <div className="flex items-center gap-1">
+                  <Timer size={16} />
+                  {post.readTime}
+                </div>
+                <div className="flex items-center gap-1">
+                  <TrendingUp size={16} />
+                  {post.popularity} views
+                </div>
+              </div>
+
+              {/* Excerpt */}
+              <p className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-3">
+                {post.content}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                <button
+                  onClick={() => handleLike(index)}
+                  className={`flex items-center gap-2 ${liked[index] ? 'text-red-500' : 'text-gray-500'
+                    }`}
+                >
+                  <Heart size={20} fill={liked[index] ? "currentColor" : "none"} />
+                  {likes[index]}
+                </button>
+
+                <button className="flex items-center gap-2 text-gray-500">
+                  <MessageSquare size={20} />
+                  {comments[index].length}
+                </button>
+
+                <button
+                  onClick={handleShare}
+                  className="flex items-center gap-2 text-gray-500"
+                >
+                  <Share2 size={20} />
+                  Share
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Upload Blog Button */}
+      <div className="fixed bottom-8 right-8">
+        <button
+          onClick={() => {
+            if (!isLoggedIn) {
+              toast.error("Please login to create a post");
+              return;
+            }
+            navigate("/uploadBlog");
+          }}
+          className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg 
+                     flex items-center justify-center transition-colors duration-200"
+        >
+          <Plus size={24} />
+        </button>
       </div>
     </div>
   );
