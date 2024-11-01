@@ -80,8 +80,8 @@ const Services = ({ mode, textcolor }) => {
 
   return (
     <>
-     <h1>Our Premium Services</h1>
-      <div className={`service-grid ${mode}`} style={{ marginTop: '100px'}} >
+      <h1 className="services-title">Our Premium Services</h1>
+      <div className={`service-grid ${mode}`}>
         {services.map((service, index) => (
           <div
             className="service-card"
@@ -89,7 +89,6 @@ const Services = ({ mode, textcolor }) => {
             data-aos="fade-up"
             data-aos-delay={index * 200}
             data-aos-duration="1200"
-            style={{ marginTop: '5rem' }}
           >
             <img src={service.imageUrl} alt={service.name} />
             <h2>{service.name}</h2>
@@ -98,51 +97,50 @@ const Services = ({ mode, textcolor }) => {
               Learn More
             </button>
             <div className="stats">
-              <span>👁️ Views: <span className="data"> {service.views}</span></span>
-              <span>❤️ Likes: <span className="data">{service.likes}</span></span>
               <span className="views">👁️ Views: {service.views}</span>
-
               <span
                 className={`likes ${like[service.name.replace(" ", "")] ? "liked" : ""}`}
                 onClick={() => handleLikeClick(service.name)}
               >
                 ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
                 {like[service.name.replace(" ", "")] ? service.baseLikes + 1 : service.baseLikes}
+              </span>
             </div>
           </div>
         ))}
 
-        {/* Modal for Contact */}
         {modalOpen && (
-          <div style={styles.modalOverlay} onClick={handleCloseModal}>
+          <div className="modal-overlay" onClick={handleCloseModal}>
             <div
-              style={styles.modalContent}
+              className="modal-content"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button as an X on top right */}
-              <button onClick={handleCloseModal} style={styles.closeButton}>
+              <button onClick={handleCloseModal} className="close-button">
                 &times;
               </button>
 
-              <h2 style={styles.modalHeading}>
+              <h2 className="modal-heading">
                 Contact Us for {currentService}
               </h2>
-              <p style={styles.modalText}>
-                Fill out the form below, and we’ll be in touch shortly.
+              <p className="modal-text">
+                Fill out the form below, and we'll be in touch shortly.
               </p>
-              <form onSubmit={handleSendMessage}>
+              <form onSubmit={handleSendMessage} className="contact-form">
                 <input
                   type="text"
                   placeholder="Your Name"
-                  style={styles.input}
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Your Email"
                   required
                 />
                 <textarea
                   placeholder="Your Message"
-                  style={styles.textarea}
                   required
                 ></textarea>
-                <button type="submit" style={styles.submitButton}>
+                <button type="submit" className="submit-button">
                   Send Message
                 </button>
               </form>
@@ -153,82 +151,6 @@ const Services = ({ mode, textcolor }) => {
       <ToastContainer />
     </>
   );
-};
-
-const styles = {
-  modalOverlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1000,
-    animation: "fadeIn 0.3s ease",
-  },
-  modalContent: {
-    backgroundColor: "#fff",
-    padding: "40px",
-    borderRadius: "15px",
-    width: "95%",
-    maxWidth: "700px",
-    textAlign: "center",
-    boxShadow: "0 6px 15px rgba(0, 0, 0, 0.2)",
-    position: "relative",
-    transform: "scale(0.7)",
-    animation: "scaleIn 0.3s ease forwards",
-    fontFamily: "sans-serif",
-  },
-  modalHeading: {
-    fontSize: "2em",
-    color: "#333",
-    marginBottom: "15px",
-    fontWeight: "bold",
-  },
-  modalText: {
-    fontSize: "1.1em",
-    color: "#555",
-    marginBottom: "20px",
-  },
-  input: {
-    width: "100%",
-    padding: "12px",
-    margin: "10px 0",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    fontSize: "1em",
-  },
-  textarea: {
-    width: "100%",
-    padding: "12px",
-    margin: "10px 0",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    fontSize: "1em",
-  },
-  submitButton: {
-    padding: "12px 20px",
-    backgroundColor: "#FF4500",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "1.1em",
-    fontWeight: "bold",
-    transition: "background-color 0.3s ease",
-  },
-  closeButton: {
-    position: "absolute",
-    top: "15px",
-    right: "20px",
-    background: "none",
-    border: "none",
-    fontSize: "1.5em",
-    cursor: "pointer",
-  },
 };
 
 export default Services;
