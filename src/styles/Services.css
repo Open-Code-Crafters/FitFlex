@@ -1,118 +1,102 @@
-.service-grid {
-  font-family: 'Roboto', sans-serif;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 50px;
-  padding: 100px;
-  justify-items: center;
-}
-
-/* Dark Theme */
-.service-grid.dark {
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-/* Light Theme */
-.service-grid.light {
-  background-color: #f7f7f7;
-  color: #000000;
-}
-
-/* Individual card styling */
-.service-card {
-  background-color: var(--card-bg-color);
-  border-radius: 10px;
-  padding: 20px;
-  background-color: #FBAB7E;
-background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+.services-title {
   text-align: center;
-  margin-top: 5rem !important;
+  font-size: 2.5rem;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
 }
 
 .service-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Ensure equal image size */
 .service-card img {
   width: 100%;
-  /* max-width: 300px; */
   height: 200px;
   object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
 }
 
-.service-card:hover img {
-  transform: scale(1.1);
-}
-
-/* Title and description */
 .service-card h2 {
-  font-size: 1.6em;
-  margin-bottom: 15px;
-  text-transform: capitalize;
-  color:#682f2f;
+  font-size: 1.5rem;
+  margin: 15px 0 10px;
+  padding: 0 15px;
+  color: #333;
 }
 
 .service-card p {
-  font-size: 0.9em;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color:#020d1d;
-  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0 15px 15px;
+  color: #666;
 }
 
-/* Button styling */
 .service-card button {
-  padding: 12px 25px;
-  background-color: var(--button-bg-color);
-  color: #fff;
+  display: block;
+  width: calc(100% - 30px);
+  margin: 15px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
-  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 .service-card button:hover {
-  background-color: var(--button-hover-bg-color);
+  background-color: #0056b3;
 }
 
-/* Views and Likes section */
- .stats {
-  margin-top: 15px;
-   display: flex;
-   justify-content: space-between;
-   padding-inline:10px;
-   
+.stats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  font-size: 0.8rem;
+  color: #666;
 }
 
-.service-card .stats span {
+.views, .likes {
   display: flex;
   align-items: center;
-  font-size: 0.9em;
+}
+
+.likes {
   cursor: pointer;
 }
 
+.likes.liked {
+  color: #e74c3c;
+}
 
-
-/* Modal Styles */
+/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,10 +104,13 @@ background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
 }
 
 .modal-content {
-  background-color: #fff;
-  padding: 20px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
   max-width: 500px;
-  border-radius: 8px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -131,47 +118,96 @@ background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: transparent;
+  font-size: 24px;
+  background: none;
   border: none;
-  font-size: 1.5em;
   cursor: pointer;
 }
 
-/* Dark and Light theme variables */
-:root {
-  --card-bg-color: #2a2a2a;
-  --button-bg-color: #ff6347;
-  --button-hover-bg-color: #ff4500;
+.modal-heading {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
 }
 
-.service-grid.light {
-  --card-bg-color: #ffffff;
-
-  --button-bg-color: #682f2f;
-  --button-hover-bg-color: #291313;
+.modal-text {
+  margin-bottom: 20px;
+  color: #666;
 }
 
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .service-grid {
-    padding: 50px;
-    gap: 30px;
+  .services-title {
+    font-size: 2rem;
+    margin-top: 80px;
   }
-}
 
-@media (max-width: 480px) {
   .service-grid {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .service-card {
+    max-width: 100%;
+  }
+
+  .modal-content {
     padding: 20px;
-    gap: 20px;
-  }
-  .stats{
-    font-size: small;
   }
 }
 
 @media (max-width: 480px) {
-  .service-card button {
-    padding: 10px 20px;
+  .services-title {
+    font-size: 1.8rem;
+    margin-top: 60px;
+  }
+
+  .service-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+  }
+
+  .stats {
+    font-size: 0.75rem;
+  }
+
+  .modal-heading {
+    font-size: 1.3rem;
+  }
+
+  .modal-text {
+    font-size: 0.9rem;
   }
 }
-
-
