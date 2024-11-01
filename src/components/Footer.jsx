@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
   FaInstagram,
@@ -18,7 +17,8 @@ import {
   FaLinkedinIn,
   FaTelegramPlane,
 } from "react-icons/fa";
-import logo from "../assets/fitness1.png"; // Replace with your logo
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import logo from "../assets/fitness1.png";
 import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 import Tracker from "./Tracker"; // Ensure Tracker component is imported
@@ -35,7 +35,9 @@ const Footer = () => {
     script.defer = true;
     script.setAttribute("chatbotId", "3CQjUebCFQdRORiKuycVw");
     script.setAttribute("domain", "www.chatbase.co");
+
     document.body.appendChild(script);
+
     return () => {
       document.body.removeChild(script);
     };
@@ -45,22 +47,16 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#000",
-        color: "white",
+        backgroundColor: "#1c1c1e",
+        color: "#e0e0e0",
         padding: { xs: "20px 10px", sm: "30px 20px", md: "40px 20px" },
         fontFamily: "'Helvetica Neue', sans-serif",
       }}
     >
-      <Grid
-        container
-        spacing={3}
-        justifyContent={{ xs: "center", sm: "space-between" }}
-        alignItems={{ xs: "center", sm: "normal" }}
-        direction={{ xs: "column", sm: "row" }}
-      >
+      <Grid container spacing={3} justifyContent="space-between">
         {/* Column 1: Logo and Description */}
         <Grid item xs={12} sm={6} md={4}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <img src={logo} alt="Logo" style={{ width: 50, height: 50, marginRight: 10 }} />
             <Typography variant="h6" component="h1" sx={{ fontWeight: "bold" }}>
               FitLife
@@ -71,7 +67,7 @@ const Footer = () => {
           </Typography>
         </Grid>
 
-        {/* Columns 2-5: Links */}
+        {/* Dynamic Links */}
         {[
           { title: "About", links: ["Our Story", "Team", "Career", "Content", "Press"], paths: ["/home", "/about", "/services", "/blog", "#"] },
           { title: "Services", links: ["Personal Coaching", "Group Classes", "Online Programs", "Corporate Wellness"], paths: ["/services"] },
@@ -92,6 +88,7 @@ const Footer = () => {
                   display="block"
                   sx={{
                     textDecoration: "none",
+                    fontSize: "0.9rem",
                     "&:hover": { color: "#fff" },
                   }}
                 >
@@ -139,17 +136,16 @@ const Footer = () => {
           { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
           { Icon: FaInstagram, url: "https://www.instagram.com" },
           { Icon: FaYoutube, url: "https://www.youtube.com" },
-          { Icon: faXTwitter, url: "https://twitter.com" },
+          { Icon: faTwitter, url: "https://twitter.com" },
         ].map(({ Icon, url }, index) => (
           <IconButton
             key={index}
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            color="inherit"
             sx={{
-              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
-              mx: { xs: 0.5, sm: 1 },
+              fontSize: "1.5rem",
+              mx: 1,
               color: "grey.500",
               "&:hover": { color: "#fff" },
             }}
@@ -166,7 +162,7 @@ const Footer = () => {
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            gap: { xs: "10px", sm: "20px" },
+            gap: "20px",
             mb: 2,
           }}
         >
@@ -201,7 +197,7 @@ const Footer = () => {
             outline: "none",
           }}
         >
-          <Typography id="tracker-modal-title" variant="h6" component="h2" gutterBottom>
+          <Typography id="tracker-modal-title" variant="h6" gutterBottom>
             Calorie Tracker
           </Typography>
           <Tracker />
