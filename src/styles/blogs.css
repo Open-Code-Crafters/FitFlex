@@ -94,8 +94,17 @@ body {
     margin-bottom: 20px;
 }
 
+.upload-button {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.plus-icon {
+  margin-right: 1px; /* Adds space between the icon and text */
+}
+
 .read-more-button, .like-button, .comment-button, .submit-button {
-    padding: 10px 16px;
+    padding: 8px 8px;
     border: none;
     border-radius: 6px;
     color: white;
@@ -113,7 +122,7 @@ body {
 }
 
 .like-button {
-    background-color: #28a745;
+    color: black;
 }
 
 .like-button:hover {
@@ -122,7 +131,7 @@ body {
 }
 
 .comment-button {
-    background-color: #FFA500;
+    color: black;
 }
 
 .comment-button:hover {
@@ -156,7 +165,6 @@ body {
 
 .comment-item {
     background-color: var(--comment-item-bg, #ffffff);
-    /* default for light mode */
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 12px;
