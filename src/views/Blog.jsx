@@ -28,7 +28,7 @@ const Blog = () => {
     {
       title: "Calories and Weight Loss - What You Need To Know",
       date: "Wednesday, 25 October 2023",
-      author: "Daniel Salmon",
+      author: "Salmon",
       image: "https://www.puregym.com/media/12ullfwo/salmon.jpg?quality=80",
       content: "If you're looking to lose weight, the huge number of diet plans..."
     },
