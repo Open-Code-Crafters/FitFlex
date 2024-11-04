@@ -9,10 +9,11 @@ import "../styles/about.css";
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TeamMembers from '../components/TeamCarousel';
 import { width } from '@mui/system';
+import AOS from 'aos';
 const About = ({ mode, textcolor }) => {
   const [viewed, setViewed] = useState({
     users: false,
@@ -20,6 +21,11 @@ const About = ({ mode, textcolor }) => {
     accidents: false,
     hospitals: false,
   });
+
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+    AOS.refresh();
+  }, [mode]);
 
   const navigate = useNavigate();
   const sloganStyle = {
@@ -32,7 +38,7 @@ const About = ({ mode, textcolor }) => {
 
 
       {/* Hero Section */}
-      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000" style={{marginTop:'3.5rem'}>
+      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000" style={{marginTop:'3.5rem'}}>
         <h2>"Your Fitness, Your Future!"</h2>
         <h3 style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>- FitFlex Motto</h3>
         <p style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>
@@ -47,6 +53,7 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+            ml: 2
           }}
           data-aos="fade-right"
           data-aos-delay="200"
@@ -66,6 +73,7 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+            ml: 2
           }}
           data-aos="fade-left"
           data-aos-delay="200"
