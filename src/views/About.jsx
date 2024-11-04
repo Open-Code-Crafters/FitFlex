@@ -32,7 +32,7 @@ const About = ({ mode, textcolor }) => {
 
 
       {/* Hero Section */}
-      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000">
+      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000" style={{marginTop:'3.5rem'}>
         <h2>"Your Fitness, Your Future!"</h2>
         <h3 style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>- FitFlex Motto</h3>
         <p style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>
