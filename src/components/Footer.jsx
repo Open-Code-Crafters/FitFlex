@@ -16,6 +16,7 @@ import {
   FaYoutube,
   FaLinkedinIn,
   FaTelegramPlane,
+  FaGithub,
 } from "react-icons/fa";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import logo from "../assets/fitness1.png";
@@ -25,6 +26,8 @@ import Tracker from "./Tracker"; // Ensure Tracker component is imported
 
 const Footer = () => {
   const [open, setOpen] = useState(false);
+  const [visits, setVisits] = useState(0);
+  const [stars, setStars] = useState(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -42,6 +45,34 @@ const Footer = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/Open-Code-Crafters/FitFlex"
+        );
+        const data = await response.json();
+        setStars(data.stargazers_count);
+      } catch (error) {
+        console.error("Error fetching GitHub stars:", error);
+      }
+    };
+    fetchStars();
+  }, []);
+
+  useEffect(() => {
+    const storedVisits = Number(localStorage.getItem("visitCounter")) || 0;
+    setVisits(storedVisits + 1);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("visitCounter", visits);
+  }, [visits]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <Box
@@ -65,9 +96,81 @@ const Footer = () => {
           <Typography variant="body2" sx={{ color: "grey.400", textAlign: "center" }}>
             Your companion for a healthy lifestyle. Track your fitness, stay motivated, and be your best self with FitLife.
           </Typography>
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 4 }}>
+            {/* GitHub Stars Section */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#333333",
+                padding: "8px 16px",
+                borderRadius: "8px",
+                width: "200px",
+              }}
+            >
+              <FaGithub style={{ marginRight: "8px", color: "#fff" }} />
+              <a
+                href="https://github.com/Open-Code-Crafters/FitFlex"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#fff",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  marginRight: "8px",
+                }}
+              >
+                Star Us ⭐
+              </a>
+              <Typography sx={{ color: "#fff" }}>{stars > 0 ? stars : ""}</Typography>
+            </Box>
+
+            {/* Visitor Counter Section */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "220px",
+                padding: "16px",
+                borderRadius: "12px",
+                backgroundColor: "#000000",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
+                mt: 2,
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                <a
+                  href="https://www.hitwebcounter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: "10px" }}
+                >
+                  <img
+                    src="https://hitwebcounter.com/counter/counter.php?page=17135996&style=0006&nbdigits=5&type=page&initCount=1000"
+                    alt="Visit counter for websites"
+                    style={{ border: "none" }}
+                  />
+                </a>
+              </Box>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "19px",
+                  color: "#ffffff",
+                  textAlign: "center",
+                }}
+              >
+                Total Visitors
+              </Typography>
+            </Box>
+          </Box>
         </Grid>
 
-        {/* Dynamic Links */}
+        {/* Dynamic Footer Links */}
         {[
           { title: "About", links: ["Our Story", "Team", "Career", "Content", "Press"], paths: ["/home", "/about", "/services", "/blog", "#"] },
           { title: "Services", links: ["Personal Coaching", "Group Classes", "Online Programs", "Corporate Wellness"], paths: ["/services"] },
@@ -155,8 +258,8 @@ const Footer = () => {
         ))}
       </Box>
 
-      {/* Footer Bottom */}
-      <Box sx={{ textAlign: "center", mt: 2, mb: 2 }}>
+      {/* Footer Bottom Links */}
+      <Box sx={{ textAlign: "center", fontSize: { xs: "0.7rem", sm: "0.8rem" }, color: "grey.500", mt: { xs: "15px", sm: "20px" } }}>
         <Box
           sx={{
             display: "flex",
