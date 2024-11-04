@@ -17,6 +17,7 @@ import {
   FaYoutube,
   FaLinkedinIn,
   FaTelegramPlane,
+  FaGithub
 } from "react-icons/fa";
 import logo from "../assets/fitness1.png";
 import GoogleTranslate from "./GoogleTranslate";
@@ -108,92 +109,184 @@ const Footer = () => {
             Your companion for a healthy lifestyle. Track your fitness, stay
             motivated, and be your best self with FitLife.
           </Typography>
-        </Grid>
-
-        {/* Column 2: Quick Links */}
-        <Grid item xs={12} sm={6} md={4}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
-            Quick Links
-          </Typography>
-          <Box>
-            <Link
-              component={RouterLink}
-              to="/about"
-              color="inherit"
-              underline="none"
-              sx={{ display: "block", mb: 0.5 }}
-            >
-              About Us
-            </Link>
-            <Link
-              component={RouterLink}
-              to="/services"
-              color="inherit"
-              underline="none"
-              sx={{ display: "block", mb: 0.5 }}
-            >
-              Services
-            </Link>
-            <Link
-              component={RouterLink}
-              to="/contact"
-              color="inherit"
-              underline="none"
-              sx={{ display: "block", mb: 0.5 }}
-            >
-              Contact
-            </Link>
-            <Link
-              component={RouterLink}
-              to="/blog"
-              color="inherit"
-              underline="none"
-              sx={{ display: "block", mb: 0.5 }}
-            >
-              Blog
-            </Link>
-          </Box>
-        </Grid>
-
-        {/* Column 3: Newsletter Subscription and Tracker Button */}
-        <Grid item xs={12} sm={12} md={4} sx={{ textAlign: "center" }}>
-          <Subscribe />
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={handleOpen}
+          {/* GitHub Stars Section, Centered */}
+          <Box
             sx={{
-              fontWeight: "bold",
-              mt: 2,
-              color: "#fff",
-              backgroundColor: "grey.700",
-              "&:hover": { backgroundColor: "grey.500" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              mt: 4,
             }}
           >
-            Open Tracker
-          </Button>
+            {/* GitHub Stars Section */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",  // Center content horizontally
+
+                backgroundColor: "#333333",
+                padding: "8px 16px",
+                borderRadius: "8px",
+                width: "200px",
+              }}
+            >
+              <FaGithub style={{ marginRight: "8px", color: "#fff" }} />
+              <a
+                href="https://github.com/Open-Code-Crafters/FitFlex"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#fff",
+                  textDecoration: "none",
+                  fontWeight: "bold",
+                  marginRight: "8px",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                Star Us ⭐
+              </a>
+              <Typography sx={{ color: "#fff" }}>{stars > 0 ? stars : ""}</Typography>
+            </Box>
+
+            {/* Visitor Counter Section */}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "220px", // Adjust width as needed
+                padding: "16px",
+                borderRadius: "12px",
+                backgroundColor: "#000000", // Black background to match footer
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)", // Adjust shadow to match footer theme
+                mt: 2,
+              }}
+            >
+              {/* Counter Box */}
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                <a
+                  href="https://www.hitwebcounter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ marginLeft: "10px" }}
+                >
+                  <img
+                    src="https://hitwebcounter.com/counter/counter.php?page=17135996&style=0006&nbdigits=5&type=page&initCount=1000"
+                    alt="Visit counter for websites"
+                    style={{ border: "none" }}
+                  />
+                </a>
+              </Box>
+
+              {/* Total Visitors Text */}
+              <Typography
+                variant="body2"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "19px",
+                  color: "#ffffff", // White text for contrast
+                  textAlign: "center",
+                }}
+              >
+                Total Visitors
+              </Typography>
+            </Box>
+          </Box>
+
+
         </Grid>
 
-        {/* Social Media Icons */}
-        <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          <IconButton
-            color="inherit"
-            href="https://twitter.com"
-            target="_blank"
-            sx={{ mx: 1 }}
-          >
-            <FontAwesomeIcon icon={faXTwitter} />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://facebook.com"
-            target="_blank"
-            sx={{ mx: 1 }}
-          >
-            <FaFacebookF />
-          </IconButton>
-        </Grid>
+        {/* Columns 2-5: About, Services, Resources, Company */}
+        {[
+          { title: "About", links: ["Our Story", "Team", "Career", "Content", "Press"], paths: ["/home", "/about", "/services", "/blog", "#"] },
+          { title: "Services", links: ["Personal Coaching", "Group Classes", "Online Programs", "Corporate Wellness"], paths: ["/services"] },
+          { title: "Resources", links: ["Academy", "Blog", "Health Tips", "FAQs", "Support"], paths: ["/about", "/blog", "/healthtips", "/#faq", "/#resources"] },
+          { title: "Company", links: ["About Us", "Careers", "Teams", "Contact Us", "Privacy Policy", "Terms of Use"], paths: ["/about", "#", "#", "/contact", "/privacy-policy", "/terms-of-use"] }
+        ].map((section, index) => (
+          <Grid item xs={12} md={2} key={index}>
+            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold", textAlign: "center" }}>
+              {section.title}
+            </Typography>
+            <Box sx={{ textAlign: "center" }}>
+              {section.links.map((link, idx) => (
+                <Link
+                  key={idx}
+                  href={section.paths[idx]}
+                  color="grey.400"
+                  display="block"
+                  gutterBottom
+                  sx={{
+                    textDecoration: "none",
+                    "&:hover": { color: "#fff" },
+                  }}
+                >
+                  {link}
+                </Link>
+              ))}
+            </Box>
+          </Grid>
+        ))}
       </Grid>
+
+      {/* Newsletter Subscription */}
+      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", mt: 4 }}>
+        <Subscribe />
+        <Button variant="contained" color="secondary" onClick={handleOpen} sx={{ fontWeight: "bold", fontSize: { xs: "1rem", md: "1.2rem" }, textAlign: { xs: "center", sm: "left" } }}>
+          Open Tracker
+        </Button>
+      </Box>
+
+      {/* Social Media Icons */}
+      <Box sx={{ display: "flex", justifyContent: "center", marginTop: "40px", marginBottom: "40px" }}>
+        {[
+          { Icon: FaFacebookF, url: "https://www.facebook.com" },
+          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
+          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
+          { Icon: FaInstagram, url: "https://www.instagram.com" },
+          { Icon: FaYoutube, url: "https://www.youtube.com" },
+          { Icon: faXTwitter, url: "https://twitter.com" },
+        ].map(({ Icon, url }, index) => (
+          <IconButton
+            key={index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="inherit"
+            sx={{
+              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+              mx: { xs: 0.5, sm: 1 },
+              color: "grey.500",
+              "&:hover": { color: "#fff" },
+            }}
+          >
+            {index === 5 ? <FontAwesomeIcon icon={Icon} /> : <Icon fontSize="inherit" />}
+          </IconButton>
+        ))}
+      </Box>
+
+      {/* Footer Bottom Links */}
+      <Box sx={{ textAlign: "center", fontSize: { xs: "0.7rem", sm: "0.8rem" }, color: "grey.500", mt: { xs: "15px", sm: "20px" } }}>
+        <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: { xs: "10px", sm: "20px" }, mb: 2 }}>
+          {["Privacy Policy", "Terms of Use", "Sales and Refunds", "Legal", "Site Map"].map((item, index) => (
+            <Link
+              key={index}
+              href="#"
+              color="grey.400"
+              sx={{ textDecoration: "none", "&:hover": { color: "#fff" } }}
+            >
+              {item}
+            </Link>
+          ))}
+        </Box>
+        <Typography variant="body2" sx={{ color: "grey.500" }}>
+          &copy; {new Date().getFullYear()} TrailGo. All Rights Reserved
+        </Typography>
+      </Box>
 
       {/* Modal for Tracker */}
       <Modal open={open} onClose={handleClose} aria-labelledby="tracker-modal-title" aria-describedby="tracker-modal-description">
