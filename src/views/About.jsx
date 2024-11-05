@@ -53,11 +53,9 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+          }}  
             ml: 2
-          }}
-          data-aos="fade-right"
-          data-aos-delay="200"
-          data-aos-duration="2000"
+          }} 
         >
           <CardContent>
             <h4 style={{ color: mode === 'dark' ? '#fff' : '#000' }}>Our Vision</h4>
@@ -73,11 +71,10 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+ 
+          }}  
             ml: 2
-          }}
-          data-aos="fade-left"
-          data-aos-delay="200"
-          data-aos-duration="2000"
+          }} 
         >
           <CardContent>
             <h4 style={{ color: mode === 'dark' ? '#fff' : '#000' }}>Our Mission</h4>
