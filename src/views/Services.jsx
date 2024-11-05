@@ -148,7 +148,7 @@ const Services = ({ mode, textcolor }) => {
                   like[service.name.replace(" ", "")] ? "liked" : ""
                 }`}
                 onClick={() => handleLikeClick(service.name)}
-              >
+              />
                 ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
                 {like[service.name.replace(" ", "")]
                   ? service.baseLikes + 1
