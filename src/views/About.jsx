@@ -9,10 +9,11 @@ import "../styles/about.css";
 import styled from 'styled-components';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TeamMembers from '../components/TeamCarousel';
 import { width } from '@mui/system';
+import AOS from 'aos';
 const About = ({ mode, textcolor }) => {
   const [viewed, setViewed] = useState({
     users: false,
@@ -21,16 +22,23 @@ const About = ({ mode, textcolor }) => {
     hospitals: false,
   });
 
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+    AOS.refresh();
+  }, [mode]);
+
   const navigate = useNavigate();
   const sloganStyle = {
     color: mode === 'dark' ? '#FFFFFF' : textcolor, // Use white for dark mode, otherwise use textcolor
   };
 
   return (
-    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0' }}>
+
+    <Container maxWidth="lg" style={{ backgroundColor: mode, color: textcolor }} sx={{ padding: '2rem 0', marginTop: '5rem' }}>
+
 
       {/* Hero Section */}
-      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000">
+      <div className="slogan" data-aos="zoom-in" data-aos-duration="2000" style={{marginTop:'3.5rem'}}>
         <h2>"Your Fitness, Your Future!"</h2>
         <h3 style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>- FitFlex Motto</h3>
         <p style={{ backgroundColor: mode === 'dark' ? '#111118' : '#ffffff', color: textcolor }}>
@@ -45,6 +53,8 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+          }}  
+            ml: 2
           }} 
         >
           <CardContent>
@@ -61,6 +71,9 @@ const About = ({ mode, textcolor }) => {
           sx={{
             background: mode === 'dark' ? 'linear-gradient(135deg, #000000, #444444)' : '#fff',
             color: mode === 'dark' ? '#fff' : '#000',
+ 
+          }}  
+            ml: 2
           }} 
         >
           <CardContent>
@@ -95,7 +108,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
@@ -120,7 +133,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
@@ -156,7 +169,7 @@ const About = ({ mode, textcolor }) => {
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                height: '80%',
+                height: '100%',
                 color: mode === 'dark' ? '#fff' : '#000',
               }}
             >
@@ -400,7 +413,7 @@ const About = ({ mode, textcolor }) => {
           Join FitFlex Now
         </Button>
       </Box>
-     <Box sx={{
+      <Box sx={{
         backgroundColor: mode === 'light' ? '#f7f7f7' : '#1d1d28',
         textAlign: 'center',
         color: mode === 'dark' ? '#fff' : '#000',
@@ -408,11 +421,11 @@ const About = ({ mode, textcolor }) => {
         borderRadius: 2
       }}>
 
-        <TeamMembers mode={mode}/>
-     </Box>
+        <TeamMembers mode={mode} />
+      </Box>
 
-     
-   
+
+
     </Container>
   );
 };

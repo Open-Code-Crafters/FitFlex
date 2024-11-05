@@ -131,3 +131,4 @@ dist
 
 # Exclude package-lock.json
 package-lock.json
+.vercel
