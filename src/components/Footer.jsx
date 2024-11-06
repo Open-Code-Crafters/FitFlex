@@ -23,6 +23,7 @@ import logo from "../assets/fitness1.png";
 import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
 import Tracker from "./Tracker"; // Ensure Tracker component is imported
+import CounterCard from "./CounterCard";
 
 const Footer = () => {
   const [open, setOpen] = useState(false);
@@ -172,7 +173,25 @@ const Footer = () => {
 
         {/* Dynamic Footer Links */}
         {[
-          { title: "About", links: ["Our Story", "Team", "Career", "Content", "Press"], paths: ["/home", "/about", "/services", "/blog", "#"] },
+          {
+            title: "About",
+            links: [
+              "Our Story",
+              "Team",
+              "Career",
+              "Content",
+              "Press",
+              "Our Contributors",
+            ],
+            paths: [
+              "/home",
+              "/about",
+              "/services",
+              "/blog",
+              "#",
+              "/contributors",
+            ],
+          },
           { title: "Services", links: ["Personal Coaching", "Group Classes", "Online Programs", "Corporate Wellness"], paths: ["/services"] },
           { title: "Resources", links: ["Academy", "Blog", "Health Tips", "FAQs", "Support"], paths: ["/about", "/blog", "/healthtips", "#faq", "#resources"] },
           { title: "Company", links: ["About Us", "Careers", "Teams", "Contact Us", "Privacy Policy", "Terms of Use"], paths: ["/about", "#", "#", "/contact", "/privacy-policy", "/terms-of-use"] },
