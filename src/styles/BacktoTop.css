@@ -1,7 +1,7 @@
 #backToTopBtn {
   position: fixed;
-  bottom: 100px;
-  right: 35px;
+  bottom: 1rem;
+  right: 5.3rem;
   z-index: 1000;
   display: none;
   background-color: #ff6a00;
