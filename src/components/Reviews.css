@@ -1,0 +1,72 @@
+.sliderReviews {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9; /* Light background for contrast */
+  }
+  
+  .reviewContainer {
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .reviewItem {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .reviewItem.active {
+    transform: scale(1.05); /* Slightly enlarge the active review */
+  }
+  
+  .avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #d0e7b0; 
+    transform: translateX(6.5rem);
+  }
+  
+  .reviewerName {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .stars {
+    font-size: 20px;
+  }
+  
+  .reviewText {
+    font-size: 16px;
+    color: #555; /* Darker text for readability */
+  }
+  
+  .navButton {
+    background-color: #d0e7b0; /* Green background for buttons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px; /* Space between buttons */
+  }
+  
+  .navButton:hover {
+    background-color: #c0e7a0; /* Darker green on hover */
+  }
+  
+  .navButton.left {
+     position:absolute; 
+     left: 42rem;
+     top:auto; 
+     bottom:-40px; 
+  }
+  .navButton.right { 
+     position:absolute; 
+     right: 42rem;
+     top:auto; 
+     bottom:-40px; 
+  }
