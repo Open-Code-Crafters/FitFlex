@@ -24,3 +24,19 @@
   display: block;
   margin: 0 auto;
 }
+
+@media (max-width: 600px) {
+  #backToTopBtn {
+    right: 5.3rem;
+    padding: 10px;
+    border: 1px solid white;
+  }
+}
+
+@media (max-width: 400px) {
+  #backToTopBtn {
+    right: 5.1rem;
+    padding: 8px;
+    border: 1px solid white;
+  }
+}
