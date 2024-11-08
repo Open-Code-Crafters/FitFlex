@@ -26,6 +26,7 @@ import {
 import { NavLink } from "react-router-dom";
 import FAQSection from "../components/FAQ";
 import SuccessStories from "../components/SuccessStories";
+import Reviews from '../components/Reviews';
 import Tracker from "../components/Tracker";
 
 function Home({ mode, textcolor }) {
@@ -557,6 +558,7 @@ function Home({ mode, textcolor }) {
         }}
       >
         <SuccessStories mode={mode} textcolor={textcolor} />
+        <Reviews /
       </Box>
 
       {/* <Box
