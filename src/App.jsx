@@ -8,6 +8,7 @@ import BackToTopButton from "./components/BacktoTop.jsx";
 import HealthTips from "./components/healthtips.jsx"; // Import Back to Top Button
 import PrivacyPolicy from "./views/PrivacyPolicy.jsx";
 import TermsOfUse from "./views/Terms.jsx";
+import Metadata from "./metadata.jsx"; 
 
 const Navbar = lazy(() => import("./components/Navbar.jsx"));
 const Home = lazy(() => import("./views/Home.jsx"));
@@ -68,6 +69,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <BlogProvider>
           <BrowserRouter>
+          < Metadata />
             <ProgressBar />
             <Navbar mode={mode} toggleMode={toggleMode} />
             <Routes>

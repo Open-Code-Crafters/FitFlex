@@ -24,6 +24,7 @@ import { size } from "lodash";
 import PropTypes from "prop-types";
 const pages = ["Home", "About", "Contact", "Blog", "Services", "Login", "Register"];
 import gsap from 'gsap'
+import { SheetDemo } from "./sheet";
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -161,12 +162,14 @@ function Navbar(props) {
     <ThemeProvider theme={navTheme}>
       <AppBar
 
-        position="fixed"
+        position=" fixed top-0 z-50" 
         className="navGsap"
         sx={{
           background:
             "linear-gradient(90deg, #232526 0%, #1F1C2C 35%, #414345 100%)",
         }}
+        top="0"
+        zIndex="1000"
       >
         <Container maxWidth="xl" sx={{}}>
           <Toolbar
@@ -219,7 +222,7 @@ function Navbar(props) {
                     "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 }}
               >
-                #TransformWithFitFlex
+                 
               </motion.div>
             </Typography>
             <Typography
@@ -233,9 +236,7 @@ function Navbar(props) {
               }}
             >
               <motion.div
-                // initial={{ y: -250 }}
-                // animate={{ y: 0 }}
-                // transition={{ duration: 1 }}
+             
                 className="website-name"
                 style={{
                   fontFamily: "Future2",
@@ -249,14 +250,15 @@ function Navbar(props) {
               </motion.div>
             </Typography>
 
-            <Box
+            <div className=" z-[1000] "
               sx={{
+                zIndex: 10,
                 flexGrow: 0,
                 display: { xs: "flex", md: "none" },
                 alignItems: "center",
               }}
             >
-              <IconButton
+              {/* <IconButton
                 size="small"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
@@ -265,7 +267,11 @@ function Navbar(props) {
                 color="inherit"
               >
                 <MenuIcon />
-              </IconButton>
+              </IconButton> */}
+              <div className="md:hidden">
+
+              <SheetDemo />
+              </div>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
@@ -296,7 +302,7 @@ function Navbar(props) {
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
+            </div>
             <Typography
               sx={{ display: { xs: "flex", md: "none" }, alignItems: "center" }}
               component="div"

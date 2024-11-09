@@ -25,7 +25,9 @@ const ContributorCard = ({
                 className={`profile-card-avatar ${mode === 'dark' ? 'profile-card-avatar-dark' : 'profile-card-avatar-light'}`}
             />
             <h3 className={`profile-card-title ${mode === 'dark' ? 'profile-card-title-dark' : 'profile-card-title-light'}`}>
-                {login}
+                <a href={html_url} target="_blank" rel="noopener noreferrer" className="contributor-link">
+                    {login}
+                </a>
             </h3>
             <p className={`profile-card-type ${mode === 'dark' ? 'profile-card-type-dark' : 'profile-card-type-light'} mb-2`}>
                 {type}
@@ -70,8 +72,6 @@ const ContributorCard = ({
             </svg>
         </div>
     </motion.div>
-
-
 );
 
 

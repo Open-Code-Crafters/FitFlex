@@ -230,7 +230,7 @@ const Contact = () => {
       <BackgroundContainer>
         <Container>
           <Box sx={{ py: 5 }} data-aos="zoom-in">
-            <ContactForm>
+            <ContactForm sx={{mt: 14}}>
               <Typography
                 variant="h4"
                 align="center"

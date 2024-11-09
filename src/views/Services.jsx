@@ -105,7 +105,7 @@ const Services = ({ mode, textcolor }) => {
               <span
                 className={`likes ${like[service.name.replace(" ", "")] ? "liked" : ""}`}
                 onClick={() => handleLikeClick(service.name)}
-              >
+              />
                 ❤️ {like[service.name.replace(" ", "")] ? "Liked" : "Like"}:{" "}
                 {like[service.name.replace(" ", "")] ? service.baseLikes + 1 : service.baseLikes}
             </div>

@@ -115,6 +115,7 @@ const Blog = ({ mode, textcolor }) => {
     setFilteredPosts(filtered);
   };
 
+ 
   return (
     <div className={`blog-container ${mode === "dark" ? "dark" : ""}`}>
       <Toaster />
