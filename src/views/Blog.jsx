@@ -291,7 +291,7 @@ const Blog = () => {
                 <p className="blog-author">{post.date} by {post.author}</p>
                 <p className="blog-excerpt">{post.content}</p>
                 <button className="read-more-button">Read More</button>
-                <div className="blog-metrics">
+                <div className="blog-metrics flex gap-5 lg:gap-2 justify-center items-center m-2">
                   <span className="likes">❤️ Likes: {likes[index]}</span>
                   <button className="like-button" onClick={() => handleLike(index)}>👍 Like</button>
                   <button className="comment-button" onClick={() => toggleCommentBox(index)}>💬 Comment</button>
