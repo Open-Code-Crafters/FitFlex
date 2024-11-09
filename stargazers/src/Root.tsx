@@ -42,8 +42,8 @@ export const RemotionRoot = () => {
       defaultProps={{
         repoOrg: "Open-Code-Crafters",
         repoName: "FitFlex",
-        starCount: 100,
-        duration: 15,
+        starCount: 65,
+        duration: 20,
         stargazers: null,
       }}
     />
