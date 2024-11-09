@@ -295,11 +295,12 @@ const TeamSection = ({ mode }) => {
               left: "-1rem",
               transform: "translateY(-50%)",
               borderRadius: "9999px",
-              padding: "0.5rem",
+              padding: "18px",
+              borderRadius: "50%",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
               backgroundColor: "white",
               "&:hover": {
-                backgroundColor: "#F7FAFC",
+                backgroundColor: "#FF8100",
               },
             }}
           >
@@ -315,11 +316,12 @@ const TeamSection = ({ mode }) => {
               right: "-1rem",
               transform: "translateY(-50%)",
               borderRadius: "9999px",
-              padding: "0.5rem",
+              padding: "18px",
+              borderRadius: "50%",
               boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
               backgroundColor: "white",
               "&:hover": {
-                backgroundColor: "#F7FAFC",
+                backgroundColor: "#FF8100",
               },
             }}
           >
