@@ -40,8 +40,8 @@ export const RemotionRoot = () => {
       schema={mainSchema}
       calculateMetadata={calculateMetadata}
       defaultProps={{
-        repoOrg: "code-hike",
-        repoName: "codehike",
+        repoOrg: "Open-Code-Crafters",
+        repoName: "FitFlex",
         starCount: 100,
         duration: 15,
         stargazers: null,
