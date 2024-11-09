@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
+import * as react from "react";
 import axios from "axios";
 import "../styles/Contributors.css";
+import Stargazers from "../components/Stargazers";
 
 function Contributors() {
-  const [contributors, setContributors] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [contributors, setContributors] = react.useState([]);
+  const [loading, setLoading] = react.useState(true);
+  const [error, setError] = react.useState(null);
 
-  useEffect(() => {
+  react.useEffect(() => {
     async function fetchContributors() {
       let allContributors = [];
       let page = 1;
-
-      try {
-        while (true) {
-          const response = await axios.get(
-            `https://api.github.com/repos/Open-Code-Crafters/FitFlex/contributors`,
-            {
-              params: {
+          // Start of Selection
+          try {
+            let hasMore = true;
+            while (hasMore) {
+              const response = await axios.get(
+                `https://api.github.com/repos/Open-Code-Crafters/FitFlex/contributors`,
+                {
+                  params: {
                 per_page: 100,
                 page,
               },
@@ -68,6 +70,7 @@ function Contributors() {
   return (
     <div className="contributors-container">
       <h1 className="contributors-title">Our Contributors</h1>
+      <Stargazers />
       <div className="contributors-grid">
         {contributors.length > 0 ? (
           contributors.map((contributor) => (
