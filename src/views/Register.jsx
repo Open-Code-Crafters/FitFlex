@@ -224,6 +224,7 @@ const Register = () => {
         justifyContent: "center",
         padding: 0,
         margin: 0,
+        marginTop: "9rem",
         fontFamily: "Future2",
       }}
     >
