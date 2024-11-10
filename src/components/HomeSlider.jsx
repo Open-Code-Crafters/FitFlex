@@ -99,6 +99,7 @@ function SampleNextArrow(props) {
         width: "30px",
         color: "wihte",
         backgroundColor: "white",
+        fontSize: "100px", 
         zIndex: 1,  
       }}
       onClick={onClick}
@@ -119,6 +120,7 @@ function SamplePrevArrow(props) {
         width: "30px",
         color: "wihte",
         backgroundColor: "white",
+        fontSize: "100px", 
         zIndex: 1,
       }}
       onClick={onClick}
