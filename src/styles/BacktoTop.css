@@ -1,7 +1,7 @@
 #backToTopBtn {
   position: fixed;
-  bottom: 100px;
-  right: 35px;
+  bottom: 1rem;
+  right: 5.3rem;
   z-index: 1000;
   display: none;
   background-color: #ff6a00;
@@ -23,4 +23,20 @@
 #backToTopBtn svg {
   display: block;
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  #backToTopBtn {
+    right: 5.3rem;
+    padding: 10px;
+    border: 1px solid white;
+  }
+}
+
+@media (max-width: 400px) {
+  #backToTopBtn {
+    right: 5.1rem;
+    padding: 8px;
+    border: 1px solid white;
+  }
 }

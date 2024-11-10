@@ -146,7 +146,7 @@ const Login = () => {
         justifyContent: "center",
         padding: 0,
         margin: 0,
-        marginTop: "50px",
+        marginTop: "4rem",
         fontFamily: "Future2",
       }}
     >

@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
   Link,
   IconButton,
   Grid,
-  Button,
   Modal,
+  Button,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   FaFacebookF,
   FaInstagram,
   FaYoutube,
   FaLinkedinIn,
   FaTelegramPlane,
+  FaGithub,
 } from "react-icons/fa";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import logo from "../assets/fitness1.png";
 import GoogleTranslate from "./GoogleTranslate";
 import Subscribe from "./Subscribe";
-import Tracker from "./Tracker";
+import Tracker from "./Tracker"; // Ensure Tracker component is imported
+import CounterCard from "./CounterCard";
 
 const Footer = () => {
   const [open, setOpen] = useState(false);
+  const [visits, setVisits] = useState(0);
+  const [stars, setStars] = useState(0);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
-    // Load the embedded chatbot script
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
     script.defer = true;
@@ -39,29 +42,50 @@ const Footer = () => {
 
     document.body.appendChild(script);
 
-    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.body.removeChild(script);
     };
   }, []);
 
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/repos/Open-Code-Crafters/FitFlex"
+        );
+        const data = await response.json();
+        setStars(data.stargazers_count);
+      } catch (error) {
+        console.error("Error fetching GitHub stars:", error);
+      }
+    };
+    fetchStars();
+  }, []);
+
+  useEffect(() => {
+    const storedVisits = Number(localStorage.getItem("visitCounter")) || 0;
+    setVisits(storedVisits + 1);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("visitCounter", visits);
+  }, [visits]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#000",
-        color: "white",
+        backgroundColor: "#1c1c1e",
+        color: "#e0e0e0",
         padding: { xs: "20px 10px", sm: "30px 20px", md: "40px 20px" },
         fontFamily: "'Helvetica Neue', sans-serif",
       }}
     >
-      <Grid
-        container
-        spacing={3}
-        justifyContent={{ xs: "center", sm: "space-between" }}
-        alignItems={{ xs: "center", sm: "normal" }}
-        direction={{ xs: "column", sm: "row" }}
-      >
+      <Grid container spacing={3} justifyContent="space-between">
         {/* Column 1: Logo and Description */}
         <Grid item xs={12} sm={6} md={4}
           sx={{
@@ -71,15 +95,12 @@ const Footer = () => {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-            <img
-              src={logo}
-              alt="Logo"
-              style={{ width: 50, height: 50, marginRight: 10 }}
-            />
+            <img src={logo} alt="Logo" style={{ width: 50, height: 50, marginRight: 10 }} />
             <Typography variant="h6" component="h1" sx={{ fontWeight: "bold" }}>
               FitLife
             </Typography>
           </Box>
+
           <Typography variant="body2" sx={{ color: "grey.400" }}>
             Your companion for a healthy lifestyle. Track your fitness, stay
             motivated, and be your best self with FitLife.
@@ -397,16 +418,19 @@ const Footer = () => {
         <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
           Stay Updated
         </Typography>
+ 
 
-        {/* Social Media Icons */}
-        <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
+             
+
+       
+
           <IconButton
             color="inherit"
-            href="https://twitter.com"
+            href="https://www.instagram.com"
             target="_blank"
             sx={{ mx: 1 }}
           >
-            <FontAwesomeIcon icon={faXTwitter} />
+            <FaInstagram icon={faXTwitter} />
           </IconButton>
           <IconButton
             color="inherit"
@@ -416,79 +440,97 @@ const Footer = () => {
           >
             <FaFacebookF />
           </IconButton>
-        </Grid>
-      </Grid>
 
-      {/* Social Media Icons */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "40px",
-          marginBottom: "40px",
-        }}
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        {[
-          { Icon: FaFacebookF, url: "https://www.facebook.com" },
-          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
-          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
-          { Icon: FaInstagram, url: "https://www.instagram.com" },
-          { Icon: FaYoutube, url: "https://www.youtube.com" },
-          { Icon: faXTwitter, url: "https://twitter.com" },
-        ].map(({ Icon, url }, index) => (
           <IconButton
-            key={index}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
             color="inherit"
-            sx={{
-              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
-              mx: { xs: 0.5, sm: 1 },
-              color: "grey.500",
-              "&:hover": { color: "#fff" },
-            }}
+            href="https://web.telegram.org"
+            target="_blank"
+            sx={{ mx: 1 }}
           >
-            {index === 5 ? (
-              <FontAwesomeIcon icon={Icon} />
-            ) : (
-              <Icon fontSize="inherit" />
-            )}
+            <FaTelegramPlane />
           </IconButton>
-        ))}
+
+          <IconButton
+            color="inherit"
+            href="https://www.linkedin.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaLinkedinIn />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://www.youtube.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaYoutube />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://www.linkedin.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaLinkedinIn />
+          </IconButton>
+
+        </Grid>
+
+      {/* Footer Bottom Links */}
+      <Box sx={{ textAlign: "center", fontSize: { xs: "0.7rem", sm: "0.8rem" }, color: "grey.500", mt: { xs: "15px", sm: "20px" } }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "20px",
+            mb: 2,
+          }}
+        >
+          {["Privacy Policy", "Terms of Use", "Sales and Refunds", "Legal", "Site Map"].map((item, index) => (
+            <Link
+              key={index}
+              href="#"
+              color="grey.400"
+              sx={{ textDecoration: "none", "&:hover": { color: "#fff" } }}
+            >
+              {item}
+            </Link>
+          ))}
+        </Box>
+        <Typography variant="body2" color="grey.500">
+          &copy; {new Date().getFullYear()} All Rights Reserved
+        </Typography>
       </Box>
 
-      {/* Tracker Modal */}
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="tracker-modal-title"
-        aria-describedby="tracker-modal-description"
-      >
+      {/* Modal for Tracker */}
+      <Modal open={open} onClose={handleClose} aria-labelledby="tracker-modal-title">
         <Box
           sx={{
             position: "absolute",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
+            width: { xs: "80%", sm: "60%", md: "40%" },
             bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,
-            width: { xs: "90%", sm: "70%", md: "50%" },
-            borderRadius: 2,
+            outline: "none",
           }}
         >
-          <Typography id="tracker-modal-title" variant="h6" component="h2">
+          <Typography id="tracker-modal-title" variant="h6" gutterBottom>
             Calorie Tracker
           </Typography>
           <Tracker />
-          <Button onClick={handleClose} sx={{ mt: 2 }}>
+          <Button onClick={handleClose} sx={{ mt: 2 }} color="secondary" variant="outlined">
             Close
           </Button>
         </Box>
       </Modal>
+
 
       <Box
         sx={{
@@ -502,6 +544,9 @@ const Footer = () => {
       >
       </Box>
     </Box >
+
+
+
   );
 };
 
