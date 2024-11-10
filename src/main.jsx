@@ -3,13 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 const Home = React.lazy(() => import("./views/Home.jsx"));
 import "./index.css";
-import {
-  Route,
-  Router,
-  Routes,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import {Route,  Router, Routes, createBrowserRouter, RouterProvider} from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Contact from "./views/Contact.jsx";
 import { FirebaseProvider } from "./context/Firebase.jsx";
