@@ -115,7 +115,118 @@ const Blog = ({ mode, textcolor }) => {
     setFilteredPosts(filtered);
   };
 
- 
+  const styles = {
+    blogContainer: {
+      maxWidth: "800px",
+      margin: "100px auto 0 auto",
+      padding: "20px",
+      fontFamily: "Arial, sans-serif",
+      color: "#333",
+      borderRadius: "8px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      marginTop: '9rem',
+    },
+    motivationalQuote: {
+      fontSize: "1.5em",
+      fontStyle: "italic",
+      textAlign: "center",
+      marginBottom: "20px",
+      color: "#FF4500",
+      fontWeight: "bold",
+    },
+    blogTitle: {
+      textAlign: "center",
+      fontSize: "3em",
+      marginBottom: "20px",
+      marginTop: "120px",
+      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      fontWeight: "bold",
+      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+    },
+    blogPost: {
+      marginBottom: "40px",
+      border: "1px solid #eaeaea",
+      borderRadius: "8px",
+      padding: "20px",
+      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      lineHeight: "1.6",
+    },
+    postTitle: {
+      fontSize: "1.8em",
+      marginBottom: "10px",
+      fontWeight: "bold",
+      background: "linear-gradient(90deg, #FF4500, #FFA500, #FFD700)",
+      padding: "10px",
+      borderRadius: "5px",
+      border: "2px solid black",
+    },
+    postDate: {
+      fontSize: "0.9em",
+      marginBottom: "10px",
+      fontWeight: "bold",
+    },
+    postImage: {
+      width: "100%",
+      borderRadius: "8px",
+      marginBottom: "15px",
+    },
+    postContent: {
+      fontSize: "1.1em",
+      lineHeight: "1.6",
+      marginBottom: "20px",
+    },
+    buttonContainer: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "10px",
+    },
+    likeButton: {
+      backgroundColor: "#FF4500",
+      color: "#fff",
+      padding: "10px 20px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+    },
+    commentButton: {
+      backgroundColor: "#FFA500",
+      color: "#fff",
+      padding: "10px 20px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+    },
+    commentBox: {
+      marginTop: "10px",
+      marginBottom: "10px",
+      width: "100%",
+      padding: "10px",
+      borderRadius: "5px",
+      border: "1px solid #ddd",
+      fontSize: "1em",
+    },
+    submitButton: {
+      backgroundColor: "#008CBA",
+      color: "#fff",
+      padding: "10px 20px",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+    },
+    commentList: {
+      marginTop: "15px",
+      borderTop: "1px solid #ddd",
+      paddingTop: "10px",
+    },
+    commentItem: {
+      border: "1px solid #ddd",
+      borderRadius: "5px",
+      padding: "10px",
+      marginBottom: "10px",
+    },
+  };
   return (
     <div className={`blog-container ${mode === "dark" ? "dark" : ""}`}>
       <Toaster />
