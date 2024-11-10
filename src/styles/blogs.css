@@ -96,6 +96,7 @@ body {
 
 .read-more-button, .like-button, .comment-button, .submit-button {
     padding: 10px 16px;
+    margin-left: 12px;
     border: none;
     border-radius: 6px;
     color: white;
@@ -104,11 +105,14 @@ body {
 }
 
 .read-more-button {
-    background-color: #007BFF;
+    /* background-color: #007BFF; */
+    color: black;
+    margin-left: 90px;
+    margin-bottom: 10px;
 }
 
 .read-more-button:hover {
-    background-color: #0056b3;
+    background-color: #4994e3;
     transform: translateY(-2px);
 }
 

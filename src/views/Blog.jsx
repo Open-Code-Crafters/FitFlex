@@ -70,7 +70,7 @@ const Blog = () => {
     });
     setLikes((prev) => {
       const newLikes = [...prev];
-      newLikes[index] += liked[index] ? -1 : 1;
+      newLikes[index] += liked[index];
       return newLikes;
     });
   };
