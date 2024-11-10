@@ -91,7 +91,7 @@ function PlansCard({info}) {
         display: "flex",
         flexDirection: "column",
         width: "280px",
-        height: "18rem",
+        height: "20rem",
         margin: "20px 8px",
         borderRadius: "17px",
         boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px;",
