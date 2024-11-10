@@ -254,8 +254,15 @@ const Login = () => {
                 },
               },
               endAdornment: (
-                <IconButton onClick={handleClickShowPassword}>
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                <IconButton onClick={handleClickShowPassword}
+                edge= "end"
+                sx={{
+                  positon: "absolute",
+                  right: 0,	// keeps the icon at the right edge
+                  padding: "2.0rem",	// for better allignment 
+                  			// fixed the eye button below
+                }}>  
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               ),
             }}
