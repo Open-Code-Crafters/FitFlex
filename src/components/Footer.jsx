@@ -243,39 +243,70 @@ const Footer = () => {
         </Button>
       </Box>
 
-      {/* Social Media Icons */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: 4,
-          mb: 4,
-        }}
-      >
-        {[
-          { Icon: FaFacebookF, url: "https://www.facebook.com" },
-          { Icon: FaTelegramPlane, url: "https://web.telegram.org" },
-          { Icon: FaLinkedinIn, url: "https://www.linkedin.com" },
-          { Icon: FaInstagram, url: "https://www.instagram.com" },
-          { Icon: FaYoutube, url: "https://www.youtube.com" },
-          { Icon: faTwitter, url: "https://twitter.com" },
-        ].map(({ Icon, url }, index) => (
+      <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
           <IconButton
-            key={index}
-            href={url}
+            color="inherit"
+            href="https://twitter.com"
             target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              fontSize: "1.5rem",
-              mx: 1,
-              color: "grey.500",
-              "&:hover": { color: "#fff" },
-            }}
+            sx={{ mx: -5 }}
           >
-            <FontAwesomeIcon icon={Icon} />
+            <FontAwesomeIcon icon={faXTwitter} />
           </IconButton>
-        ))}
-      </Box>
+
+          <IconButton
+            color="inherit"
+            href="https://www.instagram.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaInstagram icon={faXTwitter} />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href="https://facebook.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaFacebookF />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://web.telegram.org"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaTelegramPlane />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://www.linkedin.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaLinkedinIn />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://www.youtube.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaYoutube />
+          </IconButton>
+
+          <IconButton
+            color="inherit"
+            href="https://www.linkedin.com"
+            target="_blank"
+            sx={{ mx: 1 }}
+          >
+            <FaLinkedinIn />
+          </IconButton>
+
+        </Grid>
 
       {/* Footer Bottom Links */}
       <Box sx={{ textAlign: "center", fontSize: { xs: "0.7rem", sm: "0.8rem" }, color: "grey.500", mt: { xs: "15px", sm: "20px" } }}>
