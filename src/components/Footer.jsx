@@ -87,171 +87,342 @@ const Footer = () => {
     >
       <Grid container spacing={3} justifyContent="space-between">
         {/* Column 1: Logo and Description */}
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4}
+          sx={{
+            '&  .css-18aimp8-MuiGrid-root': {
+              flexBasis: '23.33%', // Set flex-basis for each item inside the grid
+            }
+          }}
+        >
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <img src={logo} alt="Logo" style={{ width: 50, height: 50, marginRight: 10 }} />
             <Typography variant="h6" component="h1" sx={{ fontWeight: "bold" }}>
               FitLife
             </Typography>
           </Box>
-          <Typography variant="body2" sx={{ color: "grey.400", textAlign: "center" }}>
-            Your companion for a healthy lifestyle. Track your fitness, stay motivated, and be your best self with FitLife.
-          </Typography>
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 4 }}>
-            {/* GitHub Stars Section */}
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#333333",
-                padding: "8px 16px",
-                borderRadius: "8px",
-                width: "200px",
-              }}
-            >
-              <FaGithub style={{ marginRight: "8px", color: "#fff" }} />
-              <a
-                href="https://github.com/Open-Code-Crafters/FitFlex"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: "#fff",
-                  textDecoration: "none",
-                  fontWeight: "bold",
-                  marginRight: "8px",
-                }}
-              >
-                Star Us ⭐
-              </a>
-              <Typography sx={{ color: "#fff" }}>{stars > 0 ? stars : ""}</Typography>
-            </Box>
 
-            {/* Visitor Counter Section */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "220px",
-                padding: "16px",
-                borderRadius: "12px",
-                backgroundColor: "#000000",
-                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
-                mt: 2,
-              }}
+          <Typography variant="body2" sx={{ color: "grey.400" }}>
+            Your companion for a healthy lifestyle. Track your fitness, stay
+            motivated, and be your best self with FitLife.
+          </Typography>
+        </Grid>
+
+        {/* Column 2: Quick Links */}
+        <Grid item xs={12} sm={6} md={4}
+          sx={{
+            '&  .css-18aimp8-MuiGrid-root': {
+              flexBasis: '23.33%', // Set flex-basis for each item inside the grid
+            },
+            flexBasis: '20% !important'
+          }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+            Quick Links
+          </Typography>
+          <Box>
+            <Link
+              component={RouterLink}
+              to="/about"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
             >
-              <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-                <a
-                  href="https://www.hitwebcounter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ marginLeft: "10px" }}
-                >
-                  <img
-                    src="https://hitwebcounter.com/counter/counter.php?page=17135996&style=0006&nbdigits=5&type=page&initCount=1000"
-                    alt="Visit counter for websites"
-                    style={{ border: "none" }}
-                  />
-                </a>
-              </Box>
-              <Typography
-                variant="body2"
-                sx={{
-                  fontWeight: "bold",
-                  fontSize: "19px",
-                  color: "#ffffff",
-                  textAlign: "center",
-                }}
-              >
-                Total Visitors
-              </Typography>
-            </Box>
+              About Us
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/services"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Services
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/contact"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Contact
+            </Link>
+            <Link
+              component={RouterLink}
+              to="/blog"
+              color="inherit"
+              underline="none"
+              sx={{ display: "block", mb: 0.5 }}
+            >
+              Blog
+            </Link>
           </Box>
         </Grid>
 
-        {/* Dynamic Footer Links */}
-        {[
-          {
-            title: "About",
-            links: [
-              "Our Story",
-              "Team",
-              "Career",
-              "Content",
-              "Press",
-              "Our Contributors",
-            ],
-            paths: [
-              "/home",
-              "/about",
-              "/services",
-              "/blog",
-              "#",
-              "/contributors",
-            ],
-          },
-          { title: "Services", links: ["Personal Coaching", "Group Classes", "Online Programs", "Corporate Wellness"], paths: ["/services"] },
-          { title: "Resources", links: ["Academy", "Blog", "Health Tips", "FAQs", "Support"], paths: ["/about", "/blog", "/healthtips", "#faq", "#resources"] },
-          { title: "Company", links: ["About Us", "Careers", "Teams", "Contact Us", "Privacy Policy", "Terms of Use"], paths: ["/about", "#", "#", "/contact", "/privacy-policy", "/terms-of-use"] },
-        ].map((section, index) => (
-          <Grid item xs={12} md={2} key={index}>
-            <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold", textAlign: "center" }}>
-              {section.title}
-            </Typography>
-            <Box sx={{ textAlign: "center" }}>
-              {section.links.map((link, idx) => (
-                <Link
-                  key={idx}
-                  component={RouterLink}
-                  to={section.paths[idx]}
-                  color="grey.400"
-                  display="block"
-                  sx={{
-                    textDecoration: "none",
-                    fontSize: "0.9rem",
-                    "&:hover": { color: "#fff" },
-                  }}
+        {/* Column 3: Newsletter Subscription and Tracker Button */}
+        <Grid item xs={12} sm={12} md={4}
+          sx={{
+            '&  .css-xdcxcr-MuiGrid-root': {
+              flexBasis: '53.33%', // Set flex-basis for each item inside the grid
+            },
+            flexBasis: '40% !important'
+
+          }}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+            Stay Updated
+          </Typography>
+
+          {/* Column 1: About */}
+          <div className="flex justify-between">
+            <Grid item xs={12} sm={6} md={2} data-aos="fade-up">
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: "1rem", md: "1.2rem" }, // Responsive font size
+                  textAlign: { xs: "center", sm: "left" }, // Center text on mobile
+                }}
+              >
+                About
+              </Typography>
+
+              <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                {[
+                  { name: "Our Story", path: "/home" },
+                  { name: "Team", path: "/about" },
+                  { name: "Career", path: "/servies" },
+                  { name: "Content", path: "/Blog" },
+                  { name: "Press", path: "#" },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.path}
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      "&:hover": { color: "#fff" },
+                    }}
+                  >
+                    {item.name} {/* Use item.name for display */}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+
+
+            {/* Column 2: Services */}
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={2}
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: "1rem", md: "1.2rem" },
+                  textAlign: { xs: "center", sm: "left" },
+                }}
+              >
+                Services
+              </Typography>
+              <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                {[
+                  "Personal Coachings",
+                  "Group Classes",
+                  "Online Programs",
+                  "Corporate Wellness",
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href="/services" // All links point to /services
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      "&:hover": { color: "#fff" },
+                    }}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+
+            {/* Column 3: Resources */}
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={2}
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: "1rem", md: "1.2rem" },
+                  textAlign: { xs: "center", sm: "left" },
+                }}
+              >
+                Resources
+              </Typography>
+              <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                {[
+                  { name: "Academy", path: "/about" }, // Link to Resources section
+                  { name: "Blog", path: "/Blog" }, // Link to Resources section
+                  { name: "Health Tips", path: "/healthtips" }, // Link to HealthTips
+                  { name: "FAQs", path: "/#faq" }, // Link to FAQs section
+                  { name: "Support", path: "/#resources" }, // Link to Resources section
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.path} // Update to use item.path
+                    smooth={true}
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      "&:hover": { color: "#fff" },
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </Box>
+            </Grid>
+
+            {/* Column 4: Company */}
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={2}
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: "1rem", md: "1.2rem" },
+                  textAlign: { xs: "center", sm: "left" },
+                }}
+              >
+                Company
+              </Typography>
+              <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                {[
+                  { name: "About Us", path: "/about" },
+                  { name: "Careers", path: "#" },
+                  { name: "Teams", path: "#" },
+                  { name: "Contact Us", path: "/contact" },
+                  { name: "Privacy Policy", path: "/privacy-policy" },
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.path}
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      "&:hover": { color: "#fff" },
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <RouterLink
+                  to="privacy-policy"
+                  style={{ textDecoration: "none" }}
                 >
-                  {link}
-                </Link>
-              ))}
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-
-      {/* Newsletter Subscription */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          mt: 4,
-        }}
-      >
-        <Subscribe />
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleOpen}
-          sx={{ fontWeight: "bold", mt: 2 }}
-        >
-          Open Tracker
-        </Button>
-      </Box>
-
-      <Grid item xs={12} sx={{ textAlign: "center", mt: 2 }}>
-          <IconButton
-            color="inherit"
-            href="https://twitter.com"
-            target="_blank"
-            sx={{ mx: -5 }}
+                  <Link
+                    key={5}
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                      "&:hover": { color: "#fff" },
+                    }}
+                  >
+                    Privacy Policy
+                  </Link>
+                </RouterLink>
+                <RouterLink to="/terms-of-use" style={{ textDecoration: "none" }}>
+                  <Link
+                    key={1} // Change the key as necessary
+                    color="grey.400"
+                    display="block"
+                    gutterBottom
+                    sx={{
+                      textDecoration: "none",
+                      fontSize: { xs: "0.8rem", sm: "0.9rem" }, // Responsive font size
+                      "&:hover": { color: "#fff" }, // Change color on hover
+                    }}
+                  >
+                    Terms of Use
+                  </Link>
+                </RouterLink>
+              </Box>
+            </Grid>
+          </div>
+          {/* Newsletter Subscription */}
+          <Grid
+            item
+            xs={12}
+            sm={12}
+            md={4}
+            sx={{ textAlign: "center", maxWidth: '100% !important' }}
+            data-aos="fade-up"
+            data-aos-delay="400"
           >
-            <FontAwesomeIcon icon={faXTwitter} />
-          </IconButton>
+            {/* Subscribe Newsletter */}
+
+            <Subscribe />
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleOpen}
+              sx={{
+                fontWeight: "bold",
+                mt: 2,
+                color: "#fff",
+                backgroundColor: "grey.700",
+                "&:hover": { backgroundColor: "grey.500" },
+              }}
+            >
+              Open Tracker
+            </Button>
+          </Grid>
+
+        </Grid>
+        <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+          Stay Updated
+        </Typography>
+ 
+
+             
+
+       
 
           <IconButton
             color="inherit"
@@ -359,7 +530,23 @@ const Footer = () => {
           </Button>
         </Box>
       </Modal>
-    </Box>
+
+
+      <Box
+        sx={{
+          marginTop: { xs: "15px", sm: "20px" },
+          textAlign: "center",
+          fontSize: { xs: "0.7rem", sm: "0.8rem" },
+          color: "grey.500",
+        }}
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+      </Box>
+    </Box >
+
+
+
   );
 };
 
