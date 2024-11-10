@@ -103,3 +103,14 @@ html, body {
   overflow-x: hidden;
 }
 
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 45px !important;
+  line-height: 1;
+  position: relative;
+  left: -10px;
+  opacity: .75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
