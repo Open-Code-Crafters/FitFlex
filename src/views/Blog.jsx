@@ -273,6 +273,7 @@ const Blog = ({ mode, textcolor }) => {
       <div className="blog-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, index) => (
+
             <div
               className="blog-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
               key={post.id || index} // Added unique key
