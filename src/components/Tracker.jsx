@@ -3,6 +3,7 @@ import { TextField, Button, Typography, Paper, Table, TableBody, TableCell, Tabl
 import DeleteIcon from '@mui/icons-material/Delete';
 import backgroundImage from '../assets/img/trackerbg2.jpg';
 // import Header from './Header';
+const defaultApiKey = 'YOUR_DEFAULT_API_KEY'; // Set your default API key here
 
 const Tracker =()=> {
     const [query, setQuery] = useState('');
@@ -14,7 +15,7 @@ const Tracker =()=> {
             const response = await fetch(`https://api.calorieninjas.com/v1/nutrition?query=${query}`, {
                 method: 'GET',
                 headers: {
-                    'X-Api-Key': '', // Directly using your API key for testing
+                    'X-Api-Key': defaultApiKey, // Directly using your API key for testing
                     'Content-Type': 'application/json',
                 },
             });
