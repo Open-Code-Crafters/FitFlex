@@ -3,6 +3,7 @@ import { TextField, Button, Typography, Paper, Table, TableBody, TableCell, Tabl
 import DeleteIcon from '@mui/icons-material/Delete';
 import backgroundImage from '../assets/img/trackerbg2.jpg';
 // import Header from './Header';
+const defaultApiKey = 'YOUR_DEFAULT_API_KEY'; // Set your default API key here
 
 const Tracker =()=> {
     const [query, setQuery] = useState('');
